@@ -1,0 +1,84 @@
+Independent assembly review, 6 October 2026
+
+Reviewed research/verify_complete_upper_bound.py while the parent replayed
+the four finite-head component partitions. Exact Fraction summation and
+outward decimal rounding are correct. The head partition checks include
+all source/threshold gaps, and endpoint caps are freshly recomputed. The
+finite block cost A/(2*kappa) and omitted-spin tail formula are consistent
+with H(U,V)<=U^2/(2*kappa*p) whenV/p<=-kappa.
+
+Critical binding requirement
+============================
+The initial assembly version only checked a V certificate's witness,
+spin list, domain partition, and stored maximum per leaf. Those checks
+also accept the rejected2744-leaf historical output, because its flawed
+producer ignored a NaN in one spin. Selecting a filename ending_exact
+is not a mathematical or provenance check. Recording current producer
+hashes after loading an old output also does not establish how it was
+produced.
+
+The parent is adding a required independent exact-guard replay record
+bound to the V certificate SHA256, kernel and producer hashes, witness,
+kappa, spin inventory, complete domain, and input moment/norm-cache hashes.
+The replay must require EACH spin interval finite and EACH upper strictly
+below-kappa. With that record checked, a rejected historical result cannot
+be substituted without changing the bound certificate hash.
+
+The new helper research/replay_finite_v_certificate.py performs this
+independent fixed-leaf check at280bits, validates exact gapless partitions,
+and verifies all bound input hashes remain unchanged during execution.
+The corrected kappa14 result was independently replayed successfully into
+output/certification_head/V8_40_kappa14_independent_replay.json.
+All149566 individual inequalities in8798cells passed atArb280. Its
+certificate SHA256 is
+d677cc3b29e3f202cdc1aa315a0533fec4c6bd8cb86ea8548063b93180234ac4.
+The record includes explicit statusPASS, kernel/producer/input hashes,
+kappa14, cell count, and every_spin_finite_and_below_threshold=true.
+Do not treat the initial assembly version as fully bound until it requires
+this record and verifies those bindings against the selected certificate.
+
+Final review: the parent implemented all required replay bindings and the
+additional checks below. An actual negative regression invocation supplied
+the rejected2744-leaf V8_40.json alongside the valid kappa14 replay record;
+the updated assembly rejected it at the certificate-SHA assertion before
+any head work. Result:output/certification_head/assembly_rejected_V_regression.json.
+No remaining substantive assembly issue was found.
+
+Final local tightening was also reviewed: the assembler binds the stronger
+local replay record V8_40_kappa14_local_replay.json and uses each original
+leaf's coercivity minus the explicit1/1000000 allowance exactly once.
+All149566 stronger local inequalities were independently replayed at280bits.
+The original canonical local result stays frozen, and the assembler freshly
+recomputes every mass/(2*(kappa-slack)) with directed rational division.
+An independent arithmetic check is saved in
+output/certification_head/block8_40_relaxed_independent_audit.json.
+
+For a newly regenerated replay record with the explicit top-level aliases
+required by assembly, use the thin wrapper without modifying the frozen
+mathematical replay module:
+ python research/replay_finite_v_for_assembly.py \
+   output/certification_head/V8_40_kappa14_exact.json \
+   --out output/certification_head/V8_40_kappa14_independent_replay.json
+
+Additional robustness recommendations sent to parent
+=====================================================
+1. Resolve a --v-certificate relative path before path.relative_to(ROOT).
+2. Explicitly check spin0's real_tail_source_sha256. It is currently also
+   checked indirectly through low-spin dependency records and the tail
+   manifest, but the direct assertion documents the dependency clearly.
+3. Require every moment table actually used by the head to belong to the
+   verified-table manifest; validate its hash against that manifest.
+4. Recompute tail_cost=A40/(-2*V_over_p_upper_rational) from the tail's
+   exact fields and compare it to the recorded cost.
+These do not change the current numerical result. The missing exact-guard
+V replay binding above is the material issue found.
+
+Provenance scope
+================
+The finite-A and all-spin-tail certificates have separately reviewed
+analytic formulas and directed arithmetic runs. The assembly trusts those
+component records, checks exact partitions/sums and the tail manifest, and
+replays the head by default. It is a reproducible component assembly, not
+a formal proof assistant or an independent derivation of the physical
+amplitude assumptions. The mathematical claim remains conditional on the
+stated manuscript dispersion, crossing, analyticity and unitarity assumptions.

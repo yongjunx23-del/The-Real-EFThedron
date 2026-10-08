@@ -1,0 +1,127 @@
+ANGLE 85 / ANGLE 255: UV COERCIVITY COMPONENTS
+
+These are new fixed-witness proofs. Neither inherits a different witness's
+numerical interval records. Shared files are previously reviewed algebraic
+kernel implementations. All new source contractions and interval records
+are bound to each exact NPZ SHA256 and its actual binary64-rational normal.
+
+This component concerns even ell>=42 and mu>=49 only. It does not certify
+the finite head, compact-energy coercivity, real-norm integral, or final
+support bound by itself. Those are separate same-witness inputs.
+
+NORMALIZATION
+delta=mu-4, Q=mu-4/3, c=4/3, Z=Q/delta,
+p=P_ell(Z)/Q^3, T=ell(ell+1), tau=T/delta, eta=1/T, w=tau eta.
+The spectral field being bounded is V/p in the established dnu convention.
+If V/p<=-kappa<0, the physical support contribution is at most
+integral U^2/(2 kappa p) dnu. This is why the root combines this component
+with separately replayed real-norm bounds on exactly the same domain.
+
+EXACT DIRECTION
+The objective is a*g0+b*g2. Source/subtraction construction places a in
+the forward alpha. UniformSource.field omits b; the adapter adds exact b.
+FiniteUV.field includes the historical unit coefficient +1, so its adapter
+adds exact b-1. No rounded degree angle is used to construct a or b.
+The campaign modules assert exact equality to the saved NPZ's rational
+binary64 entries. The witness bytes and all new source caches are frozen.
+
+SOURCE CONTRACTION
+The source uses the original Roy folded normalization (factor two),
+B=119/10, and transfer width exactly 4/3 despite decimal text in row names.
+On mu>=49 all source Legendre arguments are physical, hence |P_ell|<=1.
+The exact rational correction factor is
+ R1=[1+(2+t/2)w](1+8w/3)^2 /
+    [(1+(4-s)w)(1+(s+t)w)(1+(t+4/3)w)].
+Its degree-11 quotient is integrated exactly against the combined source.
+The remaining rational numerator has only three coefficients after factoring
+w^12. Their absolute integrated bounds, divided by a positive denominator
+bound, produce the rigorous remainder. This is an exact division identity,
+not an assumption that a geometric series converges. At mu>=49,
+the denominator bound (1-44w)(1-157w/60) is strictly positive.
+
+The cache finite_source_N12_K80.pkl contains all 12 by 81 exact rational
+source moments and the integrated remainder coefficient bounds. The
+zeroth row is checked against the independently prepared joint source
+moment array; the finite model also checks the complete first-order row
+identity. The signed K2 correction is retained to order 12, with the
+remaining positive geometric absolute bound from compact_norms.pkl.
+
+FINITE SPINS 42..448
+Every even spin uses its exact finite Legendre coefficient polynomial:
+ a_k=prod_{j=0}^{k-1}(1-j(j+1)/T)/(k!)^2.
+Pstar=sum_{k=0}^ell a_k(c tau)^k has positive coefficients, so its exact
+endpoint values bound the entire positive denominator on a tau interval.
+Source k<=min(ell,80) is contracted exactly with the R1 quotient before
+interval evaluation. For ell>80, the omitted Legendre source series is
+bounded by a Bessel majorant at n=81, using a=79*tau/20 and ratio
+a/82^2<1. This is multiplied by norm1*(R1max+R1error); the independent
+R1error itself uses |P_ell|<=1, avoiding a false exponential factor.
+
+Crossing is retained exactly for k<=min(ell,63). The omitted k>=64
+coefficient polynomial is nonpositive on the entire z=1/Q interval
+[0,3/8], as verified by exact rational Bernstein coefficients. Dropping
+those terms therefore yields an upper bound. The contracted forward
+expression preserves polynomial cancellations before Arb evaluation.
+
+Each spin covers tau in [0,min(256,T/45)], equivalent to mu>=49 up to the
+unbounded-tau seam. A first Arb400 adaptive proof requires every interval
+finite and its directed upper below -1/10000. It additionally requires
+the interval upper no larger than a quarter of the midpoint upper so
+that the saved local margins remain useful. Arb480 replays every saved
+interval. The final safe local upper is the maximum of the two directed
+uppers, never an unchecked nearest floating-point value.
+
+ALL INTEGER SPINS >=450
+For tau in [0,256], eta is enclosed on a gapless rational partition of
+[0,1/(450*451)]. Angle85 uses 16 panels and kappa=1/1000; angle255 uses
+32 panels and kappa=1/4000. Retained source and crossing contractions are
+exact bivariate polynomials in tau and eta. The positive Legendre prefix
+through k=80 bounds Pstar from below; its endpoint upper plus an explicit
+positive Bessel remainder bounds it from above. All retained factors are
+nonnegative on this eta interval. The proof applies to physical discrete
+eta=1/[ell(ell+1)]; its interval over-cover does not assume a noninteger
+Legendre partial wave is physically present. Each tau partition is
+replayed at 480 bits after its 400-bit construction.
+
+UNBOUNDED TAU
+For ell>=108, mu>=49, tau>=256, positive monomial degree-20 Legendre
+bounds suppress forward and first-source terms. The mean of the positive
+Legendre coefficient distribution obeys m>=m_108(256)>10 by the reviewed
+stochastic ordering in ell and tau.
+
+For angle85 the negative shifted crossing fifth-power term already proves
+V/p<-1. For angle255, retain every negative shifted crossing power. If
+the exact Bernstein coefficient cap on [0,3/8] is c_j<=0 after shifting
+k=y+10, put a_j=-c_j. A separately certified M>=0 bounds k=0,...,9.
+Then pointwise F(k,z)<=M-sum_{j>=1}a_j(k-10)_+^j. Convexity gives
+ E F <= M-sum_{j>=1}a_j(E k-10)_+^j.
+There is no Jensen assumption on the full crossing polynomial and no
+j=0 Jensen step. Dropping its nonpositive constant is safe. The new255
+bound is below -816 at both 320 and 400 bits, so kappa=1 is conservative.
+
+SEAMS AND ASSEMBLY
+For ell<=106, tau<=ell(ell+1)/45<256, so finite tau coverage includes all
+mu>=49. For every ell>=108, the unbounded-tau packet closes tau>=256.
+For ell>=450 and tau<=256, mu>=4+450*451/256>49; the uniform source
+estimate has no hidden compact-energy overlap requirement.
+
+assemble_uv.py checks exact spin lists, exact eta coverage, every exact
+tau partition, both precisions, all interval signs, paired references,
+crossing omitted-term signs, objective and witness hashes, and recursively
+all source manifests. It writes finite_uv_complete.json,
+infinite_uv_complete.json, and uv_complete.json. These are UV-component
+certificates only. Their scope is explicit; the final physical bound needs
+the compact proof, finite-head integral, and same-witness real norms.
+
+REPRODUCTION
+Set OPENBLAS_NUM_THREADS=OMP_NUM_THREADS=MKL_NUM_THREADS=1 in the child
+process environment. Avoid concurrent unconstrained numerical-library
+imports on this Windows machine; they exhausted virtual commit previously.
+For each angle, prepare_angle*.py constructs fresh caches only when absent.
+Do not rerun preparation over a frozen completed manifest: use a new output
+directory for any change. certify_angle*_finite.py --spins LO:HI constructs
+the finite partition; --precision 480 --replay PRODUCER replays it.
+Uniform drivers use --group PANEL_LO:PANEL_HI and the analogous replay.
+Large-tau drivers run at --precision 320 and 400.
+Finally run assemble_uv.py --angle 85 (or 255), after all files are present.
+All float summaries and graphical comparisons are diagnostic only.

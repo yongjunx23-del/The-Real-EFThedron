@@ -1,0 +1,100 @@
+PIECEWISE COMPACT COERCIVITY, ANGLES85 AND255
+
+Each witness's actual objective is its exact binary64 pair, interpreted as
+rationals; the nominal degree label is only a name. All physical/source
+parameters retain the canonical exact conventions B=119/10 and c=T=4/3.
+
+The claim to assemble is V_l(mu)/p_l(mu)<-1/4 for every even l>=42 and
+4<mu<=49. This is only a compact-energy sign component of a support bound.
+The finite head, real norms and UV sign components are separate.
+
+ANALYTIC RECTANGLES
+The positive Legendre series provides a probability measure on k. For85,
+the exact Bernstein bound on the shifted crossing polynomial retains its
+negative fifth-power coefficient. For255 all negative shifted powers j>=1
+are retained. If their nonnegative magnitudes are a_j and M bounds k<10,
+then C(k,z)<=M-sum a_j*(k-10)_+^j. Every retained function is convex,
+so E C<=M-sum a_j*(E k-10)_+^j. The constant shifted coefficient is safely
+dropped. No convexity of C itself is assumed.
+
+On a low-energy rectangle with upper endpoint b<=8, use Q<=b-c and
+Delta<=b-4. The reviewed source bound is a constant plus a nonnegative
+multiple of l. The forward ratio is bounded by a positive denominator
+monomial; E k/l is bounded below by its value at the selected cutoff L
+and Delta=b-4. The exact derivative of the resulting linear-minus-convex
+upper envelope is checked negative at L; it remains negative above L.
+
+On a physical-source rectangle [a,b] with a>=8, retain the original
+conservative source constants 1/8,1/4 and dmin=83/60. Only Qmin=a-c,
+Qmax=b-c and DeltaMax=b-4 replace the old global endpoints. Each forward
+or source numerator has degree at most3 in l(l+1). The selected positive
+Legendre denominator monomial has degree K>=4; its ratio with each such
+numerator decreases with l. The mean increases with l and decreases with
+Delta, so its cutoff value at DeltaMax bounds the entire rectangle.
+These are domain restrictions of the reviewed estimates, not new sampling
+approximations. Every chosen analytic upper is strictly below-1; the
+assembled declared coercivity is the weaker exact1/4.
+
+FINITE RECTANGLES
+For an analytic cutoff L, the complementary finite spins are exactly
+42,44,...,L-2. Their rational/polynomial source contractions use exact-degree
+Gauss moment enclosures, explicit geometric remainders, removable-pole
+division, and tapered principal-value endpoint formulas. The same reviewed
+evaluator is used at512 and640bits. Every accepted interval must be finite
+and have directed upper endpoint<-1/4. Replays evaluate every original
+spin/energy cell; they do not merely compare floating midpoints.
+The exact per-spin interval endpoints are checked adjacent and gap-free.
+
+Angle85 retains already completed broad finite rectangles8..12 and12..24
+through spin110, using the original analytic cutoff112. All remaining
+rectangles use the smaller piecewise cutoffs. Angle255 uses piecewise
+cutoffs throughout; rectangles8..10 and10..12 need no finite bridge because
+the analytic cutoff is42. Its allspin42 low interval ends at9/2, while85's
+ends at19/4. Adjacent closed proofs overlap only at their energy endpoints.
+
+ASSEMBLY
+assemble_angle85.py and assemble_angle255.py verify each producer/replay
+hash, exact witness, objective, precision, strict coercivity, finite spin
+list and interval partition. They pair analytic cutoffs with complementary
+finite ranges, verify exact energy adjacency from4 to49, bind independent
+source-moment audits and the parent's structural review, and write a
+complete_compact_coercivity.json only after every component exists and
+passes. The endpoint4 is explicitly open.
+
+REPLAY LIMITS
+Higher precision shares the mathematical evaluator; this is not an
+independent implementation or proof-assistant proof. Independent floating
+kernel comparisons are diagnostics and are not used as interval proofs.
+Independent exact beta identities and source moment overlaps give a second
+construction check of the contracted inputs. The entire argument retains
+the dispersion-relation and amplitude-class assumptions of the main work.
+
+RESOURCE SETTINGS
+Every new worker sets OPENBLAS_NUM_THREADS=OMP_NUM_THREADS=MKL_NUM_THREADS=1.
+The85 launcher uses at most2 workers; after those finish and resources free,
+the255 launcher uses at most4 workers. Earlier broad jobs exhausted Windows
+virtual commit through large native thread stacks and were abandoned before
+producing certificates. Their incomplete logs are diagnostics, not inputs.
+One new replay wrapper initially failed before evaluation due to an undefined
+local name in its spin-list assertion. It was repaired before any successful
+local replay artifact was produced; successful artifacts bind repaired code.
+
+REPRODUCTION ORDER (on a disposable copy if preserving frozen artifacts)
+1. Verify witness/source-cache manifests.
+2. Build contracted moment tables with the corresponding builder at512bits;
+   independently audit the tables against exact beta identities/head tables.
+3. Run analytic_angle85.py --bits400/512 --L112 --low-endpoint19/4,
+   analytic_piecewise.py --bits400/512 for85; or analytic_angle255.py and
+   analytic_angle255_low.py at400/512 for255.
+4. For each finite rectangle, run certify_finite_slice.py (85) or
+   certify_finite255_slice.py (255), with exact --mu-min/--mu-max,
+   --lmax L-2 --bits512. A prior partition is only a seed; all values are new.
+5. Replay each resulting file using replay_piecewise.py (85 local) or
+   replay_piecewise255.py, --bits640 --jobs1. The older full85 rectangles use
+   replay_finite_parallel.py with their full42..110 spin list.
+6. Run the exact component assembler. The complete packet includes the
+   explicit rectangle coverage and all input/source SHA256 values.
+
+The run_piecewise255 launcher queues its work after the85 compact packet to
+avoid overlapping heavy workers. This scheduling dependency has no role in
+the mathematical proof and is unnecessary for a standalone255 replay.

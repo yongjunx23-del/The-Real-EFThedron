@@ -1,0 +1,235 @@
+ALL-SPIN SIGN CERTIFICATE FOR THE FIXED RESUMMED UPPER-g0 WITNESS
+================================================================
+
+Witness: output/angles_resummed/angle_000p000.npz
+SHA256: bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c
+
+This note concerns the V/p sign and coercivity of this FIXED witness. It does
+not certify its finite-spin support integral, and is not a certificate for
+other optimized witnesses. In particular, enriched Roy or OddRoy witnesses
+must be independently checked. Binary64 multipliers are interpreted as exact
+rationals. Source endpoints and forward tuning parameters written as decimal
+row labels are interpreted as exact decimals; strip T is exactly 4/3.
+
+Conventions
+-----------
+c=4/3, delta=mu-4, Q=mu-c, Z=Q/delta,
+p_l=P_l(Z)/Q^3, T_l=l(l+1), tau=T_l/delta.
+The physical partial-wave disk is r^2+(b-1)^2<=1. The dual pointwise support is
+sqrt(U^2+V^2)+V. Negative V has the stable equivalent U^2/(sqrt(U^2+V^2)-V).
+The common positive integration measure is dnu_l=(2l+1)dmu/(2*pi*rho(mu)).
+
+After adding all homogeneous rows, alpha=-1.4492417742900348... is the total
+effective coefficient of the forward g0 representation. The coefficient of
+X4 is lambda_X=-23.90335355242552...<0; write eta=-lambda_X.
+
+The combined source density W includes BOTH source Jacobians:
+- Roy x in[0,1], z in[0,1]: 2 sum lambda_Jn P_n(2x-1)P_J(z),
+  s=4+(79/10)x, t=-(79/20)x(1-z).
+- Strip x,y in[0,1]: sum lambda_jn[1-(2x-1)^2]P_n(2x-1)P_j(2y-1),
+  s=A+(B-A)x, t=-(4/3)(1-y).
+All source integrals below use dx dz or dx dy respectively. The sign verifier
+omits the positive factor2 in the Roy density, which cannot affect its sign.
+
+Kernel splitting
+----------------
+For external s,t,u=4-s-t, define
+K1=1/(mu-s)+1/(mu-u)-1/Q-1/(mu-2c+t),
+K2=1/(mu-t)-2/Q+1/(mu-2c+t).
+Then L_l/P_l(Z)=K1 P_l(y)/P_l(Z)+K2, y=1+2t/delta.
+The apparent pole mu-2c+t is removable in the combined expression.
+Its scalar version is L_0=1/(mu-s)+1/(mu-t)+1/(mu-u)-3/Q.
+
+For Roy l>Jmax=6, angular orthogonality removes the PV residue exactly. The
+regular kernel is
+Lreg/Pstar = [(1-z)/delta] D_l(y,z)/Pstar
+ + [P_l(y)/Pstar]*(1/(mu-u)-1/Q-1/(mu-2c+t)) + K2,
+where D_l(a,b)=(P_l(a)-P_l(b))/(a-b), continuously extended to a=b.
+Equivalently Lreg=L_l-P_l(z)/(mu-s).
+
+Two Legendre inequalities used throughout
+-----------------------------------------
+For Z>1 and l>=4,
+ X4/p = [2Z^2 P_l''(Z)-3ZP_l'(Z)]/[Q^2 P_l(Z)]
+       >= l(2l-5)/Q^2 >0.
+Proof: roots of P_l and P_l' are real in(-1,1) and symmetric. Pairing +/-roots
+shows ZP_l'/P_l>=l and ZP_l''/P_l'>=l-1. Substitute these in the numerator.
+
+For even l and 1<=Y<=Z, root pairing also gives
+ P_l(Y)/P_l(Z) <= (Y/Z)^l.
+The physical interval bounds are |P_l(x)|<=1 and |P_l'(x)|<=T_l/2.
+For Y>=1, P_l'(Y)/P_l(Y)<=T_l/2 and <=l/sqrt(Y^2-1).
+The first follows by monotonicity of the logarithmic derivative; the second
+follows by differentiating the positive Laplace integral for P_l.
+For |a|,|b|<=Y, |D_l(a,b)|<=P_l'(Y).
+
+P_{n+1}(Z)/P_n(Z)>=Z follows inductively from the three-term recurrence.
+Thus T_n/P_n(Z) decreases with n>=L whenever Z>=(L+2)/L. This condition holds
+on mu<=49 for L>=42 because Z>=143/135>44/42. It justifies replacing every
+T_l/P_l(Z) by T_L/P_L(Z) in the compact physical-angle estimates.
+
+Exact source sign and norms
+---------------------------
+certify_expanded_roy_sign.py clears (s-4)^6, substitutes
+z=q[1-(6/5)/(s-4)], maps s in[26/5,119/10], q in[0,1], and checks exact
+rational Bernstein coefficients after subdivision. It proves W_Roy>0 on
+t<=-3/5, a substantially larger region than the original dangerous sector.
+The output lower bound is 2.427924084710271e-6 for the density without factor2.
+
+compact_source_data.py bounds positive/negative parts by replacing negative/
+positive Bernstein coefficients on each dyadic cell with zero. Bernstein
+basis functions are nonnegative and integrate exactly to reciprocal degree.
+Therefore these are certified integral bounds, not quadrature estimates:
+ Roy positive mass <=3.983884024491168...
+ Roy negative mass <=1.633969841449459...
+ Roy absolute mass <=5.617853865940627...
+ Strip positive mass <=0.1697075449863462...
+ Strip negative mass <=0.07037995373802014...
+ Strip absolute mass <=0.24008749872436633...
+Code uses their exact rational values, not the printed decimals.
+
+Compact domain I: 4<mu<=8, all even l>=42
+----------------------------------------
+Partition the Roy source into E={t<=-3/5 and y<-1} and its complement.
+On E the source is positive. Also s-mu>=g(delta)=max(delta,6/5-delta)>0.
+The factored K1 has sign sign[(mu-s)(mu-2c+t)]. For even l,
+K1*(P_l(y)/Pstar-1)>=0 on E, whether y<-Z or -Z<=y<-1. Hence
+ Lreg/Pstar >= -(1+1/Pstar)/g -3/Q.
+This gives a positive upper contribution bounded by
+ Q^3 * (Roy positive mass)*[(1+1/P_L(5/3))/g+3/Q].
+
+On the complement either |y|<=1 or t>-3/5. Let r=9/20 and P8=P_L(5/3).
+The following bounds hold uniformly for all l>=L:
+ |P_l(y)|/Pstar <= E0 = r^L+1/P8,
+ |D_l(y,z)|/(delta Pstar) <= E1 = (5/4)T_L r^L+(5/6)T_L/P8.
+To check E1: if delta>=3/5, y is physical and 1/(2delta)<=5/6. If
+2/5<=delta<3/5, take Y=6/(5delta)-1; then Y/Z<=9/20 and
+P_l'(Y)/P_l(Y)<=T_l/2, giving the first term. If delta<2/5, instead use
+P_l'/P_l<=l/sqrt(Y^2-1), so the bound is
+(5/sqrt12)l r^l, which is smaller than (5/4)T_l r^l.
+All l-dependent expressions are decreasing beyond L where used.
+
+On this complement the absolute coefficient multiplying P_l(y)/Pstar is
+at most 1/4+3/8+15/11<2. Thus the non-K2 Roy contribution is bounded by
+Q^3*(Roy absolute mass)*(E1+2E0).
+K2>=0. It contributes positively to V only where W_Roy<0, which the exact
+sign certificate restricts to t>-3/5. Put d=29/15 and Q0=8/3. Then
+ Q^3 K2 = 2(t-c)^2 Q^2/[Q^2-(t-c)^2]
+ <=2d^2 Q0^2/(Q0^2-d^2).
+Multiply by the certified negative mass.
+
+For strips, mu<8<A and t>=-c. Consequently K1<0 and P_l(y)/Pstar<=1,
+so L_l/Pstar>=L_0. The positive strip density contributes at most
+ Q^3*(strip positive mass)*[1/(12-mu)+3/Q].
+For negative strip density, use |P_l(y)|<=Pstar and
+ |D_l(y,-Z)|/Pstar<=l/sqrt(Z^2-1).
+Its upper contribution is bounded by
+ Q^3*(strip negative mass)*[1/(12-mu)+2/mu+1/Q+2l/sqrt(Q^2-delta^2)].
+
+All remaining forward terms are bounded by an explicit constant/P8; the
+non-suppressed g0 term is <=(128/27)|alpha|. Combining the displayed terms
+with -eta*l(2l-5)/Q^2 gives C0(mu)+C1(mu)l-eta*l(2l-5)/Q^2.
+Arb checks both negativity at l=L and negative derivative for l>=L on
+200 rational mu cells. With L42 it obtains an upper bound <-543.68.
+
+Compact domain II: 8<=mu<=49
+-----------------------------
+Every physical-angle source argument lies in[-1,1]. Separate
+ A(mu) = -(32/9)alpha Q^2/[mu(mu-8/3)] - integral W Q^3 K2.
+Here
+ Q^3 K2 = 2(t-c)^2/[1-(t-c)^2/Q^2].
+Expand in Q^-2 through40 terms. Each signed source moment
+integral 2W(t-c)^(2k+2) is an exact rational, computed algebraically.
+The omitted absolute remainder is <= norm2*rho^(80)/(1-rho^2), where
+norm2>=integral 2|W|(t-c)^2 and rho=(317/60)/Q<1 throughout this domain.
+
+The other Roy terms are divided by Pstar. On8<=mu<=12, the regular PV
+formula above gives the bound
+ Q^3 RoyAbs/Pstar *[T_l/(2delta)+1/mu+1/Q+1/(mu-397/60)].
+On12<=mu<=49, direct nonsingular K1 gives the sharper bound
+ Q^3 RoyAbs/Pstar *[1/(mu-119/10)+1/mu+1/Q+1/(mu-397/60)].
+
+The tapered strip source vanishes at both energy endpoints. In normalized
+energy xi, let D bound its derivative. For v inside[0,1], subtract h(v) in
+PV integral h(xi)/(v-xi): the regular difference is bounded by D and the
+endpoint logarithm by D min(v,1-v)|log(v/(1-v))|<=D. Outside[0,1], endpoint
+vanishing gives D. Thus a uniform PV bound is2D/(B-A). We use
+D<=sum |lambda_jn|[4+n(n+1)], integrated transfer factors bounded by1.
+The nonsingular strip terms add StripAbs[1/mu+1/Q+1/delta].
+
+The scalar forward bound divided by Pstar, these source bounds, A(mu), and
+-eta*L(2L-5)/Q^2 are evaluated with Arb on2050 cells. At L42, the uniform
+upper bound is <-34.60. It includes all l>=42, not a spin sample.
+
+UV domain: mu>=49 and all even l>=L
+-----------------------------------
+Let K=Q^3 K1, H=Q^3 K2, and
+ K_inf=2(s-c)(c-u)>=0, H_inf=2(t-c)^2>=0.
+The complete normalized kernel is A(mu)+N_l(mu)/Pstar+lambda_X X4/p.
+The physical Legendre inequality
+ P_l(y)>=max(-1,1-tau|t|)
+implies
+ N_l <= B_inf + integral (W K_inf)_+ min(2,tau|t|) + E_N,
+ A<=A_inf+E_A.
+Here A_inf=-(32/9)alpha-integral W H_inf and
+B_inf=-(280/9)alpha+32 sum lambda_Hj(-1)^j-integral W K_inf.
+The error bounds are explicit rational estimates uniform for mu>=M.
+All Rc rows are included in E_N.
+
+K/K_inf equals
+ [1+(t-4)/(2mu)](1-c/mu)^2 /
+ [(1-s/mu)(1-u/mu)(1+(t-2c)/mu)].
+Using4<=s<=48,-4<=t<=0,-44<=u<=0 gives the simple ratio bounds in errors().
+A tighter bound subtracts numerator and denominator first. Their difference
+is a polynomial with mu^2 coefficient2-3t/2, mu coefficient
+-t^2-su+16t/3-32/9, and constant c^2(t-4)/2-su(t-2c). Their absolute values
+are <=8,2153,14088. Therefore
+ |K/K_inf-1| <= [8/M+2153/M^2+14088/M^3]/[(1-48/M)(1-20/(3M))].
+Take the better of the two valid bounds. H/H_inf=(1-c/mu)^2 /
+[(1-t/mu)(1+(t-2c)/mu)] is bounded similarly.
+The entire K error is <=eps1*integral|W|K_inf: the combined coefficient of
+positive W is -1+min(2,tau|t|), whose magnitude is<=1.
+
+Forward errors use Q^3 F=32[(mu-c)/(mu-2)]^3 and
+|T_j(Re omega)-(-1)^j|<=8j^2/(mu-2)^2. Combine the signed limiting harmonic
+coefficients before bounding the prefactor error. For each rational cosine
+row, the convergent harmonic series and |T'_n|<=n^2 give the bound
+ |Re[omega^2(m(omega)-m(-1))]|
+ <=8/(mu-2)^2 * sum_{k>=0} r^k[(k+2)^2+4],
+where the sum is r(1+r)/(1-r)^3+4r/(1-r)^2+8/(1-r).
+
+At fixed tau, put a=c*tau and
+ Plo=P_L(1+2a/[L(L+1)]), Pup=I0(2sqrt(a)).
+The positive Taylor coefficients of the Legendre polynomial give
+Plo<=P_l(Z)<=Pup for every l>=L. The analogous second derivative polynomial
+is a lower bound for d^2P_l/da^2, while dP_l/da<=I1(2sqrt(a))/sqrt(a).
+Consequently
+ X4/p >= max(0, tau^2/2 * Plo_aa/Pup
+                  -3tau/(2Q) * [I1(2sqrt(a))/sqrt(a)]/Plo).
+Arb evaluates this envelope on tau cells. In each cell [lo,hi], the physical
+constraint l>=L gives mu>=4+L(L+1)/hi; take the maximum of this and49 in
+all error bounds. Positive numerator ratios use Plo; negative ones use Pup.
+For tau>=256, drop X4>=0 and use the monotone Plo(tau256) plus the global
+maximum numerator and the M49 error bounds. This closes the unbounded domain.
+
+Exact integration of the positive-source correction
+---------------------------------------------------
+The first verifier used cellwise upper t endpoints. The stronger v2 verifier
+instead forms the nonnegative Bernstein majorant Fplus of (W K_inf)_+ on
+each source cell. It computes both C0=integral Fplus and
+C1=integral Fplus*(-t) exactly. Then
+ integral (W K_inf)_+ min(2,tau|t|) <= min(2C0,tau C1)
+on each cell. The product moment uses the exact expectation of the affine
+coordinates against each Bernstein basis function; for Roy t it factors as
+x*(1-z). This removes avoidable endpoint overestimation. Both versions are
+valid; v2 has separate cache names.
+
+Assembly and limits
+-------------------
+Combining the compact and UV components gives a uniform V_l/p_l<=-kappa for
+all even l>=42 and all mu>4, with kappa determined by the worst UV interval.
+Given an independently certified A40 >=sum_{even l>=42} integral U_l^2/p_l,
+this proves the ENTIRE omitted-spin disk support is <= A40/(2*kappa), using
+sqrt(U^2+V^2)+V <=U^2/(-2V). No external g2 cap is needed.
+A finite-spin head integral and its errors STILL need separate certification.
+The tail sign result alone is not a complete exclusion bound.

@@ -1,0 +1,182 @@
+DIRECTIONAL CERTIFICATION REVIEW, 6 OCTOBER 2026
+
+Family and normalization
+========================
+Start with the fixed150-row witness proving a bound on g0. For exact slopeb
+and exact X4 multiplier incrementd, keep every real field unchanged and set
+ V_new=V_old+b*p+d*X4.
+This is a valid linear dual functional for g0+b*g2 because X4 is a homogeneous
+crossing null. Its support must still be integrated or bounded over EVERY
+energy and even spin. Linearity alone does not guarantee the dual integral
+is finite or the old omitted-spin negativity remains true.
+
+For beta=sqrt(1-4/mu), x=(1-beta^2)/4=1/mu, c=4/3,
+ Q=mu-c, delta=mu-4, Z=Q/delta,
+ p/e^2=x*P_l(Z)/[16(1-c*x)^3], wheree=1-beta^2.
+For each finite spin, this rational expression and its exact interval
+derivatives provide the additive head term. The X4 expression is
+ X4/e^2=x^3[2Z^2 P_l''(Z)-3ZP_l'(Z)]/[16(1-c*x)^5].
+These agree with research/directional_certification/head_family.py.
+
+The actual certified halfplane is g0+b*g2<=C_b. Its unit-angle support is
+C_b/sqrt(1+b^2) at theta=atan(b), with -90<theta<90degrees. Do not multiply
+by a negative cosine to claim a opposite-facing halfplane; this family does
+not cover the left half of angular directions. Rational b avoids storing
+inexact trigonometric coefficients in the certificate.
+
+Exact crossing facts
+=====================
+ chi_l(mu)=X4/p=[2Z^2P_l''(Z)-3ZP_l'(Z)]/[Q^2P_l(Z)].
+chi_0=0. At spin2,
+ chi_2=-6/[3Q^2-delta^2],
+ lim_(mu->4)chi_2=-9/32, lim_(mu->infinity)chi_2=0 frombelow.
+Thus d>=32b/9 is sufficient to avoid increasing the spin2 threshold
+constant for positiveb, but this condition alone says nothing about other
+energies. At equality,
+ b+(32b/9)*chi_2=b*delta*(delta+8)/(delta^2+8delta+32/3),
+positive for everydelta>0 and approachingb in the UV.
+
+The implemented head choice d=4b for b>0 gives threshold addition-b/8,
+which leaves a useful strictly negative margin. For b<=0,d=0 is safe and
+decreases V/p uniformly. The spin4 andspin6 threshold chi values are27/16
+and189/32, respectively, so positive d increases their V; their old large
+negative margins must still be checked rather than assumed.
+
+For every evenl>=4 andZ>=1,
+ chi_l>=l(2l-5)/Q^2>0.
+Proof: pair the Legendre roots as+-r_i, put t_i=Z^2/(Z^2-r_i^2)>=1.
+ThenQ^2chi=-2sum_i t_i+8sum_(i!=j)t_it_j. Forn=l/2>=2 this polynomial
+is increasing in everyt_i, so its minimum is8n(n-1)-2n=l(2l-5).
+This lower bound can multiply a NEGATIVE total X4 multiplier in an upper
+bound onV. It cannot be multiplied by a positive increment to upper-bound
+V_old+d*X4 from the old aggregate bound. The safe positive-d method is to
+rerun the old analytic envelope with the total multiplierlambda_X+d<0.
+Here lambda_X=-23.90335355242552 as an exact binary64 rational.
+
+Reusable certificates and interpolation
+=======================================
+U is unchanged, so every old real-norm integral A is reusable exactly.
+For negativeb,d=0, an old local coercivitykappa becomeskappa-b; the old
+global omitted-spin margin31/50 becomes31/50-b. The source polynomials,
+dangerous-source positivity proof, exact moments, and all source norms are
+unchanged. The head contribution must nevertheless be recomputed because
+the nonlinear disk support depends on the newV.
+
+Given certified endpoint halfplanes atb1,b2, everyb=t*b1+(1-t)*b2,
+0<=t<=1, automatically obeys
+ g0+b*g2<=t*C_b1+(1-t)*C_b2.
+This yields a certified continuous angular sector between successful
+slopes. It is a valid interpolation of inequalities, not a claim that each
+intermediate value is an independently optimized tangent bound.
+
+Initial slopes and comparison
+==============================
+The current first batch isb=-1,-1/2,-1/4,-1/10,0,1/10,1/4,1/2.
+These give interpretable angles-45,-26.565,-14.036,-5.711,0,5.711,14.036,
+26.565degrees. Larger negative slopes-2,-4,-8 are natural later extensions:
+their tail signs improve automatically, while the head calculation remains
+essential. Positive slopes must be retained only where both finite-block
+and infinite-spin certificates pass for the SAME exact(b,d).
+
+Published graphical uncertainty
+================================
+The extracted published dual polylines omit the right cap beyondg0~2.6563.
+The existing graphical support API adds the isolated quoted maximumg0
+coordinate2.7272 at approximate plottedg2=.06. Every first-batch direction
+is dominated by this marker. The nonzero-angle reference therefore depends
+on a graphical ordinate, not published numerical directional optimizer
+data. Label comparisons as graphical references. Only the quotedb=0
+maximumg0 is a numerical published benchmark in this extraction.
+
+The working marker sensitivity(.0006,.001), vector reading tolerance5e-6,
+and conditional missing-cap rectangle in angle_benchmarks.py are NOT
+certified error bars. Missing arcs should not be interpolated into invented
+published optimizer data. Benchmark support for the unnormalized slope is
+sqrt(1+b^2) times the unit-angle support. Couplings are unchanged:
+ M/(32pi)=g0+g2(sbar^2+tbar^2+ubar^2)+..., m^2=1.
+Primary sources retained in the research archive:
+ https://arxiv.org/pdf/2106.10257 (AppendixG maximumg0 reference)
+ https://arxiv.org/html/2605.06613v1
+ https://arxiv.org/src/2605.06613v1 (img/fig1_final-crop.pdf)
+Manuscript Fig4: The_Real_EFThedron-7.pdf, page6.
+
+Head implementation review and replay
+=====================================
+head_family.py correctly adds the scaledp andscaledX4 rational functions
+both to interval values and interval-series derivatives. Source geometric
+remainders and log coefficients are unchanged. The threshold cap transfers
+the unchanged numerator cap by multiplying oldcap*(-oldVupper)/(-newVupper),
+where newVupper enclosesoldVupper+b+d*chi and must be strictly negative.
+The cache wrappers are excluded from copied instance attributes so the new
+methods are not accidentally shadowed. No substantive issue was found.
+
+All32 first-batch head components were independently replayed at320bits.
+Exact partitions and exact sums of cells plus endpoint caps were checked.
+Maximum original/replay total discrepancy was9.887e-14. Conservative common
+decimal caps are recorded in
+output/directional_certification/head_family_independent_audit.json.
+
+Finite vector extraction review
+================================
+VectorReal.densities is the frozen finite-real formula split into its
+individual spin summands, with the same measure, endpoint inclusion, and
+inverse-Legendre upper bounds. Arb += was separately checked not to mutate
+the shared forward value across the per-spin dictionary. The finite-V
+crossing ratio and w^2 compactification are algebraically correct.
+The vector producer originally testsd=32b/9; its raw Vupper andX4upper
+data are still usable ford=4b, but assembly MUST recompute positivity with
+the chosen exactd. combine_finite_family.py does so. UsingX4upper requires
+d>=0; negative crossing increments would instead require a lower bound.
+Each real beta cell must use its own spin's smallest coercivity over every
+overlapping spectral interval, including the unbounded final interval.
+
+Final independent directional audit
+===================================
+The refined g0 spin2/4/6 components were fully replayed at320bits with every
+bulk cell subdivided4. Their exact totals, source/dependency hashes, negative
+threshold caps and gapless closed partitions were checked. Outward12dp
+producer/replay totals agree at .011265561337, .001857032188, .000661343662.
+Conservative common caps with an additional1e-12 allowance and all exact
+values appear in output/directional_certification/refined_heads_independent_audit.json.
+For b<=0,d=0, H(U,V+b*p)<=H(U,V) since p>0 and H=sqrt(U^2+V^2)+V is
+nondecreasing inV. Taking the minimum of the separately certified directional
+head cap and refined g0 head cap is therefore valid, spin byspin.
+
+The new finite vector files have19790 real beta cells and8804 spectral
+cells. An independent merge used binary searches for interval intersections
+rather than the producer's advancing pointer. It checked every exact
+partition, all per-spin affine inequalities atd=4b, and every overlapping
+cell minimum, then summed with directed340bit arithmetic. Seven passing
+totals agree with the producer within1e-12. The b=.5 case fails coercivity
+and is explicitly excluded. For g0 the new finite block is
+ .002637191340269 approximately,
+compared with the old aggregate-spin bound .0059764297 approximately.
+The intersection treatment includes the final unbounded energy interval.
+Intervals meeting at a single boundary may omit the redundant neighbor
+because the retained interval includes that boundary; this cannot create
+an uncovered point or invalidate the bound.
+
+130 spectral cells and97 real cells, including endpoint regions, were
+freshly sampled at340bits as a focused extraction check. They were finite
+and consistent; sampled V upper enclosures need not nest in the280bit ones
+(largest observed excess about9.54e-7), and this is NOT a full independent
+replay of every vector enclosure. The original280bit enclosures remain
+rigorous outputs of the reviewed frozen interval evaluator. The proof
+review, exact all-cell merge and sampled check have distinct claims, all
+recorded in output/directional_certification/finite_vectors_independent_audit.json.
+No sampled agreement is used as a replacement for interval enclosure.
+
+The tail4b wrapper changes both the UV and compact envelopes to the same
+exact crossing increment as the heads, preserves the source/cache data,
+and appliesb only additively to normalizedV. Its positive cases .1 and .25
+are independently replayed in tail_replay.json, using the weaker of the
+producer/replay margins with the declared1e-10 allowance. Negative cases
+reuse the exact old shift31/50-b. The unused32b/9 tail_family.json must not
+be combined with the4b head certificates.
+
+assemble_family.py was reviewed after these results: exact (b,d) lookup,
+same witness, disjoint spin blocks0/2/4/6,8..40,42..infinity, exact rational
+sum and outward6dp rendering are consistent. The monotonic minimum for
+negative slopes is sound. Hash-bound audit files should accompany the
+final manifest for reproducibility. The exact rational inequality is the
+claim; floating angle labels and normalized supports are only visual aids.

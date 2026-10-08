@@ -1,0 +1,59 @@
+Independent structural review of the new old150 b4 tail envelope
+2026-10-07
+
+Reviewed positive_uv_jensen.py, compact_jensen.py, old150_partial_components.py,
+b4_bridge.py, assemble_b4_tail.py, together with the old frozen tail proof.
+The new work changes only objective b=4 and crossing increment72/5; U and all
+Roy/strip source norms and moment tables remain those of the reviewed150-row
+witness. Exact coefficients/radii conventions are unchanged.
+
+The new Jensen lower bound follows directly from the positive Legendre
+Taylor distribution. Put a=c/(mu-4), Z=1+2a, and m=E[k]=a*d_a log P_l(Z).
+The exact crossing ratio is
+ X4/p=(9/32){E[k(k-1)]-(4/Q)E[k]}
+      =(9/32){E[k^2]-(1+4/Q)m}.
+Therefore X4/p >=(9/32){m^2-(1+4/Q)m}. The code checks m>(1+4/Q)/2
+before increasing the lower bound by monotonicity in m. Negative lambda_X
+then turns this lower bound into a safe upper bound for its contribution.
+
+At fixed physical Z>1, m_l/l is nondecreasing in l. Heine's integral gives
+ P_l(cosh eta)=average_phi q(phi)^l, q=cosh eta+sinh eta*cos phi>0.
+The derivative (1/l)*d_eta logP_l is the q^l-tilted expectation of
+q_eta/q. Both q and q_eta/q increase with cos phi, so positive covariance
+makes this expectation nondecreasing in l. Multiplication by the positive
+factor converting eta-derivatives to a-derivatives gives the claim.
+Consequently the compact low-energy use m_l>=l*m_L/L, and the checked
+negative derivative of the resulting spin polynomial, cover all l>=L.
+The middle-energy weaker assertion m_l>=m_L is also valid.
+
+At fixed joint tau=l(l+1)/(mu-4), Legendre Taylor coefficients are
+ a_k(l)=1/(k!)^2 product_{j=0}^{k-1}(1-j(j+1)/(l(l+1))).
+For increasing l, the successive coefficient ratios increase, hence the
+positive coefficient distribution has increasing mean. This justifies the
+finite-L lower mean used in the UV Jensen estimate. Monotonicity in tau
+follows from d(log tau)m=Var(k)>=0. The tau>=256 bound uses the largest
+allowed coefficient1+4/(49-c), a lower mean at tau256, and negative lambda_X;
+thus it closes the unbounded tau interval, rather than sampling a finite cap.
+
+The positive-V support inequality has the correct factor2:
+ h(U,V)<=U^2/(2 eta p)+2p*(V/p+eta)_+.
+It follows from the2-Lipschitz monotonic dependence of h on V and the disk
+bound at V=-eta p. For tau in[a,b], dmu=T/tau^2 dtau,Q>=T/tau gives
+ p*dmu<=P*tau/T^2 dtau. The positive Legendre majorant P<=I0(2sqrt(c*b))
+and beta>=sqrt(1-4/49), plus
+ sum_{integer l>=L}(2l+1)/[l^2(l+1)^2]=1/L^2,
+give exactly the stored p-mass bound. Summing all integer spins safely
+majorizes the even-spin sum. The code uses the global A40 real norm twice
+on disjoint energy pieces, a conservative duplication, not an omission.
+
+Coverage: finite head0..40 is separate. Compact spins42,44 have the new
+finite polynomial interval bridge, and compact all even>=46 has Jensen
+coercivity. UV all even>=42 is covered by cells0<=tau<=256 plus analytic
+large-tau closure. Shared mu49 endpoints have measurezero; including both
+only weakens the upper bound.
+
+No missing sign, factor, or domain was found in these new b4 components.
+The conclusion relies on the earlier reviewed dispersion/source kernel and
+moment norm proofs. This is a mathematical/code review and higher-precision
+arithmetic replay, not formal theorem-prover verification or an independent
+implementation of every amplitude kernel.

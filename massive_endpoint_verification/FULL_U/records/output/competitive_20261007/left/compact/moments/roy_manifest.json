@@ -1,0 +1,34 @@
+{
+  "status": "PASS_POLYNOMIAL_MOMENT_DEGREE_ENCLOSURES",
+  "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+  "tables": [
+    {
+      "path": "output\\competitive_20261007\\left\\compact\\moments\\roy_moments.json",
+      "sha256": "1e921f6c795e6b4958729a728a30dda2312aa526f41e9741326947b6f37179cc",
+      "metadata": {
+        "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+        "precision_bits": 512,
+        "order": 184,
+        "B": "119/10",
+        "Jmax": 6,
+        "nmax": 14,
+        "jmax": 98,
+        "kmax": 256,
+        "skmax": 98,
+        "energy_degree_bound": 367,
+        "angular_degree_bound": 359,
+        "absolute_W_mass_bound": "10787824898928410741/1125899906842624",
+        "convention": "integrate dx dz with W=2*sum lambda P_n(2x-1)P_J(z), s=4+(B-4)x"
+      }
+    }
+  ],
+  "seconds": 376.7330060005188,
+  "sha256_manifest": {
+    "research\\competitive_20261007\\left\\build_compact_moments.py": "cb84653599a16c943f681474a2e5c40d817bac2ee19526b3168c8cb86a2e81db",
+    "output\\full_direction_20261007\\left\\angle180_final.npz": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+    "research\\certified_roy_moments.py": "9c97a2741c20feafab2c7bb1b700b81b51bbcc39ba243ba2f6ccffad75045b5a",
+    "research\\certified_strip_moments.py": "b9c03a4b9afd1f3f1875b0a70ede9632dd264b0324c6d27459deb5e4de89b370",
+    "research\\validated_quadrature.py": "7e58d82a2c9093324b254de10ec7646d699290ac0d84695f85da2c7517b05eb9"
+  },
+  "scope": "Certified degree-exact polynomial integration with fresh left-witness contractions. Geometric truncation requires separate remainder bounds."
+}

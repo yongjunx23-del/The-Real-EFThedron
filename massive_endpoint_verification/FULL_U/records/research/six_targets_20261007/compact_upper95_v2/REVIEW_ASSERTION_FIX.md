@@ -1,0 +1,7 @@
+# Fail-closed objective assertion correction
+
+Parent-agent internal review, 2026-10-07. The original compact95 finite evaluator retained an upper86 exact-objective assertion. That assertion failed before a finite compact proof was emitted. The failed log and original reviewed source are retained; they establish no accepted bound.
+
+The parent inspected the nine-file adaptation ledger and independently reconstructed every new source byte using review_compact95_fix.py. The only mathematical-input check changed is the asserted objective, from the old86 pair to the exact95 pair (1203580983497459/9007199254740992,4463211602388183/4503599627370496). This now matches the fixed witness. The physical fields already used the new witness/objective; no field formula, moment value, polynomial coefficient or remainder estimate changes. The other edits preserve the failed log under a new run-log name and bind the fix ledger/review into the new compact assembly.
+
+The earlier head/compact review remains applicable to the unchanged formulas, with this correction replacing its stale assertion. Every finite bridge must still be recomputed and replayed for the correct witness before acceptance. Fresh analytic records and source moments may be reused only where their exact same-witness hashes match. This is a fail-closed validation repair, not acceptance of a failed proof or relaxation of a physical condition.

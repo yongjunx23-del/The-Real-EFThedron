@@ -1,0 +1,7 @@
+# Upper 95% banded-accounting metadata repair review
+
+The root reviewer read the replacement ledger, generator and complete independent accounting script, reconstructed all three replacements from their listed substitutions, and verified every ledger file hash. All checks passed. The replacement banded source SHA-256 is `88a437e9c48e579cb77e28323df89e42eb7fcb116a7330f6dda7bfbaa65a6a67`.
+
+The banded reader change is the same dictionary-root guard reviewed for the UV assembler. It continues to hash list-root metadata as a whole file; dictionary manifests retain recursive exact-hash checks. All mathematical coverage, coercivity, reciprocal rounding and integral-cost operations are unchanged. The independent checker asserts exact source equality to the original mathematical template with this one additional guard. It retains every interval-overlap reconstruction and exact sum assertion, and binds its own final source, the repair ledger and this review.
+
+The recording driver re-verifies the completed UV packet without rewriting it, selects the corrected accounting scripts and uses fresh logs. Failed source and logs remain preserved. No kernel or previously completed certificate is modified. Approval is for this narrow repair; acceptance of the final tail still requires successful accounting and complete-packet assembly. This is an internal source/accounting review, not an independent re-execution of physical kernels.

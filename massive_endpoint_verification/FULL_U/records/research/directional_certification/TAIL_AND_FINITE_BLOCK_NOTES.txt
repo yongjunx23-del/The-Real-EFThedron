@@ -1,0 +1,128 @@
+DIRECTIONAL CERTIFICATION: TAIL AND FINITE EVEN SPINS8..40
+========================================================
+
+Fixed base witness:
+ output/angles_resummed/angle_000p000.npz
+ SHA256 bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c.
+All original witness, moment tables, caches, and certificate sources are
+read-only. The amplitude assumptions and 4D normalization are unchanged.
+
+Family and exact signs
+----------------------
+We bound g0+b*g2, with homogeneous X4 multiplier increment d. The agreed
+family is d=0 for b<=0, and d=4*b for b>0. All family parameters are exact
+rationals; the base witness multipliers retain their exact binary64 values.
+No modified floating-point witness needs to be saved or rounded.
+
+Let delta=mu-4, c=4/3, Q=mu-c, Z=1+2c/delta,
+ p_l=P_l(Z)/Q^3>0 and dnu_l=(2l+1)dmu/(2*pi*rho(mu)).
+The exact transformed kernels are
+ U_new=U_old,
+ V_new/p=V_old/p+b+d*chi_l,  chi_l=X4_l/p.
+Because U is unchanged, all old real-norm estimates remain valid.
+
+Writing R_l(c,delta)=delta^l P_l(1+2c/delta),
+ chi_l=(Q*d_c^2 R_l-3*d_c R_l)/(2*Q*R_l).
+For l=2 this is -6/(3Q^2-delta^2), tending to-9/32 at threshold and0-
+in the UV. Thus d=4b gives b+d*chi_2 ->-b/8 at threshold for b>0.
+For every even l>=4, chi_l>=l(2l-5)/Q^2>0, as proved in the old tail
+certificate. Positive d therefore weakens higher-spin coercivity: one
+must replay the analytic envelope with the LESS NEGATIVE full X4
+coefficient. Adding d times a LOWER chi bound to the old V upper is NOT
+a valid upper bound. The new code never makes that incorrect substitution.
+
+All-spin tail
+-------------
+certify_directional_tail.py reuses the old exact source data and the same
+compact/UV inequalities. certify_tail_4b.py selects the agreed positive
+repair and writes tail_family_4b.json. The older tail_family.json is only
+the exploratory d=(32/9)b family and is not used with root's d=4b heads.
+
+Negative b,d0 reuse the old global bound directly:
+ V_new/p<=-(31/50-b).
+Positive b recompute the compact envelope with lambda_X4+d<0, and in the
+UV use source_upper+(lambda_X4+d)*certified_chi_lower+b. The added b is
+exact. Low/middle-energy bounds retain the large-spin derivative check;
+the UV calculation includes all tau through infinity with the same
+positive-coefficient Legendre bounds and large-tau closure. Source norms,
+signed moments, and the dangerous Roy-source positivity certificate are
+unchanged and all their hashes are verified.
+
+For all even l>=42 and every mu>4, tail_family_4b.json reports PASS for
+ b=-1,-1/2,-1/4,-1/10,0,1/10,1/4.
+Using the old certified A40 and h(U,V)<=U^2/(2*kappa*p), the respective
+tail support upper values are approximately
+ 6.17272543e-6,8.92840643e-6,1.14940405e-5,1.38886323e-5,
+ 1.61287342e-5,2.35909932e-5,7.94991363e-5.
+Use the exact rational fields for assembly, not these approximate values.
+The b=1/2,d2 envelope fails. This is a failure of this sufficient envelope,
+not a proof that the candidate is infeasible, and no complete bound is
+claimed for that direction.
+
+Per-spin finite block
+---------------------
+certify_finite_vectors.py has two read-only producer modes:
+ real: per-spin upper masses on the old 19,790-cell beta partition,
+       including threshold and UV endpoints exactly as in FiniteReal.
+ v: fresh Arb280 enclosures of V_old/p and chi_l for each spin on every
+       spectral leaf. Starting from the old 8,798-leaf partition, six
+       additional splits yield8,804 leaves. This covers mu in[4,101]
+       and w=1/(mu-4) in[0,1/97], with all17 even spins8..40.
+
+VectorReal.densities is the term-by-term spin decomposition of the
+reviewed scalar FiniteReal.density. The old inverse-Legendre monotonic
+endpoint bound, exact strip angular polynomial, endpoint clipping, and
+UV-cancelled forward formula are unchanged. The V producer imports the
+reviewed finite-moment evaluator; its X4 formula above and reversed w
+polynomial are explicit rational/Arb expressions.
+
+The producer's certified_cases metadata lists d=(32/9)b pilot cases used
+only to guide refinement. Its raw per-spin V_upper and X4_upper columns
+are valid independent of that list. combine_finite_family.py explicitly
+checks the actual d=4b cases against these raw columns before using them.
+Since d>=0, the exact rational value
+   V_upper+b+d*X4_upper
+is a valid upper bound; this would not suffice for d<0 without X4_lower.
+
+The merger converts all beta and reciprocal-energy endpoints to exact
+rational mu endpoints, with beta1/w0 interpreted as infinity. It verifies
+gapless partitions. For each spin and beta cell I, it uses
+ k_{l,I}=min over EVERY intersecting spectral leaf of
+          -(V_upper+b+d*X4_upper)>0.
+If M_{l,I} bounds integral_I U_l^2/p_l dnu_l, then
+ integral_I h(U_l,V_l) dnu_l <= M_{l,I}/(2*k_{l,I}).
+All comparisons, intersections, and minima use exact Fractions; only
+outward-rounded division and summation use Arb280. Every nonfinite or
+nonpositive-coercivity case is rejected explicitly.
+
+Finite block upper allowances from finite_block_family.json:
+ b=-1    :0.002559202725240
+ b=-1/2  :0.002597439720476
+ b=-1/4  :0.002617119545572
+ b=-1/10 :0.002629114693564
+ b=0     :0.002637191340269
+ b=1/10  :0.002707031529357
+ b=1/4   :0.002819499547505
+The g0 block was previously bounded by0.005976429..., so per-spin
+coercivity significantly reduces certification slack without changing
+the physical witness. The b=1/2 case is explicitly FAILED_COERCIVITY
+on a broad interval and carries no finite-support allowance.
+
+Assembly and normalization
+--------------------------
+These components alone are not complete support bounds. Add independently
+certified spin0,2,4,6 contributions for the SAME exact(b,d), and require
+PASS for both finite block and tail. Root owns that assembly.
+The result is a bound on g0+b*g2. To express a unit-normal support function
+at theta=atan(b), divide bysqrt(1+b^2). Do not confuse b with the angle.
+
+Reproduction from the workspace root
+------------------------------------
+ python research/directional_certification/certify_tail_4b.py
+ python research/directional_certification/certify_finite_vectors.py real
+ python research/directional_certification/certify_finite_vectors.py v
+ python research/directional_certification/combine_finite_family.py
+
+Each output binds its inputs and producer source hashes. Do not edit a
+producer while another process is using it; the final source-hash checks
+are intentional. The prior fixed certificates remain frozen.

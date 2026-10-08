@@ -1,0 +1,33 @@
+Cancellation-safe massive Roy integrand (derived from PDF A2.7-A2.8).
+
+Write c=4/3, Delta=mu-4, Q=mu-c, Z=Q/Delta,
+x=1+2t/Delta, d=mu-8/3+t.
+For an EVEN physical spin l,
+
+Kcombined = P_l(x) [1/(mu-s)+1/(mu-4+s+t)]
+          + P_l(Z)/(mu-t)
+          - [P_l(x)+2 P_l(Z)]/(mu-4/3)
+          + [P_l(Z)-P_l(x)]/d.
+
+The final quotient has a removable zero at d=0 since x=-Z and
+P_l(-Z)=P_l(Z). Define D_l(x,y)=(P_l(x)-P_l(y))/(x-y).
+Then that quotient is exactly -2 D_l(x,-Z)/Delta.
+
+Compute the divided difference without division by x-y:
+D_0=0, D_1=1,
+(l+1) D_{l+1}=(2l+1)[x D_l + P_l(y)]-l D_{l-1}.
+This works at x=y, where D_l=P_l'(x), without a special numerical cutoff.
+
+The separate pole 1/(mu-s) is a Cauchy principal value and still needs
+analytic integration or subtraction. Combining the d-pole does not resolve
+that PV. The constraints agent owns the full implementation and integration.
+
+For forward tail diagnostics, the first crossing kernel is
+X4_l=[2 Z^2 P_l''(Z)-3 Z P_l'(Z)]/Q^5.
+For even l>=4 and Z>=1, it obeys
+X4_l >= l(2l-5) P_l(Z)/Q^5.
+Proof: factor P_l(Z)=constant product_i (Z^2-a_i^2), m=l/2.
+Set b_i=Z^2/(Z^2-a_i^2)>=1. The ratio of the numerator to P_l
+is 8 sum_{i!=j} b_i b_j-2 sum_i b_i, minimized at every b_i=1
+when m>=2, giving 8m(m-1)-2m=l(2l-5).
+This estimate alone need not provide a sufficiently tight all-spin tail.

@@ -1,0 +1,50 @@
+{
+  "status": "PASS_LEFT_LARGE_TAU",
+  "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+  "objective_exact": [
+    "-1",
+    "0"
+  ],
+  "lmin": 108,
+  "mu_domain": [
+    "49",
+    "infinity"
+  ],
+  "tau_domain": [
+    "256",
+    "infinity"
+  ],
+  "kappa_exact": "3000",
+  "directed_upper_exact": "-2202353178254558451631319316403985172135790278160344626363142179324022349327072964689345884021033326754870430511506966429/630432099142311667396464641602297820881275828327447146687172694467931548343955369782628260078158650252906047844909056",
+  "paired_precision_bits": [
+    400,
+    480
+  ],
+  "source_certificates": [
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\large_tau_L108_400.json",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\large_tau_L108_480.json"
+  ],
+  "sha256_manifest": {
+    "output\\full_direction_20261007\\left\\angle180_final.npz": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+    "output\\all_direction_certification_20261007\\tail\\left\\joint_moments.pkl": "708aeb0d87a5b02a9940bb183036681bd8913fe973cfd9fb7c2bd7a2f3c58f88",
+    "output\\all_direction_certification_20261007\\tail\\left\\source_norms.json": "152bb220b8cec5388861300cab7e7b4589496b44b16788e7fbc16e17ca7584df",
+    "research\\all_direction_certification_20261007\\tail\\prepare_components.py": "5e1e5a212076575ceb13af3724c7772f42eaa90c05edb3be621dfb6fb8468942",
+    "research\\lower_g0_upper_g2_20261006\\tail_certify_joint_limit.py": "735bb8f972e66fdc7cfc70785f7ebfdea45447969116af212062242da6b3eab2",
+    "research\\lower_g0_upper_g2_20261006\\matrix_source_norms.py": "3088b6d72de3df60b1b9add9a0bd1d3c60efca4ce979c4538535aea4bc4e3b7b",
+    "research\\lower_g0_upper_g2_20261006\\matrix_crossing_series.py": "0e6527688fdcdc147e7aaeda7d2ead7634fad72905d0fa984c39526931c87400",
+    "research\\all_direction_certification_20261007\\tail\\prepare_left_refined.py": "8870dcbceb7d3f55d0e7c71a12c2c4ab931624af856d255800a4a06b565b1ac9",
+    "research\\tail_certification\\compact_source_data.py": "59fbdd869056ac046e406e0980e3d38fad497560a6c4eeaca9d64280f4b7f6ae",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\joint_moments.pkl": "708aeb0d87a5b02a9940bb183036681bd8913fe973cfd9fb7c2bd7a2f3c58f88",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\source_norms.json": "152bb220b8cec5388861300cab7e7b4589496b44b16788e7fbc16e17ca7584df",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\compact_norms.pkl": "c76b02cb7dbae24de28ecc7a6aa46eb69493ed3d87ff1fbf2fd80f9f154b115e",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\finite_source_N12_K80.pkl": "a0b78a78da72bbb563ae0d345c75e6be7633efb8d545698006f3243095fdb961",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\finite_source_N12_K80.json": "b014591712b73301fc72fdcde247e214abf29070bf1c1b1b2129838d6e52496d",
+    "research\\all_direction_certification_20261007\\tail\\large_tau_highspin220.py": "8d898cc99a1be1bb9a7945cdbf6399f8d8ff0d7ca0d3362ea8afbee5af334200",
+    "research\\all_direction_certification_20261007\\tail\\compact_highspin220.py": "01eb2a1ea17f89420aca9cd91cbf5e463a3df70aa66bd11c01a72db9d05efe12",
+    "research\\crossing_kernels.py": "5c2921c37d62faa12f7c267328789e420479375abc7c847da952c362f303066d",
+    "research\\all_direction_certification_20261007\\tail\\left_large_tau.py": "008f664c2555227624342475da689d1fe2153f4a27f4ae13a344c099cb1108eb",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\large_tau_L108_400.json": "4cfae04ac603fa6a07fd899762bd226fdef1e8f69eac9533356c6ffa3a104e14",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\large_tau_L108_480.json": "c2e975695b274056322127e9e96b4dc3614de4e51fa9648434bf8a48914d3c36",
+    "research\\all_direction_certification_20261007\\tail\\assemble_left_large_tau.py": "beb3e6bfb15af5d0defee9af8e1ad1c9bb8f48c577d6f002be54b9b3a125f2c6"
+  }
+}

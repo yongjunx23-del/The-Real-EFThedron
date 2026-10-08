@@ -1,0 +1,72 @@
+Observed-boundary arclength diagnostics, 7 October2026
+
+Primary metric (user selected): q=(g0/sx,g2/sy), with sx and sy equal to the
+coordinate ranges of the extracted published dual upper/lower polylines.
+sx=10.67085139 approximately; sy=1.08168377 approximately. Translation of q
+has no effect on distances. Raw physical-coordinate Euclidean arclength is
+retained only as a diagnostic alternative. These metric choices weight the
+two coupling axes differently; no claim of a physically canonical metric is
+made.
+
+The two observed branches are parametrized independently from left to right.
+The output contains201 uniformly spaced bin-center stations per branch and,
+additionally,402 stations at one common spacing across the combined observed
+length. The latter concatenate the upper branch left-to-right and the lower
+branch right-to-left, with a discontinuous jump at the missing right cap.
+No length or connector is assigned to that unknown cap. The isolated
+(2.7272,.06) maximum-g0 marker also receives no boundary arclength. A station
+uses only the tangent/normal of its containing polyline segment; corner
+normal cones are never interpolated into extra coverage.
+
+For each observed reference point p, n is its outward unit normal in the
+selected metric. The physical normal ray is p+t*diag(sx,sy)*n. Intersecting
+that line with every exact-source certified half-plane gives an interval in
+t. The upper endpoint is the signed local normal-line gap: positive means
+the certified polygon still extends beyond the reference along that ray;
+negative means the reference is already cut away. If the line misses the
+polygon entirely, its gap is null and that case is flagged. A separate
+signed nearest-boundary distance remains available. The latter is positive
+inside the polygon and negative outside. Neither quantity is the support
+function difference, and neither interprets a corner normal cone as a long
+piece of boundary.
+
+Reference arclength excluded by the current polygon is computed by clipping
+each observed line segment against all half-planes. The unexcluded parameter
+interval is multiplied by that segment's selected-metric length. This is a
+diagnostic of digitized geometry, not a rigorous error-controlled comparison
+to the published optimizer. Its complement is the observed reference length
+still lying inside the new outer polygon; it does not measure parameter-space
+area, the length of the green polygon, or proof completeness.
+
+Current result: normalized excluded fraction0.056653616119782084 overall;
+upper0.04213352074223031 and lower0.06945342239384533. Raw overall fraction is
+0.05480736475556865. Every existing green cut remains a complete continuum
+certificate; these small fractions describe how much observed benchmark
+boundary is actually excluded by those cuts.
+After expanding each polygon half-plane by the working graphical tolerance
+5e-6*(abs(a)+abs(b)), the normalized excluded fraction is0.05620770411677701.
+That reading tolerance still does not enclose published optimizer errors.
+
+Longest unexcluded normalized arcs:
+upper approximately4.2134% through100% of its observed branch;
+lower approximately4.8011% through86.2919%, then90.0665% through100%.
+The largest normalized outward-ray excess lies near upper station27.11%,
+normal85.4839degrees, and lower station53.48%,normal261.3814degrees.
+Targets are separated by at least8% of their branch's normalized arclength.
+Nearest saved numerical seed paths/hashes are included, explicitly labeled
+uncertified. A nearby seed direction does not itself certify the target.
+
+Main files:
+output/boundary_length_20261007/geometry/arclength_diagnostics.json
+output/boundary_length_20261007/geometry/target_stations.json
+output/boundary_length_20261007/geometry/arclength_gaps.png (primary normalized)
+output/boundary_length_20261007/geometry/arclength_gaps_both_metrics.png
+
+Reproduction:
+python research/boundary_length_20261007/geometry.py --stations 201
+The input polygon is the current completed-cut snapshot, not a new optimization.
+Source CSVs, polygon and generating code hashes are stored in the diagnostic.
+All785 finite station-line intersections were checked to satisfy every
+polygon inequality and touch at least one facet, to floating residual<1e-8;
+the maximum observed violation was8.9e-16. This is numerical geometry QA,
+not an interval proof or an independent physics certificate.

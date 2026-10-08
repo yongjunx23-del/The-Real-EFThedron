@@ -1,0 +1,52 @@
+{
+  "status": "PASS_UNBOUNDED_TAU",
+  "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+  "lmin": 108,
+  "mu_domain": [
+    "49",
+    "infinity"
+  ],
+  "tau_domain": [
+    "256",
+    "infinity"
+  ],
+  "kappa_exact": "1",
+  "precision_bits": 400,
+  "V_over_p_upper_exact": "-2202353178254558451631319316403985172135790278160344626363142179324022349327072964689345884021033326754870430511506966429/630432099142311667396464641602297820881275828327447146687172694467931548343955369782628260078158650252906047844909056",
+  "mean_lower_exact": "362211565877570972268785127417874613520425649640684939660885170856509627770542961255580597816208891706053180635625086699/20173827172553973356686868531273530268200826506478308693989526222973809547006571833044104322501076808092993531037089792",
+  "positive_Legendre_term_degree": 20,
+  "forward_ratio_upper_exact": "5722443680798617409123804106868531268138280709280092873142533815661374740518146085883435853949652034924281741830179/3060777412802603213607106536875320003733687266869287254714288607704818687282152801700714613845411792442537569985495040000",
+  "source1_ratio_upper_exact": "38466661505813008483523082032272278244549403354762188639212854995494264183973402463271161751432320642803035199002624655108267404411/25726079443561605434910800577879615169490049630487435106029954993682480605931163185438224731733353621365778582938521766100370152488960000000",
+  "source2_upper_exact": "806415755542366643632616079442295062693136590210985818187708777/1867257388649990644932311788841726231138476847167525670092800",
+  "crossing_low_k_cap_exact": "6181854966589931109/72057594037927936",
+  "crossing_power5_exact": "1508034955292709903/11529215046068469760",
+  "proof": "Positive Legendre coefficient stochastic ordering gives m_l(tau)>=m_L(256). Fifth-power Jensen crossing coercivity dominates source/forward terms. Positive term k20 bounds every tau^j/P, j<=3, uniformly for tau>=256. All finite mu>=49 are retained.",
+  "review_status": "New analytic envelope; independent mathematical review requested.",
+  "seconds": 3.7837023735046387,
+  "sha256_manifest": {
+    "output\\full_direction_20261007\\left\\angle180_final.npz": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+    "output\\all_direction_certification_20261007\\tail\\left\\joint_moments.pkl": "708aeb0d87a5b02a9940bb183036681bd8913fe973cfd9fb7c2bd7a2f3c58f88",
+    "output\\all_direction_certification_20261007\\tail\\left\\source_norms.json": "152bb220b8cec5388861300cab7e7b4589496b44b16788e7fbc16e17ca7584df",
+    "research\\all_direction_certification_20261007\\tail\\prepare_components.py": "5e1e5a212076575ceb13af3724c7772f42eaa90c05edb3be621dfb6fb8468942",
+    "research\\lower_g0_upper_g2_20261006\\tail_certify_joint_limit.py": "735bb8f972e66fdc7cfc70785f7ebfdea45447969116af212062242da6b3eab2",
+    "research\\lower_g0_upper_g2_20261006\\matrix_source_norms.py": "3088b6d72de3df60b1b9add9a0bd1d3c60efca4ce979c4538535aea4bc4e3b7b",
+    "research\\lower_g0_upper_g2_20261006\\matrix_crossing_series.py": "0e6527688fdcdc147e7aaeda7d2ead7634fad72905d0fa984c39526931c87400",
+    "research\\all_direction_certification_20261007\\tail\\prepare_left_refined.py": "8870dcbceb7d3f55d0e7c71a12c2c4ab931624af856d255800a4a06b565b1ac9",
+    "research\\tail_certification\\compact_source_data.py": "59fbdd869056ac046e406e0980e3d38fad497560a6c4eeaca9d64280f4b7f6ae",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\joint_moments.pkl": "708aeb0d87a5b02a9940bb183036681bd8913fe973cfd9fb7c2bd7a2f3c58f88",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\source_norms.json": "152bb220b8cec5388861300cab7e7b4589496b44b16788e7fbc16e17ca7584df",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\compact_norms.pkl": "c76b02cb7dbae24de28ecc7a6aa46eb69493ed3d87ff1fbf2fd80f9f154b115e",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\finite_source_N12_K80.pkl": "a0b78a78da72bbb563ae0d345c75e6be7633efb8d545698006f3243095fdb961",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\finite_source_N12_K80.json": "b014591712b73301fc72fdcde247e214abf29070bf1c1b1b2129838d6e52496d",
+    "research\\all_direction_certification_20261007\\tail\\large_tau_highspin220.py": "8d898cc99a1be1bb9a7945cdbf6399f8d8ff0d7ca0d3362ea8afbee5af334200",
+    "research\\all_direction_certification_20261007\\tail\\compact_highspin220.py": "01eb2a1ea17f89420aca9cd91cbf5e463a3df70aa66bd11c01a72db9d05efe12",
+    "research\\crossing_kernels.py": "5c2921c37d62faa12f7c267328789e420479375abc7c847da952c362f303066d",
+    "research\\all_direction_certification_20261007\\tail\\left_large_tau.py": "008f664c2555227624342475da689d1fe2153f4a27f4ae13a344c099cb1108eb"
+  },
+  "objective_exact": [
+    "-1",
+    "0"
+  ],
+  "conservative_objective_offset_exact": "1",
+  "note": "The reused absolute forward estimate adds1 while the left objective b=0, so this is a conservative upper envelope."
+}

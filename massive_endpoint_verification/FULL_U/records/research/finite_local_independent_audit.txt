@@ -1,0 +1,66 @@
+Independent local finite-spin assembly audit, 6 October 2026
+
+FINAL STATUS: stronger-local replay completed; nuance below is closed.
+research/replay_local_finite_v.py independently recomputed every one of
+149566 individual spin/cell intervals at280bits and proved each finite
+upper<=the saved leaf upper+1/1000000. The immutable certificate hash and
+all kernel, producer, moment, and norm-cache hashes were checked unchanged
+before and after the run. Record:
+output/certification_head/V8_40_kappa14_local_replay.json.
+The maximum observed upward difference was3.124227889900395e-7, so the
+explicit1e-6 allowance must be included rather than assumed unnecessary.
+
+The root assembler now validates this record and subtracts exactly1e-6
+once from each selected local kappa before division. Its exact overlap
+logic and directed rational division were independently reviewed and are
+correct. The canonical original local record remains frozen as provenance.
+The relaxed arithmetic is independently checked in
+output/certification_head/block8_40_relaxed_independent_audit.json.
+Its increase is below1e-9, so the six-decimal final bound is unaffected.
+
+Reviewed research/tail_certification/combine_finite_local.py and
+output/certification_head/block8_40_local_coercivity.json.
+The local merge is mathematically sound. An independent implementation
+using exact Fraction binary searches, rather than the producer's advancing
+pointer, reproduced every minimum coercivity and checked every directed
+cell upper. Report:output/certification_head/block8_40_local_independent_audit.json.
+
+There are19790 positive real-norm cell upper bounds and8798 V leaves.
+All input hashes match. The A partition coversbeta[0,1]. The V partitions
+covermu[4,101] andw[0,1/97], wherew=1/(mu-4). Mapping a reciprocal cell
+[a,b] to[4+1/b,4+1/a], with upper infinity whena=0, yields a gapless
+ordered covering ofmu[4,infinity]. All comparisons use exact rationals.
+
+For each beta interval[a,b], spectral endpoints are4/(1-a^2) and
+4/(1-b^2), with infinity whenb=1. Its selected local kappa is the exact
+minimum of minus each stored V upper over every V interval meeting its
+interior. A neighboring V interval ending exactly at the A-cell left
+boundary may be skipped because the retained interval starts there and
+is closed. Likewise the interval beginning exactly at its right boundary
+may be skipped because the retained interval ending there is closed.
+Thus no boundary point is left uncovered, even without appealing to its
+zero measure. The final unbounded cell is explicitly included.
+
+If A_i bounds sum_l integral_cell U_l^2/p_l dnu_l and V_l<=-kappa_i*p_l
+throughout that cell for all listed spins, the disk-support contribution
+is at mostA_i/(2*kappa_i). This formula remains valid when several V leaves
+intersect one A cell. Using the minimum over all of them is conservative.
+
+The independent audit verified exactly, for every cell, that the saved
+dyadic support bound is no smaller than its rational mass/(2*kappa), and
+that the exact sum of those dyadic bounds is no larger than the final
+reported upper. The result is
+ finite even-spin8..40 support <0.005976429359870,
+improving the uniform-kappa14 estimate47/5600.
+
+Historical provenance distinction, now resolved above
+=====================================================
+The independent kappa14 replay checked every individual spin interval
+finite and below-14. It did not compare each freshly computed interval
+to the original, sometimes stronger, stored leaf maximum. The local merge
+uses those stronger stored maxima from the reviewed corrected producer,
+whose exact all-spin acceptance and exact dyadic maximum selection were
+checked. The producer's run and immutable output remain the source of
+those stronger local enclosures. This audit independently verifies their
+exact interval merge and the derived support arithmetic; it does not
+claim a second numerical replay of every stronger local maximum.

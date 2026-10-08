@@ -1,0 +1,18 @@
+# Review of the banded finite-tail assembly
+
+Reviewed read-only on 2026-10-07 by the constraints agent, separately from the root agent implementing the complete assembler. This is an internal source review, not formal verification or a fresh interval-kernel replay.
+
+Scope: `assemble_complete_v3.py`, reviewed SHA256 `3f3c26f54021126f3eb3a5405db55650ae6f205dc095f52e195bf82e117caccd`, especially `banded_cost()` and the `--finite-banded` replacement in `main()`, together with the frozen `banded_finite_cost.py` producer, SHA256 `1464bebce6547fa73b54085b1d437ef6918f1a0aa10ead3c7f57dee1232b60db`.
+
+No mathematical, sign, normalization, or double-counting defect was found in the reviewed banded assembly.
+
+1. `main()` obtains the exact saved binary64 direction as rationals and verifies the same witness throughout. Before the optional banded merge, `real_norms()` checks the finite spin range 42–448, higher replay precision, the complete gapless beta partition, nonnegative original/replay cell masses, their retained maximum, the region totals, and the conservative compact/UV split. The real masses used later are therefore the already checked ones, not a second independently supplied integral.
+2. `banded_cost()` checks the stored cost packet's same witness, direction, spin range, and all-energy scope. It reconstructs `Coercivity(angle)`, which checks the complete compact proof, complete UV proof, exact finite-spin partitions, paired source identities, all recorded directed signs, and large-tau closure. Every dependency hash is bound into the complete output.
+3. For every real cell it recomputes the certified margin for all 204 even spins. The exact beta-to-tau transform is decreasing in beta, so the saved touching UV-cell ranges are correct; compact and large-tau pieces cover the remaining portions. The minimum across spins is a valid uniform margin for the aggregate cell mass. No sampled interpolation or inferred gap between proof intervals is used.
+4. The assembler compares all saved coverage ranges, large-tau spin lists, compact flags, the limiting spin, and the exact selected margin against the recomputed values. It checks that the stored reciprocal equals the reviewed exact upward dyadic ceiling of `1/(2*kappa)` and is at least that rational value. It then recomputes every exact product and both region sums and compares their total to the saved exact cost.
+5. The optional branch removes both `finite_42_448_compact` and `finite_42_448_UV_and_sliver`, replacing them with a single `finite_42_448_banded_all_energy` term. It retains the head through spin40 and the two infinite-spin terms from spin450. Thus every physical even spin is covered exactly once in the additive support bound. In particular, the tiny compact-energy sliver previously assigned to the UV real-norm region is already included in the banded all-energy cost and is not added again.
+6. The check `local <= global_finite` is an additional improvement check. It is not used to establish coercivity or to ignore an omitted contribution. Exact component summation and outward decimal rounding remain unchanged.
+
+The proof scope remains a computer-assisted certificate under the manuscript's physical and analytic assumptions. Graphically extracted author bounds are a comparison dataset, not exact author optimizer output.
+
+At review time, the separate `Inputs.bind()` archive loader followed absolute metadata paths directly. This does not affect current-workspace mathematical validity, but a relocated extracted archive needs the exact original-prefix remapping used by `Coercivity`, or a separate relocation-aware loader. This portability issue was reported to the root agent; no frozen producer or packet was changed by this review.

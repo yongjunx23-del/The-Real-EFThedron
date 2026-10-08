@@ -1,0 +1,61 @@
+Necessary large-spin sign conditions for the searched dual witnesses
+==================================================================
+
+Fix a spectral energy mu>48, and write Delta=mu-4, Q=mu-4/3,
+Z=Q/Delta>1, p_l=P_l(Z)/Q^3. This avoids every smearing endpoint and
+every external principal-value pole. All Legendre arguments in the
+Roy source (B=11.9) and transfer strips are in [-1,1]. Their physical
+Legendre factors are bounded by one; after division by P_l(Z), only
+finite subtraction terms survive. The local real Roy coefficients are
+zero above the highest source J. Finite forward derivatives add powers
+of l but remain exponentially suppressed after division by P_l(Z).
+The rational/fractional forward nulls have the same suppression.
+
+For the X4 convention in crossing_kernels.py,
+
+  X4_l/p_l = [2 Z^2 P_l''(Z)-3 Z P_l'(Z)]/[Q^2 P_l(Z)]
+           = 2 Z^2 l^2/[Q^2 (Z^2-1)] + O(l).
+
+The coefficient of l^2 is strictly positive. Therefore a witness whose
+only crossing row is X4 necessarily requires lambda_X4<=0. If lambda_X4
+is positive, V_l/p_l tends to +infinity at every fixed mu>48, and hence
+on an open spectral interval. Since p_l grows exponentially in l,
+the disk support sum diverges. No finite spin cutoff can rescue it.
+This is only a necessary condition: a negative lambda_X4 does not prove
+the sign in the intermediate-spin or joint mu,l scaling regions.
+
+More generally the beta_j metadata in crossing_catalogue multiplies
+
+  (2^j/j!) P_l^(j)(Z) / [Delta^j Q^(D+1-j)]
+
+before division by p_l. The leading derivative ratio is
+P_l^(j)(Z)/P_l(Z)=l^j/(Z^2-1)^(j/2)+O(l^(j-1)).
+The highest j among included crossing rows therefore supplies a necessary
+sign restriction. Through degree eight, j=6 occurs only at degree eight,
+with beta_6=32 in X8_1 and beta_6=64 in X8_2. Thus
+
+  32 lambda_X8_1 + 64 lambda_X8_2 <= 0
+
+is necessary. If this combination vanishes exactly, the next asymptotic
+power must be examined; a strictly negative margin is preferable in
+numerical search. Positive leading coefficient cannot be compensated by
+the exponentially small forward derivative nulls or bounded normalized
+Roy/strip subtraction terms.
+
+The first ming0_guarded_derivatives witness had head support7.758382 but
+the leading degree-eight combination was about+26.35. Independent audit
+also found positive-V islands at spins36--40 and energies58--83, missed
+by the old guards at50 and100. That witness is rejected.
+
+As of the scan performed in this task, all right-side angle candidates
+theta0--80 and theta285--345 had negative lambda_X4. Theta255 had
+lambda_X4=+0.03481655 and is rejected independently of its other failures.
+The richer maximum-g0 candidate had lambda_X4=-23.86529044 and passes
+this necessary check only.
+
+angle_constraints_experiment.py now imposes the highest-degree sign
+condition and supplements source/threshold guards with a dense moderate
+energy grid through spin60 and additional spins64,80,100,140,200.
+These restrictions constrain the searched witness coefficients; they
+are not added physical assumptions and do not themselves certify a
+continuum all-spin support bound.

@@ -1,0 +1,211 @@
+{
+  "status": "PASS",
+  "witness_sha256": "933ee2f7889a52b8ccabbf58836c256161bc5c59d3763cdbca2b40bb01ac6f92",
+  "objective_exact": [
+    "0",
+    "1"
+  ],
+  "crossing_k10_certificate": [
+    {
+      "power_y": 0,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-736445337168745863/36028797018963968",
+        "-54504666513599782527/5764607523034234880",
+        "-5809806339526613246517/46116860184273879040",
+        "-102621081257744578146819/368934881474191032320",
+        "-156095809221619683686457/368934881474191032320",
+        "-4976309199483533326329/9223372036854775808"
+      ]
+    },
+    {
+      "power_y": 1,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-16229750425002955233/360287970189639680",
+        "-8239993038517297686183/230584300921369395200",
+        "-163962484926958645486893/1844674407370955161600",
+        "-639139025150395537188969/3689348814741910323200",
+        "-988443545040036144609507/3689348814741910323200",
+        "-132697029382434831672621/368934881474191032320"
+      ]
+    },
+    {
+      "power_y": 2,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-66182965593519308121/2882303761517117440",
+        "-7288198250471553776643/368934881474191032320",
+        "-26079137452913207225931/737869762948382064640",
+        "-2810960424010849666221/46116860184273879040",
+        "-66809405164630195729161/737869762948382064640"
+      ]
+    },
+    {
+      "power_y": 3,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-11007008660808258525/2305843009213693952",
+        "-19817043086895805863/4611686018427387904",
+        "-250584538135089963771/36893488147419103232",
+        "-808322202721630222947/73786976294838206464"
+      ]
+    },
+    {
+      "power_y": 4,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-2025737068591758951/4611686018427387904",
+        "-15178473528996149361/36893488147419103232",
+        "-47540348214985155087/73786976294838206464"
+      ]
+    },
+    {
+      "power_y": 5,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-171237158474215959/11529215046068469760",
+        "-684948565004237343/46116860184273879040"
+      ]
+    },
+    {
+      "power_y": 6,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-7654736277/23058430092136939520"
+      ]
+    }
+  ],
+  "crossing_uniform_comparisons": [
+    {
+      "k_min": 10,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-288960391696206421592307/14735057404815883632640"
+    },
+    {
+      "k_min": 10,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-54504666513599782527/5764607523034234880"
+    },
+    {
+      "k_min": 12,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-1519878656496313930512339/6234062748191335383040"
+    },
+    {
+      "k_min": 12,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-2371984833351121086789/11529215046068469760"
+    },
+    {
+      "k_min": 16,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-105518703776714356475268954099/37664648608885000550481920"
+    },
+    {
+      "k_min": 16,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-7487672662460761427493/2882303761517117440"
+    },
+    {
+      "k_min": 20,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-229227230361830589205810691232267/17235343203425776251900526592"
+    },
+    {
+      "k_min": 20,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-145966587948354676245183/11529215046068469760"
+    },
+    {
+      "k_min": 24,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-368830006752352194908031933970407/8617671601712888125950263296"
+    },
+    {
+      "k_min": 24,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-47565366098025114617895/1152921504606846976"
+    },
+    {
+      "k_min": 32,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-519446654546080629470376166451577/2154417900428222031487565824"
+    },
+    {
+      "k_min": 32,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-339083835636319686940509/1441151880758558720"
+    },
+    {
+      "k_min": 48,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-10260865279452571075996603050390579/4308835800856444062975131648"
+    },
+    {
+      "k_min": 48,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-6763611939042582004639167/2882303761517117440"
+    },
+    {
+      "k_min": 64,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-12223051712318061322982709111356841/1077208950214111015743782912"
+    },
+    {
+      "k_min": 64,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-8090734187527169004805581/720575940379279360"
+    }
+  ],
+  "norm1_approx": 392.20051737900656,
+  "norm2_approx": 102.09838558187533,
+  "seconds": 3.530989646911621,
+  "objective_warning": "Existing joint/finiteUV kernels omit objective b; add the exact second objective coefficient to every resulting V/p.",
+  "sha256_manifest": {
+    "output\\competitive_20261007\\robust\\g2_robust_stage1.npz": "933ee2f7889a52b8ccabbf58836c256161bc5c59d3763cdbca2b40bb01ac6f92",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\joint_moments.pkl": "c6ab03a7a1d1a1bf4c559095f95b98343eab82a5ee7809998dc7905a75468fd7",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\source_norms.json": "ec85951452ce4878a68ad3e37e8df6a895917db88fadf0047a06a00287833720",
+    "research\\all_direction_certification_20261007\\tail\\prepare_components.py": "5e1e5a212076575ceb13af3724c7772f42eaa90c05edb3be621dfb6fb8468942",
+    "research\\lower_g0_upper_g2_20261006\\tail_certify_joint_limit.py": "735bb8f972e66fdc7cfc70785f7ebfdea45447969116af212062242da6b3eab2",
+    "research\\lower_g0_upper_g2_20261006\\matrix_source_norms.py": "3088b6d72de3df60b1b9add9a0bd1d3c60efca4ce979c4538535aea4bc4e3b7b",
+    "research\\lower_g0_upper_g2_20261006\\matrix_crossing_series.py": "0e6527688fdcdc147e7aaeda7d2ead7634fad72905d0fa984c39526931c87400"
+  }
+}

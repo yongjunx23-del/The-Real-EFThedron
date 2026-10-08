@@ -1,0 +1,76 @@
+Robust upper-g2 witness, frozen certification target
+==================================================
+
+Primary target: output/competitive_20261007/robust/g2_robust_stage1.npz
+SHA256: 933ee2f7889a52b8ccabbf58836c256161bc5c59d3763cdbca2b40bb01ac6f92
+Direction: (0,1). 220 physical rows, original physical multiplier basis.
+Do not replace this file with the later optimizer output: the head/tail
+certification agents are using this exact fixed checkpoint.
+
+Search command (Python scientific runtime as used elsewhere in the project):
+python research/competitive_20261007/robust/search_robust.py --out output/competitive_20261007/robust/g2_m1e3_t02 --threshold-margin .001 --tail-margin .02 --max-iter 40
+
+Physical objective cache: dense220_n192k96_cache.npz, reused, not rebuilt.
+Warm state: full_direction_20261007/right/g2_guarded192_refined.npz.
+Threshold guards: ell=2,4 and delta=1e-8,1e-6,1e-4, V/p <= -.001.
+Joint and additional finite-tail guards: requested V/p <= -.02.
+Additional finite bank: every even ell10..40, mu6.005..20.005 step .05;
+4496 points with source/angular order96. Roy source margin .0001.
+Exact-crossing-series search rows and exact Roy Bernstein search rows retained.
+Search guards are numerical constraints, not continuum certificates.
+
+Stage1 captured after approximately 14 accepted steps,115.9389 seconds.
+Its authoritative identity is the NPZ SHA above; live checkpoint metadata
+can race with a save and is not relied on as a proof of exact step identity.
+Training objective: 1.0454609038299958.
+Independent dense384/source128 cache replay: 1.0454609038352414.
+Dense replay agrees to 5.3e-12 and passes numerical threshold/spin checks.
+
+Fresh added-spin numerical audit, source/angular96:
+head even0..40:             1.0454609038352414
+source42..100,4.02<mu<49:  0.0000010138039337784325
+UV42..100,mu>49:           0.00006084500097138419
+numerical PARTIAL sum:     1.0455227626401464
+Source n48 cost64.7055s; UV n128 cost49.7801s; total audit116.9474s.
+Source maximum V/p=-5.6741436; UV maximum V/p=-.0199614544.
+Sampled joint maximum=-.02438926893; additional4496 max=-.0909671876.
+These omit all even spins>100, threshold4<mu<4.02 at42..100, and rigorous
+quadrature errors. They are NOT a continuum exclusion bound.
+
+Exact component checks:
+Roy source polynomial Bernstein positivity PASS; lower source margin
+0.0001000272716554229, exact rational stored in stage1_audit/roy_exact.json.
+Crossing-series component PASS, stored in stage1_components/.
+Arb256 threshold LIMIT component PASS, all even2..40; ell2 limit
+-0.00100013806946919746, ell4 -0.00100041687184794020.
+A threshold limit alone does not certify a threshold neighborhood/integral.
+
+Audit commands:
+python research/full_direction_20261007/right/evaluate_cached_heads.py output/competitive_20261007/robust/g2_robust_stage1.npz --cache output/full_direction_20261007/right/dense220_n384k128_cache.npz --out output/competitive_20261007/robust/stage1_head384
+python research/full_direction_20261007/left/component_batch.py output/competitive_20261007/robust/g2_robust_stage1.npz --out output/competitive_20261007/robust/stage1_components
+python research/competitive_20261007/robust/audit_fixed.py output/competitive_20261007/robust/g2_robust_stage1.npz --head output/competitive_20261007/robust/stage1_head384/g2_robust_stage1.json --out output/competitive_20261007/robust/stage1_audit
+
+Later non-primary numerical optimization output:
+g2_m1e3_t02.npz, SHA61eabad8d365e6d0bca82ba2ee1a0ea7a99107e8533574b332b3db2aacb4bea8.
+Training1.0446632472947635; dense3841.0446632472989095.
+40steps optimizer317.7775s,total319.2198s. Threshold probes and exact
+threshold/crossing components pass, but source/UV were not freshly audited
+for this later file. It is not the selected certification input.
+
+Parallel old150 b=4 family
+=========================
+The certification definition is the OLD binary150 witness plus EXACT
+objective (1,4) and EXACT X4 increment72/5. The floating family_b4.npz was
+only used as a coarse numerical convenience, and does not define the exact
+rational family certificate. Base SHA:
+bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c.
+Reused old fully validated source models, exact moment tables and kernels.
+New b4 files are exclusively under output/competitive_20261007/robust/b4.
+Full completion requires finite low heads, finite8..40 real-mass/sign merge,
+compact42/44 bridge, compact>=46 support bound, and UV>=42 support bound.
+Parent/constraints own the bridge and infinite-tail components.
+
+Graphical angle atan4=75.9637565321deg is missing-cap-sensitive:
+dual benchmark with isolated anchor=.7196517066; polyline-only=.7124640212;
+conditional graphical envelope=.7185360..7296675. Do not assert published
+dual dominance from the anchor number alone at this angle.

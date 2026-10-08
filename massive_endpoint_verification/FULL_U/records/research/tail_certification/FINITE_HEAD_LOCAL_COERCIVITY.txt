@@ -1,0 +1,38 @@
+LOCAL COERCIVITY ASSEMBLY OF THE FINITE HEAD BLOCK
+=================================================
+
+The two inputs remain immutable:
+  finite_A8_40_tighter.json: positive real-norm mass upper bounds on a
+    gapless partition of beta in[0,1], for the sum of even spins8..40.
+  V8_40_kappa14_exact.json: a directed upper v_j< -14 valid for EVERY one
+    of these17 spins throughout each spectral interval j, including the
+    reciprocal-energy cells reaching infinity.
+
+For each beta-cell I let M_I be its certified upper bound on
+  sum_ell integral_I U_ell^2/p_ell dnu_ell.
+Map its endpoints using mu=4/(1-beta^2), treatingbeta=1 as infinity.
+All finite transformed endpoints are exact rationals. Convert every UV
+cell w in[a,b] to mu in[4+1/b,4+1/a], with infinity whena=0.
+After exact sorting, the spectral partition is gapless on[4,infinity).
+
+Define k_I=min_{j intersecting I}(-v_j)>14. Then throughout I and for
+all17 spins, V_ell<=-k_I p_ell. Therefore
+  sum_ell integral_I [sqrt(U_ell^2+V_ell^2)+V_ell] dnu_ell
+  <= M_I/(2 k_I).
+The code includes EVERY overlapping spectral cell, using rational endpoint
+comparisons and exact rational minima. No floating-point pruning occurs.
+Each quotient and the total are directed Arb280 upper bounds.
+
+Result:
+  finite block support <0.005976429359870.
+  Exact directed value and all19,790 cell terms are saved in
+    output/certification_head/block8_40_local_coercivity.json.
+  Reproducer:
+    python research/tail_certification/combine_finite_local.py
+
+This is a tighter assembly of the same certified functions and domains;
+no constraint, witness coefficient, interval kernel, or source table changed.
+The independent all-spin-finite replay of V confirms the underlying fixed
+kernel/run. For independent verification of this stronger local assembly,
+its stored local v_j bounds should also be checked against recomputed
+interval values, not merely against the common threshold-14.

@@ -1,0 +1,24 @@
+{
+  "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+  "source_record": "output\\all_direction_certification_20261007\\head\\left\\spin40\\head_l40.json",
+  "source_record_sha256": "b3a7eb806912ef0a3674468ab47995f2b991af707040c11fcb551f691ecce2db",
+  "model_class": "FiniteGap",
+  "spin": 40,
+  "cells_replayed": 1570,
+  "gaps_replayed": 5,
+  "partition_covers_beta_zero_to_one_exactly": true,
+  "recomputed_upper": "[0.0001795668902299683792789061365784794399733463343067847328451407451609458280579 +/- 4.91e-80]",
+  "upper_dyadic": [
+    "85165774346550723600658229247110915763630118945870789573498355900228217662951",
+    "-268"
+  ],
+  "ceiling": "0.0001798865777764444",
+  "passed": true,
+  "elapsed_seconds": 703.7148218154907,
+  "scope": "Original left finite single-spin all-energy component; family results are separate.",
+  "dependency_sha256": {
+    "research\\all_direction_certification_20261007\\head\\replay_left_family10.py": "776a52fec3d08f02621cf2d11607e5aa07c7c06ed0b16fd68e53bd9057b90042",
+    "research\\all_direction_certification_20261007\\head\\finite220.py": "9c5f932c4b1bef625d014dc345e99edce44f0e8beb675cbe27f02662ef45fc7a",
+    "research\\all_direction_certification_20261007\\head\\forward220.py": "5b6a98eac89759a21b2b962a14defe1f3685f859e4597305d0d81173479820bd"
+  }
+}

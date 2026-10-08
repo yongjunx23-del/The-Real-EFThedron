@@ -1,0 +1,150 @@
+VALIDATED SPIN-ZERO HEAD COMPONENT, 6 OCTOBER 2026
+
+Scope and exact conventions
+===========================
+This proves only the spin-zero contribution to the dual disk support for
+output/angles_resummed/angle_000p000.npz, SHA256
+bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c.
+It does not by itself prove the complete exclusion or the remaining spins.
+The code is research/head_certification_spin0.py. Binary64 multipliers are
+interpreted as exact rationals. Radius/cosine and Roy endpoints in row labels
+are exact decimal rationals. The historical strip label T1.33333 denotes
+exact c=4/3, consistently with the fixed-tail and other head components.
+Only H, Rc, X4, Roy, and Taper1_Strip rows are accepted, and direction must
+be exactly (1,0). X4 vanishes identically at spin zero.
+
+1. Measure and scalar kernel
+============================
+Write beta=sqrt(1-4/mu), e=1-beta^2=4/mu, Q=mu-c.
+The spin-zero measure is dnu=dmu/(2*pi*beta)=4 dbeta/(pi*e^2).
+With Uhat=U/e^2, Vhat=V/e^2 and H(U,V)=sqrt(U^2+V^2)+V,
+the required contribution is (4/pi) integral_0^1 H(Uhat,Vhat) dbeta.
+
+For source variables s+t+u=4, the scalar twice-subtracted kernel is
+D0(mu;s,t)=1/(mu-s)+1/(mu-t)+1/(mu-u)-3/(mu-c), with a real PV on mu=s.
+This is also exactly
+  [ (s-c)^2/(mu-s)+(t-c)^2/(mu-t)+(u-c)^2/(mu-u) ] / Q^2.
+The identity follows by expanding each reciprocal about c and using
+(s-c)+(t-c)+(u-c)=0. Source contributions are Vsource=-integral W D0.
+The real source contribution is pi E((mu-A)/(B-A))/(B-A) inside its
+energy window, zero outside, where E(x)=integral_0^1 W(x,y)dy.
+
+2. Exact source polynomials
+===========================
+For folded Roy, A=4, B=119/10, x,z in [0,1],
+ s=4+(B-4)x, t=-(B-4)x(1-z)/2, u=-(B-4)x(1+z)/2,
+ W=2 sum lambda_(J,n) P_n(2x-1) P_J(z).
+For each strip [A,B], x,y in [0,1],
+ s=A+(B-A)x, t=-c(1-y), u=4-s-t,
+ W=[1-(2x-1)^2] sum lambda_(j,n) P_n(2x-1) P_j(2y-1).
+Every coefficient and moment is evaluated by exact Fraction/SymPy rational
+arithmetic. No numerical source quadrature is used. A valid integral norm
+is 2 sum|lambda| for Roy and sum|lambda| for each strip, since all involved
+Legendre arguments lie in [-1,1] and the taper lies in [0,1].
+
+If E(x)=sum E_i x^i, set
+ R(v)=sum_(i>=1) E_i sum_(k=0)^(i-1) v^k/(i-k),
+ v=(mu-A)/(B-A). Polynomial division gives the exact real principal value
+ PV integral_0^1 E(x)/(mu-A-(B-A)x)dx
+   = [ E(v) log|(mu-A)/(mu-B)| - R(v) ]/(B-A).
+The angular crossed terms are finite centered geometric expansions.
+If D=mu+h and a centered source variable has |q|<=R<D, then
+ integral W/(D+q) = sum_(k=0)^(N-1) (-1)^k integral W q^k / D^(k+1)
+                    + error,
+ |error| <= norm(W)*(R/D)^N/(D-R).
+An analogous formula for the PV term is used outside its source window
+when |mu-(A+B)/2|>3(B-A)/4. The formula is then an ordinary nonsingular
+integral, with error norm(W)*(R/|D|)^N/(|D|-R).
+
+For mu>=96, the cancellation-preserving identity for D0 gives
+ Vsource/e^2 = -x/[16(1-c*x)^2] sum_(k=0)^(N-1) m_k x^k + error,
+ x=1/mu=e/4,
+ m_k=integral W sum_(v=s,t,u) (v-c)^2 v^k.
+The omitted series is bounded by
+ 3(B+c)^2 norm(W) (B*x)^N/(1-B*x).
+Here |s|,|t|,|u|<=B and B*x<=1/2 for all three sources.
+This representation includes beta=1 without evaluating infinite mu.
+
+3. Forward functions
+====================
+All H and Rc functions are rational functions of beta and of
+ xomega=(1-6 beta^2+beta^4)/(1+beta^2)^2=cos(4 atan beta).
+Their real harmonic parts use exact Chebyshev T polynomials; the imaginary
+parts divided by sin(4 atan beta) use exact Chebyshev U polynomials.
+The effective linear harmonic coefficient is
+ alpha=1-sum_sources integral W
+      =-3132866263037931899/2161727821137838080.
+The scalar subtraction term simplifies exactly to
+ C0=-8/[mu(mu-2)(3mu-4)].
+Consequently the scaled forward field in the code is
+ Uhat=16 beta e^2/(1+beta^2)^5 K(beta),
+ Vhat=4e/(1+beta^2)^3 Re G
+      -alpha*(e/4)/[2(1-e/2)(3-e)].
+At beta=1 both scaled fields vanish, as is explicit in these formulas and
+the factored source UV expansion. The Rc denominators have no zeros on
+the real integration domain because the radii satisfy 0<r<1.
+
+4. Rigorous bulk interpolation
+==============================
+For each exact rational interval [a,b], evaluate the analytic approximant
+fields using arb_series([beta_ball,1],prec=3). Its coefficient of order 2
+encloses one half of the second derivative at every beta in the interval.
+All polynomial evaluation is shifted at a ball midpoint before Horner
+evaluation to reduce dependency. Each geometric remainder is returned as
+a uniform separate error eta in Vhat. It is not differentiated as a
+constant: its derivatives are not assumed bounded by eta.
+
+Let h=b-a. For any twice differentiable scalar F,
+ |F-linear(F(a),F(b))| <= h^2 sup|F''|/8.
+H is convex, and obeys
+ H(U+dU,V+dV)<=H(U,V)+|dU|+2|dV|.
+Convexity bounds the integral along the linear endpoint interpolant by
+ h[H(F(a))+H(F(b))]/2. The actual V differs from its analytic approximant
+by eta, so its deviation from the interpolant of the actual endpoints has
+an additional 2eta. Therefore a rigorous upper bound on the cell is
+ (4/pi){ h[H(F(a))+H(F(b))]/2
+         +h^3/8 [sup|Uhat''|+2sup|Vhat''|] +4h eta }.
+In code the curvature bracket is 2|U_series[2]|+4|V_series[2]|.
+Endpoint H values are interval upper bounds computed from the actual
+fields, including their source-series errors. All additions, divisions,
+square roots and upper projections use outward Arb ball arithmetic.
+Nonfinite or zero-containing denominator enclosures cause subdivision.
+
+The adaptive priority uses the midpoint value only as a heuristic.
+The output named midpoint_estimate is NOT a certified lower bound.
+The upper result is certified independently of this heuristic.
+
+5. Logarithmic endpoint gaps
+============================
+Tiny exact dyadic intervals enclose beta=0 and each finite source endpoint
+root r_A=sqrt(1-4/A). Their inclusion is checked with Arb inequalities.
+For each singular source, its log term is removed from Vhat and bounded
+separately. All other terms are enclosed with ordinary interval arithmetic.
+The exact identity
+ log|(mu-A)/(mu-B)| = log(A/B)
+   +log|beta-r_A|-log|beta-r_B|
+   +log|beta+r_A|-log|beta+r_B|
+allows absolute log integrals to be bounded. If r lies inside a gap of
+width h<1, concavity of x(1-log x) gives
+ integral_gap |log|beta-r|| dbeta <= h[1-log(h/2)].
+For a root outside the gap, interval evaluation bounds |log distance|.
+H(U,V)<=|U|+2|V| then gives a rigorous gap integral bound. Source U jumps
+at a window endpoint are enclosed by the union with zero. The combined
+gap bound at --gap-bits 26 is below 1.671714e-6.
+
+6. Reproduction and interpretation
+==================================
+Run with the bundled Python and python-flint on its injected dependency path:
+ python research/head_certification_spin0.py --target 2.6902 --max-cells 18000 \
+   --out output/certification_head/spin0_component_tight.json
+Default arithmetic is Arb192, N=64 exact source moments. The output saves
+witness/source hashes, exact dyadic cell upper bounds, and exact rational
+beta partition endpoints. The source cache is tied to both witness and
+builder hashes. The imported RealTail helper source hash is also saved.
+No Gauss convergence, sampling, numerical derivative, or numerical source
+integration is used to establish the upper bound.
+
+Additional diagnostic only: output/certification_head/spin0_point_checks.json
+compares exact-model fields with the older double-precision quadrature
+evaluator at 15 energies. Their agreement checks normalization and signs,
+but these floating-point checks are not part of the proof.

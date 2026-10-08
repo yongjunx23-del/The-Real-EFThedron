@@ -1,0 +1,93 @@
+{
+  "status": "PASS_LEFT_INFINITE_SPIN_UV",
+  "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+  "objective_exact": [
+    "-1",
+    "0"
+  ],
+  "lmin": 450,
+  "mu_domain": [
+    "49",
+    "infinity"
+  ],
+  "kappa_exact": "1/1000",
+  "tau_scheduled_margins": [
+    {
+      "tau": [
+        "0",
+        "256"
+      ],
+      "kappa_exact": "1/1000"
+    },
+    {
+      "tau": [
+        "256",
+        "infinity"
+      ],
+      "kappa_exact": "3000"
+    }
+  ],
+  "eta_panels": 16,
+  "verified_cell_count": 10588,
+  "worst_directed_upper_exact": "-101056123406567466110782749189207548892721466530649041901153369085206323026247826894424087111871423134593717697391692904770732332342281691995/97554642197374757230674913431036447054643691958280348464348654988292866838117675628759565720734124098744591597543956965482749239977758915821568",
+  "precision_bits": [
+    400,
+    480
+  ],
+  "independent_exact_specialization_audit": true,
+  "nested_source_manifests_verified": true,
+  "seconds": 1.7037463188171387,
+  "sha256_manifest": {
+    "output\\competitive_20261007\\left\\uniform_source_independent_audit.json": "232b0945ee6741dffd50e8b1a2a7f9cbdcb7bc0afaf86b5d68c674879f3bda58",
+    "research\\all_direction_certification_20261007\\audit_uniform_source_left.py": "c53c313ccdbf59ec1ea7fab5844c5824ccdbf6ad44cd8d13484ffb5afd9a2f09",
+    "research\\all_direction_certification_20261007\\tail\\uniform_source_uv.py": "70fef3aa5a34f41449722533d17df368ee2737d35d1476cef6ab3c36e5a5d58b",
+    "research\\all_direction_certification_20261007\\tail\\finite_uv_bridge220.py": "2027b934f967873855b10ccadd1866d792eb53c6756087d4f17311007d564131",
+    "output\\full_direction_20261007\\left\\angle180_final.npz": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p0_1_400.json": "c9fc2d10bfd8e3ce41644b11f0bd159bbdd6b1152998063d252b74eca8e58e13",
+    "output\\all_direction_certification_20261007\\tail\\left\\joint_moments.pkl": "708aeb0d87a5b02a9940bb183036681bd8913fe973cfd9fb7c2bd7a2f3c58f88",
+    "output\\all_direction_certification_20261007\\tail\\left\\source_norms.json": "152bb220b8cec5388861300cab7e7b4589496b44b16788e7fbc16e17ca7584df",
+    "research\\all_direction_certification_20261007\\tail\\prepare_components.py": "5e1e5a212076575ceb13af3724c7772f42eaa90c05edb3be621dfb6fb8468942",
+    "research\\lower_g0_upper_g2_20261006\\tail_certify_joint_limit.py": "735bb8f972e66fdc7cfc70785f7ebfdea45447969116af212062242da6b3eab2",
+    "research\\lower_g0_upper_g2_20261006\\matrix_source_norms.py": "3088b6d72de3df60b1b9add9a0bd1d3c60efca4ce979c4538535aea4bc4e3b7b",
+    "research\\lower_g0_upper_g2_20261006\\matrix_crossing_series.py": "0e6527688fdcdc147e7aaeda7d2ead7634fad72905d0fa984c39526931c87400",
+    "research\\all_direction_certification_20261007\\tail\\prepare_left_refined.py": "8870dcbceb7d3f55d0e7c71a12c2c4ab931624af856d255800a4a06b565b1ac9",
+    "research\\tail_certification\\compact_source_data.py": "59fbdd869056ac046e406e0980e3d38fad497560a6c4eeaca9d64280f4b7f6ae",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\joint_moments.pkl": "708aeb0d87a5b02a9940bb183036681bd8913fe973cfd9fb7c2bd7a2f3c58f88",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\source_norms.json": "152bb220b8cec5388861300cab7e7b4589496b44b16788e7fbc16e17ca7584df",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\compact_norms.pkl": "c76b02cb7dbae24de28ecc7a6aa46eb69493ed3d87ff1fbf2fd80f9f154b115e",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\finite_source_N12_K80.pkl": "a0b78a78da72bbb563ae0d345c75e6be7633efb8d545698006f3243095fdb961",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\finite_source_N12_K80.json": "b014591712b73301fc72fdcde247e214abf29070bf1c1b1b2129838d6e52496d",
+    "research\\all_direction_certification_20261007\\tail\\finite_source_corrections.py": "fe42a60ef062df0934c69b791fe9430f5a32b957e595ba345830afcae9f717f5",
+    "research\\tail_certification\\certify_uv.py": "1315c067189e7b2fef440547b7886ad3919cca18da23a8350dcc379969fe2ba3",
+    "research\\all_direction_certification_20261007\\tail\\certify_uniform_uv.py": "592295dfa5ca46a1aa202efab27e5a7f3acbe9b4cf5b48d1894cd7c17ff82f04",
+    "research\\all_direction_certification_20261007\\tail\\contracted_forward.py": "d1a3a5e4ccabcbe2c959afd83dabd3beb3490f666ea1ccde9ca4a9f3a58206ae",
+    "research\\lower_g0_upper_g2_20261006\\tail_finite_uv_region.py": "8f620aeafa899afaa2a7c833a72efda333e07a64b5252b36c0e0f78218bb1643",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\prepared_components.json": "ff539267c130d80e8c302cf7863bad28b5d8d6881857137299597d1ba000234d",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p0_1_480.json": "7e9bfe8da7d043de117af27e69bd3d703e666d74924e570a8189b052dac56578",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p2_3_400.json": "24cdf55783b84019c16f3a1ba21281cf969106289bb2d384ea39554c37e36cfb",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p2_3_480.json": "b32d71814c57ce8955bd2613a5e8061958e0b413045fcba1885134bf74cd571d",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p4_5_400.json": "6e02413142ac75eb8c9ca08bdd8a8889acbb385a39064e0e64c1a6ae60f3d5ee",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p4_5_480.json": "d408051577a6ec97e254795bbdeee89b124826104e56923e23a2952f0a0dba00",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p6_7_400.json": "c1f860ddd9a2f2ae769eab15a220380ba1be420ffdd0043fa3d8f33015a0b3b7",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p6_7_480.json": "8325fc40583fc1847a6f0aa408be27bf64c461f2451948dc5f2a7798e442a406",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p8_9_400.json": "8369033a160d02c45b3390e8c28873971cbc7f05022d1006ebaf482edbfcbcd9",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p8_9_480.json": "21a9de870595ad17bc438c1f26fca3551b1a4779a13405d66c25b77f3d6ab2ca",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p10_11_400.json": "b3167d494060460f7599abe80299c55d97b0cdf12c05e8569d3275d025f82b7c",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p10_11_480.json": "d17e72c181c00a7119cb5a5e084a573fbb1fbb49b1514975d0eebc3ffdcc31b5",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p12_13_400.json": "c53e56d4317d23581197bbe7696d84c3998f7c6b7f63ee869ee3e8ea7681cc8b",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p12_13_480.json": "5be88f2ae980f43dbcaed54da9a1fb7901ff28cb8fdaf233d478bdc419bf639d",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p14_14_400.json": "2ab17377a983b0cb423971133d613dbe78454b47ac2897231aac9c67eaa6ae90",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p14_14_480.json": "28f5f2c804d6deb393932fe2fdb958d116db3b7087f67623d71a927f15d702f2",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p15_15_400.json": "3dce299fb34646380c115d3deeea91f1240b4a3338585fc289f489af3e1a59ca",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\uniform_uv_L450_p15_15_480.json": "04601314b5bc76105020874b98f9af7d5d5f4a4f6c0d8f0832bc5757af60f91a",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\large_tau_complete.json": "d0d54e976325d2f95f12ce775f743c321886f8c3f57ee85acfc3fbea60f07c61",
+    "research\\all_direction_certification_20261007\\tail\\large_tau_highspin220.py": "8d898cc99a1be1bb9a7945cdbf6399f8d8ff0d7ca0d3362ea8afbee5af334200",
+    "research\\all_direction_certification_20261007\\tail\\compact_highspin220.py": "01eb2a1ea17f89420aca9cd91cbf5e463a3df70aa66bd11c01a72db9d05efe12",
+    "research\\crossing_kernels.py": "5c2921c37d62faa12f7c267328789e420479375abc7c847da952c362f303066d",
+    "research\\all_direction_certification_20261007\\tail\\left_large_tau.py": "008f664c2555227624342475da689d1fe2153f4a27f4ae13a344c099cb1108eb",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\large_tau_L108_400.json": "4cfae04ac603fa6a07fd899762bd226fdef1e8f69eac9533356c6ffa3a104e14",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\large_tau_L108_480.json": "c2e975695b274056322127e9e96b4dc3614de4e51fa9648434bf8a48914d3c36",
+    "research\\all_direction_certification_20261007\\tail\\assemble_left_large_tau.py": "beb3e6bfb15af5d0defee9af8e1ad1c9bb8f48c577d6f002be54b9b3a125f2c6",
+    "research\\all_direction_certification_20261007\\tail\\assemble_left_uniform_uv.py": "411423a43efd89fb1d71f9e1c8e9c9a7a96905e9d2f74f1a818bc20070708aac"
+  }
+}

@@ -1,0 +1,1349 @@
+=== PAGE 1 ===
+                        The Real EFThedron: moments to add full unitarity
+
+                              LaurentiuRodina,1 AnnaTokareva,2,3 andYongjunXu2,3
+              1Beijing Institute of Mathematical Sciences and Applications (BIMSA), Beijing 101408, China
+                                2School of Fundamental Physics and Mathematical Sciences,
+                         Hangzhou Institute for Advanced Study, UCAS, Hangzhou 310024, China
+                           3University of Chinese Academy of Sciences, Beijing 100049, China
+
+                TheS-matrixbootstraprestrictslow-energyinteractionsthroughunitarity,analyticityandcrossing
+             symmetry.Foreffectivefieldtheorycouplings,positivityboundshaveanaturalgeometricformulation,
+             theEFThedron,inwhichtheallowedcouplingsformtheclassicalpositivemomentproblem.We
+             showthatthisgeometryextendstofullnonlinearunitarity.Multiplyingtheamplitudebyfractional
+             powersoftheenergyturnsitsrealpartintoamomentaswell,sothatunitaritybecomesabounded
+             complexmomentproblem.Analyticitybecomesasetoflinearconstraintsrequiringdifferentkernels
+             toreconstructthesamecouplings,analogoustothenullconstraintsimposedbycrossingsymmetry.
+             Resummingtheseconstraintsreconstructsfixed-transferdispersionrelationsand,afterangular
+             projection,Roy-typeequations.Theirsmearedformssupplyfurtherconstraintsforthenumerical
+             bounds.Intwodimensionstheproblemcanbesolvedexactly,leadingtothewellknownCastillejo–
+             Dalitz–Dysonamplitudes.Infourdimensionsweobtainclosed-formandsemi-analyticboundsfor
+             thenonperturbativeEFThedronmodelandformassivescalarscattering.Formassivescalars,our
+             numericalboundsnarrowthegapbetweenprimalanddualconstructionsbyupto20%.Byplacing
+             therealandimaginarypartsofamplitudesonanequalfooting,theRealEFThedronprovidesa
+             geometricframeworkcombiningunitarity,analyticityandcrossing,openinganewroutetomapping
+             thespaceofconsistentquantumfieldtheories.
+
+
+                   INTRODUCTION                                   imposedinotherways:byreconstructingtherealpart
+                                                                  throughRoy-typeequations[22,23],byparametrizingthe
+  Low-energyinteractionsareconstrainedbytherequire-               amplitudeintheprimalbootstrap[2,3,24–27],through
+mentthattheirscatteringamplitudessatisfyunitarity,                numericaldualfunctionals[4,28–31],orbycombining
+analyticityandcrossingsymmetry.TheS-matrixboot-                   real-partsumruleswithfullunitarity[32].Whetherthe
+strapturnstheserequirementsintoboundsonthecou-                    EFThedronitselfcanbeextendedtofullunitarityhas
+plingswithoutassuminganythingaboutthehigh-energy                  remainedopen.
+dynamics[1–6].                                                      InthisLetterwebuildfullunitarityintothemoment
+  Themostwidelystudiedboundsfollowfromdispersion                  geometry. Multiplyingtheamplitudebyafractional
+relations.Analyticityexpressesalow-energycoefficient              power(1 −x   2)αoftheenergyvariablebeforedeforming
+asanintegraloftheimaginarypartoftheamplitudeover                  thecontourrotatestherealpartintothediscontinuity,
+highenergies,andunitaritymakestheabsorptivepart                   sothatbothcomponentsoffℓbecomemomentsofone
+positive[7–13].Eachcouplingisthenaweightedaverage,                spectrum.Unitaritythendefinesaboundedcomplexmo-
+ormoment,ofonepositivebutotherwiseunknownspec-                    mentproblemwhoseextremalspectraarepurephases,
+trum,andtheallowedcouplingssolveaclassicalmoment                  |Sℓ|=1,completingahierarchyinwhichpositivity,lin-
+problem.ThisdefinestheEFThedron[14,15].Itsgeom-                   earizedunitarityandfullunitarityhavedeltafunctions,
+etryisgivenbymomentsobeyingpositivityofHankel                     stepsandphasesasextremalspectra(Fig.1). Analyt-
+matricesandlinearrelationsduetocrossingsymmetry.                  icitybecomesasetoflinearnullconstraints,obtained
+Theextremaltheorieslivingontheboundaryhavespectra                 bydemandingthatdifferentkernelsreconstructthesame
+madeofafewdeltafunctions,thetree-levelexchangesof                 couplings,inanalogywiththenullconstraintsofcrossing
+individualheavystates.Relatedcoefficientboundsfollow              symmetry.Thenullscutlinearslicesthroughthecomplex
+fromgeometricfunctiontheory[16–18].                               momentregion,andwecalltheresultinggeometrythe
+  Positivityisonlypartofunitarity. Forthepartial                  RealEFThedron.
+waveofangularmomentumℓ,writtenasSℓ= 1+ifℓ,                          TheharmonicnullsandRoyequationsexpressdis-
+conservationofprobabilityrequires|S       ℓ|≤1,thatis,            persiveconsistencyindifferentforms. Resummingthe
+               (Ref  ℓ)2+(Imf  ℓ−1)   2≤1,         (1)            harmonicsreconstructstherealpartatfixedtransfer;
+                                                                  angularprojectionthengivesRoyequations. Thecon-
+withequalityforpurelyelasticscattering.Keepingonly                ventionalmassiveprojectionhasafiniteexternal-energy
+0≤Imf   ℓ≤2givesamomentproblemwithbounded                         range,whereaseachadmissibleharmonicmomentinte-
+density,thedeprojectedEFThedron[19–21],butthedisk                 gratesovertheentirespectralcut.Theserangesandthe
+containsmore,sinceittiestherealparttotheimaginary                 assumptionsneededforresummationaredistinguishedin
+part.Thesumrulesthatexpresscouplingsasmoments                     AppendixA2.
+involveonlytheimaginarypart,sofullunitarityhasbeen
+
+=== PAGE 2 ===
+                                                                                                                          2
+
+                                                                thetwosidesofeachcut,therealpartscancelinthe
+                                                                discontinuityandonlyImAentersthesesumrules.
+                                                                  Togaindirectaccesstotherealparts,wefirstmultiply
+                                                                theamplitudebyKα(x) = (1−x   2)α,withαsomereal
+                                                                number.Itsowndiscontinuitymixesthetwocomponents
+                                                                oftheamplitude,
+
+                                                                 1                    1) α[︁cosπαImA−sinπαReA      ]︁,
+                                                                2i  Disc(K    αA) = (x     2−
+                                                                                                                        (3)
+
+                                                                reducingtotheusualrelationforα= 0andisolating
+FIG.1.Threemomentproblemsforapartialwavef =r+ib:                therealpartforα= 1/2. Kernelsofthistypehave
+positivity,linearizedunitarityandfullunitarityrestrictftoa      appearedincontinuous-momentsumrules[41,42]andin
+half-plane,astripandadisk.Theirextremalspectraaredelta          fractionallysubtracteddispersionrelations[23].
+functions,stepsbetweenb = 0and b = 2,andpurephaseson              Afterapartial-waveexpansion,everycoefficientob-
+theunitaritycircle.                                             tainedinthiswaybecomesalinearfunctionalofthe
+                                                                complexpartialwaves,sothatthecouplingstakethe
+  Intwodimensionstheapproachisexact:nanalytic-                  formofcomplexmoments
+ityconstraintsdeterminetheallowedregionofthefirst                                  ∫︂
+n+1couplings,andtheextremalmeasuresareprecisely                          Mk =∑︂qkℓfℓdνℓ, |f ℓ−i|≤1,    (4)
+Castillejo–Dalitz–Dyson(CDD)amplitudes[3,33,34].                                 ℓ
+InfourdimensionswestudythemasslessEFThedron                     withknownweightsqkℓandpositivereferencemeasures
+setting[14,19],withlight-particleloopsneglected,and             νℓ. Thisistheanalogoftheclassicalmomentproblem
+massivescalarswiththefullphysicalthreshold[2,35,36].            mk =∫︁zkdµwithdµ≥0,inwhichthepositivedensity
+Inboth,therealpartgivesaccesstotheconstantcoupling              hasbeenreplacedbyacomplexonethatfullunitarity
+g0,whichpositivitycannotbound,andwederiveclosed-                confinestoadisk.
+forminequalitiesaswellasstrongernumericalbounds.                  Analyticityaslinearconstraints.—Becausedifferent
+Formassivescalars,thenumericalboundsarecloseto                  kernelsreconstructcoefficientsofoneandthesameampli-
+thedualboundsofRefs.[4,36]andreducethedisplayed                 tude,theirresultsmustagree,leadingtolinearconstraints.
+primal–dualgapbyupto20%nearthetop-leftcorner.All               Wecalltheseconditionsanalyticitynullconstraints,by
+boundsareclosed-formorsemi-analytic,withunitarity               analogywiththecrossingnullconstraintsthatfollowfrom
+imposedatallenergiesandspinsandnoextrapolation.                 crossingsymmetry[11,12,39,40].
+  Theframeworkadmitsalargefamilyoffurthercon-                     Aparticularlyusefulfamilyarisesfromcomparingthe
+straints,includingsamplingatnonzeromomentumtrans-               ordinaryandsquare-rootkernels. Ifthecutislabeled
+fer,additionalvaluesofα,derivativesintandα,smeared              bytheenergyangleϕ= 2arccos(1/x),whichrunsfrom
+versionsofthesumrules,includingoverα,andreformu-                0atthresholdto πatinfiniteenergy,andAϕdenotes
+lationsascrossing-symmetricdispersionrelations[37–40].          theamplitudeonitsupperside,thenamplitudeswith
+Theconstraintsetsusedherearethereforefarfromex-                 A/x   2→0andconvergentcontourendpointssatisfy,for
+haustive,andtheboundscanbeimprovedfurther,which                 everyj≥1,
+weleaveforfuturework.                                                           ∫︂π
+                                                                       Hj≡2π         sinϕIm   (︁eijϕAϕ)︁=a   0δj1.   (5)
+                                                                                 0dϕ
+UNITARITYASMOMENTSANDANALYTICITY
+              ASNULLCONSTRAINTS                                 Thefirstharmonicthereforereconstructsthesubtraction
+                                                                constanta0  =A(0), whichneverappearsinanordi-
+  Dispersionrelationsexpressthelow-energycoefficients           narytwice-subtractedrelation,whilethevanishingof
+ofanamplitudeasintegralsoveritscuts. Writingthe                 thehigherharmonicsgiveswhatwecalltheharmonic
+amplitudeatfixedmomentumtransferinanenergyvari-                 nulls.WhensummedwithFourierweights,theharmon-
+ablexforwhichthedirect-andcrossed-channelcuts                   icsreassemblethefixed-transferdispersionrelationfor
+startatx =±1,andusingcrossingtomakeiteven,                      ReA  ,soeachofthemtestsasingleFouriermodeofthe
+A(x) =  ∑︁                                                      agreementbetweentherealpartanditsreconstruction
+           nanx2n,Cauchy’stheoremgives                          fromtheimaginarypart.Averagingtheresummedrela-
+                       ∫︂∞ImA(x+i0)                             tionoverenergyandanglewithintheprojectiondomain
+              an = 2π          x2n+1    dx       (2)            givessmearedRoyequations[22],whichwecanimpose
+                        1                                       alongsidetheindividualnulls.
+wheneverthecontributionsfrominfinitycanbedropped.                 TheRealEFThedron.—Unitaritydefinesaconvexbody
+Sincetheamplitudetakescomplex-conjugatevalueson                 ofcomplexmoments,whichthenullscutbylinearplanes.
+
+=== PAGE 3 ===
+                                                                                                                           3
+
+Theprojectionoftheresultingsliceontothecouplingsis              wheref =T/[2√︁s(s−4m           2)]onthecut,andwedefined
+theRealEFThedron,andwithfinitelymanynullsitgives                theenergyangle cosθ  =1−8m4/(s−2m2)2andtheaver-
+anouterboundthatwecomputeintwocomplementary                     age⟨F⟩θ=π−1 ∫︁π            Λ          2+Λ0/4isreconstructed
+                                                                                  0Fdθ.Since
+ways.                                                           fromboththeimaginaryandtherealpart,analyticity
+  A.Extremalmeasures.—Inthefirstapproach,thenulls               requiresthefirstanalyticnullconstraint
+areaddedwithadjustablemultiplierstothecombination
+ofcouplingstobebounded,andtheresultingintegrand,                           N1 =⟨sinθRef−cosθImf⟩             θ= 0.    (10)
+URef       +VImf   ,ismaximizedateachenergyandspin.
+Itsmaximum,V +√U2+V    2,liesontheunitaritycircle
+atthephase
+
+  Ref ∗=   U√U2+V    2,      Imf ∗= 1+   V√U2+V    2, (6)
+
+sothatpurephasestakeovertheroleplayedbydelta
+functionsinthepositivemomentproblemandbysteps
+inlinearizedunitarity.Integratingthislocalmaximum,
+summingoverspinsandminimizingoverthemultipliers
+thenyieldsthebound, muchasinthedualS-matrix
+bootstrap[4,28–31,43].Geometrically,thisconstruction
+isequivalenttotheMinkowskisumoverspinsmethod
+describedin[19].
+  B.Momentmatrices.—Thesecondapproachstarts
+fromtheobservationthatfullunitarityisequivalentto               FIG.2.Two-dimensionalcouplingregionsfromtheimaginary-
+positivityofthe2×2matrix                                        partmapsinEq.(9) : positivity Imf≥   0(blue),bounded
+            (︃                 )︃                               absorption0    ≤Imf≤     2(orange),andfullunitaritywiththe
+      Wℓ=     Imf  ℓ  Ref  ℓ     ⪰0,      trW    ℓ= 2. (7)      singlenullN1 = 0[Eq. (10)  ](green).Thegreenboundaryis
+              Ref  ℓ2−Imf    ℓ                                  theexactlensinEq.(13).
+
+TakingmomentsofWℓinenergyproducespositiveblock                     Tofindtheboundaryoftheregionallowedbyfull
+Hankelmatrices.Theirabsorptiveprincipalsubmatrices              unitarityandN1 =0,weboundΛ            2+(1−µ)Λ0/4foreach
+arethefamiliarEFThedronHankelmatrices[14,15]of                  µusingEq.(6) ,withthenulladdedthroughamultiplier
+Imf   and2 −Imf    ,nowlinkedbytherealmoments,and               λ,sothatU =λsinθ  andV  =µ+(1−λ)cosθ . For
+thedispersionrelationsandnullsbecomelinearequa-                 |µ|<1theoptimalchoiceλ= (1−µ                           2)/2makes
+tionsamongtheirentries.Enlargingthematricesgivesa                                         [︃                ]︃
+systematichierarchyofconstraintsontheretainedmo-                                            1+µ2              2
+mentproblem.Alternatively,Grammatriceswithweights                             U2+V    2 =     2     +µcosθ              (11)
+speciallyadaptedtothedispersionkernelscanmoreef-
+ficientlyleadtostrongerbounds,includingclosed-form              aperfectsquare,sotheextremalpartialwavef∗ofEq.(6)
+boundsfromsmallmatrices[20,44–46].Furtherdetails                isarationalfunctionof cosθ and sinθ. Remarkably,a
+ofbothapproachesaregiveninAppendixA1.                           singleanalyticnullhasselectedananalyticintersection
+                                                                withthenormallyalgebraicphaseinEq.(6).Thecorre-
+TWODIMENSIONS:EXACTFINITEMATCHING                               spondingS-matrixonthecut,S∗=1+if∗,has|S∗|=1
+                                                                andreads
+
+  Intwodimensionsthereisnosumoverspins,andthe                                      S∗(θ) =− µ+e −iθ
+problemcanbesolvedexactly. Weconsideridentical                                                1+µe−iθ,           (12)
+scalarsofmassmwhoseSmatrixbelongstothestan-                     whichistheboundaryvalueofaone-factorCDDam-
+dardpole-free,crossing-symmetricclass.TheSmatrixis              plitude[33]. Pluggingtheextremalmeasurebackinto
+analyticandboundedbyoneonthecrossing-identified                 Eq. (9), and eliminating  µyields the known exact
+disk[3,34].Couplingsaredefinedby                                lens[3,34],
+                       ∞∑︂       (︃s−       )︃2j
+           T(s) =m         2Λ2j     2m       2  .     (8)
+
+                       j=0 (2j)!     m2                                                                  Λ0
+                                                                      −8≤Λ         0≤0,            Λ2032≤Λ    2≤−2−Λ2032.(13)
+UsingthekernelsofEq.(3)withα= 0,−             12,−1wefind
+                     −1     Imf⟩  θ,                               ThesamelensfollowsfromtwochoicesofGramweights.
+                       4Λ0 =⟨                                   MultiplyingthetworowsandcolumnsofW inEq.(7)
+        Λ2+ 14Λ0 =⟨cosθImf⟩     θ=⟨sinθRef⟩     θ,    (9)
+
+=== PAGE 4 ===
+                                                                                                                         4
+
+by√1−cosθ    and√1+cosθ  andaveraginggives, by                 Othervaluesofαandnonzero(non-forward)tgivefur-
+Eq.(9),                                                        therconstraints.
+            (︃−                        )︃                        MethodA:extremalmeasures.—Theallowedregion
+              Λ    0/2−Λ        2  Λ2+Λ0/4⪰0,      (14)        canbebuiltonespinatatime. Asinglepartialwave
+               Λ2+Λ0/4      2−Λ        2                       fℓ(s)intheunitaritydiskcontributesapointtothespace
+whosedeterminantistheupperboundaryinEq.(13)  ;                 ofcouplingsandnulls,(  g0,g2,H2,...,X4,...),andas fℓ
+exchangingthetwoweightsgivesthelowerone.                       variesthesepointsfillaconvexregionKℓ,whoseboundary
+  Athigherordersweobtainthenulls                               istracedbytheextremalphasesofEq.(6).
+                                                                 Afullspectrumcontributesonepointfromeachspin,
+        Nj =⟨sin(jθ) Ref−cos(jθ) Imf⟩            θ= 0  (15)    soitliesintheMinkowskisum∑︁ℓKℓ,andimposingthe
+                                                               nullscutsthissumwiththeplaneH2 =X4 =···= 0.
+forj = 1,...,n.Withunitarity,thesennullsdetermine              TheEFThedronhasthesamestructure,witheachKℓ
+exactlytheregionofthefirstn+1couplings.Itsboundary             theconespannedbythemomentcurveofnarrowspin-
+consistsofproductsofatmostnCDDfactors,withn                    ℓstates,andinthedeprojectedEFThedron[19]Kℓis
+factorsgenerically,                                            theimageof0 ≤Imf   ℓ≤2;hereitistheimageofthe
+               q∏︂                                             unitaritydisk.
+  S∗(z) =e   iγ    z−z  j                                        Inthespace(   g0,H2,X4),thesliceH2 =X4 =0already
+                  1−¯z   jz,   z=−e  −iθ, q≤n,(16)             boundstheconstantcoupling,−606.4 ≲g   0 ≲ 491.1.
+              j=1                                              Addingextraforwardnullsgivesg2≲ 116.2,andrelations
+with|z    j|<1.AppendixA3givestheproof[47–49].                 atsixteennonzeromomentumtransfersbringthisdownto
+                                                               g2≲ 68.4.Thetwo-nullandstrongestretainedenclosures
+                                                               areshowninFig.3.
+      FOURDIMENSIONS:THEMASSLESS                                 MethodB:momentmatrices.—TheEFThedronalso
+                     EFTHEDRON                                 hasanalgebraicdescription,inwhichmomentsofthe
+                                                               positivespectraldensitysatisfypositivityofHankelmatri-
+  Wefirstconsideridenticalmasslessscalarsinthestan-            ces[14,15].Forasinglespin,withx=1/s,definethemo-
+dardEFThedronsetting[14,19]: thetree-levelEFT                  mentsIk =∫︁1                                1
+                                                                             0xk+1  Imf  ℓdxandRk =∫︁0xk+1  Ref  ℓdx.
+amplitudeholdsuptothecutoff,heavystatesproduce                 PositivityofImf   ℓgivestheHankelcondition
+cutsstartingats =1,andloopsofthelightparticlesare                                    (︃I0I1)︃
+neglected.FollowingRef.[11],wedefine                                                           ⪰0,              (19)
+                                                                                       I1I2
+        M= 16π  ∑︂(2ℓ+1)f    ℓ(s)P  ℓ(1+2t/s),                 linearizedunitarityaddsthesameconditionfor2 −Imf   ℓ,
+                  ℓeven                                (17)
+       M=g        0+g   2(s 2+t   2+u   2)+g   3stu+···,       andfullunitarity,inthematrixformofEq.(7) ,combines
+                                                               thetwointoasingleblockHankelmatrix,
+wherePℓareLegendrepolynomialsandeachfℓliesin                                ⎛I0  R0  I1  R1           ⎞
+theunitaritydisk.                                                           ⎜⎜⎝R0  1−I     0 R1   2   ⎟⎟⎠⪰
+  Thecouplingmap.—Atfixed     t,thevariablez = (s+                             I1  R1  I2  R23−I   1     0,       (20)
+t/2)/(1+t/2)putsthecutsat |z|≥1andmakesthe                                    R1   2
+amplitudeeven,sothekernelsofEq.(3)  applydirectly;                                 3−I   1R2   12−I   2
+fortwice-subtractedamplitudestheyareadmissiblefor              obtainedbyintegrating(      v0 +xv1)TWℓ(v0 +xv1)xdx
+−1<α≤n−   1atorder z2n.Theordinaryrelationsgive                forarbitrarytwo-componentvectorsv0,v1. Rowsand
+g2andg3intermsofImf  ,butg0isasubtractionconstant              columns1and3formtheEFThedronHankelmatrix,rows
+thatneverentersatwice-subtractedrelation,sopositivity          andcolumns2and4theoneoflinearizedunitarity,and
+cannotconstrainit.Thesquare-rootkernelatorderz4                therealmomentsintheremainingentriescouplethetwo.
+doescontainit.With⟨F⟩=∑︁ℓeven (2ℓ+1)∫︁∞1 Fℓds/s3               Oncesummedoverspins,couplingsandnullsarelinear
+andtheenergyangle cosϕ   = 2/s2−1,onefindsat t= 0              inthesemoments,forexampleg2 = 16∑︁
+                            ⎧⎪⎨                                andX4 =∑︁                                     ℓ(2ℓ+1)I0,ℓ
+            ⟨︁                g2/16,  j= 0,                    togetherwiththenullsboundsthecouplings,andlargerℓ(2ℓ+1)L(L−8)I2,ℓ,somatrixpositivity
+             Im(eijϕf)⟩︁=   ⎪⎩g0/128, j= 1,            (18)    matricesgiveasystematichierarchy.
+                              0,     j≥2,                        Insteadofpowersofx,onecanchooseweightsadapted
+where Im(eijϕf)  =  sin(jϕ)Ref     + cos(jϕ)Imf  .  The        tothedispersionrelations, sothattheentriesofthe
+highermodesgivetheharmonicnullsHj≡⟨︁Im(eijϕf)⟩︁=               resultingGrammatrixarethecouplingsandthenulls
+
+0.Standardcrossingargumentsaddthefirstcrossingnull
+X4≡⟨︁L(L−8)Imf/s                2⟩︁= 0with L =ℓ(ℓ+ 1)[ 11].
+
+=== PAGE 5 ===
+                                                                                                                              5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FIG.3.Masslesscouplingbounds.GrayshowslinearizedunitaritywithX4 = 0;in(a), g0isunrestricted.Purpleandorange
+showthelimitingGramellipseandcombinedanalyticGramboundsin(a). BlueimposesfullunitaritywithH2 =X4 = 0;
+greenaddsnonforwardandresummedrelations.TheexactconstraintsetsandconstructionsarecataloguedinTableA1,rows
+1–5inthiscolororder.
+
+
+themselves. Oneexampleofconstraintisgivenbythe                    with ¯s  =s−4/3andsimilarlyfor  ¯t,¯u  ;theyarethequartic
+matrix                                                            interactionanditsfirstenergycorrection(c0,0  andc1,0  of
+  (︃g2/16h  TN  )︃                  (︂g2               )︂T,       Ref.[36]).Thepartialwavesandthespectralaverageare
+     hN    2TN     ⪰0,   h  N =                                                       ∑︂               (︃           )︃
+                                     16,g0128,0,...,0                    M=     16π       (2ℓ+1)f    ℓPℓ1+   2t       ,
+                                                         (21)                    ρℓeven                       s−4
+whereTNisaknownmatrixofreferenceintegrals.Elim-                                               ∫︂∞Fℓ(s)                     (24)
+inatingTN givesanellipseinthe(  g0,g2)plane,whose                      ⟨F⟩m =∑︂(2ℓ+1)               2πρds,
+N→∞limitcanbecomputedanalytically                                               ℓeven          4
+
+    g20 +4.9868g            0g2+57.0222g              22≲10825.064g                      2.  (22)withρ=   √︁1−4/sandeachf      ℓintheunitaritydisk.
+                                                                    Thecouplingmap.—Thesymmetricpointisreached
+Althoughweakerthantheextremal-measurebound,this                   mostdirectlyatfixedt = 4/3. With Q =s−4/3,the
+boundaryhasthenotablefeatureofbeingdescribedby                    variablez = 3Q/8placesthecutsat|z|≥1andthe
+asingleequation. CombiningseveralHankelorGram                     symmetricpointatz =0.Theordinaryandsquare-root
+matricesstrengthensthebound,butdifferentpartsofthe                kernelsthengivethesameFourierstructureasinthe
+boundaryarethendescribedbydifferentequations,asfor                masslesscase,
+theEFThedron[14,15]. Thederivationsandcomplete                                                   ⎧⎪⎨
+constraintsetsfortheboundariesinFig.3aregivenin                           ⟨︁pℓIm(eijϕmf)⟩︁         gm2,     j= 0,
+AppendixA4.                                                                                 m =  ⎪⎩9g  m0/512, j= 1,       (25)
+                                                                                                   0,      j≥2,
+
+   FOURDIMENSIONS:PHYSICALMASSIVE                                 wherepℓ=Pℓ(Q/(s−4))/Q3and cosϕ  m=128/(9Q2)−1
+                     SCATTERING                                   istheenergyangle.Thehighermodesgivetheharmonic
+                                                                  nullsH∗j≡⟨︁pℓIm(eijϕmf)⟩︁m = 0. Nullscanbeevalu-
+  Thesamegeometryappliestomassivescattering,now                   atedatanytransferwherethedispersionrelationsand
+withthephysicalthresholdats = 4m2. Weconsider                     theirspectralintegralsarevalid.Wewrite˜︁Hj(0)forthe
+identicalscalarswithnosubthresholdpoles,crossingsym-              forwardharmonics;˜︁X4isthefirstcrossingnullatthe
+metry,andM/s     2→0atfixed t,andsetm = 1. The                    symmetricpoint.
+couplingsaredefinedatthecrossing-symmetricpoint                     Method A: extremal measures.—The construction
+s=t=u= 4/3,                                                       is the one of the massless case, now in the space
+                                                                 (gm0,gm2,˜︁H2(0),˜︁X4,...). Withonly ˜︁H2(0)and  ˜︁X4,the
+           M                                                      slicecapsthequarticcoupling,gm0 ≲ 4.34,butleaves  gm2
+           32π  =g   m0  +g   m2 (¯s  2+¯t2+ ¯u  2)+···,    (23)unbounded. Addingtransferderivatives,crossingnulls,
+                                                                  andadmissiblesmeareddispersionrelationsgivesthe
+                                                                  boundedregioninFig.4,
+                                                                                  −7.81702≲g                     m0 ≲2.72322,
+                                                                                       0≤g     m2 ≲1.05800,                     (26)
+
+=== PAGE 6 ===
+                                                                                                                             6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FIG.4. Massivecouplingbounds. Thesolidblueextremal-
+measureenclosureusestheresummedandfixed-transfercon-
+straintfamiliescataloguedinTableA2,row5. Thedashed               FIG.5. Massivecouplingboundsfrommomentmatrices
+blackandredcurvesarethepublisheddualandprimalbound-              andextremalmeasures.ThepurpleGramsequenceatN =
+aries[36];row6recordstheirsourceandnormalization.The             2,4,32,∞,orangenine-nullenclosure,blue28-nullenclosure,
+insetmagnifiestheupper-leftcorner.                               andgreenunresummedextremal-measureenclosureuserows
+                                                                 1–4,respectively,ofTableA2.Thetwofinitematrixnullsets
+                                                                 areexplicitinEq.(A5.16)     . Thedashedblackcurveisthe
+whichagreeswiththedualboundsofRefs.[4,36]along                   publisheddualbound[36](sourceandnormalization:table
+mostofitsboundary,andcontainstheirprimalisland.                  row6).
+Theseboundsreducetheprimal–dualgapsinthelowergm0
+anduppergm2 limitsbyapproximately20     .6%and15    .6%,         twodimensionsfinitelymanyharmonicnullsfixthecoef-
+respectively,asestimatedfromthepublishedfigure.                  ficientregionsexactly.Infourdimensionsthereal-part
+  MethodB:momentmatrices.—Masschangestheref-                     relationsgiveaccesstothesubtractionconstantg0,in-
+erence measure, so the same Gram construction ap-                visibletopositivity,andclosed-formboundsimproveon
+plies. Forasimpleclosedfamily,usetheforwardhar-
+monicmomentsHj =⟨32(s−2)−3   Im(eijϑmf)⟩m,where                  linearizedunitarity;formassivescatteringtheycapgm2
+cosϑ  m = 8/(s−2)2−1,andimpose H2 =···=HN = 0.                   wherelinearizedunitaritycannot. Furthersamplingof
+Theadaptedweightsgive                                            crossing-symmetricpaths[38,40],primaloptimization
+                    (︃gm2 H11T    )︃                             ofthemomentsanddualoptimizationoftheequations
+                                    ⪰0,            (27)          arenaturalnextsteps;noneneedsanamplitudeansatz.
+                     H11 2T  N                                   KnownEFTloopsenterthroughtheirdiscontinuities,so
+anN×N    matrixwithknownreferenceblockTN and                     subtractingthemshiftsthediskfortheunknownremain-
+1oflength N−1. Here H1istheforwardmoment;its                     der[50,51];gaugeandgravitonexchangealsorequire
+differencefromg         m0 isaboundedabsorptivecontribution.     finiteobservableswithcontrolledforwardandinfrared
+Eliminatingitgives                                               limits[52–55].
+
+   −128          2KNgm2≤g   m0≤−64               2KNgm2,            AcknowledgmentsLRissupportedbytheNational
+     27gm2−√︁                         27gm2  +√︁         (28)    NaturalScienceFoundationofChinaGeneralProgram
+                     1    1 . Increasingthematrixsize            No.12475070andtheBeijingNaturalScienceFoundation
+whereKN  = (1TT−N  1)−                                           InternationalScientistProjectNo.IS24014.AItoolswere
+strengthensbothbounds,withtheanalyticlimitK∞≈                    usedtoassistwithnumericalmethods,optimizationand
+233.75. Figure5showsthissequenceandthetighter                    consistencychecks,andmanuscriptediting.
+enclosuresobtainedbycombiningmorematricesandin-
+creasingthenullsetfromnineto28. Thederivations,
+matrixcatalogues, andexactconstraintsetsforboth
+massivefiguresaregiveninAppendixA5. Weleavea
+systematicstudyofthehierarchyforfuturework.                       [1]M. Kruczenski, J. Penedones, and B. C. van Rees,
+                                                                      Snowmass White Paper: S-matrix Bootstrap (2022),
+                                                                      arXiv:2203.02421[hep-th].
+                        OUTLOOK                                   [2]M.F.Paulos,J.Penedones,J.Toledo,B.C.vanRees,and
+                                                                      P.Vieira,TheS-matrixBootstrapIII:HigherDimensional
+                                                                      Amplitudes,JHEP2019(12),040,arXiv:1708.06765.
+  Fractionalkernelsmaketherealpartoftheamplitude                  [3]H.Chen,A.L.Fitzpatrick,andD.Karateev,Nonpertur-
+amoment,sofullunitaritybecomesaboundedcomplex                         bativeboundsonscatteringofmassivescalarparticlesin
+momentproblemwithpure-phaseextremalspectra.In                         d≥2,JHEP2022(12),092,arXiv:2207.12448.
+
+=== PAGE 7 ===
+                                                                                                                                           7
+
+ [4]A.GuerrieriandA.Sever,RigorousboundsontheAn-                        [26]A.Guerrieri,K.Häring,andN.Su,Fromdatatothean-
+     alyticS-matrix,Phys.Rev.Lett.127,251601(2021),                          alyticS-matrix:Abootstrapfitofthepionscatteringam-
+     arXiv:2106.10257.                                                       plitude,SciPostPhys.20,034(2026),arXiv:2410.23333
+ [5]J.EliasMiró,A.Guerrieri,andM.A.Gümüş,Bridging                            [hep-th].
+     PositivityandS-matrixBootstrapBounds,JHEP2023                      [27]A.Guerrieri,J.Penedones,andP.Vieira,WhereIsString
+    (05),001,arXiv:2210.01502v2.                                             TheoryintheSpaceofScatteringAmplitudes?,Phys.Rev.
+ [6]M.Correia,A.Sever,andA.Zhiboedov,Ananalytical                            Lett.127,081601(2021),arXiv:2102.02847[hep-th].
+     toolkitfortheS-matrixbootstrap,JHEP2021(03),013,                   [28]A.L.Guerrieri,A.Homrich,andP.Vieira,DualS-matrix
+     arXiv:2006.08221.                                                       bootstrap. Part I. 2D theory, JHEP2020(11), 084,
+ [7]T.N.PhamandT.N.Truong,Evaluationofthederivative                          arXiv:2008.02770.
+     quartictermsofthemesonchiralLagrangianfromforward                  [29]Y.HeandM.Kruczenski,S-matrixbootstrapin3 +
+     dispersionrelations,Phys.Rev.D31,3027(1985).                            1dimensions: regularizationanddualconvexproblem,
+ [8]A.Adams, N.Arkani-Hamed, S.Dubovsky, A.Nico-                             JHEP2021(08),125,arXiv:2103.11484.
+     lis,andR.Rattazzi,Causality,analyticityandanIR                     [30]L. Córdova, Y. He, M. Kruczenski, and P. Vieira,
+     obstructiontoUVcompletion,JHEP2006(10),014,                             The O(N) S-matrix monolith,JHEP2020(04), 142,
+     arXiv:hep-th/0602178.                                                   arXiv:1909.06495[hep-th].
+ [9]C.deRham,S.Melville,A.J.Tolley,andS.-Y.Zhou,                        [31]J.EliasMiróandA.Guerrieri,DualEFTbootstrap:
+     Positivityboundsforscalarfieldtheories,Phys.Rev.D                       QCDfluxtubes,JHEP2021(10),126,arXiv:2106.07957
+     96,081702(2017),arXiv:1702.06134[hep-th].                               [hep-th].
+[10]B.Bellazzini,J.EliasMiró,R.Rattazzi,M.Riembau,                      [32]M.Riembau,FullUnitarityandtheMomentsofScatter-
+     andF.Riva,Positivemomentsforscatteringamplitudes,                       ingAmplitudes(2022),arXiv:2212.14056.
+     Phys.Rev.D104,036006(2021),arXiv:2011.00037.                       [33]L.Castillejo,R.H.Dalitz,andF.J.Dyson,Low’sscatter-
+[11]S.Caron-HuotandV.VanDuong,ExtremalEffective                              ingequationforthechargedandneutralscalartheories,
+     FieldTheories,JHEP2021(05),280,arXiv:2011.02957.                        Phys.Rev.101,453(1956).
+[12]A.J.Tolley,Z.-Y.Wang,andS.-Y.Zhou,Newpositivity                     [34]M.F.Paulos,J.Penedones,J.Toledo,B.C.vanRees,
+     boundsfromfullcrossingsymmetry,JHEP2021(05),                            andP.Vieira,TheS-matrixbootstrapII:twodimensional
+     255,arXiv:2011.02400.                                                   amplitudes,JHEP2017(11),143,arXiv:1607.06110.
+[13]X.Li,H.Xu,C.Yang,C.Zhang,andS.-Y.Zhou,Pos-                          [35]M.Correia,A.Georgoudis,andA.L.Guerrieri,Cross-
+     itivityinMultifieldEffectiveFieldTheories,Phys.Rev.                     SectionBootstrap: UnveilingtheFroissartAmplitude
+     Lett.127,121601(2021),arXiv:2101.01191[hep-ph].                         (2025),arXiv:2506.04313[hep-th].
+[14]N.Arkani-Hamed,T.-C.Huang,andY.-t.Huang,The                         [36]J.EliasMiró,A.Guerrieri,andM.A.Gümüş,ThePhases
+     EFT-Hedron,JHEP2021(05),259,arXiv:2012.15849.                           oftheScalarS-MatrixIsland(2026),arXiv:2605.06613.
+[15]L.-Y.Chiang,Y.-t.Huang,W.Li,L.Rodina,andH.-C.                       [37]G.AubersonandN.N.Khuri,RigorousParametricDis-
+    Weng,IntotheEFThedronandUVconstraintsfromIR                              persionRepresentationwithThree-ChannelSymmetry,
+     consistency,JHEP2022(03),063,arXiv:2105.02862.                          Phys.Rev.D6,2953(1972).
+[16]P.Haldar,A.Sinha,andA.Zahed,Quantumfieldtheory                      [38]A.SinhaandA.Zahed,CrossingSymmetricDispersion
+     andtheBieberbachconjecture,SciPostPhys.11,002                           RelationsinQuantumFieldTheories,Phys.Rev.Lett.
+    (2021),arXiv:2103.12108[hep-th].                                         126,181601(2021),arXiv:2012.04877.
+[17]P.RamanandA.Sinha,QFT,EFTandGFT,JHEP                                [39]D.Chowdhury,P.Haldar,andA.Zahed,Localityand
+    2021(12),203,arXiv:2107.06559[hep-th].                                   analyticityofthecrossingsymmetricdispersionrelation,
+[18]A. Zahed, Positivity and geometric function theory                       JHEP2022(10),180,arXiv:2205.13762[hep-th].
+     constraintsonpionscattering,JHEP2021(12),036,                      [40]J.EliasMiró,A.Guerrieri,M.A.Gümüş,andA.Zahed,A
+     arXiv:2108.10355[hep-th].                                               geometricviewoncrossing-symmetricdispersionrelations,
+[19]L.-Y.Chiang,Y.-t.Huang,L.Rodina,andH.-C.Weng,                            JHEP2026(07),255,arXiv:2509.14170.
+     De-projectingtheEFThedron,JHEP2024(05),102,                        [41]Y.-C.LiuandS.Okubo,Testsofnewsuperconvergent
+     arXiv:2204.07140.                                                       dispersionrelations,Phys.Rev.Lett.19,190(1967).
+[20]J.-B.Lasserre,Themomentproblemwithboundedden-                       [42]C.deRham,S.Jaitly,andA.J.Tolley,Constraintson
+     sity(2006),arXiv:math/0607463.                                          ReggebehaviourfromIRphysics(2022),arXiv:2212.04975
+[21]L.-Y.Chiang,Y.-t.Huang,W.Li,L.Rodina,andH.-                              [hep-th].
+     C.Weng,(Non)-projectiveboundsongravitationalEFT                    [43]C.LopezandG.Mennessier,Boundsontheπ0π0ampli-
+    (2022),arXiv:2201.07177[hep-th].                                         tude,Nucl.Phys.B118,426(1977).
+[22]S.M.Roy,Exactintegralequationforpion-pionscattering                 [44]A. E. Choque-Rivero, The resolvent matrix of the
+     involvingonlyphysicalregionpartialwaves,Phys.Lett.                      truncatedHausdorffmatrixmomentproblemvianew
+     B36,353(1971).                                                          Dyukarev–Stieltjesparametersandextremalsolutionsvia
+[23]C.deRham,A.J.Tolley,Z.-H.Wang,andS.-Y.Zhou,Pri-                          continuedfractions(2016),arXiv:1610.05724.
+     malS-matrixbootstrapwithdispersionrelations,JHEP                   [45]B.Fritzsche,B.Kirstein,andC.Mädler,Matricialcanon-
+    2026(01),027,arXiv:2506.22546v2.                                         icalmomentsandparametrizationofmatricialHausdorff
+[24]A.Guerrieri,J.Penedones,andP.Vieira,S-matrixBoot-                        momentsequences(2017),arXiv:1711.00797.
+     strapforEffectiveFieldTheories:MasslessPions,JHEP                  [46]S.-L.WanandS.-Y.Zhou,Matrixmomentapproachto
+    2021(06),088,arXiv:2011.02802.                                           positivityboundsandUVreconstructionfromIR,JHEP
+[25]F.Acanfora,A.Guerrieri,K.Häring,andD.Karateev,                           2025(02),168,arXiv:2411.11964.
+     BoundsonscatteringofneutralGoldstones,JHEP2024                     [47]I.Schur,ÜberPotenzreihen,dieimInnerndesEinheit-
+    (03),028,arXiv:2310.06027.                                               skreisesbeschränktsind,J.ReineAngew.Math.147,205
+                                                                             (1917).
+
+=== PAGE 8 ===
+                                                                                                                                          8
+
+[48]I.Schur,ÜberPotenzreihen,dieimInnerndesEinheit-
+     skreisesbeschränktsind.II,J.ReineAngew.Math.148,
+    122(1918).
+[49]V.Bolotnikov,Analgorithmforfindinglowdegreera-
+     tionalsolutionstotheSchurcoefficientproblem(2009),
+     arXiv:0912.5034.
+[50]B.Bellazzini,M.Riembau,andF.Riva,TheIR-Side
+     ofPositivityBounds,Phys.Rev.D106,105008(2022),
+     arXiv:2112.12561.
+[51]G.Peng,L.-Q.Shao,A.Tokareva,andY.Xu,Running
+     EFT-hedronwithnullconstraintsatlooplevel,JHEP
+    2026(03),163,arXiv:2501.09717.
+[52]J.Tokuda,K.Aoki,andS.Hirano,Gravitationalposi-
+     tivitybounds,JHEP2020(11),054,arXiv:2007.15009
+     [hep-th].
+[53]S.Caron-Huot,D.Mazac,L.Rastelli,andD.Simmons-
+     Duffin,SharpBoundariesfortheSwampland,JHEP2021
+    (07),110,arXiv:2102.08951.
+[54]S. Caron-Huot, Y.-Z. Li, J. Parra-Martinez, and
+     D. Simmons-Duffin, Causality constraints on correc-
+     tions to Einstein gravity, JHEP2023(05), 122,
+     arXiv:2201.06602[hep-th].
+[55]C.Beadle,G.Isabella,D.Perrone,S.Ricossa,F.Riva,
+     andF.Serra,TheEFTBootstrapatFiniteMPL,JHEP
+    2025(06),209,arXiv:2501.18465.
+[56]G.Herglotz,ÜberPotenzreihenmitpositivem,reellen
+    TeilimEinheitskreis,Ber.Verh.Königl.Sächs.Ges.Wiss.
+     Leipzig,Math.-Phys.Kl.63,501(1911).
+[57]NIST Digital Library of Mathematical Functions,
+     Sec.19.29,ReductionofGeneralEllipticIntegrals(2026),
+     accessedSeptember2026.
+[58]Y.S.JinandA.Martin,NumberofSubtractionsinFixed-
+    TransferDispersionRelations,Phys.Rev.135,B1375
+    (1964).
+[59]A.Martin,Extensionoftheaxiomaticanalyticitydomain
+     ofscatteringamplitudesbyunitarity.I,NuovoCim.A
+    42,930(1965).
+[60]A.Martin,Extensionoftheaxiomaticanalyticitydomain
+     ofscatteringamplitudesbyunitarity.II,NuovoCim.A
+    44,1219(1966).
+
+=== PAGE 9 ===
+                                                                                                                         9
+
+                    AppendixA1:Momentmatrices,extremalmeasures,andnullconstraints
+
+  Wewritefℓ=rℓ+ibℓ.Thereferencemeasuresandweightsareknown;thesameunknownspectrumentersevery
+couplingandnull.Allintegralsbelow,includingtheirspinsums,arerequiredtoconverge.
+
+
+                                          A1.1. HankelandGrammatrices
+
+  Foronespin,suppressℓandchoosex∈[0,1]andafinitepositivereferencemeasure dν. DefineIk =∫︁xkbdν,
+Rk =∫︁xkrdν,andν   k =∫︁xkdν.Positivityofbgives,foreverya,c,
+                              ∫︂                              (︃I0I1)︃
+                                 (a+cx)           2bdν≥0⇐⇒     I1I2    ⪰0,   I     21≤I   0I2.                   (A1.1)
+
+Applyingthesametestto2 −b  implementsboundedabsorption. Fullunitaritycombinestheseteststhroughthe
+matrixWofEq.(7).ItsmomentsandtheblockHankelhierarchyare
+           ∫︂            (︃Ik   Rk      )︃
+     Yk =    xkWdν=                       ,       Hd = [Yi+j   ]di,j=0 ⪰0,       L  d−1    = [Yi+j+1 −Y i+j+2    ]d−10.   (A1.2)
+                           Rk  2νk−I k                                                               i,j=0 ⪰
+
+Thefirstconditionintegratesv(x)TWv(x)foravectorpolynomialofdegree d;thesecond,ford≥1,inserts x(1−x  )
+andrecordsintervalsupport.AlreadyY               0⪰0gives
+
+                                     R20≤I   0(2ν0−I   0),   R 20 +(I 0−ν0)2≤ν20.                         (A1.3)
+
+Thusaveragingpreservestheunitaritydisk. Atd = 1thematrixis4 ×4andadditionallyrelatesdifferentenergy
+moments,asinEq.(20)  .Dispersionrelationsandnullssupplylinearequationsamongitsentries;eliminatingunfixed
+momentsthengivesinequalitiesoncouplings.
+  Forgeneralrealtwo-componentweightsψa,thesameargumentgives
+                                                    ∫︂
+                                         Gab =∑︂ψTaWℓψbdνℓ,   G⪰0.                            (A1.4)
+                                                  ℓ
+
+ThisisaGrammatrix. Monomialweightsxke1,xke2givetheblockHankelmatrices;otherweightscanmatcha
+dispersionkernelwithoutintroducingmanyauxiliarymoments.Forexample,ψ            1 = (p,0)  T,ψ2 = (0,q)  Tgive
+                                             (︃∫︁p2bdν ∫︁pqrdν         )︃
+                                              ∫︁pqrdν∫︁q2(2−b)dν         ⪰0.                              (A1.5)
+
+
+Thedeterminantboundsthereal-partmomentbythetwodiagonalmoments. The2Dweightsp =√1−cosθ   ,
+q=√1+cosθturnitsmixedentryintotheharmonicmomentinN           1,givingthelensderivedinAppendixA3.
+  Hankelorderisasystematicchoiceofpolynomialtests.AdaptedGramweightsareachoicetailoredtoaparticular
+couplingbound,usingexactlythesameunitaritycondition. Undertheusualintegrabilityconditionstheycanbe
+approximatedbypolynomialtests,butasmallHankelmatrixneednotreproduceaboundfromnonpolynomialweights.
+Completenessofthemomenthierarchyforafixedmeasuredoesnotbyitselfproveconvergenceofatruncatedspin
+sumorafinitenullset.
+
+
+                                A1.2. ExtremalmeasuresandtheMinkowskislice
+
+  LetL[f]beacouplingcombinationand Na[f] = 0theretainednulls. Forarbitraryrealmultipliers λa,write∫︁
+L+ ∑︁aλaNa =∑︁ℓ(Uℓrℓ+V ℓbℓ)dνℓ.Pointwisemaximizationoverthediskgives
+                                                          ∫︂(︃     √︂          )︃
+                                     L[f]≤B(λ) :=     ∑︂      Vℓ+     U2ℓ+V    2ℓdνℓ,                         (A1.6)
+                                                       ℓ
+withextremalphase(6) .Everychoiceofmultipliersthereforegivesasupportinginequality.MinimizingBsharpensit;
+stationarityenforcestheretainednullswhendifferentiationisjustified.ThesupportofaMinkowskisumisthesumof
+
+=== PAGE 10 ===
+                                                                                                                              10
+
+theindividualsupports,sothisisthedualdescriptionofconstructingthespinregionsandintersectingtheirsumwith
+thenullplanes.Nullsareimposedaftersumming:differentspinsmaycancel.
+  Afinitesetofsupportinginequalitiesisanouterenclosure,anditsboundaryneednotbeattainedbyananalytic
+amplitude.Intheall-spinproblemaremaindermustbeincluded:whenVℓ<0, Vℓ+√︁U2ℓ+V    2ℓ≤U   2ℓ/(2|Vℓ|)supplies
+oneusefulsummableestimate.Enlargingthenullsetandimprovingunitaritytestsareseparaterefinements.
+
+
+                                 A1.3. Fractionalkernelsandcoefficientelimination
+
+  ForanevenamplitudeA t(z) = ∑︁nan(t)z     2n withcutsat|z|≥1,thecoefficientcontourgives
+                                              ∮︂(1−z       2)αAt(z)       n∑︂         )︃
+                              Cn(α,t) =   12πi         z2n+1    dz=         (−1)  q(︃αq an−q    (t)
+                                                                         q=0                                              (A1.7)
+                                            ∫︂∞(z 2−1) α
+                                       = 2π        z2n+1      [cos(πα)ImA     t−sin(πα)ReA    t]dz.
+                                             1
+Thebranchispositivebetweenthecuts.IfAt/z2→0andAt =O((z−1)−γ)atthreshold,thedeformationrequires
+γ−1<α≤n−   1,withtheseboundsholdingonthedeformedcontour.Theforwardchoicesusedhereare γ= 0in
+themasslessmodelandγ=1/2forthemassivereferencebound.Theydonotestablishthesameendpointestimateat
+arbitrarytransfer.Transferderivativesandspinsumsrequirethecorrespondinguniformconvergenceconditions.
+  Atfixednthecoefficientsideisapolynomialofdegreeninα.Eliminatingitgivesnulls;forequallyspacedsamples,
+
+                                          n+1∑︂                  )︃
+                                             (−1)  n+1−i  (︃n+1i  Cn(α0+ih,t) =0.                          (A1.8)
+                                          i=0
+Form≥n      +1distinctadmissiblesamplesthereare m−n−    1suchindependenteliminationsbeforeotherrelations
+areimposed.Thefirstsubtractionreconstructionis
+
+                                          a0(t) = 8C     2(0,t)−4C            1(0,t)−8C            2(1/2,t).                          (A1.9)
+
+Theharmonicorganizationoftheseidentitiesisdevelopednext.
+
+
+                              AppendixA2:HarmonicresummationandRoyequations
+
+  Fromthenullstoadispersionrelation.Atfixedadmissibletransfer     t,letAt(x)betheevenamplitudewithcuts
+|x|≥1,a   0(t) =A  t(0),andϕ= 2arccos(1/x).WriteA                  t,ϕforitsupper-cutvalue.Themap
+
+                              ζ(x) =      1−√1−x     2
+                                            x   ,   ζ(x+i0)           2 =e iϕ,        4dxx3  = sinϕdϕ              (A2.1)
+turnstheCauchycontourfor4ζ    2jAt/x3into
+                                                                        ⎧⎪⎨4a  1(t), j= 0,
+                                      8 ∫︂∞dx
+                                     π       x3 Im[eijϕAt(x+i0)] =      ⎪⎩a0(t),  j= 1,                                   (A2.2)
+                                         1                                0,    j≥2.
+
+Herethesquarerootispositivebetweenthecuts.ThecontourrequiresAt/x2→0,vanishingendpointcontributions,
+andconvergentweightedboundaryintegrals.Thisprovesthemain-textharmonicsandexplainswhythefirstmode
+reconstructsthesubtractionconstant.
+  Tosumthemodes,fixy> 1,set ψ= 2arccos(1/y),multiplythe jthequationbyqj−1    sin(jψ),andsumover j≥1,
+with0<q<1.IntheAbellimitq↑1,sinecompletenessreproducestherealpartatψ,while
+
+                                         ∞∑︂
+                                    limq↑   qj−1    sin(jψ)cos(jϕ) = PV                     sinψ
+                                     1  j=1                               2(cosϕ−cosψ)        .                      (A2.3)
+
+=== PAGE 11 ===
+                                                                                                                                11
+
+Consequently,
+                                                                      ∫︂∞ImA  t(x+i0)
+                                  ReA  t(y+i0) =a            0(t)+   2y  2πPV x(x    2−y   2) dx.                  (A2.4)
+                                                                        1
+Thelimitholdsatregularboundarypoints,orintheweaksenseaftersmearing;absoluteweightedconvergenceand
+localHöldercontinuityaresufficient.Withinthisclass,thecompleteharmonicfamilyandthefixed-transferrelation
+areequivalent.Afiniteharmonicsetimposesonlyfinitelymanyprojectionsofit.
+  Crossing,smearing,andtheimplementedequations.Crossingrelatesthesubtractionfunctionsatdifferenttransfers.
+Forthemasslessmodel,withitsheavycutstartingatone,theresultis
+                                                  ∫︂∞
+                      ReM(s,t)−g                  0 = 1πPV               0)              ]︁,           (A2.5)
+                                                   1 dµ[︁K(s,t;µ)ImM(µ,t)+B(t;µ)ImM(µ,
+where
+
+                                        K(s,t;µ)=             1µ−s      +       1µ+s+t  −1µ−1µ+t  ,
+                                                                                                                           (A2.6)
+                                           B(t;µ) =             1µ−t      +    1µ+t −2µ.
+
+ThesecondtermreconstructsM(0,t) =M(t,0)fromthesame  g0. Thusharmonicsmustbeaccompaniedby
+subtractionmatching,notjustbythehomogeneousequationsj≥2.
+  Formassivescattering,setm= 1andc=4/3.Thecorrespondingcrossed-subtractionformulais
+                                                               ∫︂∞
+                               ReM(s,t)−32πg                    m0  = 1πPV                                                 (A2.7)
+                                                                4 dµ[︁K(µ;s,t;c)ImM(µ,t)
+                                                                      +K(µ;t,c;c)ImM(µ,c)        ]︁,
+
+with
+
+                               K(µ;s,t;c) =               1µ−s      +          1µ−4+s+t   −1µ−c −     1µ−4+t+c     .                 (A2.8)
+
+Thesearefixed-transferdispersionidentities.Expandingthespectralamplitudesinpartialwavesandprojectingthe
+externalscatteringanglegivesRoyequations[4,22].Alternatively,writingE(s,t)fortheleft-handsideminusthe
+right-handside,weimposethelinearequations
+                                                       ∫︂
+                                              R[w]≡       dsdtw(s,t)E(s,t) = 0,                              (A2.9)
+
+withspecifiedintegrabletestweights.AngularLegendreprojectionsandenergyaveragesgivesmearedRoyequations;
+ageneralwteststhefixed-transferidentitydirectly.Thesumcanbeperformedbeforeintegrationusing
+
+                                     ∞∑︂
+                                        Uj−1   (cosψ)ω    j =     ω1−2ωcosψ+ω                   2, |ω|<1,                     (A2.10)
+                                    j=1
+
+whereUjisaChebyshevpolynomialofthesecondkind.Henceafinitenumberofsmearingweightscanincludeinfinite,
+correlatedharmonicsums.Itdoesnotimposeallharmonicsindependently.Theplottedcalculationsretainfinitely
+manysuchweights;theirrangesandordersarelistedinAppendicesA4andA5.
+  Validitydomains.Threedomainsmustbedistinguished. First,thestandardmassivefixed-transferdispersion
+relationisavailablefor−28m2<t<4m2undertheusualmassiveanalyticityandtwo-subtractionassumptions[4,6,58–
+60]. ThelargerdomaindiscussedinRef.[40]mustnotbereplacedbyapresumedinterval−32m2<t< 4m2:its
+Fig.8distinguishestheestablisheddomainfromanextensionuptotheLandaucurvethatisnotproved.Second,the
+simplesymmetrictwo-cutcoordinateusedherehasarealanalyticcenteronlyfort>−4m2:itshalf-gapis2 m2+t/2.
+Fort≤−4m2thedirectandcrossedcutsoverlap,sothedisplayedharmonicconstructioncannotbecontinuedthere
+merelybyinsertingsuchatransferinitskernels.Itsusealsorequiresconvergentpartial-waveexpansionsandendpoint
+integrals;thesedonotfollowfromindependentunitaritydisksalone.
+  Third,aRoyequationatexternalenergysprojectsoverangles.Foridenticalscalars,Bosesymmetrypermitsthe
+half-interval0 ≤z≤ 1,with t =−(s−4m2)(1−z  )/2.Keepingthesetransfersabove−28m2givestheconventional
+
+=== PAGE 12 ===
+                                                                                                                            12
+
+range4   m2<s<60m2;projectingoverthefullintervalwithoutthisfoldinggivess<32m2[4].Aparticularnumerical
+implementationmayuseasmallerrange,suchass<12m2inRef.[36].Thenumber60 m2limitsthisprojection,not
+thespectralintegrals,whichalreadyextendtoinfinity.OtherRoy-typerepresentationscanextendtheexternalrange
+withtheirappropriateadditionalterms[40].
+  Inthemasslessmodelweuse−1<t≤0,with t =−1includedonlybytheconvergentendpointlimit.Thefolded
+projectiont =−s  (1−z  )/2thengives1  <s< 2;smearingsatlarger smaystillbemadeoverthefixedadmissible
+transferstrip,butarenotfullangularprojections.Thesestatementsconcernthemodelwithinfraredcutsomitted,
+notanexactinteractingmasslessamplitude.Atanyfixedadmissibletransfer,harmonicmomentsintegratetheentire
+spectralcut.Thisdoesnotestablishanall-energyRoysystem,orthattheycontaininformationbeyondthecomplete
+dispersionrelationsfromwhichbothconstructionsfollow.
+
+
+                  AppendixA3:Twodimensions:finitematchingandCDDboundarymeasures
+
+  IntheconventionofEq.(15)  ,nnullsdeterminen+1coefficients.Theirboundarymeasureshaveatmost nCDD
+factors,withnfactorsgenerically;thecoefficientcountandfactorcountaredifferent.
+
+
+                                  A3.1. Couplingmapsandthetwo-coefficientlens
+
+  Setx= (s−2m                  2)/(2m       2)and
+
+                z=   1−√1−x     2                        1−x     2(S−1),   z=−e     −iθ  ontheuppercut.      (A3.1)
+                     1+√1−x     2, A=   T4m  2 =√︁
+
+Thesquarerootispositivebetweenthecuts.BoundedanalyticSmakesC1(α)admissiblefor−3/2<α<1/2.The
+choicesα= 0,−1/2,−1give
+
+                    Λ2 =⟨(1+cosθ)b⟩   θ,      Λ 2+ Λ04  =⟨sinθr⟩θ,      Λ 2+ Λ02  =−⟨(1−cosθ)b⟩    θ,          (A3.2)
+
+whichyieldthemain-textcouplingmapsandN1 =0.FortheothertworegionsinFig.2,let          ¯b=−Λ0/4.Positivity
+alonegives ¯b≥0and0≤Λ                    2≤2  ¯b.Boundedabsorptiongives
+
+                                     0≤¯b≤2,             ¯b−2πsinπ¯b2≤Λ    2≤¯b+  2πsinπ¯b2.                       (A3.3)
+
+Theendpointsfollowbyplacingb= 2onanintervaloflengthπ                     ¯b/2adjacenttoeitherendof[0,π].
+  Fortheupperedge,thephaseobtainedwithλ= (1−µ               2)/2is
+
+                         r∗=    (1−µ    2)sinθ1+µ2+2µcosθ  ,   b∗= (1+µ)      2(1+cosθ)1+µ2+2µcosθ   , −1<µ<1.              (A3.4)
+
+Itsmomentsare⟨b∗⟩θ= 1+µand⟨b∗cosθ⟩θ=⟨r∗sinθ⟩θ= (1−µ2)/2,soitsatisfiesthenullandattainsthesupport
+bound.Reflectingb(θ)↦→b(π−θ),r(θ)↦→−r(π−θ)givestheloweredge:
+
+                            Λ0 =−4(1+µ),      Λ                2 = 1+µ± 1−µ  22 ,   S±(z) = −µ±z1∓µz .                (A3.5)
+
+TheendpointsfollowbycontinuityandgiveconstantS.
+  TheGramderivation.Let       q±=√1±cosθ    andc=Λ2+Λ0/4.Averaging(     q−,q+)T(q−,q+)⊗W  andusingN1 =0
+gives
+             ⎛−Λ    0/2−Λ        2    R−   Is   c            ⎞
+             ⎜⎜⎝    R−     2+Λ0/2+Λ  2 c  4/π−I     s⎟⎟⎠⪰0, R ±=⟨r(1±cosθ)⟩       θ, Is =⟨bsinθ⟩  θ.    (A3.6)
+                     Is        c           Λ  2  R+
+                     c             4/π−I     s  R+   2−Λ      2
+
+=== PAGE 13 ===
+                                                                                                                        13
+
+Theminorson(1 ,4)and(2   ,3)eliminatetheauxiliarymomentsandhavedeterminants −Λ0−2Λ2−Λ20/16and
+2Λ2−Λ20/16.TheirpositivitygivesthetwoparabolasinEq.  (13)  .Thustheweightsselecttheentriesneededforthe
+couplingbound;thefull4×4matrixisnotneededtoeliminateR         ±,Is.
+  Everyinteriorpointalsohasananalyticcompletion. Definec0 = 1+Λ0/4and c1 = 2Λ2 +Λ0/2;thelenssays
+|c 0|≤1,|c1|≤1−c 20.For|c     0|<1take
+
+                                       S(z)=   c0+ηz1+c   0ηz,   η=  c11−c     20∈[−1,1].                          (A3.7)
+
+At|c 0|= 1thecompletionisconstant.Thisprovesthatthelensistheexactanalyticcoefficientregion,notonlyan
+outerbound.
+
+
+                                            A3.2. Thefinite-nulltheorem
+
+  Extendanarbitrarymeasurablecutspectrumtothecirclebyrealreflection,andwriteˆ︁Sk =(2π)−1 ∫︁π
+                                                                                                        −πS(eiφ)e−ikφdφ.
+SinceReS= 1−b,ImS=r,andφ=π−θontheuppersemicircle,
+
+                 c0 =ˆ︁S0 = 1−⟨b⟩θ,  ˆ︁S−j   = (−1)  jNj,   cj :=ˆ︁Sj +ˆ︁S−j   = 2(−1)   j+1⟨cos(jθ)b⟩   θ.        (A3.8)
+
+Thec   jaretriangularcombinationsoftheEFTcoefficients;thefirstare
+
+                                 c0 = 1+ Λ04,   c1 = 2Λ2+ Λ02,   c2 = Λ02  + 8Λ43 .                    (A3.9)
+
+ImposeN1 =···=Nn = 0. Multiplicationby S,followedbyorthogonalprojectionontomodes0  ,...,n,actson
+polynomialsofdegreeatmostnthrough
+                                           ⎛c0     0···0⎞
+                                           ⎜⎜⎜⎝c1 c0 ···0⎟⎟⎟⎠,   I−T †nTn⪰
+                                     Tn =     ...   ...   ...  ...               0.                       (A3.10)
+
+                                             cncn−1 ···c0
+
+Theupperzerosarepreciselytheretainednulls.Multiplicationby|S|≤1andorthogonalprojectionarecontractions,
+provingthematrixinequality. Conversely,Schur’scoefficienttheoremsaysthatthisconditionissufficientforan
+analyticdisk-boundedfunctionwithcoefficientsc0,...,cn[47–49].Averagingacompletionwithitsreflectedconjugate
+enforcesrealanalyticitywhilepreservingthesecoefficients.Hencethefinite-nullmomentproblemandtheanalytic
+coefficientproblemhavethesameregion.
+  AtaboundarypointTnhasasingularvalueone.Letpbetheassociatednonzeropolynomial.Equalityinboth
+contractionsrequires|S|=1almosteverywhereand Sptobeapolynomialofdegreeatmostn.Ananalyticcompletion
+hasthesamecompressedmatrixandthereforethesameproductSp;itagreeswiththeoriginalspectrumalmost
+everywhere.Thespectrumisthusrationalinnerandhastheform
+
+                                                 q∏︂z−z  a
+                                    S(z)=e    iγ    1−¯z   az, |z a|<1,   q≤n.                     (A3.11)
+                                               a=1
+Realanalyticityrestrictsthezerosandphase.Interiorspectraneednotthemselvesbeanalytic;thetheoremguarantees
+acompletionwiththesameretainedcoefficients.
+  Onehigher-ordercheck.Atn= 2,for|c                  0|<1,Eq.(A3.10)isthelensplus
+
+                                           |c 2(1−c       20)+c   0c21|≤(1−c   20)2−c   21.                            (A3.12)
+
+Forexample,Λ                  0 =−4gives|8Λ4/3−2|≤1−4(Λ2−1)2and1  /2≤Λ2≤3/2. Thelastnullcannotingeneralbe
+omitted:S(eiφ) = sgn(cosnφ  )satisfiesthefirst n−1nullsandhas c0 =···=cn−1     = 0but cn = 4/π,whereasan
+analyticdisk-boundedfunctionwiththoselowercoefficientsobeys|c   n|≤1.
+
+=== PAGE 14 ===
+                                                                                                                                   14
+
+    Curve                 Constraintsandconstruction
+    Gray,bothpanels   0≤b               ℓ≤2andX            4 = 0;noreal-partorharmonicconstraint.
+    Purple,panel(a)       Fulldisk,X         4 = 0,andallH      j≥2    = 0;thesinglelimitingGramfamilyatβ= 1/40.
+    Orange,panel(a)       Thesamenulls;intersectthelimitingGramfamiliesforthesetBbelow,thenear-origin
+                                inequality,andthegrayg  2cap.
+    Blue,bothpanels       FulldiskandonlyH2 =X4 = 0;numericaldisksupportswithanalyticboundsonthe
+                                remainingspins.
+    Green,bothpanels      Theretainedbluesupports,theforward/nonforwardharmonicandcrossingsetsbelow,and
+                                thespecifiedresummedmatchingtestsandendpointcorrections.
+
+TABLEA1.Masslessfigureregistry.Acurveistheintersectionofitsretainedsupportinginequalities,notaclaimthatthefull
+constraintsethasbeenoptimizedexactly.NoGramcurveisshowninpanel(b).
+
+
+                                     AppendixA4:Masslessfour-dimensionalbounds
+
+  ThissectionspecifiesthecurvesinFig.3.Thecutoffisone,masslessloopcutsareomitted,andeveryevenspinis
+included.Putx=1/s,Lℓ=ℓ(ℓ+1), Nℓ=Lℓ(Lℓ−8),and ϕ=2arccosx     .Thecommonmeasureandcoefficientmaps
+are
+                                                            ∫︂1
+                                     ⟨F⟩=  ∑︂(2ℓ+1)
+                                            ℓeven            0 xFℓ(x)dx,   f  ℓ=r ℓ+ib ℓ,
+                          g0 = 128⟨rsinϕ+bcosϕ⟩,   g                                 2 = 16⟨b⟩,   g         3 = 16⟨(3−2L      ℓ)xb⟩,(A4.1)
+
+                             Hj =⟨rsin(jϕ)+bcos(jϕ)⟩=0   (j≥2),   X                                   4 =⟨︁Nℓx2b⟩︁= 0.
+
+Theg0mapfollowsbyeliminatingthefourth-ordercoefficientbetweentheordinaryandsquare-rootcontours.The
+firstordinarycontouranditstransferderivativegiveg 2andg       3.
+
+
+                                 A4.1. Nonforward,fractional,andcrossingequations
+
+  For−1≤t≤0,define At =1+t/2, Qt =s+t/2, Pℓ,t=Pℓ(1+2t/s),and ωt =eiϕtwith cosϕ t =2A2t/Q2t−1and
+0≤ϕ t≤π.Theharmonicandsubtractionrelationsare
+                                               ∫︂∞A2tPℓ,t
+                      Hj(t) = ∑︂(2ℓ+1)                Q3t    Im(ωjtfℓ)ds= 0,   j≥2,                         (A4.2)
+                               ℓeven            1
+                                                                ∫︂∞[︃Pℓ,t                         ]︃
+                         Gt = 128H      1(t)+8t     2∑︂(2ℓ+1)          sQt(s+t)  −   4s(s   2−t   2)bℓds=g       0.          (A4.3)
+                                                 ℓeven            1
+
+ThesameintegraldefinesH1(t),withoutsettingittozero; Hj(0)=Hj.Att =−1theapparentendpointpolecancels
+becausePℓ(−1) = 1forevenspins.Thusboth Hj(t) = 0and Gt−G   0 = 0arelinearequationsonthesamespectrum.
+TheiruserequiresthecontourandconvergenceassumptionsinAppendixA2.
+  Thefractionalcandidatesaredefinedwithoutadditionalunknowncoefficients:atordern,takeanylinearcombination
+ofCn(α,t)thatannihilatespolynomialsofdegreeatmost ninα[Eq.(A1.7)    ]. Inparticular,n+2equallyspaced
+admissiblepowersgivethe(  n+1)stfinitedifference.Todefineeachcrossingset,put ν=s+t/2andattotalEFT
+degreeDretaintherows
+                                     1                 ⃓⃓⃓⃓t=0,   n≥
+
+                                         t Cn(0,t)                  1,q≥0,2n+q=D.                     (A4.4)
+                                     q!∂q (1+t/2)       2n
+
+Matchthemtothecoefficientsofν2ntqinallmonomialsSpTrwithS =2ν2+3t2/2,T =−t  (ν2−t   2/4)and2   p+3r =D.
+Eliminatingtheircoefficientsdefinesthecrossingnulls. ThefirstisX4;thereareseventhroughdegreeeight,26
+throughfourteen,and35throughsixteen.AsetcalledX           4,X6retainsonlythosetwoequations.
+
+=== PAGE 15 ===
+                                                                                                                         15
+
+                                        A4.2. TheGramellipseanditslimit
+
+  Ateachspin,dν=xdxgivesreferencemomentsνk = 1/(k+2)andtheblockHankelmatrixinthemaintext.For
+harmonicconstraints,weightingthesecondcomponentofWby  √1−x     2insteadgivestheblocks
+                         (︄                                        )︄           ∫︂1
+                   Yk =ˆ︁Ik         ˆ︁Rk                              , ˆ︁Rk =             1−x     2rℓdx.       (A4.5)
+                           Rk  2/(k+2)−ˆ︁2/(k+4)−I             k +I k+2          0 xk+1√︁
+
+Forexample,H2 =∑︁ℓ(2ℓ+1)(8ˆ︁R3−4ˆ︁R1+8I4−8I2+I0)ℓ.Thematricesarefirstimposedseparatelyateachspin;
+theirunweightedreferencetracescannotbesummedoverinfinitelymanyspins.
+  Foranall-spinGramboundchoose0  <β<1/12and  qℓ= 1+βNℓx2> 0.Crossingfixes⟨qℓb⟩=g2/16.Usethe
+vectors
+                                     √(︃1)︃               (︃cos(jϕ))︃
+                                       qℓ     ,   q−1/2              , j=0,...,N.                        (A4.6)
+                                           0         ℓ      sin(jϕ)
+
+Theirmixedentriesareg     2/16,g      0/128,H        2,...,HN.Since0⪯W⪯2I,enlargingtheremainingblockgives
+         (︃g2/16h  TN )︃                                                         ∫︂π
+            hN    2TN    ⪰0, h  N = (g 2/16,g      0/128,0,...,0)    T,   (T N)ij = 1π
+                                                                                   0 fβ(ϕ)cos[(i−j)ϕ]dϕ.  (A4.7)
+ThematrixhassizeN +2. Tomakeitsreferenceblockexplicit,use Nℓ≥(37/39)L2ℓforℓ≥12andboundthe
+decreasingremainingspinsumbyanintegral:
+                ∑︂2ℓ+1                                  2ℓ+1           arctan[1/(110 √γy)]
+                     1+βNℓy≤S β(y) :=   ∑︂1+βNℓy + 2546                        √γy    , γ= 37β/39.      (A4.8)
+               ℓeven                        ℓ=0,2,...,10
+Thenfβ(ϕ) =πsinϕSβ((1+cosϕ  )/2)/4.Multiplicationbythepositivematrix[            cos((i−j    )ϕ)]provesthatthisisan
+upperreferenceblock,includingeveryspin.TheSchurcomplementofEq.(A4.7)gives
+                                               (︃g2/16  )︃
+                            (g 2/16,g      0/128)Q    N    ≤g   2/8,   Q N = (T−1    0,1},{0,1}   .                (A4.9)
+                                                 g0/128                          N  ){
+
+  Thelimitfollowsfromtheouterfactorofthepositivereferenceweight,ratherthananextrapolationoffinitematrices.
+Define
+                                   ∫︂π                                       ⎡                ⎤
+                           λj = 1π                                           ⎣λ02  +∑︂λjzj⎦.               (A4.10)
+                                    0  logf  β(ϕ)cos(jϕ)dϕ,   h(z) = exp             j≥1
+
+Itobeys|h (eiϕ)|2 =fβ(ϕ).Thefirsttwocoefficientsof1 /haree−λ0/2 (1,−λ 1);factorizationoftheinfiniteToeplitz
+matrixthereforegives
+                (︃1 −λ  1      )︃                                                         16λ      1,64,2048e      λ0)
+    Q∞=e−λ0       −λ1  1+λ21     ,   g20 +B βg0g2+C βg22≤D βg2,   (B β,Cβ,Dβ) = (−               1+λ21    .  (A4.11)
+
+Forβ=1/40thisisthepurpleellipse,withcoefficients(4  .98678154...,57.02223326...,10825.06353585...).These
+integralsdefinetheexactcoefficients;roundeddecimalsinthemaintextillustratethem. Thereferenceestimate
+remainsinplace,sothisisthelimitofthisGramfamily,notthefullallowedregion.
+  Thecombinedanalyticcurve.TheorangecurveintersectsEq.(A4.11)for
+
+                                      B={i/49152 :1≤i≤4095}∪{1/40,1/15}                     (A4.12)
+
+with
+
+                        |g 0|≤8g2+64√︁2K∗g2,      0≤g      2≤16(6+ √60Σ) = 125.339148...,             (A4.13)
+
+where
+ Σ = ∑︂2ℓ+1                                          33)/4)−ψ((9+    √33)/4)                 10log2+6Σ.(A4.14)
+
+      ℓ≥4,even   Nℓ =ψ(2)+ψ(5/2)−ψ((9−      √16                ,   K∗= 91/12−
+
+=== PAGE 16 ===
+                                                                                                                             16
+
+Hereψisthedigammafunction.Forthefirstinequalitychoose√q(1,0)Tandx√1−x     2(0,1)T/√qatβ= 1/24.The
+diagonalentriesareg2/16andatmost2    K∗,whilethemixedentryRobeys|g 0−256R|≤8g2.Itsdeterminantproves
+theclaim.Thelow-spinreferenceintegralis91 /12−10log2andtheremainingsumisboundedby6Σ.The    g2cap
+followsfromboundedabsorptionandX4 = 0alone:itisattainedby b0 =b2 = 2and bℓ≥4    = 21x2<√60/Σ/N        ℓ.Neither
+extrainequalityusesaharmonicnull. ThustheentireorangecurvehasexplicitGramorabsorptiveinequalities;
+evaluatingthereferenceintegralsforplottingintroducesnooptimizationofnullmultipliers.
+
+
+                          A4.3. Extremalmeasuresandtheplottednumericalenclosures
+
+  Foradirectionag0/128+bg2/16+cg3/16,thebluecurvesadd  λH2−ηX4,withλ∈R   andη>0.Thekernels
+andresultingsupportare
+                                                  Uℓ=asinϕ+λsin2ϕ,
+                                                  Vℓ=b+acosϕ+c(3−⟨︃2L              ℓ)x+λcos2ϕ−ηN      ℓx2,⟩︃            (A4.15)
+                                                               √︂
+                      ag0/128+bg     2/16+cg     3/16≤    Vℓ+     U2ℓ+V    2ℓ .
+
+Everychoiceofmultipliersisvalid;optimizingthemimprovesthesupport. Thetwopanelssetc = 0and a = 0,
+respectively. Thegraycurveinpanel(b)insteaduses2  ⟨︁[16n    2+16n    3(3−2L    ℓ)x+λN ℓx2]+⟩︁asthesupportfor
+n2g2+n3g3,where[   z]+ = max(z,0).Itretains260savedsupportsandthepositivityrays g3≤3g2andg3≥−CPg2,
+whereCP  = (9 +√︁2989/20        )/2. Inpanel(a)thesameassumptionsgivethegraystripinEq. (A4.13)     ,withg0
+unrestricted.
+  Forcompleteness,thebluesupporthasauniformspinremainder.LetEbethefirstomittedevenspin,LE =E(E+1),
+andput
+                   k= 1−8/L    E, k′=k− 4|a|+16|λ|                                2c+3|c|/L             E,
+                                  ∫︂∞              ηL2E   >0, t     0 =b−a+λ, d=−                                       (A4.16)
+
+                            J= 2                                                 4aλ/3+4λ           2/3.
+                                    0 y[t   0+dy−ηk  ′y2/2]  +dy,   A=a      2−
+Theomittedsupportisatmost    (︃                      )︃ψ1(E/2)−ψ        1((E+1)/2)
+
+                                             J+ Aηk                  4        .                           (A4.17)
+
+Hereψ1 =ψ′isthetrigammafunction.ThisfollowsbysplittingoffhalfofηNℓx2fromV andusingV +√U2+V    2≤
+2[V +D]+ +U2/(2D), D =ηNℓx2/2. Theremainingelementaryintegralis J;∫︁1
+                                                                                           0U2dx/x =Aandthespinsum
+isthedisplayedtrigammacombination.Thetwobluepolygonsretain385and579half-planes,withexplicitspins
+through512and1024,respectively. Theircoordinaterangesare−606.389 ≲g   0 ≲ 491.048,   g2 ≲ 124.527,and
+−735.809≲g                     3≲30.701.
+  Themany-nullandresummedsets.Let     R(s,t)denotetheleftsideminustherightsideofthemasslessreal-part
+dispersionrelation(A2.5)    ,includingitssubtractionconstant.IntegratingR = 0withtheweightsbelowdefinesall
+resummedmatchingequations.Thegreencurvesretainthefollowingfamilies;thecountsdescribeaunion,notits
+rankorasinglejointoptimization.
+   1.TheinheritednonforwardsetcontainsHj(0)for2  ≤j≤1552,   Hj(−i/  16)for2  ≤j≤1536and1   ≤i≤16,the
+      16differencesG−i/16 −G   0,all26crossingnullsthroughdegreefourteen,and∑︁                          2 Hj(0) = 0.Thisis
+                                                                                             j≥2   (9/10)j−
+      26,154recordedidentities.TheseparateforwardbenchmarkusesH       2,...,H48,X 4,X6,and94thirddifferences
+      atn= 2,t= 0,α=i/128,0≤i≤96,givingg                                                           2≲116.186.
+   2.Toimprovetheg         0boundary,use
+                 ∫︂B    ∫︂1         1)/(B−1)−1)
+               2                           B−1         PJ(χ)R(s,−s(1−χ)/2)= 0, B=1999/1000,     (A4.18)
+                  1 ds    0 dχPn(2(s−
+      withn = 0,...,95and  J = 0,2,4,6,8.These480equationsconsistofonesubtractionreconstructionand479
+      homogeneousrelations;X4 =0isalsoretained.Here Jisatestindex,notacutoffonphysicalspin.Theexternal
+      transfersliein[−0.9995,0],whiletheinternalspectralintegralextendstoinfinity.Theplottedsupportsinclude
+      theearliern≤31setandre-evaluatedmixturesoftheretainedweights.
+
+=== PAGE 17 ===
+                                                                                                                                  17
+
+   3.Fortheg         2–g  3arc,retainEq.(A4.18)withn= 0,...,15,andadd
+          ∫︂B     ∫︂0
+                           B−A   Pn(2y−1)30v                  2(1−v)         2Pk(2v−1)R(s,t)= 0, y=         s−AB−A  ,v=−t,      (A4.19)
+           A ds    −1 dt 6y(1−y)
+      for[ A,B]=[1,4],[2,8],[4,16],[8,32],  n=0,...,7, k =0,...,5.Thereare80+192= 272matchingequations,
+      togetherwithX        4 = 0;29evaluatedsupportsareretained.
+   4.Theupperg2 supportaddsrationalharmonicsumsatti  =−(2i + 1)/32,  i = 0,...,15. For  p = 1,2,
+      r= 13/20,9/10,and(δ,σ) = (0,c),(π/2,c),(π/2,s),(π,c),set
+
+     A±(ω) =     ω2(1−re  ±iδω) p, Sc =A++A−2  , Ss =A+−A−2i   , F(ω) = (1−r)       p[Sσ(ω)−S    σ(−1)ω      2].  (A4.20)
+
+      ReplaceωjtinEq.(A4.2)     byF(ωt).Thisdefines256nulls.Eachisaconvergentsumstartingat H2;thelast
+      termcancelsitsleadinghigh-energycontribution. Thesenullsimprovearetaineddegree-fourteenendpoint
+      supporttog   2≤68.3867533.
+   5.Theupperg3supportaddscrossingequationsofdegrees9–20(50rows). Itssaveddegree-32replayretains
+      all148rowsofdegrees9–32;coefficientsabovedegreetwentyarebelow10−42  anddonotchangethequoted
+      g3≤17.94753.
+Theretainedfractionalrefinementsalsoinclude45finite-differencenullswithn = 2,3,4,6,8, t = 0,−1/2,−1and
+powerintervals[0 ,3/4],[0 ,n−21/20],[ −2/5,n−21/20];eachintervalhas  n+2equallyspacedsamples.Theyandthe
+forward97-powersetareredundantinthefinalgreenpolygons.Theymustnotbeidentifiedasthesourceoftheir
+activeresummedboundarysegments.
+  Theretainedgreencoordinaterangesare−173.32≲g   0≲ 24.85,0 ≤g   2≲ 68.387,and −338.25≲g   3≲ 17.948.All
+omittedspinsarebounded,notdiscarded.Thenewresummedg0supportboundsthetailfromspin130;thearcand
+rationalendpointtreatspinsthrough1024and2048andboundtheirrespectivetails.Finite-headintegralsandsign
+checksarenumerical,withresolutionchecksandguards;thesearenumericalenclosures,notintervalcertificatesor
+proofsofboundaryattainment.Savedsupportdirections,multipliers,andreferenceintegralsintheaccompanying
+datafixtheplottedpolygons.
+
+
+                                     AppendixA5:Massivefour-dimensionalbounds
+
+  WeusethenormalizationandmeasureinEq.(24)  ;throughoutthissectionQ =s−4/3, bℓ=Imf  ℓandrℓ= Ref  ℓ.
+TableA2identifiesthecalculationsshowninthetwomassivefigures.Unplottedcouplingsarefree.
+
+
+                                         A5.1. Couplingmapsandnullequations
+
+  ThecoefficienteliminationofA1,att = 4/3,givesEq. (25)  . Indeedtheconstantandquadraticcoefficientsof
+M/(32π)inz= 3Q/8areg                                       m0 and128g             m2/9,respectively.Moregenerally,
+                                       ⟨︃pℓ      ⟩︃                              4))
+                                 I∗k =    Q2kbℓ                                    Q3    >0.                   (A5.1)
+                                                  m = 2kgm2k+2 ,   pℓ=Pℓ(Q/(s−
+Heregm2n multiplies( ¯s  2+¯t2+ ¯u  2)n;theothercrossinginvariantvanishesonthisline.Thusabsorptivepositivityalone
+implies
+                                             (︃gm2    2g  m4)︃
+                                               2g  m4   4g  m6⪰0,      (g        m4 )2≤g   m2gm6.                            (A5.2)
+
+Thisdoesnotusetherealpartorboundthesubtractionconstant.
+  FortheforwardrepresentationdefineF= 32/(s−2)                           3andcosϑ         m = 8/(s−2)           2−1.Then
+
+                            H1 =⟨FIm(e    iϑmf)⟩m,   ˜︁Hj(0) =⟨FIm(e    ijϑmf)⟩m = 0   (j≥[︃1 (︃Q2),   )︃]︃
+
+                         gm0  =H   1+⟨C  ℓbℓ⟩m,   Cℓ=             8(3s−8)(3s−4)  s−2 −4sPℓ       s−4      .             (A5.3)
+
+=== PAGE 18 ===
+                                                                                                                     18
+
+TheforwardH1isnotthesymmetric-pointmoment9gm0/512. Matchingtheirtworeconstructionsisananalytic
+relation;finitesetsofforwardandsymmetric-pointnullsareconsequentlydifferentrelaxations.
+  Forreproducibility,thetransfer-dependentequationsare
+
+                              Hj(t) =⟨F   tPℓ,tIm(ωj˜︁tfℓ)⟩m = 0, j≥2,
+                                 Gt =⟨F  tPℓ,tIm(ωtfℓ)−(P  ℓ,tKA+P ℓ,∗KB)bℓ⟩m =g   m0,                    (A5.4)
+
+where
+
+                                  Qt =s−2+t/2, A       t = 2+t/2, F    t = 8A  2t/Q3t,
+                           (︃          )︃                                           (s−4)(s+t))                   2
+                  Pℓ,t=P ℓ1+   2ts−4     , Pℓ,∗=P ℓ(Q/(s−4)), ω       t = (At+i√︁Q2t       ,                     (A5.5)
+
+                         KA =  2Qt−1Q−    1s−8/3+t    ,   KB =    1s−t     +        1s−8/3+t   −2Q.
+
+
+InparticularG4/3    =G0and˜︁Hj(4/3) = (512/9)H∗j.Theseformulasrequirethecontourandconvergenceassumptions
+inA2;onecannotextrapolatethempastacollisionofthetwocuts. Att = 0theallowedfractionalpowersare
+−1/2<α≤n−1.Transferderivativesrequirelocallyuniformconvergence.
+  Thefirstcrossingequationis
+                                ⟨︃[︃2P′′                    ]︃⟩︃
+                          X4 =˜︁        ℓ(Z)                  bℓ    = 0,   Z=Q/(s−4).                (A5.6)
+                                   Q3(s−4)       2−3P′ℓ(Z)Q4(s−4)m
+
+HighercrossingequationsusethecoefficienteliminationinA4,replacing(1+  t/2)2n inEq.(A4.4)     by(2+ t/2)2n
+andevaluatingthederivativesatt = 4/3.Set ν=s−2+t/2, w =t−4/3,andusethegenerators2       ν2+3w2/2and
+−w  (ν2−w   2/4).Allindependentequationsthroughdegreeseightandsixteennumbersevenand35,respectively.For
+thederivativenullsbelowset
+
+                                 Q2 =∂2t(Gt−2 ˜︁H2+˜︁H3)|0,
+                                 Q3 =∂3t(Gt−4 ˜︁H2+6˜︁H3−4 ˜︁H4+˜︁H5)|⃓⃓⃓⃓⃓0,
+                                          2p−2∑︂             )︃                                                  (A5.7)
+                                Dj,p =∂p       (−1)  q(︃2p−2  Hj+q   (t)˜︁,   p= 2,3.
+                                         t               q
+                                           q=0                         0
+
+Theyallvanish.Thefinitedifferencesinsertthresholdzerosbeforedifferentiation,reducingtheendpointsingularities.
+
+
+                                  A5.2. TheforwardGramfamilyanditslimit
+
+  Ateachspin,theforwardchangeofvariablex= 2/(s−2)gives
+                                  x(1+x)                    [︃(︃k+2      )︃     (︃k+3     )︃]︃
+                        dµm = 4π√1−x     2dx,   µmk  = 2πB         2 , 12   +B      2 , 12    .              (A5.8)
+
+HereB(a,b)istheEulerbetafunction.ThustheblockHankelandintervalconstructionofA1appliesunchanged,
+withthesereferencemoments.Thefollowingweightsputthecouplingandharmonicmomentsdirectlyintoasmaller
+Grammatrix.Lete  j = (cosjϑ    m,sinjϑ   m)Tandchoose
+                                 (︃1)︃
+                       ψ0 =√pℓ0      ,   ψj = F√pℓvj,   vj =e   1+(−1)  jej, j=2,...,N.             (A5.9)
+
+
+Themixedentriesof⟨ψTiWℓψj⟩m areH1 + (−1)j˜︁Hj(0) =H1. SinceWℓ⪯2I,itsremainingblockisatmost
+2⟨(F      2/pℓ)[v i·vj]⟩m.Toboundthisknownreferencematrixincludingeveryevenspin,use
+                                   ∑︂       2ℓ+1        1+    5(s−4)         24)         2
+
+                                  ℓeven Pℓ(Q/(s−4))   ≤          Q2      + 3(s−32  .                      (A5.10)
+
+=== PAGE 19 ===
+                                                                                                                            19
+
+Thefirsttwotermscoverspinszeroandtwo;thepositivequadraticTaylortermofPℓand∑︁ℓ≥4,even     (2ℓ+1)/[ℓ(ℓ+
+1)(ℓ−1)(ℓ+2)] =1/24boundtheremainingsum.Consequently
+                             (︃gm2 H11T)︃
+                                             ⪰0,   H      21≤2K  Ngm2,   KN = (1TT−1           1 ,                (A5.11)
+                              H11 2T  N                                                  N  1)−
+
+whereT    Nhasindicesi,j= 2,...,Nand
+                                                        ∫︂1 w(x)D   ij(2x   2−1)
+                                           (TN)ij = 1π           √1−x     2   dx,
+                                                         0
+                              w(x) =       16(x+1)(x+3)          660x          3+426x      2−36x+27),                  (A5.12)
+                                             27x              (371x        4−
+                              Dij(c) = 1+(−1)   jTj−1   (c)+(−1)   iTi−1   (c)+(−1)   i+j T|i−j|(c).
+
+HereTj(c)isaChebyshevpolynomial. Each Dij(2x2−1)hasafactor x2,soallentriesconvergeandarerational
+linearcombinationsof1and1    /π.ThecorrectioninEq.(A5.3)     satisfies−128pℓ/27≤C ℓ≤−64pℓ/27;itsratioto  pℓis
+affinein1/P  ℓ∈[0,1],soitsufficestocheckthetwoendpoints.EliminatingH                                1proves
+                                   −128           2KNgm2≤g   m0≤−64               2KNgm2.                     (A5.13)
+                                      27gm2−√︁                         27gm2  +√︁
+Inparticular
+
+        K2 = 449627   + 51845π  = 496.5422085...,   K                    4 = 286.0222386...,   K                    32 = 235.8219144....     (A5.14)
+
+TheinverseinEq.(A5.11)specifieseveryfinite-orderconstantexactly.
+  Thelimitalsohasanexactexpression. Withζ=−e iϑm,alinearcombination∑︁Nj=2ajvjwith∑︁aj = 1equals
+eiϑm(1−ζ)Q(ζ),where Q(0)= 1and  degQ≤N−          2.Thus KNistheleastweightednormofsuchpolynomialsonthe
+circle.Factoringthepositiveweightgives
+                      [︃1∫︂π              ]︃
+          K∞= exp      π                    = 233.7516883972...,   V(η) = 2x                                   2w(x), x= sin(η/2).       (A5.15)
+                           0  logV(η)dη
+ThepolynomialinwhaspositiveBernsteincoefficients(27 ,18,80,48,128);hence   V> 0awayfromtheintegrable
+endpointzeroand logV   isintegrable. Jensen’sinequalitygivesthelowernormboundinEq.(A5.15)     ;polynomial
+approximantstothereciprocalouterfactorattainitintheweightednorm.ThisalsoprovesKN↓K∞,withoutfitting
+finiteorders.Thelimitretainsthereferenceestimatesandisnottheexactscatteringregion;inparticularitleavesgm2
+unbounded.IncreasingNhereaddsbothmatrixrowsandnulls.
+
+
+                                    A5.3. Thenine-and28-nullmatrixenclosures
+
+  Theorangeandbluecurvesarefinite,verifiedconsequencesoflargermomentsystems.Theirnullsetsare
+
+                     N9 ={G ′0,˜︁H2,...,˜︁H6,˜︁H′2,˜︁H′3,˜︁X4},
+                    N28 ={G ′0,˜︁H2,...,˜︁H8,˜︁H′2,...,˜︁H′6,Q 2,Q 3,Dj,p :j= 2,3,4,p=2,3}∪X  ≤8 .         (A5.16)
+
+Allharmonicsandderivativeshereareatt = 0;X≤8  comprisesthesevencrossingequationsofdegrees4,5,6,7,7,8,8.
+Thecountsrefertonullequations,notnumbersofpositivematrices.
+  ThecommonsmallGramconditionusestheweights√pℓ(1,0)T,u(0,1)T/√pℓand2  ucosϑ     m(0,1)T/√pℓ,with
+u= 128√︁s(s−4)/(s−2)                      5.Itsexplicitconsequenceis
+                                                ⎛gm2 R0 R1     ⎞
+                                                ⎝R0  2k  0  2k  1⎠⪰0,
+                                                  R1  2k  1  2k  2
+                        R0−39g        m2≤g   m0≤R   0+ 1984                                                            (A5.17)
+                                                     27gm2,   gm0≤R   0−14R1+ 147227gm2,
+           k0 = 2(63945π+1176928)                π−9293)                         π+16523840)
+                         8505π       , k1 = 128(1386093555π       , k2 = 4(1378377243243π         .
+
+=== PAGE 20 ===
+                                                                                                                                           20
+
+HereR0 =⟨ur⟩mandR1 =⟨2ucosϑ     mr⟩marethetwomixedentries,ratherthanthemonomialmomentsofA1.
+Lower-casekidistinguishthesethreeconstantsfromthesequenceKN. Thetwoupperestimatesandtheirlinear
+combinationsgive                                   [︃                                                     ]︃
+                                                     1984+2048λ             √︂
+                                gm0≤min−                                       2(k   0+2λk1+λ2k2)g m2       ,
+                                       1/4≤λ≤0             27   gm2  +                                                               (A5.18)
+                                gm0≥−39g  m2−√︁2k  0gm2.
+Theorangecurveintersectstheseinequalitieswiththefollowingrefinedsupportinginequalitiesn                     0gm0  +n   2gm2≤C:
+                                  (n 0,n2)           (0,1)          (−1,0)             (1,8)        (1,−8)
+                                     C       14.41696584  76.08099546  44.15328194  2.74237561                                       (A5.19)
+                                   (n 0,n2)          (1,4)       (−1,−5)           (1,0)     (−1,−8)
+                                       C      5.57336926  11.20275346  3.38346476  2.83618782
+Theseconstantsareroundedupwardsfromfiniteelementaryreferenceintegrals. Theyreplacetheweaker,earlier
+nine-nullcosts.
+  Hereisthematrixconstructionbehindtheselinearconsequences. Foracouplingdirectionandnullmultipliers,
+writetheintegrandasUr+Vb.Areferencefunctionhgivesaboundwhen(︃h−)︃
+                                  C=       2V−U            ⪰0,               1        0.                 (A5.20)
+                                            −U   h                     2 tr(CW)=h−Ur−Vb≥
+
+Aftertheknowndenominatorsandsquarerootsareremovedbypositivecongruences,theentriesarepolynomials.The
+retainedcoefficientswerefoundnumerically,maderational,andtheirpositivityverifiedexactlyonintervalsusing
+Bernsteincoefficients.Thusverificationofthepublishedinequalitiesrequiresnooptimization,althoughtheirdiscovery
+did.
+  Equivalently,retainmatrixmomentsY r,kforeachpolynomialsectorrandimpose
+                                        [Yr,i+j    ]dri,j=0 ⪰0,      [Y   r,i+j+1 −Y r,i+j+2     ]dr−10.                     (A5.21)
+                                                                                          i,j=0 ⪰
+Thesecondmatrixenforcesintervalsupport.PairingacoefficientpolynomialP =∑︁Pkξkwiththemomentsmeans
+Lr(P) =∑︁ktr(PkYr,k);thecouplingandnullkernelsimposelinearequationsonthesefunctionals. Thenine-null
+systemhas84positivematrices.For28nulls,spins0   ,2,4,6,8areseparate,andtheorder-eightLegendreexpansion
+retainsapositiveremainder.Forℓ≥10putw=20/[ℓ(ℓ+1)]≤2/11anduse
+                                          A:   (x,w) = (ξη,2η/11), D    A = diag(η−5 ,1),
+                                          B:   (x,w)= (ξ,2ξη/11), D    B = diag(ξ−5 ,1).                          (A5.22)
+
+Bothchartshaveξ,η∈[0,1].ExpandingthetransformedmatricesintheBernsteinbasisin ηgives45and11coefficient
+sectors,respectively.Thefiveseparatespinshavedr = 19,19,20,21,23;thechartordersare⎧⎪⎪⎪⎪⎪⎪⎨
+                     ⌈(k+10)/2⌉,  0≤k≤14,
+                     12,                  15≤k≤19,
+          dA,k =   ⎪⎪⎪⎪⎪⎪⎩⌈(k+5)/2⌉,    20≤k≤38,              (dB,k)10k=0  = (15,16,17,18,18,19,20,21,22,22,22).      (A5.23)
+                     22,                  39≤k≤41,
+                     23,                  42≤k≤44,
+Sevenscalarorder-sevensequencesretaintheLegendreremainder.Fivereference-slacksequencesaddscalarmatrices
+oforders12and11.Thusthenewsystemhas146positivematrices;retainingthenine-nullmatricesandEq.(A5.17)
+gives231matrices,ofsizeatmost48  ×48.Theindependentauxiliarysectorsrelaxcorrelationsbetweenthephysical
+measures,andthereforegiveanouterregion.
+  Thereference-slackconstantsarefixedby
+                         ∫︂π/2
+              µc,k = 1π                                 24,   B(x) =                           (1+x)     4(3−x)         4(3+x)     8312       ,
+                           0     (sinθ)   krc(sinθ)dθ,   0≤k≤
+                                                 1)
+       rℓ(x) =    (2ℓ+1)x(1+x)(1−x)                             max(0,ℓ−B(x)                                (ℓ= 0,2,4,6),   r                 tail(x) =  x(1+x)(1−x)                    7B(x)      S128(x),(A5.24)
+
+                          SL(x) =   ∑︂              400(2ℓ+1)
+
+                                     ℓ=8,10,...,L[20+xℓ(ℓ+1)]           2 +            400(2L+5)(4L+6)x[20+xL(L+1)]         .
+
+=== PAGE 21 ===
+                                                                                                                                     21
+
+Thelasttermboundseveryremainingspinbyatelescopingsum;u=tan(θ/2)makeseachintegralrationalandhence
+elementary.Foreachgroupc,imposepositivityandintervalpositivityonsc,k =µc,k−∑︁r∈c Lr(Dr,k),where Dr,kis
+itstransformedreferencekernel.Therationalkernelarraysandtheirdegree/ordercataloguespecifytheselinearmaps
+intheaccompanyingsourcedata.
+  Apolynomialcertificatewithintheseordersisapositivelinearcombinationofthematrixconditionsandnull
+equations.Itsreferencecostthereforeprovesalinearcouplinginequality.Thebluecurveretains69verifieddirectional
+consequenceswithg        m3 freeandintersectsthemwiththenine-nullenclosure.Inparticular,
+
+                                −26.40757956≤g                              m0≤3.05758125,      0≤g                               m2≤4.36947880.                 (A5.25)
+
+Theconstantsareroundedoutwardsafterdirectedintervalevaluationoftheirelementaryexpressions.Theseplotted
+consequencesneednotexhaustthefullprojectionofthemomentinequalities.
+
+
+                             A5.4. Extremal-measureenclosuresandtheirconstraintsets
+
+  Forthetwo-nullexample,usethekernelsofgm0,gm2,˜︁H2(0),˜︁X4inthedisksupportofA1andimposeonlythetwo
+nulls.Thenumericalupperendpointisgm0≃4.343.Unbounded  gm2 isnotanumericalartifact:settingrℓ= 0and,on
+ϵ<s−4<2ϵ,
+
+                                           b2 = 2,   b  4 =             4(s−4)         2
+                                                               9[7(s−4/3)             2+(s−4)       2]                          (A5.26)
+cancels˜︁X4pointwise.Scalarabsorptionoforder√ϵnears=5cancelstheremainingharmonic,while gm2∼ϵ−3/2   and
+gm0/gm2→−128/27.
+  Theunresummedcomparison.ThegreencurveinFig.5uses1,424equations:
+
+               Hj(0),  ˜︁˜︁H′j(0) (2≤j≤112),D         j,2  (2≤j≤111),D         j,3  (2≤j≤55), G     ′0,Q 2,Q 3,
+            35crossingequationsthroughdegreesixteen,   360pathequations,   640pathaverages.                                     (A5.27)
+
+Thefirstlinecontains389equations.ThepathequationsuseX=−(¯s              ¯t+  ¯t¯u+ ¯u¯s),Y= ¯s                   ¯t¯u,and
+
+                              Y−128/27=−a(X−16/3), X(s,a) =16/3+                                             (s−4)s           2
+                                                                                           s−4/3−a     .               (A5.28)
+
+EachrestrictedamplitudeisassumedanalyticintheXplanecutalong[16   /3,∞),withsufficientendpointbehavior
+forthestatedcontours.Thisisanadditionalpathassumption;itdoesnotfollowmerelyfromfixed-t2SDR.With
+z = (1−√︁1−3X/16          )/(1+√︁1−3X/16          ),takethevanishingrealboundaryaveragesof zk(1−z  )(1+z)2M(z),
+k= 1,...,24,at
+
+                                a∈{−169/100,−5/3,−19/12,−3/2,−17/12,−4/3,−31/24,
+                           −5/4,−49/40,−6/5,−52/45,−10/9,−389/360,−21/20,−1027/1000}.                                                                       (A5.29)
+
+Theremainingaveragesusezk(1+√︁1−3X/16          )−5 ,k = 0,...,39,andslopeweights(1 −y   2)2Pd(y), d = 0,...,7,on
+eachof[−5/3,−4/3]and[  −4/3,−13/12],affinelymappedto  y∈[−1,1].Theplottedenvelopecombines51retained
+kernels;itgives−14.898≲g                       m0 ≲2.818andg                    m2 ≲2.828.
+  Theresummedcomparison.ThebluecurveinFig.4retainspreviouslyacceptedinequalitiesandaddssmeared
+matchingequationsfromA2. DividetheresidualinEq.(A2.7)     by32πandcallitR(s,t),so R = 0. Theangular
+equationsuse
+                                                    (︃2(s−4)         )︃
+                           wn,B(s) =    14<s<BB−4   Pn  B−4  −1        ,   t(s,z) =−   12(s−4)(1−z),
+                                            ∫︂B              ∫︂                                                                (A5.30)
+                                   RBJn =                         PJ(z)R(s,t(s,z))dσ       J(z) = 0,
+                                             4 wn,B(s)ds       IJ
+                                (IJ,dσJ) = ([0,1],2dz)   (Jeven),      ([−1,1],dz)   (Jodd).
+
+=== PAGE 22 ===
+                                                                                                                                      22
+
+Theretainedangularsourcecataloguecontainsthefollowing198equations,includingthesubtractionreconstruction:
+                                                       B             J            n
+                                                 11999/1000        0,2,4      0,...,31                                           (A5.31)
+                                                 11999/1000       6,8,10      0,...,23
+                                                 15999/2000     1,3,5,7,9     0,...,5.
+
+OddJ labeltestingfunctions,notphysicalodd-spinpartialwaves. Only(   J,n) = (0,0)hasasubtractionterm;
+eliminatingthisonereconstructionleaveshomogeneousnulls.Thesesmearingwindowskeepalltransfersstrictlyabove
+−4.Thedispersivespectralenergystillrangesover4  <µ<∞;thisisnotanextensionoftheexternal-energyRoy
+domaintoinfinity.
+  Theaddedforwardbankusesω=eiϑm andF = 32/(s−2)3. ItspolynomialgeneratorsareF[ωj−(−1)jω2],
+j = 3,...,Jmax,withJmax = 1024forthebestupper   gm2 supportand2048forthebestlowergm0 support. Each
+complexkernelqdenotesthenull⟨Im(qf)⟩                m = 0.Therearealso48rationalgenerators
+
+                   Fω2[m(ω)−m(−1)],   m            c(ω) =           1−rcω1−2rcω+r                2ω2,   ms(ω) =      rω1−2rcω+r                2ω2,(A5.32)
+
+                          r∈{1/2,4/5,19/20},   c∈{−1,−3/4,−1/2,−1/4,0,1/4,1/2,3/4,1},
+
+usingmcforeverycandmsonlyfor|c|<    1.Thesubtractionat ω=−1improvesultravioletconvergence.Theseare
+convergentsumsofforwardharmonics,notnewassumptionsontheamplitude.Ninefractionalnullsare
+
+                                                          ∆n+1h Cn(α,0) = 0,
+                               (n,α,h)∈{(1,−7/16,1/16),(1,−15/32,1/16),(1,−7/16,1/32)}                                           (A5.33)
+                                       ∪{(2,a,1/8) :a=−3/8,−1/4,−1/8,0,1/8,1/4}.
+
+Allsampledpowersobey−1/2<α≤n−1.
+  Thecombinedsearchalsoretainsthesevenderivativecrossingrowsthroughdegreeeight,andfinite-pointcrossing
+equations.ThelatterequatethetwodispersivereconstructionsofM(a,b) =M(b,a)usingthekernelinA2.Forthe
+original38pairs,theallowedaateachbare
+
+                                                   b           a
+                                                  0            1/4,1/2,3/4,1,5/4
+                                                 1/4           1/2,3/4,1,5/4
+                                                 1/2           3/4,1,5/4                                                         (A5.34)
+                                         5/8,11/16,13/16       7/8,15/16,1,17/16,9/8
+                                                 3/4           7/8,15/16,1,17/16,9/8,5/4
+                                                 7/8           15/16,1,17/16,9/8
+                                                  1            5/4.
+
+An additional 46 pairs consist ofa  =  (4−b  )/2at b  =  3/2,7/4,2,5/2,3,4−2−k  (k  =  1,...,8); a  =  (4−
+b){1/10,1/4,3/4,9/10}atb = 3,4−2−k  (k = 1,...,6);and a = (4−b  ){1/10,1/4,1/2,3/4,9/10}atb = 14/5.
+Theircoefficientsarenumericallynegligibleinthefinaluppergm2 direction;themaingaincamefromtheangular
+andforwardequations.Candidatetestsnotretainedinanacceptedsupportarenotcountedasinputstotheplotted
+boundary.
+  Thefinalrefinementadds490acceptedsupportinginequalities:fivestandalonekernelsand315and170nonnegative
+combinationsofretainedkernels,eachintegratedagainovertheunitaritydisk.Thebestuppergm2 kernelvarieseleven
+angularsourcefunctionalsfromEq.(A5.31)     ,togetherwiththeforwardandcrossingrowsjustspecified;thelowergm0
+refinementchangestheforwardweightsatafixedacceptedangularcombination.Thesegive
+
+                                       −7.81702≲g                     m0 ≲2.72322,      0≤g                        m2 ≲1.05800.                      (A5.35)
+
+Nofittedcurveoramplitudeansatzisused. Earlieracceptedfixed-transferenclosuresareretained. Theseparate
+path-analyticityenclosureinFig.5isnotintersectedwiththisresult:theresummedcurveusesthefixed-transfer
+matchingequationsanddoesnotrequirethatadditionalpathcontinuation.
+  Everyomittedevenspinisboundedanalytically.Forthefinalcoordinatewitnesses,spins0   ,2,...,998areintegrated
+explicitly,withananalyticangularremainderandaweightedforwardGramremainderforspins1000andabove.
+
+=== PAGE 23 ===
+                                                                                                                                   23
+
+
+    Curve                   Exactfamilyofconstraintsandconstruction
+
+    Purple,Fig.5                Forward˜︁H2(0),...,˜︁HN(0),  N = 2,4,32,orall  j≥2;weightsandreferencematrixin
+                                   Eqs.(A5.9)–(A5.12).Nocrossingnullisadded.
+    Orange,Fig.5     N      9inEq.(A5.16)     ;thecurvedGramenvelope(A5.18)      andeightrefinedfinitecertificates
+                                   (A5.19).
+    Blue,Fig.5      N         28andthe231retainedpositivematricesdescribedabove.Plot:69certifieddirectional
+                                   consequencesintersectedwiththeorangeenclosure;notthefullmatrixprojection.
+    Green,Fig.5               The 1,424 equations in Eq. (A5.27)     , including the additional path analyticity in
+                                   Eq.(A5.28).
+    Blue,Fig.4                  Retainedearlierfixed-transferboundsandtheresummed/angular,forward,fractionaland
+                                   crossingfamiliesinEqs.(A5.30)     –(A5.34)     . Thefinal490supportinginequalitiesretain
+                                   theirrecordedspinremaindersandnumericalallowances.
+    Publishedprimal/dual     VectoroutlinesofRef.[36],with(   c0,0 ,c1,0  ) = (gm0,gm2 ).Thesebenchmarksusedifferent
+                                   constraintsandarenotinputstoouroptimization.
+
+TABLEA2.Massivecurvesandtheirinputs.Finitecertificatearrays,retainedspectralkernelsandindependentlychecked
+supportingcostsaresuppliedwiththesourcedata;all-spintailsareincluded.
+
+
+Positiveultravioletdisksupportisincludedintheseremaindercosts.Doublingtheupper-gm2 headquadraturechanges
+itby2.5×10−8 ;refiningitsfinite-spinremainderchangesitby1.1×10−7 .Thelower-gm0 headandbridgechange
+by3.6×10−6  and1  .5×10−6 ,respectively.Theacceptedsupportsretaina10−4  numericalallowance.Thesefinite
+integralsarenumericallychecked,notinterval-certified;neitheranattainingamplitudenorconvergencetothefull
+physicalregionisclaimed.

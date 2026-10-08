@@ -1,0 +1,11 @@
+# Review of the fresh269.5 complete assembly
+
+Reviewed `assemble_fresh269p5.py` and the exact diff between `banded_fresh269p5.py` and the earlier frozen banded driver. The banded changes are campaign paths, the angle choice and the strengthened compact-component filename; energy/spin coverage and local reciprocal-weight mathematics are unchanged.
+
+The complete assembler validates the same exact witness and objective for head, compact, UV and real-norm components. It rechecks the new compact margin against both400/512-bit analytic rectangle enclosures and every512/640-bit finite cell, preserving adjacent exact energy coverage and finite/analytic even-spin coverage. It reselects the minimum local coercivity across all204 finite spins for every retained real-norm energy cell, checks the exact upward reciprocal rounding, and recomputes each product and total. Thus the banded all-energy finite contribution replaces the old finite terms once; the infinite-spin compact and UV pieces remain separate.
+
+Head and real-norm validation use the reviewed generic helpers, now explicitly hash-bound. The exact source rebuild and algebra audit, fresh head source rebuild, witness selection/budgets and recorded command provenance are checked. The small Inputs subclass preserves every original hash check and merely permits command-list JSON roots, recursing through sha256_manifest only when a JSON root is a dictionary. No numerical or mathematical validation is bypassed.
+
+Normalization uses a rational lower bound on the exact direction norm from integer square root at256 binary places. The inequality sum is nonnegative, so dividing its outward decimal ceiling by this lower norm gives a conservative normalized support; it is then rounded upward again. This normalization does not alter the exact objective stored in the inequality.
+
+The only requested changes during review were explicit binding of the imported generic assembly helper and explicit paired analytic400/512 status/precision checks. Both were implemented before the first complete packet was written. No mathematical issue remains identified in this assembly review. This is internal source and exact-accounting review, not proof-assistant verification or an independent physical derivation.

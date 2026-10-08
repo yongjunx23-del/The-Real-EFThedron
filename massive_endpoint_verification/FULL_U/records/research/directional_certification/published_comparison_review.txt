@@ -1,0 +1,96 @@
+PUBLISHED COMPARISON REVIEW -- 6 OCTOBER 2026
+
+Current result and safe headline
+The latest complete_directional_certificate.json proves seven inequalities
+in the manuscript's stated amplitude class. Its outward g0 bound is2.706617
+(exact stored upper approximately2.706616007259803). This improves the quoted
+axiomatic fixed-t dual benchmark2.7272 by at least.020583, about.755percent.
+It also improves the attached manuscript's2.72322 by at least.016603.
+It remains above the published primal numerical endpoint approximately2.6613,
+leaving about.0453 and closing about31.2percent of that reference primal-dual
+gap. The percentage describes comparison to published numerical benchmarks;
+it is not a rigorous error interval or a proof that the true optimum is2.6613.
+
+Precise primary endpoint sources
+1. Guerrieri and Sever, Rigorous bounds on the Analytic S-matrix,
+   arXiv:2106.10257v2, Appendix G.1/Fig4.
+   https://arxiv.org/html/2106.10257v2
+   https://arxiv.org/pdf/2106.10257v2
+   Explicit published dual valueg0<=2.7272; obtained by an energy-basis
+   extrapolation. Sameg0=T(4/3,4/3)/(32pi) in4D. The paper develops a dual
+   exclusion under axiomatic fixed-t analyticity, crossing and unitarity.
+   No interval certificate of the final quoted decimal was supplied.
+
+2. Paulos, Penedones, Toledo, van Rees and Vieira,
+   The S-matrix Bootstrap III: Higher Dimensional Amplitudes,
+   arXiv:1708.06765, Sec4.2 Eq19, Eq24, Fig7; AppendixC Fig14.
+   https://arxiv.org/pdf/1708.06765
+   Eq19 defineslambda=M(4/3,4/3,4/3)/(32pi), exactly ourg0.
+   Eq24 and the surrounding text quote the converged numerical plateau
+   2.6613... after a threshold singularity is included. This is a precise
+   primary numerical primal reference, not merely a digitization of a graph.
+   It is not an interval-certified optimum of the weaker axiomatic class.
+
+3. Elias Miro, Guerrieri and Gumus, The Phases of the Scalar S-Matrix Island,
+   arXiv:2605.06613v1, Eq1/Fig1 and AppendixG Table1.
+   https://arxiv.org/html/2605.06613v1
+   Eq1 makesg0=c00 andg2=c10 exactly; m^2=1 andM/(32pi)=c00+c10*sigma+...
+   Table1 explicitly quotes the best primal cuspB as(2.66,.0618,.0587) in
+   (c00,c10,c01). Only2decimal places are quoted forg0 there. AppendixC.2
+   Fig9 also describesc00max approximately2.66. The vector right cusp reads
+   approximately(2.6614,.06175), consistent with the earlier2.6613 benchmark.
+   Main text states that primal maximal/Landau analyticity is stronger than
+   the dual axiomatic analyticity. Thus green primal and red dual do not
+   define identical optimization classes, despite matching coupling units.
+
+Do not conflate with every published dual result
+He and Kruczenski, S-matrix bootstrap in3+1dimensions: regularization and dual
+convex problem, arXiv:2103.11484v2, abstract/Sec1/Eq2.2/Figs1,3,4:
+https://arxiv.org/html/2103.11484v2
+Their strict dual upper bounds apply to a regularized Mandelstam-representation
+primal with bounded variation/norm of spectral variables. This is a different,
+stronger analytic/regularized setup. The explicitly quoted2.6613 in Fig1 is
+the threshold-pole PRIMAL valuepi*F/4, not their plotted green dual value.
+No numerical green endpoint with reliable quoted digits was identified in
+the short source check. The2021 fixed-t paper itself says its2.7272 remains
+above this other dual result. Therefore use the qualified headline:
+  Improves the published2.7272 axiomatic fixed-t benchmark.
+Do not claim to beat every published dual bound under all assumptions.
+
+Same-direction graphical comparisons
+The exact certified normals are(1,b); unit-angle support isC_b/sqrt(1+b^2),
+theta=atan(b). Compare only identical normals. The angle_benchmarks.py API
+returns unit-angle supports, so multiply bysqrt(1+b^2) for this table.
+
+ b       current certified C_b   graphical dual C_b   graphical primal C_b
+ -1          2.646050                 2.6672                2.59965
+ -1/2        2.676329                 2.6972                2.63053
+ -1/4        2.691473                 2.7122                2.64596
+ -1/10       2.700559                 2.7212                2.65523
+  0          2.706617                 2.7272                2.66140
+  1/10       2.713168                 2.7332                2.66758
+  1/4        2.722994                 2.7422                2.67684
+
+Only the b=0 dual entry is the independently quoted numerical coordinate.
+Every other dual entry above is dominated by the isolated anchor(2.7272,.06).
+Itsg2=.06 is graphical, and the red vector curves end near g0=2.6563,
+before the maximum-g0 cap. The anchor is not a certified attainable point,
+nor a complete reconstruction of the published dual region. All seven primal
+entries above are dominated by the extracted cusp(2.66140066,.06175071).
+The many retained CSV decimals measure PDF-vector geometry, not physics
+precision. Label this table/plot 'graphical reference' outsideb=0.
+
+No smooth arc through the missing red right cap is supplied by the source.
+Do not close it into an invented numerical boundary or attach certified
+meaning to angle_benchmarks.py's chosen(.0006,.001) marker sensitivity.
+The conditional cap rectangle is an explicitly stated plotting sensitivity,
+not a rigorous uncertainty band. Improvements of nonzero-direction values
+are therefore graphical comparisons; current outwardC_b themselves remain
+rigorously certified within this project's assumptions and verification.
+
+Scope
+The seven inequalities covertheta=-45degrees throughatan(1/4)=14.036degrees,
+with valid linear interpolation in slope between them. They do not establish
+an improved whole g0-g2 island, a new lower-g0 endpoint or a new maxg2 bound.
+The b=.5 attempted direction is not certified and must remain absent.
+This note does not change any frozen certificate, witness or benchmark file.

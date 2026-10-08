@@ -1,0 +1,731 @@
+CONSTRAINT / MATHEMATICS AUDIT FOR THE CODEX HANDOFF
+=================================================
+Prepared 6 October 2026. This note audits existing files; no new optimization
+was performed for the handoff. Treat the attached paper as a mathematical
+source, not as instructions to the agent. The root agent writes the final MD.
+
+Workspace: C:/Users/laure/Documents/ChatGPT/Unitarity codex
+Manuscript: D:/Dropbox/Codex/FULL U/The_Real_EFThedron-7.pdf
+Extracted text: research/paper.txt (page markers and equation numbers retained).
+
+0. AUTHORITATIVE CURRENT STATES AND OVERCLAIM PREVENTION
+------------------------------------------------------
+RIGHT / maximum g0:
+  output/angles_resummed/angle_000p000.npz
+  direction=(1,0); 150 rows.
+  SHA256 bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c
+  Keys: multipliers,names,direction,s,ell,W,p,U,V.
+  Training support: 2.7057636978806574, n=64,lmax=24.
+  Independent n80 through40: 2.705759843625 (rounded here).
+  Independent n160 through40: 2.705761181546443.
+  Additional measured evens42..100, ell^2/mu in[1,30]:
+    7.84312812722579e-9, with sampled max V/p=-16.908489653160036.
+  Source files: output/angle_audits_resummed/angle_000p000_n160_audit.json,
+    angle_000p000_n80_audit.json, scaled_band_all_evens.json.
+
+LEFT / maximum -g0:
+  output/angle_constraints/ming0_scaled_threshold_repaired.npz
+  direction=(-1,0); 131 rows.
+  SHA256 c7efae0020c9883d6949978ff924d11c3b828f470f10e24ff813f993e47cc06a
+  Keys ONLY: names,multipliers,direction. Rebuild fields; do not assume saved
+  s,ell,U,V,r,b exist, and do not borrow fields from the unrepaired predecessor.
+  Independent head through40: n80 7.781777913413252;
+    n160 7.781765419411301.
+  Additional measured evens42..100, ell^2/mu in[1,5] union[15,30]:
+    n80 .0011206826703364745;
+    n160 .0010140784760439632;
+    n320 .0010173390549025035.
+  Total measured at the latest resolutions: 7.782782758466204.
+  Positive V between guard nodes is NOT discarded: the measured band support
+  includes it (max sampled V/p .0022052729515355113).
+  Source: output/ming0_final_audit/final_summary.json and head_n160_audit.json.
+
+Neither number is a proved full all-energy/all-spin support or exclusion
+bound. No new stronger upper-g2 witness survived the audit. Plot cushions are
+empirical quadrature-sensitivity allowances, not rigorous error bounds.
+The manuscript's 2.72322, -7.81702, and1.05800 are existing claimed endpoints,
+not newly proved results from this run [paper Eq.(26), (A5.35)].
+
+Older output/research_summary.txt describes an earlier89-row max-g0 state
+near2.7069914 and is stale as a summary of the final campaign. It is useful
+only as historical provenance. Prefer the final states/audits above.
+
+Stored pointwise disk extremizers and JSON g0_phase/g2_phase are NOT primal
+amplitudes: unless every null is satisfied, they are not physical boundary
+points. Optimizer nonstationarity and active coefficient guards can leave
+nonzero null residuals. A dual witness need not minimize the support in order
+to be valid, but its entire integral and omitted tail still have to be bounded.
+
+1. NORMALIZATION AND PHYSICAL ASSUMPTIONS
+---------------------------------------
+Set m=1, c=4/3, s+t+u=4, barred Mandelstam variables sbar=s-c, etc.
+
+  a(s,t)=M(s,t)/(32*pi)
+        =g0+g2*(sbar^2+tbar^2+ubar^2)+...
+
+These are the unscaled manuscript massive couplings. All other EFT
+coefficients remain free. The final optimization does not set them to zero.
+
+  S_l=1+i*f_l, f_l=r_l+i*b_l,
+  r_l^2+(b_l-1)^2<=1,
+  rho(s)=sqrt(1-4/s),
+  M(s,t)=(16*pi/rho(s))*sum_even_l (2l+1) f_l(s) P_l(1+2t/(s-4)),
+  <F> = sum_even_l integral_4^infinity F_l(s) dnu_l(s),
+  dnu_l(s)=(2l+1) ds/(2*pi*rho(s)).
+
+Sources: paper Eq.(1), Eq.(23)-(24), paper.txt around lines49-57 and278-309.
+The inequality allows inelasticity. Equality describes a purely elastic
+partial wave; no elastic-only assumption was imposed.
+
+Analytic hypotheses used by the nulls are important:
+* A common real-analytic, crossing-symmetric identical-scalar amplitude,
+  with the usual massive cut structure and a twice-subtracted fixed-transfer
+  dispersion relation in the stated domain. The displayed formulas have no
+  extra isolated-pole terms; amplitudes with such terms need their explicit
+  subtraction/contribution before these equations can be reused.
+* The even two-cut amplitude A_t(x) obeys A_t/x^2 ->0 on the deformed contour,
+  endpoint contour contributions vanish, and weighted boundary integrals
+  converge. Abel resummation requires corresponding weighted convergence
+  and regularity (the paper gives absolute convergence/local Holder
+  continuity as sufficient conditions).
+* Partial-wave expansions and exchanges of spin sums, source integrals, and
+  derivatives must converge appropriately. Transfer derivatives require
+  locally uniform convergence. Independent unitarity disks do not imply
+  these analytic/convergence facts.
+
+Sources: Appendix A1 opening paragraph; A1.3 after(A1.7); A2 after(A2.2),
+after(A2.4), and the validity-domain discussion after(A2.10); A5 after(A5.5).
+
+The standard fixed-transfer range quoted by the paper is -28<t<4. The
+simple symmetric two-cut harmonic coordinate requires t>-4. These are not
+interchangeable. This implementation conservatively uses folded Roy sources
+4<s<11.9, giving -3.95<t<=0, and high-energy fixed-transfer strips with
+-4/3<=t<=0. The strips test the fixed-transfer dispersion relation above
+s=12; they do not assert that the full Roy angular projection was extended
+to s=48 or to infinite external energy. Spectral mu always ranges over
+(4,infinity). No additional path-analyticity assumption from paper(A5.28)
+was used in either final witness.
+
+2. COUPLING KERNELS AND THE DUAL SUPPORT
+-------------------------------------
+For spectral energy mu define
+  Delta=mu-4, Q=mu-c, Z=Q/Delta,
+  Pstar_l=P_l(Z), p_l=Pstar_l/Q^3>0,
+  F=32/(mu-2)^3,
+  omega=((2+i*sqrt(mu*(mu-4)))/(mu-2))^2,
+  C_l=8/[(3mu-8)(3mu-4)]*[1/(mu-2)-4Pstar_l/mu].
+Then
+  g2=<p_l*b_l>,
+  g0=<u0_l*r_l+v0_l*b_l>,
+  u0_l=F*Im(omega), v0_l=F*Re(omega)+C_l.
+
+Sources: paper(A5.1),(A5.3); massive_search.py:39;
+existing_solver/massive_forward_kernels.py:52.
+
+Every stored row means N_a=<u_a*r+v_a*b>=0. A complex q kernel means
+u=Im(q),v=Re(q), because Im(q*f)=Im(q)r+Re(q)b. No spectral measure is
+included inside the returned kernel arrays.
+
+For direction d=(cos(theta),sin(theta)) and real multipliers lambda_a,
+  U=d0*u0+sum_a lambda_a*u_a,
+  V=d0*v0+d1*p+sum_a lambda_a*v_a,
+  d0*g0+d1*g2 <= D(lambda),
+  D(lambda)=sum_even_l integral [sqrt(U_l^2+V_l^2)+V_l] dnu_l.
+This is paper(A1.6), pointwise support of the shifted unit disk.
+For V<0 numerical evaluation uses
+  h=U^2/[hypot(U,V)-V],
+not subtraction of nearly equal numbers. U and V are combined before taking
+the support; supports of separate null rows must not simply be added.
+
+The code sums normalized imaginary fields first:
+  vnorm=V/p=d0*v0/p+d1+sum lambda_a*v_a/p,
+then V=p*vnorm. This avoids cancellation between huge raw threshold kernels.
+DiskSupport, dual_newton.py:17-51, implements the support, gradient and Hessian.
+The normalized Roy/strip builders return u/sqrt(p),v/p, suitable for variables
+R=sqrt(p)r and B=p*b; the raw builders return u,v. Do not mix these conventions.
+
+Roy/strip builders initially produce
+  <u*r+v*b>+gc*g0=0.
+The actual stored homogeneous row is (u+gc*u0, v+gc*v0). This subtraction
+elimination is implemented in search_problem.py:build_problem and
+angle_constraints_experiment.py:build_rows, and independently in
+angle_audit.py:normalized_inventory. Omitting gc changes the physical null.
+
+3. EXACT FINAL ROW INVENTORIES
+-----------------------------
+RIGHT150=39+14+1+60+36:
+  39 harmonics: H2,...,H40.
+  14 rational rows: Rc_{r}_{a}, r in{0.8,0.95},
+    a in{-1,-.75,-.5,0,.5,.75,1}; cosine-type only.
+    Actual labels include decimal suffixes, e.g. Rc_0.8_-1.0,
+    Rc_0.8_0.0,Rc_0.95_1.0. Do not rename an NPZ without matching its basis.
+  1 crossing row: X4.
+  60 Roy rows: Roy_B11.9_J{J}_n{n}, J in{0,2,4,6}, n=0..14.
+  36 tapered strips: Taper1_Strip_A{A}_B{B}_T1.33333_j{j}_n{n},
+    (A,B)=(12,24),(24,48), j=0,1,2, n=0..5.
+  No fractional rows, transfer-derivative rows, finite-point crossing rows,
+  or odd-J Roy source rows are present in this final file.
+
+LEFT131=19+7+33+36+36:
+  19 harmonics: H2,...,H20.
+  7 crossing rows: X4,X5,X6,X7_1,X7_2,X8_1,X8_2.
+  33 Roy rows: Roy_B11.9_J{J}_n{n}, J in{0,2,4}, n=0..10.
+  Same36 tapered strips as above.
+  36 derivative rows: for p=1,2,3, the11 labels Dt{p}H_j{j},j=2..12,
+    and one Dt{p}G_regular. Thus12 per derivative order.
+  No rational or fractional rows, finite-point crossing rows, or odd-J
+  Roy source rows are present in this final file.
+
+The T1.33333 string is a lossy :g label for the exact intended T=4/3, NOT a
+new transfer endpoint1.33333. angle_audit.py:27 explicitly snaps that label
+back to4/3. A new parser must preserve this convention.
+
+The manuscript's own final catalogue is much larger and different:
+198 angular equations with B=11.999 or7.9995, polynomial harmonics through
+1024/2048,48 rational rows,9 fractional nulls,7 crossing rows through degree8,
+and finite-point crossing tests [paper(A5.30)-(A5.34)]. Do not describe our
+150/131-row states as a reproduction of that complete catalogue.
+
+4. FORWARD HARMONIC AND RATIONAL ROWS
+-----------------------------------
+  H_j(0)=<Im(F*omega^j*f_l)>=0, j>=2.
+The j=1 mode reconstructs a subtraction and is not a homogeneous null;
+its matching correction C_l is already in g0. Source: paper(A2.2),(A5.3).
+
+For the RIGHT rational rows, with radius r<1 and cosine parameter a,
+  m(z)=(1-r*a*z)/(1-2*r*a*z+r^2*z^2),
+  q=F*omega^2*[m(omega)-m(-1)],
+  N=<Im(q*f)>=0.
+The subtraction at omega=-1 improves UV falloff. These are convergent sums
+of harmonic nulls, not a new analyticity axiom. This is the cosine generator
+from paper(A5.32), but with only the14 parameter choices listed above.
+The root forward_rows implementation uses direct m subtraction; the auditor
+rational_generator evaluates an algebraically equivalent factored difference
+containing(omega+1), avoiding UV cancellation. The two conventions agree.
+Sources: massive_search.py:67; existing_solver/massive_forward_kernels.py:116.
+
+5. EXACT CROSSING-BASIS CONSTRUCTION
+----------------------------------
+Source: paper paragraph after(A5.6), Eq.(A5.7) preceding paragraph;
+research/crossing_kernels.py:24-108; research/crossing_kernel_audit.json.
+
+Let nu=s-2+t/2, v=nu^2, w=t-c. Crossing invariants are
+  X=2v+3w^2/2,
+  Y=-w*v+w^3/4.
+At total degree D, form coefficient positions (n,k)=(n,D-2n),
+n=1,...,floor(D/2), corresponding to v^n*w^k. For each invariant monomial
+X^aY^b with2a+3b=D, collect its coefficients at these positions. Exact
+rational null vectors of this matrix eliminate every invariant polynomial.
+The implemented basis chooses primitive integer vectors with first nonzero
+entry positive, except degree4 is divided by4 to match the paper's X4.
+Different null bases are equivalent only after transforming multipliers.
+
+The ordered coefficient weights and beta tuples are:
+  X4, D4, positions(1,2),(2,0):
+    weights=(1/2,-3/4); beta=(0,-3/2,1).
+  X5, D5, positions(1,3),(2,1):
+    weights=(2,-1); beta=(0,4,-6,4).
+  X6, D6, positions(1,4),(2,2),(3,0):
+    weights=(16,8,-45); beta=(0,-80,64,-48,32).
+  X7_1, D7, positions(1,5),(2,3),(3,1):
+    weights=(20,-3,0); beta=(0,15,-35,54,-60,40).
+  X7_2, same positions:
+    weights=(16,0,-3); beta=(0,24,-40,48,-48,32).
+  X8_1, D8, positions(1,6),(2,4),(3,2),(4,0):
+    weights=(16,-16,9,0); beta=(0,56,-72,40,16,-48,32).
+  X8_2, same positions:
+    weights=(32,40,0,-189); beta=(0,-392,360,-280,176,-96,64).
+
+For coefficient weights c_(n,k),
+  beta_j=sum_(k>=j) 2*c_(n,k)*(-1)^(k-j)*binom(D-j,k-j)/2^(k-j).
+All beta_0 vanish exactly. Each crossing row has u=0 and
+  v_l(mu)=sum_j beta_j*(l+1)_j/j! * P_(l-j)^(j,j)(Z)
+             /[Delta^j Q^(D+1-j)],
+where terms j>l vanish and P^(j,j) denotes a Jacobi polynomial, not a
+Legendre derivative. Equivalently replace the numerator by
+beta_j*2^j/j!*d^j P_l(Z)/dZ^j. This distinction prevents a missing j!.
+
+For X4 specifically,
+  v_X4=2P_l''(Z)/(Q^3 Delta^2)-3P_l'(Z)/(Q^4 Delta),
+  v_X4/p=[2Z^2P_l''(Z)-3ZP_l'(Z)]/[Q^2P_l(Z)].
+It is exactly the paper(A5.6) normalization. Its threshold limit is
+  lim_(mu->4+) v_X4/p =9l(2l-5)/64.
+Thus l2 gives-9/32 and l4 gives27/16.
+
+The final RIGHT multiplier is lambda_X4=-23.90335355242552.
+The final LEFT crossing multipliers are
+  X4  28.390808976625042
+  X5 -18.37271741182836
+  X6   3.1907391253929807
+  X7_1 -2.8191014245344346
+  X7_2  1.422615851367622
+  X8_1  8.699047187616067
+  X8_2 -4.349523603809761.
+A positive X4 multiplier is not automatically fatal when higher crossing
+rows are present; the highest asymptotic spin power must be examined.
+
+6. RESUMMED FIXED-TRANSFER / ROY KERNELS
+--------------------------------------
+Sources: paper(A2.7)-(A2.9),(A5.30); roy_kernels.py:17,38,63,71,171;
+transfer_kernels.py:9,39; test_transfer_audit.py.
+
+At external(s,t), u=4-s-t, define
+  K(mu;s,t;c)=1/(mu-s)+1/(mu-u)-1/(mu-c)-1/(mu-4+t+c).
+The fixed-transfer equation is
+  Re a(s,t)-g0=(1/pi) PV integral_4^infinity dmu
+       [K(mu;s,t;c) Im a(mu,t)+K(mu;t,c;c) Im a(mu,c)].
+Its combined spin kernel is
+  L_l=P_l(y)K(mu;s,t;c)+Pstar_l K(mu;t,c;c),
+  y=1+2t/Delta.
+Every source row uses v_l=-integral_source(weight*L_l), with the appropriate
+raw local real kernel u_l and subtraction coefficient gc.
+
+Cancellation of the crossed-subtraction pole:
+  d=mu-8/3+t,
+  L_l=P_l(y)[1/(mu-s)+1/(mu-u)] +Pstar_l/(mu-t)
+       -[P_l(y)+2Pstar_l]/Q +(Pstar_l-P_l(y))/d.
+For even l, P_l(-Z)=Pstar_l, and
+  (Pstar_l-P_l(y))/d=-(2/Delta) D_l(y,-Z),
+  D_l(x,z)=[P_l(x)-P_l(z)]/(x-z).
+Use the exact recurrence
+  D0=0,D1=1,
+  (l+1)D_(l+1)=(2l+1)[xD_l+P_l(z)]-lD_(l-1).
+This is regular even when d=0; do not numerically subtract/divide there.
+
+External energy PV cancellation in a folded Roy source:
+  P_l(y)/(mu-s)=P_l(z)/(mu-s)+(1-z)/Delta*D_l(y,z),
+where t=-(s-4)(1-z)/2. The remaining spectral PV is evaluated by the real
+Legendre Q function
+  Q_n(x)=1/2 PV integral_-1^1 P_n(v)/(x-v) dv.
+For a Roy row the diagonal angular PV correction is
+  4 Q_n(2(mu-4)/(B-4)-1)/[(2J+1)(B-4)] times delta_(l,J).
+Energy nodes exactly at a source endpoint are rejected by real_legendre_q;
+endpoint-split quadratures avoid evaluating those logarithmic formulas there.
+
+The useful nonsingular UV identity is
+  L_l/Pstar_l = L0 + Cuv*D_l(y,-Z)/Pstar_l,
+  L0=[(s-c)^2/(mu-s)+(t-c)^2/(mu-t)+(u-c)^2/(mu-u)]/Q^2,
+  Cuv=(2/Delta)*(s-c)*(c-u)*(2mu+t-4)/[(mu-s)Q(mu-u)].
+In the UV, y+Z is bounded away from zero, so evaluate only desired spins with
+  D_l(y,-Z)/Pstar_l=[P_l(y)/Pstar_l-1]/(y+Z).
+The code now uses this faster quotient only in nonsingular UV branches;
+low-energy removable-pole and PV branches retain the stable recurrence.
+
+Folded Roy sources:
+  w_n(s)=P_n(2(s-4)/(B-4)-1)/(B-4), 4<s<B=11.9,
+  integral ds*w_n(s) integral_0^1 2dz*P_J(z) R(s,t(s,z))=0,
+  t(s,z)=-(s-4)(1-z)/2.
+All included J are even. The local raw real kernel is
+  u_l(mu)=2*pi*w_n(mu)/(2J+1)*delta_(l,J),
+and gc=-2 only for J=n=0, otherwise0. This factor2 is from the folded
+angular measure. Before eliminating gc, real Roy kernels vanish above max J;
+after elimination the gc*u0 contribution still exists at every spin.
+
+High-energy tapered fixed-transfer sources:
+  (A,B)=(12,24),(24,48), T=4/3,
+  x=2(s-A)/(B-A)-1,
+  w_n(s)=(1-x^2)P_n(x)/(B-A),
+  h_j(t)=P_j(1+2t/T)/T, -T<=t<=0,
+  integral_A^B ds*w_n(s) integral_-T^0 dt*h_j(t) R(s,t)=0.
+For the untapered basis the local raw real kernel is
+  u_l(mu)=pi*P_n(2(mu-A)/(B-A)-1)/(B-A)
+                 *integral_-T^0 h_j(t)P_l(1+2t/(mu-4))dt,
+supported A<mu<B. It affects ALL even spins, unlike a finite-J Roy source.
+The untapered gc is-1 for j=n=0, otherwise0.
+
+The tapered builder expands(1-x^2)P_n(x) in Legendre polynomials using
+1-x^2=(2/3)(P0-P2). In the mathematical basis this is an exact finite
+polynomial identity. The numerical legmul coefficients are binary64;
+roundoff in an expanded coefficient sum must not be treated as a proof about
+endpoint behavior. The intended basis is the exact product(1-x^2)P_n(x).
+For each window its tapered subtraction coefficients are
+  gc=-2/3 for j=0,n=0;
+  gc=+2/15 for j=0,n=2;
+  gc=0 otherwise.
+The n=2 term is easy to miss. The implementation transforms gc correctly.
+Endpoint vanishing removes the logarithmic endpoint spikes of an untapered
+smearing weight. It does not certify every other tail contribution.
+
+7. THRESHOLD-REGULAR TRANSFER DERIVATIVE ROWS
+------------------------------------------
+Sources: paper(A5.4)-(A5.7); forward_transfer_derivatives.py:28-71.
+These are included only in the final LEFT witness.
+
+For variable transfer t and fixed spectral mu define
+  Qt=mu-2+t/2, At=2+t/2,
+  Ft=8At^2/Qt^3,
+  omega_t=[(At+i sqrt((mu-4)(mu+t)))/Qt]^2,
+  P_l,t=P_l(1+2t/(mu-4)), P_l,*=P_l(Z),
+  KA=2/Qt-1/Q-1/(mu-8/3+t),
+  KB=1/(mu-t)+1/(mu-8/3+t)-2/Q.
+
+For p=1,2,3 and j=2..12 define
+  q_(p,j)=d^p/dt^p [Ft P_l,t omega_t^j (1-omega_t)^(2p-2)] at t=0.
+Then Dt{p}H_j{j} has u=Im q,v=Re q.
+
+For Dt{p}G_regular define
+  qG=d^p/dt^p [Ft P_l,t omega_t (1-omega_t)^(2p-2)] at0,
+  u=Im qG,
+  v=Re qG - d^p/dt^p [P_l,t KA+P_l,* KB] at0.
+The subtraction term is NOT multiplied by(1-omega_t)^(2p-2). This is a
+derivative of G_t plus a finite linear combination of higher harmonic nulls.
+p=1 is G'_0; p=2 is the paper's Q2; p=3 is its Q3. Inserting the powers
+before differentiation is essential for the threshold cancellations.
+
+The implementation uses exact truncated Taylor algebra (convolution and
+integer powers) in t, not finite differences. The stable identity
+  1-omega_t=-2i sqrt((mu-4)(mu+t))
+                 *(At+i sqrt((mu-4)(mu+t)))/Qt^2
+avoids subtracting two nearly equal numbers at threshold. The Legendre
+Taylor coefficients are
+  [t^k] P_l,t=binom(l,k)binom(l+k,k)/(mu-4)^k.
+65-digit independent mpmath differentiation checked p<=3,l=0,2,8 at
+mu=4.01,5,12,100; relative-scale error about1.7e-13. That validates evaluation
+of these formulas, not the amplitude's convergence hypotheses.
+
+Raw negative-transfer harmonic point tests were tried but not retained:
+their partial-wave factors can grow too fast at threshold and make the
+pointwise disk support divergent. The regular derivative construction is
+the retained alternative. The paper's separate path-continuation tests were
+not added to either final state.
+
+8. SEARCH / QUADRATURE / GUARD DETAILS
+------------------------------------
+The finite optimization uses the full unitarity disk at quadrature nodes.
+It is a relaxation/exploration of the infinite measure problem, not a
+continuum proof. The later custom solver minimizes the disk support directly
+using its analytic gradient/Hessian, equilibration, damped Newton steps,
+and a CLARABEL constrained QP for each step. A failed QP/line search retains
+the last accepted feasible coefficient vector. See dual_newton.py:77.
+
+Earlier finite-grid SOCP exploration is in massive_search.py:86. For a node
+with quadrature weight W and q=W*p>0 it uses R=sqrt(q)*r, B=q*b and the exact
+cone
+  norm([sqrt(2tref)*R, sqrt(2tref/q)*B, B-tref]) <= B+tref,
+with tref>0 chosen for conditioning. This is equivalent to the disk after
+expansion, and g2 becomes sum B. The primal null matrix is numerically
+equilibrated/whitened by SVD, retaining singular values above1e-10 of the
+largest. That is a numerical rank choice, not an analytic independence proof.
+Recovered dual coefficients are still interpreted in the original exact null
+basis and require independent replay. The final150/131-row states were
+refined with the direct support solver rather than promoted on an SOCP
+primal-dual gap alone.
+
+The spectral variable beta=sqrt(1-4/mu) maps(4,infinity) to(0,1):
+  mu=4/(1-beta^2),
+  dnu_l=(2l+1)*4/pi * dbeta/(1-beta^2)^2.
+Panels include beta=0,.12,.35,.95,.995,1 and exact source endpoints
+mu=11.9,12,24,48. No fixed high-energy cutoff is imposed by this change of
+variables, but a finite quadrature on the last panel is still an approximation.
+
+RIGHT training: ordinary panel Gauss-Legendre, n64,lmax24, plus zero-weight
+mu=4+1e-10 probe. source quadratures: Roy48 energy x40 angle;
+strips40 energy x32 transfer. Threshold coefficient restrictions V/p<=-2e-6
+are imposed at cells with p>1e4. These constrain the witness search, not
+the physical amplitude. See spectral_grid,search_problem,angle_search.
+
+LEFT training: n28,lmax32; first velocity panel is ordinary Gauss, later
+panels use a sin^2 map to cluster endpoints. A zero-weight probe at
+mu=4+1e-8 avoids raw high-spin overflow; this did NOT adequately control the
+l4 limiting coefficient and was corrected after independent replay.
+Additional coefficient guards include sampled dangerous-source W>=0,
+highest-crossing sign, fixed-energy omitted-spin sign probes, and2592 scaled
+energy probes. The final scaled guards use
+  tau_guard=l(l+1)/(mu-4),
+  l=42,44,...,100 and120,160,200,300,500,1000,
+  tau_guard=15,15.5,...,30 and1,1.1,...,5.
+Artificial zero-cost cells encode these restrictions. They are not physical
+spectral quadrature points, and are not counted as new null rows.
+
+LEFT solver stopped at a failed QP after its accepted support had essentially
+stalled near active constraints. Optimization convergence is not claimed.
+The uncorrected scaled state has a tiny positive l4 threshold limit and is
+excluded. The final saved copy changes ONLY lambda_X4 by-1e-6:
+  before28.390809976625043, after28.390808976625042.
+This changes the threshold V/p by+2.8125e-7 for l2 and-1.6875e-6 for l4.
+Higher l>=4 improve in this limit; l2 keeps a negative margin. Provenance:
+output/angle_constraints/ming0_scaled_threshold_repaired.provenance.json.
+
+Independent replay: angle_audit.py:51,68,168. The saved n80 head audits use
+source quadratures64 energy and56 angular/transfer nodes; the saved n160
+head audits use80 energy and80 angular/transfer nodes. Spectral panel n80/n160 are independent of the
+training quadrature. IMPORTANT: for bridge spins above head_lmax the FIRST
+velocity panel uses only min(n,20) nodes to avoid raw P_l overflow. Other
+panels retain n. RIGHT head_lmax24; LEFT head_lmax28. Thus saying simply
+"160 nodes at every panel through spin40" would be false.
+
+Additional threshold probes: delta=mu-4 in{1e-4,1e-6,1e-8,1e-10,1e-12}
+for spins0..20, and delta in{1e-2,1e-4,1e-6} through40. These are finite
+tests, not interval proofs of the threshold limits. The final LEFT maximal
+reported nonzero-spin limiting probe is-1.1988646502203437e-6.
+
+The separate fast tail audit uses a DIFFERENT coordinate:
+  tau_audit=l^2/mu, mu=l^2/tau_audit.
+This is what final_summary.json and scaled_spin_audit.py actually integrate.
+Do not replace it with tau_guard in the reproduction command or interval
+description. They agree asymptotically but differ at finite spin.
+The fast evaluator is only used above every source window, with no local
+Roy/strip real terms; it combines source weights before numerical integration.
+It was checked against the general kernels at about3.4e-12 scaled difference.
+
+9. WHAT THE EXACT ROY CERTIFICATE ACTUALLY PROVES
+----------------------------------------------
+Source: certify_roy_dangerous_sign.py:32; final JSON files
+  RIGHT output/angle_audits_resummed/roy_dangerous_sign_certificate.json
+  LEFT output/ming0_asymptotic_audit/scaled_threshold_repaired_roy_sign.json.
+
+For the stored Roy multipliers define the unnormalized source polynomial
+  W(s,z)=sum_(J,n) lambda_Jn P_n(2(s-4)/(B-4)-1)P_J(z), B=11.9.
+The omitted common factors1/(B-4) and2 in the source measure are positive.
+The certified domain is
+  20/3<=s<=11.9,
+  0<=z<=1-(8/3)/(s-4),
+which is exactly the folded source region t(s,z)<=-4/3.
+
+Set y=s-4, y_min=8/3, y_max=79/10 and
+  z=q*(y-y_min)/y, 0<=q<=1.
+Multiply W by y^Jmax to clear denominators, map y to[0,1], and convert the
+resulting two-variable polynomial to Bernstein coefficients. Binary64
+lambda values are interpreted as exact rational numbers. Dyadic de Casteljau
+subdivision and all coefficient comparisons use exact rational arithmetic.
+Strict positivity of every leaf's coefficients proves strict positivity of
+the polynomial everywhere in the closed domain. Divide by y_max^Jmax for
+a conservative W lower bound.
+
+RIGHT: Jmax6, polynomial degree(20,6),2 positive leaves, depth1,
+  W>=0.0009127823892480254 (exact rational also saved).
+LEFT: Jmax4, polynomial degree(14,4),2 positive leaves, depth1,
+  W>=1.301438112368428e-10 (exact rational also saved).
+
+Why this helps: for even l, P_l(y_spectral) exceeds P_l(Z) exponentially
+when y_spectral<-Z, equivalently d=mu-8/3+t<0. This can only happen within
+the source region certified above. In that region mu<s and
+  K=(s-c)(c-u)(2mu+t-4)/[(mu-s)Q(mu-u)d]>0.
+Therefore the dangerous growing term in V, -W*K*P_l(y_spectral), has a
+nonpositive sign for every even l. This is a pointwise sign statement for
+that component, not a numerical spin extrapolation.
+
+It does NOT prove: complete V<=0; complete V/p<=a negative constant;
+the sign of the nonexponential subtraction/physical-angle pieces; a bound
+on real U; PV/source quadrature errors; the full spectral integral; or a
+finite value of the entire omitted-spin support. It also does not certify
+any amplitude or attainment of the boundary. The current implementation
+requires one common Roy endpoint; extending to several endpoints or odd-J
+full-interval sources needs a new source-domain treatment.
+
+10. NECESSARY LARGE-SPIN SIGNS AND THE JOINT UV LIMIT
+--------------------------------------------------
+Sources: crossing_asymptotic_obstruction.txt, crossing_spin_probe.py,
+joint_spin_energy_limit.txt; these are derivations made in this campaign.
+
+At fixed mu>48, every source spectral Legendre argument is physical, so
+|P_l(y)|<=1, while P_l(Z) grows exponentially since Z>1. All normalized
+non-crossing kernels have bounded limits or decay; finite derivative
+harmonics have polynomial spin factors times this exponential suppression.
+Using P_l^(j)(Z)/P_l(Z)~l^j/(Z^2-1)^(j/2),
+  X4/p~[2Z^2/(Q^2(Z^2-1))]l^2>0.
+Thus, if X4 is the ONLY crossing row, lambda_X4>0 gives V/p->+infinity on
+an open spectral interval and a divergent all-spin disk support. The
+necessary condition is lambda_X4<=0. Negative is not sufficient globally.
+
+Through degree8 the highest derivative is j6 and occurs only in X8_1,X8_2.
+Its coefficient has the sign of
+  beta6_combined=32lambda_X8_1+64lambda_X8_2.
+A positive value is fatal. Final LEFT beta6_combined=-6.401105565601029e-7.
+If it vanishes exactly, lower asymptotic orders must be examined. A tiny
+negative leading coefficient can still permit a huge intermediate-spin
+positive region, so this test cannot replace finite-spin/energy control.
+
+The dangerous bands found by the auditor occur in joint mu~l^2 scaling.
+For T_l=l(l+1), tau=T_l/(mu-4), c=4/3, define
+  I(tau)=0F1(1;c*tau)=I0(2sqrt(c*tau)),
+  H(t,tau)=0F1(1;t*tau)=J0(2sqrt(-t*tau)) for t<=0.
+Then P_l(1+2a/T_l)->0F1(1;a). At fixed tau as l->infinity:
+  v0/p -> -280/[9I(tau)]-32/9,
+  H_j's v/p ->32(-1)^j/I(tau),
+  L_l/P_l(Z)*Q^3 ->2(t-c)^2-2(s-c)(u-c)H(t,tau)/I(tau).
+Integrate the last expression against each source weight and negate it for
+the Roy/strip v row; include its gc*v0/p term after homogeneous elimination.
+
+For a degree-D crossing row only j=D-2 survives at leading joint order:
+  X_D/p -> beta_(D-2)*tau^(D-2)/[(D-2)!]^2
+                *0F1(D-1;c*tau)/I(tau).
+Lower j terms contain extra inverse powers of Q. Sum the beta coefficients
+with their witness multipliers when a degree has several rows.
+
+For derivative rows, A(t)=2+t/2:
+  Dt(p)H_j's v/p ->(-1)^j*2^(2p-2)/I(tau)
+       *[d^p/dt^p(8A(t)^2H(t,tau))]_(t=0).
+For Dt(p)G_regular replace(-1)^j by-1 and subtract
+  [d^p/dt^p{2(t-c)^2-(t-c)^2H(t,tau)/(2I(tau))}]_(t=0).
+These are finite polynomials in tau divided by I, plus constants. They were
+checked numerically at spin1000 against the exact kernels, with differences
+consistent with finite-spin corrections. They are LIMITS, not rigorous
+finite-l error bounds. A future certificate could bound the scalar limiting
+function uniformly in tau plus finite-l corrections and the real-kernel tail.
+
+11. REAL-KERNEL REMAINDER: CONDITIONAL, AND NOT IMPLEMENTED FOR LEFT
+----------------------------------------------------------------
+Let A_L=sum_even_l>L integral U_l^2/p_l dnu_l. If V<=0 throughout the omitted
+region and an independently valid coupling cap g2<=G is available, then
+for physical amplitudes, r^2<=2b and Cauchy-Schwarz give
+  tail contribution to the target functional <=sqrt(2G A_L).
+This uses the GLOBAL g2 cap as an additional constraint; it is not an
+unconditional bound on the unconstrained pointwise disk-support integral.
+If instead V<=-a*p with a>0, pointwise disk support gives the stronger
+  tail support<=A_L/(2a).
+More generally an upper bound V/p<=gamma can be combined with the g2 cap
+to give sqrt(2G A_L)+max(gamma,0)G.
+
+Positive Taylor coefficients imply, for appropriate integer k>=2,
+  sum_even_l>L (2l+1)/P_l(Z)
+    <= (k!)^2*[3(mu-4)/4]^k
+       /[2(k-1)*product_(r=L-k+3)^(L+k) r].
+Minimize over several k. Physical-angle Legendre bounds also reduce the
+strip real-kernel envelope. existing_solver/tail_envelope.py implements
+this for forward/rational plus strip U kernels after all local Roy spins
+are included. Its remaining scalar integrals use ordinary numerical quad;
+reported quadrature errors are estimates, not directed interval bounds.
+
+RIGHT saved A_L estimates:
+  L40: A=1.3239477586782667e-5;
+    sqrt(2*1.09*A)=.005372342239581002;
+    if V<=-10p, A/20=6.619738793391333e-7.
+  L100: A=2.583128708959778e-8;
+    sqrt(2*1.09*A)=.00023730192973366897.
+Source: output/angle_audits_resummed/tail_A_envelope.json.
+The code does not prove the needed V inequality or independently establish
+the cap G=1.09. Any use of G must identify a valid prior bound in the same
+normalization and assumptions. These numbers are conditional estimates.
+
+A clearer conservative route uses the manuscript's interval-certified
+G=4.36947880 from Eq.(A5.25), rather than its sharper numerical enclosure.
+The paragraph immediately after(A5.25) states that those constants were
+rounded outwards after directed interval evaluation of elementary expressions
+[paper.txt around lines1214-1217]. Accepting that prior certificate, the saved
+RIGHT A40 estimate gives
+  sqrt(2*4.36947880*A40)=.010756357807224714.
+The head-to-manuscript slack is
+  2.72322-2.705761181546443=.0174588184535569.
+Thus proving V<=0 uniformly in the tail, giving a rigorous upper value for
+A40, and covering finite-head errors would leave a possible gain of about
+.00670 over the manuscript maximum. These are still conditional arithmetic
+targets, not a new bound. Alternatively a sufficiently small uniform
+nonnegative envelope V/p<=beta can be allowed via the beta*G term; there is
+no mathematical need to insist on exact V<=0 if the full error budget closes.
+
+DO NOT apply that script unchanged to LEFT: it rejects unsupported Dt rows
+and has no derivative-real-kernel envelope. Those real kernels grow as
+spin polynomials before normalization; the forward-only A_L estimate does
+not cover them. A separate weighted spin-moment bound is required.
+
+12. FAILED STATES / RESEARCH LESSONS TO PRESERVE
+----------------------------------------------
+* Untapered strip rows yielded positive logarithmic V spikes at source
+  endpoints for some omitted spins. Sparse sampling falsely suggested
+  V<=0. Endpoint tapering was introduced to remove this obstruction.
+* Earlier tapered max-g0 state had a tiny positive spin2 threshold limit;
+  a separate X4 repair was needed. Do not confuse its repair direction
+  (increase X4) with the final LEFT repair (decrease X4 for spin4).
+* The lower-g0 head result7.758382445 from ming0_guarded_derivatives.npz
+  is rejected. Its leading degree8 crossing coefficient was positive,
+  about26.35, and its through40 support became12.1651585.
+* The subsequent7.781599138529 head-only lower state was not sufficient:
+  missed positive bands at spins42..100 added about.0301367. This motivated
+  the scaled-energy guards. It is NOT the current final witness.
+* The scaled but uncorrected7.781100982682135 state is excluded for a
+  small positive spin4 threshold coefficient. Use only its separately
+  threshold-repaired coefficient file identified in section0.
+* G2 trial supports about1.13822 and1.132 had positive leading crossing
+  coefficients and are not all-spin bounds. The larger guarded rerun
+  produced no retained feasible state before being stopped.
+* The richer fractional max-g0 head value2.684875 is rejected. Singular
+  alpha=-15/32 rows require specialized threshold treatment; the later
+  audit found large missed spin0 support with beta=x^16. Do not revive
+  it merely because ordinary n80/n160 velocity quadrature agrees.
+* Additional angles82,84,85 passed stronger finite-head checks but did not
+  improve the manuscript/published reference. No stronger new max-g2 result.
+
+13. REPLAY COMMANDS AND SOURCE CHECKS (NO OPTIMIZATION NEEDED)
+-----------------------------------------------------------
+Run from the workspace root. Known Python executable:
+  C:/Users/laure/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+Commands below use "python" as shorthand for that executable. Put results
+in new directories to preserve original audit evidence.
+
+  python research/angle_audit.py output/angles_resummed/angle_000p000.npz
+      --n 160 --lmax 40 --head-lmax 24 --kernel-order 80 --angular-order 80
+      --output output/replay_handoff_right
+
+  python research/angle_audit.py
+      output/angle_constraints/ming0_scaled_threshold_repaired.npz
+      --n 160 --lmax 40 --head-lmax 28 --kernel-order 80 --angular-order 80
+      --output output/replay_handoff_left
+
+Commands are wrapped for readability here; join each command onto one line
+or use the current shell's explicit continuation syntax.
+
+  python research/existing_solver/scaled_spin_audit.py
+      output/angle_constraints/ming0_scaled_threshold_repaired.npz
+      --n 320 --lmin 42 --lmax 100 --out output/replay_handoff_left_bands.json
+This CLI defaults to the two LEFT bands. To reproduce the RIGHT single band
+[1,30], import evaluate and pass bands=((1.,30.),),n=160 explicitly.
+
+  python research/certify_roy_dangerous_sign.py
+      output/angles_resummed/angle_000p000.npz
+      --output output/replay_handoff_right_roy_sign.json
+  python research/certify_roy_dangerous_sign.py
+      output/angle_constraints/ming0_scaled_threshold_repaired.npz
+      --output output/replay_handoff_left_roy_sign.json
+
+  python research/roy_kernels.py
+  python research/test_transfer_audit.py
+  python research/crossing_kernels.py
+  python research/forward_transfer_derivatives.py
+  python research/existing_solver/test_massive_forward_kernels.py
+
+Validation distinctions:
+  Roy tests cover divided differences, real Legendre-Q PV, and scalar rows.
+  Transfer tests independently use the original unsimplified kernels through
+  spin20 (~2.8e-11 scaled difference), plus crossing-symmetric scalar-pole
+  amplitudes with real partial waves through40 (residual<=3.2e-15).
+  Those pole amplitudes are normalization/kernel fixtures, NOT unitarity-
+  feasible amplitudes proving a physical bound.
+  Crossing tests check exact symbolic elimination, match X4 to the original
+  kernel (~2.2e-16 scaled error), vanish identically at spin0, and test
+  nontrivial crossed-pole data.
+  Derivative tests compare to high-precision differentiation of the formulas.
+None of these tests controls the final continuum remainder.
+
+If optimization must later be reconstructed, use saved coefficients as
+warm starts and new output names. The RIGHT saved config is n64,lmax24,
+hmax40,roy_order14,roy_spin6,transfer_order5,taper1,cross_degree4,
+radii[.8,.95],fractional=false, via angle_search.py/search_problem.py.
+The LEFT source config is n28,lmax32,hmax20,nfh12,derivative_order3,
+crossdegree8,roy_spin4,roy_order10,tail_guards=true,scaled_tail_guards=true,
+rational=false, via angle_constraints_experiment.py. Its nominal maxiter90
+stopped at iteration28 after a failed QP, preserving the feasible incumbent.
+Apply the recorded -1e-6 X4 correction only to the uncorrected source state;
+do not apply it twice to the final repaired file.
+
+14. CONCRETE REMAINING PROOF OBLIGATIONS
+---------------------------------------
+1. Resolve full V/p sign or a rigorous positive envelope over the complete
+   omitted energy-spin domain, including joint mu~l^2 scaling. Sparse sign
+   samples and the fixed-mu leading crossing sign are not enough.
+2. Bound real U contributions for all omitted spins. RIGHT has a useful
+   analytic envelope awaiting directed integration and a matching V bound;
+   LEFT additionally needs the derivative-weighted spin-tail envelope.
+3. Give rigorous integration error allowances for the finite heads, PV/source
+   kernels, and measured bands, or explicitly keep the output numerical.
+4. Preserve the distinction between mathematical exact basis definitions,
+   binary64 witness coefficients, algebraic exact certificate components,
+   and ordinary quadrature approximations.
+5. Only after all tails and errors are covered promote a candidate support
+   to an unconditional exclusion line. No optimizer flag or extra sampled
+   spin by itself closes this gap.
+
+The attached manuscript itself states that its final coordinate witnesses
+integrate spins0..998 and analytically bound the rest [paper(A5.35) following
+paragraph]. This campaign has not reproduced that full certification, and
+cannot inherit it for newly chosen coefficients or new strip rows.

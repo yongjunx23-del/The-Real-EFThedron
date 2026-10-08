@@ -1,0 +1,63 @@
+{
+  "status": "INPUT_DESCRIPTOR_NOT_A_CERTIFICATE",
+  "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+  "objective_exact": [
+    "-1",
+    "0"
+  ],
+  "tau_definition": "ell*(ell+1)/(mu-4)",
+  "compact_kappa_exact": "10",
+  "large_tau_kappa_exact": "3000",
+  "compact_proof": "output/competitive_20261007/left/compact/complete_compact_coercivity.json",
+  "large_tau_proof": "output/all_direction_certification_20261007/tail/left/refined/large_tau_complete.json",
+  "finite_UV_pairs": [
+    [
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_42_74_400.json",
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_42_74_480.json"
+    ],
+    [
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_76_108_400.json",
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_76_108_480.json"
+    ],
+    [
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_110_142_400.json",
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_110_142_480.json"
+    ],
+    [
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_144_176_400.json",
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_144_176_480.json"
+    ],
+    [
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_178_210_400.json",
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_178_210_480.json"
+    ],
+    [
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_212_244_400.json",
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_212_244_480.json"
+    ],
+    [
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_246_278_400.json",
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_246_278_480.json"
+    ],
+    [
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_280_312_400.json",
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_280_312_480.json"
+    ],
+    [
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_314_346_400.json",
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_314_346_480.json"
+    ],
+    [
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_348_380_400.json",
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_348_380_480.json"
+    ],
+    [
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_382_414_400.json",
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_382_414_480.json"
+    ],
+    [
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_416_448_400.json",
+      "output/all_direction_certification_20261007/tail/left/refined/left_finite_uv_416_448_480.json"
+    ]
+  ]
+}

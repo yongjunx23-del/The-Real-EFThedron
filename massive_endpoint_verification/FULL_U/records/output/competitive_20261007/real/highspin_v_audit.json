@@ -1,0 +1,402 @@
+{
+  "status": "PASS_HIGH_SPIN_PACKET_AND_INDEPENDENT_JET_COMPARISON",
+  "witness_sha256": "933ee2f7889a52b8ccabbf58836c256161bc5c59d3763cdbca2b40bb01ac6f92",
+  "lmin": 450,
+  "mu_domain": [
+    "4",
+    "infinity"
+  ],
+  "kappa_global_exact": "1/1000",
+  "kappa_compact_mu4_49_exact": "1",
+  "compact_lmin": 110,
+  "paired_precision_bits": [
+    320,
+    400
+  ],
+  "independent_numerator_tests": 45,
+  "maximum_scaled_difference_upper": 1.3277689073054478e-114,
+  "tests": [
+    {
+      "ell": 450,
+      "tau": "0",
+      "scaled_difference_upper": [
+        9.880621351440015e-120,
+        4.673730253594201e-118
+      ]
+    },
+    {
+      "ell": 450,
+      "tau": "1/10",
+      "scaled_difference_upper": [
+        3.8754498098774604e-119,
+        1.187657831365479e-115
+      ]
+    },
+    {
+      "ell": 450,
+      "tau": "1",
+      "scaled_difference_upper": [
+        3.755894940855339e-119,
+        1.3486463702734286e-115
+      ]
+    },
+    {
+      "ell": 450,
+      "tau": "2",
+      "scaled_difference_upper": [
+        3.8754033035844685e-119,
+        1.5490610940916915e-115
+      ]
+    },
+    {
+      "ell": 450,
+      "tau": "9/4",
+      "scaled_difference_upper": [
+        3.875390813098622e-119,
+        1.6041014929149928e-115
+      ]
+    },
+    {
+      "ell": 450,
+      "tau": "4",
+      "scaled_difference_upper": [
+        3.779845046259471e-119,
+        2.0639717495379605e-115
+      ]
+    },
+    {
+      "ell": 450,
+      "tau": "16",
+      "scaled_difference_upper": [
+        3.7795555065508e-119,
+        1.3266178859621459e-114
+      ]
+    },
+    {
+      "ell": 450,
+      "tau": "64",
+      "scaled_difference_upper": [
+        3.849988613110443e-119,
+        5.7500500871346575e-117
+      ]
+    },
+    {
+      "ell": 450,
+      "tau": "256",
+      "scaled_difference_upper": [
+        3.869305848074605e-119,
+        6.162131550714766e-118
+      ]
+    },
+    {
+      "ell": 512,
+      "tau": "0",
+      "scaled_difference_upper": [
+        9.880621351440015e-120,
+        4.673730253594201e-118
+      ]
+    },
+    {
+      "ell": 512,
+      "tau": "1/10",
+      "scaled_difference_upper": [
+        3.875449752950571e-119,
+        1.1874822453230272e-115
+      ]
+    },
+    {
+      "ell": 512,
+      "tau": "1",
+      "scaled_difference_upper": [
+        3.8754292471228344e-119,
+        1.3503992081886275e-115
+      ]
+    },
+    {
+      "ell": 512,
+      "tau": "2",
+      "scaled_difference_upper": [
+        3.8754069305244686e-119,
+        1.5522320627156003e-115
+      ]
+    },
+    {
+      "ell": 512,
+      "tau": "9/4",
+      "scaled_difference_upper": [
+        3.8513943234402576e-119,
+        1.6050948042993846e-115
+      ]
+    },
+    {
+      "ell": 512,
+      "tau": "4",
+      "scaled_difference_upper": [
+        3.8514037142039594e-119,
+        2.060666098851652e-115
+      ]
+    },
+    {
+      "ell": 512,
+      "tau": "16",
+      "scaled_difference_upper": [
+        3.851079186332186e-119,
+        1.325688117434111e-114
+      ]
+    },
+    {
+      "ell": 512,
+      "tau": "64",
+      "scaled_difference_upper": [
+        3.874024436693968e-119,
+        5.710802954514545e-117
+      ]
+    },
+    {
+      "ell": 512,
+      "tau": "256",
+      "scaled_difference_upper": [
+        3.7742504108185793e-119,
+        6.1511976456630705e-118
+      ]
+    },
+    {
+      "ell": 1000,
+      "tau": "0",
+      "scaled_difference_upper": [
+        9.880621351440015e-120,
+        4.673730253594201e-118
+      ]
+    },
+    {
+      "ell": 1000,
+      "tau": "1/10",
+      "scaled_difference_upper": [
+        3.779941073202025e-119,
+        1.1898805052539903e-115
+      ]
+    },
+    {
+      "ell": 1000,
+      "tau": "1",
+      "scaled_difference_upper": [
+        3.8754479027646844e-119,
+        1.3469611289590753e-115
+      ]
+    },
+    {
+      "ell": 1000,
+      "tau": "2",
+      "scaled_difference_upper": [
+        3.779934241735162e-119,
+        1.5523747486263802e-115
+      ]
+    },
+    {
+      "ell": 1000,
+      "tau": "9/4",
+      "scaled_difference_upper": [
+        3.875441714586044e-119,
+        1.6031233518583401e-115
+      ]
+    },
+    {
+      "ell": 1000,
+      "tau": "4",
+      "scaled_difference_upper": [
+        3.8754368982762357e-119,
+        2.0652453382006874e-115
+      ]
+    },
+    {
+      "ell": 1000,
+      "tau": "16",
+      "scaled_difference_upper": [
+        3.875392883254873e-119,
+        1.3277689073054478e-114
+      ]
+    },
+    {
+      "ell": 1000,
+      "tau": "64",
+      "scaled_difference_upper": [
+        3.875216870105794e-119,
+        5.735294761067494e-117
+      ]
+    },
+    {
+      "ell": 1000,
+      "tau": "256",
+      "scaled_difference_upper": [
+        3.874513637921065e-119,
+        6.287346237731117e-118
+      ]
+    },
+    {
+      "ell": 10000,
+      "tau": "0",
+      "scaled_difference_upper": [
+        9.880621351440015e-120,
+        4.673730253594201e-118
+      ]
+    },
+    {
+      "ell": 10000,
+      "tau": "1/10",
+      "scaled_difference_upper": [
+        3.8754515632757e-119,
+        1.1863039298158154e-115
+      ]
+    },
+    {
+      "ell": 10000,
+      "tau": "1",
+      "scaled_difference_upper": [
+        3.875451517732984e-119,
+        1.3444000392415198e-115
+      ]
+    },
+    {
+      "ell": 10000,
+      "tau": "2",
+      "scaled_difference_upper": [
+        3.7799414717009206e-119,
+        1.551489324779783e-115
+      ]
+    },
+    {
+      "ell": 10000,
+      "tau": "9/4",
+      "scaled_difference_upper": [
+        3.755918344479344e-119,
+        1.6071273655915294e-115
+      ]
+    },
+    {
+      "ell": 10000,
+      "tau": "4",
+      "scaled_difference_upper": [
+        3.875451369719139e-119,
+        2.0677609028960425e-115
+      ]
+    },
+    {
+      "ell": 10000,
+      "tau": "16",
+      "scaled_difference_upper": [
+        3.8514902545958266e-119,
+        1.3248334572719245e-114
+      ]
+    },
+    {
+      "ell": 10000,
+      "tau": "64",
+      "scaled_difference_upper": [
+        3.851425270829212e-119,
+        5.733084734054758e-117
+      ]
+    },
+    {
+      "ell": 10000,
+      "tau": "256",
+      "scaled_difference_upper": [
+        3.755968395824994e-119,
+        6.456183307746599e-118
+      ]
+    },
+    {
+      "ell": null,
+      "tau": "0",
+      "scaled_difference_upper": [
+        9.880621351440015e-120,
+        4.673730253594201e-118
+      ]
+    },
+    {
+      "ell": null,
+      "tau": "1/10",
+      "scaled_difference_upper": [
+        9.880621351440015e-120,
+        5.638863588949853e-118
+      ]
+    },
+    {
+      "ell": null,
+      "tau": "1",
+      "scaled_difference_upper": [
+        9.880621351440015e-120,
+        5.694280113937713e-118
+      ]
+    },
+    {
+      "ell": null,
+      "tau": "2",
+      "scaled_difference_upper": [
+        9.880621351440015e-120,
+        6.67444436363931e-118
+      ]
+    },
+    {
+      "ell": null,
+      "tau": "9/4",
+      "scaled_difference_upper": [
+        9.880621351440015e-120,
+        6.470216529759307e-118
+      ]
+    },
+    {
+      "ell": null,
+      "tau": "4",
+      "scaled_difference_upper": [
+        9.880621351440015e-120,
+        8.822386447137194e-118
+      ]
+    },
+    {
+      "ell": null,
+      "tau": "16",
+      "scaled_difference_upper": [
+        9.880621351440015e-120,
+        5.8225710691526886e-117
+      ]
+    },
+    {
+      "ell": null,
+      "tau": "64",
+      "scaled_difference_upper": [
+        9.880621351440015e-120,
+        4.6071746344494934e-119
+      ]
+    },
+    {
+      "ell": null,
+      "tau": "256",
+      "scaled_difference_upper": [
+        9.880621351440015e-120,
+        2.078350782239153e-119
+      ]
+    }
+  ],
+  "components": [
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\contracted_finite_uv_L450_proof_320.json",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\compact_highspin_L450_320.json",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\large_tau_L450_320.json",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\contracted_finite_uv_L450_proof_400.json",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\compact_highspin_L450_400.json",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\large_tau_L450_400.json",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\compact_highspin_sharp_L110_320.json",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\compact_highspin_sharp_L110_400.json"
+  ],
+  "sha256_manifest": {
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\contracted_finite_uv_L450_proof_320.json": "67516edbc4e85980685731d405408fd9ff1f403fa22d0634c3987c0744f138c5",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\compact_highspin_L450_320.json": "d0f726f1a6b2fa1c1f1b3b2b1eb743e8520bf1f7d6ee6fefe0583e48d065da2d",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\large_tau_L450_320.json": "49abff3300190eaca04d6a75342b0648653bc3c9920bb9219e7e2ef8e0a3034f",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\contracted_finite_uv_L450_proof_400.json": "2d2a260be1b67bdf237ec8fcf6154638b3f1ca28be46fd1d978ed726e4064759",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\compact_highspin_L450_400.json": "e81c1d2bb6d5a2dc857275b0c9e577971090fdf41930f694342a9da5008609ec",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\large_tau_L450_400.json": "6d3b513c270be3cafbd6073f06872944bb5a56cfffa18525b8e6419c33d51ab0",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\compact_highspin_sharp_L110_320.json": "3da9370796b19a701692c11b8f0eb8b976026bc415e9f2dedd713e24fe9802ca",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\compact_highspin_sharp_L110_400.json": "3126e96bba4be7ef3272cad3455f655fefbdf5d53c1bc911f517f32429fea631"
+  },
+  "seconds": 0.8769223690032959,
+  "scope": "Exact packet, domain, sign, partition, and dependency audit. The contracted numerator is compared against the separate complex-jet implementation. Mathematical review of the analytic envelopes is recorded in REVIEW_HIGHSPIN220.md; this is not a formal proof checker or a full coupling bound."
+}

@@ -1,0 +1,139 @@
+{
+  "status": "PASS_COMPLETE_COMPACT_COERCIVITY",
+  "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+  "objective_exact": [
+    "-1",
+    "0"
+  ],
+  "minimum_even_spin": 42,
+  "mu_domain_exact": [
+    "4",
+    "49"
+  ],
+  "lower_energy_endpoint_open": true,
+  "kappa_exact": "10",
+  "recorded_V_over_p_upper_exact": "-573267344592608684802281028815472230896712770607319080229085590499813458375093660012315225576287755918493546975232722276330611159112926892924332655525457/52374249726338269920211035149241586435466272736689036631732661889538140742474792878132321477214466514414186946040961136147476104734166288853256441430016",
+  "safe_integer_kappa_from_recorded_enclosures": 10,
+  "components": [
+    {
+      "path": "output\\competitive_20261007\\left\\compact\\analytic_compact_400.json",
+      "sha256": "7e765b36467b74429247826c3630141e535fb6e853df6e114b7fe1b05a63b55e",
+      "status": "PASS_LEFT_ANALYTIC_COMPACT_COERCIVITY"
+    },
+    {
+      "path": "output\\competitive_20261007\\left\\compact\\analytic_compact_512.json",
+      "sha256": "d14a28b991100665a631668c9310765702a8e4483aa60c01996e9ce0c761557f",
+      "status": "PASS_LEFT_ANALYTIC_COMPACT_COERCIVITY"
+    },
+    {
+      "path": "output\\competitive_20261007\\left\\compact\\compact_bridge_sliced_512.json",
+      "sha256": "1ff362fbddb32c2e5614cabdc9018c6601e7c89eed3e53a1f1e4af5099bdfc2a",
+      "status": "PASS_FINITE_COMPACT_BRIDGE"
+    },
+    {
+      "path": "output\\competitive_20261007\\left\\compact\\compact_bridge_sliced_640.json",
+      "sha256": "8df74be4035fe861ad4215cc580a5c74eedaf7571f7f83a7a2923e61e95c335e",
+      "status": "PASS_FINITE_COMPACT_BRIDGE"
+    },
+    {
+      "path": "output\\competitive_20261007\\left\\compact\\moments\\independent_audit.json",
+      "sha256": "ea90f9e6138e017cf714fd5a9e8b100b33bd6dab35a58ed0b0ced841e03b713f",
+      "status": "PASS_INDEPENDENT_EXACT_BETA_MOMENTS_AND_SHARED_TABLES"
+    }
+  ],
+  "finite_bridge_spin_cells": 37389,
+  "sha256_manifest": {
+    "output\\competitive_20261007\\left\\compact\\analytic_compact_400.json": "7e765b36467b74429247826c3630141e535fb6e853df6e114b7fe1b05a63b55e",
+    "output\\full_direction_20261007\\left\\angle180_final.npz": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+    "output\\all_direction_certification_20261007\\tail\\left\\joint_moments.pkl": "708aeb0d87a5b02a9940bb183036681bd8913fe973cfd9fb7c2bd7a2f3c58f88",
+    "output\\all_direction_certification_20261007\\tail\\left\\source_norms.json": "152bb220b8cec5388861300cab7e7b4589496b44b16788e7fbc16e17ca7584df",
+    "research\\all_direction_certification_20261007\\tail\\prepare_components.py": "5e1e5a212076575ceb13af3724c7772f42eaa90c05edb3be621dfb6fb8468942",
+    "research\\lower_g0_upper_g2_20261006\\tail_certify_joint_limit.py": "735bb8f972e66fdc7cfc70785f7ebfdea45447969116af212062242da6b3eab2",
+    "research\\lower_g0_upper_g2_20261006\\matrix_source_norms.py": "3088b6d72de3df60b1b9add9a0bd1d3c60efca4ce979c4538535aea4bc4e3b7b",
+    "research\\lower_g0_upper_g2_20261006\\matrix_crossing_series.py": "0e6527688fdcdc147e7aaeda7d2ead7634fad72905d0fa984c39526931c87400",
+    "research\\all_direction_certification_20261007\\tail\\prepare_left_refined.py": "8870dcbceb7d3f55d0e7c71a12c2c4ab931624af856d255800a4a06b565b1ac9",
+    "research\\tail_certification\\compact_source_data.py": "59fbdd869056ac046e406e0980e3d38fad497560a6c4eeaca9d64280f4b7f6ae",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\joint_moments.pkl": "708aeb0d87a5b02a9940bb183036681bd8913fe973cfd9fb7c2bd7a2f3c58f88",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\source_norms.json": "152bb220b8cec5388861300cab7e7b4589496b44b16788e7fbc16e17ca7584df",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\compact_norms.pkl": "c76b02cb7dbae24de28ecc7a6aa46eb69493ed3d87ff1fbf2fd80f9f154b115e",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\finite_source_N12_K80.pkl": "a0b78a78da72bbb563ae0d345c75e6be7633efb8d545698006f3243095fdb961",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\finite_source_N12_K80.json": "b014591712b73301fc72fdcde247e214abf29070bf1c1b1b2129838d6e52496d",
+    "research\\competitive_20261007\\left\\certify_analytic_compact.py": "bfdec08ca6564236bd062b69337c28f346f2142eaa0d70658dac51b4931569a3",
+    "research\\all_direction_certification_20261007\\tail\\compact_highspin220_sharp.py": "432a890d1753813a5139dbe0bf1ba30d557795ba05d1717d3c03335ffa8807ac",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\prepared_components.json": "ff539267c130d80e8c302cf7863bad28b5d8d6881857137299597d1ba000234d",
+    "output\\full_direction_20261007\\left\\audit180\\roy_exact.json": "7fa958dc46361f1cfcc18a97a3953708d518dcf6150bd9f5ac700c1d2559fca9",
+    "output\\competitive_20261007\\left\\compact\\analytic_compact_512.json": "d14a28b991100665a631668c9310765702a8e4483aa60c01996e9ce0c761557f",
+    "output\\competitive_20261007\\left\\compact\\compact_bridge_sliced_512.json": "1ff362fbddb32c2e5614cabdc9018c6601e7c89eed3e53a1f1e4af5099bdfc2a",
+    "output\\competitive_20261007\\left\\compact\\slice_5_5.5_512.json": "6c527e0ff7bc42c2b04900c11bca5e5d2d775765d67e322c713134bfed5edb10",
+    "research\\competitive_20261007\\left\\certify_compact_bridge_sliced.py": "b396091623b14f110f6b80e6bbf08065da07ce562a732803a181f8fa3c249c5f",
+    "research\\competitive_20261007\\left\\compact_finite220_combined.py": "410f547e9bd9ae7d9ea91cbe11b54d5df513445965bae6bddf61724522ed5a9d",
+    "research\\tail_certification\\certified_finite_v.py": "1104343291a43208f1bb995a907cb65cc2e7232a6cf28720daa51348069c6f32",
+    "research\\all_direction_certification_20261007\\head\\forward220.py": "5b6a98eac89759a21b2b962a14defe1f3685f859e4597305d0d81173479820bd",
+    "research\\all_direction_certification_20261007\\head\\forward_combined.py": "c8e685bfdaab5ce5f38f9218c7edf600b0ee37fe00109fdeb2f15be5c3accb5d",
+    "research\\crossing_kernels.py": "5c2921c37d62faa12f7c267328789e420479375abc7c847da952c362f303066d",
+    "output\\competitive_20261007\\left\\compact\\moments\\independent_audit.json": "ea90f9e6138e017cf714fd5a9e8b100b33bd6dab35a58ed0b0ced841e03b713f",
+    "output\\competitive_20261007\\left\\compact\\moments\\roy_manifest.json": "31f1c96630969df701aa9abc7d54fee88808acac20ed0722cbec78c419356454",
+    "output\\competitive_20261007\\left\\compact\\moments\\roy_moments.json": "1e921f6c795e6b4958729a728a30dda2312aa526f41e9741326947b6f37179cc",
+    "output\\competitive_20261007\\left\\compact\\moments\\strips_manifest.json": "5996b5bfeb63349104e96281e5d96116a4fa209ec61520874a822a423e9ef5b8",
+    "output\\competitive_20261007\\left\\compact\\moments\\strip_12_24_moments.json": "29e2d74dbdbe2410d7777c1d5880fd2f51af11056b3e30fb8f95f11d915141e1",
+    "output\\competitive_20261007\\left\\compact\\moments\\strip_24_48_moments.json": "def503a42e17ab19ca8390ffdc94124827d51af1fbbae3ee1c23987d291c7951",
+    "output\\competitive_20261007\\compact\\compact_bridge_sliced_512.json": "e406e79b3be2d9110a15c5533c066b293facbee5ac80a37d48765bd3e994f20f",
+    "output\\competitive_20261007\\left\\compact\\slice_5.5_6_512.json": "5b551010e84c3c2d4ee6cfad33d1ba0b312fafe2e9eca21e552c16e5ba3e59dc",
+    "output\\competitive_20261007\\left\\compact\\slice_6_6.5_512.json": "78cc596ba23a4a36928aaeec4a618ff1e441031a788ba1408b47deab49725c98",
+    "output\\competitive_20261007\\left\\compact\\slice_6.5_7_512.json": "5a739bf4c621e2bd24a85d7e5b49b61749c7ab637d5b4ca2b237378a17ed4608",
+    "output\\competitive_20261007\\left\\compact\\slice_7_7.5_512.json": "f04b81f86fed6aa5bd996bfebec7835d9bc1e2316fb8a80897d43f0e368e5d6c",
+    "output\\competitive_20261007\\left\\compact\\slice_7.5_8_512.json": "c636f35f7748aa17eea8ab63ddebfbddeb430914ffd2227c20bcff2f64310752",
+    "output\\competitive_20261007\\left\\compact\\slice_8_12_512.json": "9e6ff2c66073c9e66820594c399359eebd0d3ab4ce34a4ef1f5f43fa550851fa",
+    "output\\competitive_20261007\\left\\compact\\slice_12_24_512.json": "6171eba0bd298c0ddfc147ddeb4bbad80144acc1a328fa0a2d8fda63798b4214",
+    "output\\competitive_20261007\\left\\compact\\slice_24_36_512.json": "b4333cb639d7a24d5c7cf6e443f3eac4f26dd7b86bbf243ffd5f740cb38c38c9",
+    "output\\competitive_20261007\\left\\compact\\slice_36_48_512.json": "b98844f58181976636c276ad529a1982cbc6dd54603915649d54c0f48a79b840",
+    "output\\competitive_20261007\\left\\compact\\slice_48_49_512.json": "aedf56289cb758bab22c277fd2332f1f8c2eefe96915f742c5f78b2632b4fb73",
+    "research\\competitive_20261007\\left\\merge_compact_slices.py": "2109dcc41fa9b8614ae6bceb278dad9820af4e2156f9d06cfe53af1912e400d9",
+    "output\\competitive_20261007\\left\\compact\\compact_bridge_sliced_640.json": "8df74be4035fe861ad4215cc580a5c74eedaf7571f7f83a7a2923e61e95c335e",
+    "output\\competitive_20261007\\left\\compact\\slice_5_5.5_640.json": "2721b5bb0a3838d5d6bb4d3cfadfe97c623b9904a1bdd7e9b484cb2c79696605",
+    "research\\competitive_20261007\\left\\replay_compact_parallel.py": "75a03d78b7cb2ed22bb2a1a9bdea1f6c389adbf9aa071700c12ed0328c5b2713",
+    "output\\competitive_20261007\\left\\compact\\slice_5.5_6_640.json": "e0ae868038bbbf602de4a95a3f9a534e9ce7ce12794b50fded53f3f51f837eb9",
+    "output\\competitive_20261007\\left\\compact\\slice_6_6.5_640.json": "72ebdf47deac490f90713784ec207130fe887fdab872e1e1434634f5be6c9626",
+    "output\\competitive_20261007\\left\\compact\\slice_6.5_7_640.json": "20938f45135f79d77dc4d3131b8778652407b78dff9419bc2a37819eed8f1ac5",
+    "output\\competitive_20261007\\left\\compact\\slice_7_7.5_640.json": "ff008e3dcff1d5137cccad96f9c64b9eb4983c8260934bb6393bb180144a1277",
+    "output\\competitive_20261007\\left\\compact\\slice_7.5_8_640.json": "7633d44c74df8849a8d19475ee209abc089a13bb680e491d150d4c91f98d3c49",
+    "output\\competitive_20261007\\left\\compact\\slice_8_12_640_parallel.json": "e324303355b2362f11769f238e332b651c86c673da006e103ef667275fddbb73",
+    "output\\competitive_20261007\\left\\compact\\slice_12_24_640_parallel.json": "c35d5cedf966c7b98f7875630cba6d877a7a9f1d8279ff685a45f6ac1027b51a",
+    "output\\competitive_20261007\\left\\compact\\slice_24_36_640.json": "51a5e00d4c96bac1da581dbfc9044656c366ebb8adc89535ea14dd52819a2eab",
+    "output\\competitive_20261007\\left\\compact\\slice_36_48_640.json": "7e7fd77ffc0a37130933318e977ec8fb2e1c1e04a4cd000238835ba9aad57a38",
+    "output\\competitive_20261007\\left\\compact\\slice_48_49_640.json": "eb6b4669d2071681c997c3b5ba7453421ace3cd0d793f567c58eedf0dd4770cd",
+    "research\\all_direction_certification_20261007\\audit_left_compact_moments.py": "e67db88f014c3eaf28d3e49621e92b2e519199f4f252ebe76b4dd14a36fb693b",
+    "output\\all_direction_certification_20261007\\head\\left\\moments128\\roy_moments.json": "144954f27ad458a3f08a57a349d8f8afd6140daad81690898f300f90218f6b82",
+    "output\\all_direction_certification_20261007\\head\\left\\moments128\\strip_12_24_moments.json": "c79a6f4ac94d5cb53ca8679a8563b3fed1afa3d0eea042ec64996aec08e74c44",
+    "output\\all_direction_certification_20261007\\head\\left\\moments128\\strip_24_48_moments.json": "88f2cf27c5870677ed95857930d1a303b3cb2587f107d4a2056639c4c43dfd82",
+    "research\\certified_roy_moments.py": "9c97a2741c20feafab2c7bb1b700b81b51bbcc39ba243ba2f6ccffad75045b5a",
+    "research\\head_certification_lowspin.py": "bef7c1b73ad31e21cc56f0400cbf75aefc20807efd479b4a1e46a1ecce3443b5",
+    "research\\head_certification_spin0.py": "c9880a53942db8e3e92602396bc1e4901eca2fa76317e23f58ab210c502466aa",
+    "research\\tail_certification\\certify_finite_real.py": "64756d3238c17f9971e9c5cfe8351202b8e34828282da49eaba08342bde3e6da",
+    "research\\certify_real_tail.py": "253545566d1640c17d6a7014a49f2aa0904f110f7d22397eb0befbffe6560f49",
+    "research\\tail_certification\\certify_uv.py": "1315c067189e7b2fef440547b7886ad3919cca18da23a8350dcc379969fe2ba3",
+    "research\\competitive_20261007\\robust\\COMPACT_BRIDGE_PROOF.md": "9c29d709c2c7583256a086396d861116c73bc34a41c2e1330d167a2be1543324",
+    "research\\competitive_20261007\\robust\\compact_finite220_combined.py": "3bc14e775d8906d98accd2294b773860b11ccfced025dc64e27f2c15ce4fe040",
+    "research\\competitive_20261007\\left\\COMPACT_PROOF.md": "cd53546efd138a20994d563f4f3889a9049d76d28a3c59b047823bc1e04b5aff",
+    "research\\competitive_20261007\\left\\assemble_compact_coercivity.py": "1752f6ec35167fcb5122a4d7f9707d49a6893b4ecf229b8dc9bd781b9157f589"
+  },
+  "coverage": [
+    {
+      "even_spins": "all >=42",
+      "mu": "4<mu<=5",
+      "method": "Analytic envelope,400/512 bits"
+    },
+    {
+      "even_spins": "42,44,...,98",
+      "mu": "5<=mu<=49",
+      "method": "Exact partitions,512-bit producer and640-bit fresh replay"
+    },
+    {
+      "even_spins": "all >=100",
+      "mu": "4<mu<=49",
+      "method": "Analytic envelope,400/512 bits"
+    }
+  ],
+  "scope": "The exact frozen(-1,0) functional obeys V_l(mu)/p_l(mu)<-10 for every even l>=42 and4<mu<=49. Sign/coercivity only; head integration, real norms and UV remain separate components.",
+  "verification": "Directed interval evaluations and analytic continuum inequalities with fresh higher-precision replays. Evaluators share the mathematical implementation; independent floating checks and exact moment audits supplement them. Not formal proof-assistant verification."
+}

@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "witness_sha256": "bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c",
+  "precision_bits": 340,
+  "method": "Rebuild every polynomial moment using certified Gauss nodes at higher precision, require full interval containment in saved tables; then rebuild every UV contraction.",
+  "entries_verified": 24344,
+  "seconds": 5.783104181289673,
+  "tables": [
+    {
+      "path": "output\\certification_head\\roy_moments.json",
+      "sha256": "3c703b9a8f8882252db0bac64edeb15435d79308a6308c9ac979e19c4cb89cce",
+      "entries": 3066
+    },
+    {
+      "path": "output\\certification_head\\strip_12_24_moments.json",
+      "sha256": "65f86d153980358f2ff5b15e0e8ed62ae7f2831cb7754a470c5053de708ee15f",
+      "entries": 2697
+    },
+    {
+      "path": "output\\certification_head\\strip_24_48_moments.json",
+      "sha256": "ca34385a2a8808718ae8a4405673a482dd38ccdaf9884ecee7f24fcd2937e5c5",
+      "entries": 2697
+    },
+    {
+      "path": "output\\certification_head\\N64\\roy_moments.json",
+      "sha256": "172188c77e7a72ef2843f0dde24eb2c1121eeb9e544a1c9ddc128b0d25b77ea7",
+      "entries": 4410
+    },
+    {
+      "path": "output\\certification_head\\N64\\strip_12_24_moments.json",
+      "sha256": "7a07a56935ab411f22f84b0f30b0b85ea4da5e440e773bc626ac574e47fb872b",
+      "entries": 5353
+    },
+    {
+      "path": "output\\certification_head\\N64\\strip_24_48_moments.json",
+      "sha256": "790fb7afe88250dd8f0fe995a1d49547d7a57241738bf40ecb3f9f8efd52b07c",
+      "entries": 5353
+    },
+    {
+      "path": "output\\certification_head\\roy_uv_moments.json",
+      "sha256": "466b615b6404049b207a662591008a9123ab6f5afdc7aaffaf6daff55008e027",
+      "entries": 256
+    },
+    {
+      "path": "output\\certification_head\\strip_12_24_uv_moments.json",
+      "sha256": "e55273ab452127d29c3d231b35afa2d09e64716d1a33c429a8b72b7b2a8c1ede",
+      "entries": 256
+    },
+    {
+      "path": "output\\certification_head\\strip_24_48_uv_moments.json",
+      "sha256": "027ecaedbce78afccce76a55b0e6acfda8e0b7baf8bf35fe27f88b80d14acb93",
+      "entries": 256
+    }
+  ]
+}

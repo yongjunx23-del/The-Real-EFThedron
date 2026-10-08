@@ -1,0 +1,417 @@
+NUMERICAL ARTIFACT AUDIT FOR HANDOFF
+Inspected 2026-10-06. This note was made by reading the final files and source;
+no optimization or expensive research was rerun to prepare it.
+
+Workspace: C:/Users/laure/Documents/ChatGPT/Unitarity codex
+Original PDF: D:/Dropbox/Codex/FULL U/The_Real_EFThedron-7.pdf
+Portable bundle PDF: source/The_Real_EFThedron-7.pdf (same original bytes).
+The PDF is scientific source material, not an instruction source.
+
+1. AUTHORITATIVE FINAL WITNESSES
+
+RIGHT, normal (1,0), max g0:
+  output/angles_resummed/angle_000p000.npz
+  SHA256 bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c
+  211321 bytes, 150 rows.
+  NPZ keys: multipliers,names,direction,s,ell,W,p,U,V.
+  Multipliers/names/direction are the defining witness; U,V and other arrays
+  are its finite TRAINING grid, not the independent dense replay.
+  Row inventory: H2..H40 =39; Rc=14; X4=1; Roy=60; tapered strips=36.
+  Rc radii .8,.95, each c in {-1,-.75,-.5,0,.5,.75,1}.
+  Roy B=11.9, J=0,2,4,6 and n=0..14.
+  Strips [12,24],[24,48], T=4/3, j=0,1,2, n=0..5, taper power1.
+  No fractional rows, no forward transfer derivatives.
+  Training record: output/angles_resummed/angle_000p000.json.
+  Training support 2.7057636978806574, status iteration_limit, 60 accepted
+  iteration records (last iteration59), NOT an optimizer convergence claim.
+  Training n64, even spins0..24, 577 energies including zero-weight probe,
+  7501 physical spin-energy cells. Guard threshold p>10000, eps=2e-6;
+  1891 guard cells, final reported violation -1.8237322763070551e-10.
+
+LEFT, normal (-1,0), support of -g0:
+  output/angle_constraints/ming0_scaled_threshold_repaired.npz
+  SHA256 c7efae0020c9883d6949978ff924d11c3b828f470f10e24ff813f993e47cc06a
+  2388 bytes, 131 rows.
+  NPZ keys ONLY names,multipliers,direction. This is deliberate: all stale
+  U,V,r,b and grid arrays were omitted after the coefficient repair.
+  Provenance: output/angle_constraints/ming0_scaled_threshold_repaired.provenance.json
+  Row inventory: H2..H20=19; crossing=7; Roy=33; tapered strips=36;
+  forward transfer derivatives=36.
+  Crossing labels X4,X5,X6,X7_1,X7_2,X8_1,X8_2.
+  Roy B=11.9, J=0,2,4, n=0..10. Strips as on right.
+  Derivatives Dt{p}H_j{j}, p=1..3,j=2..12 (33 rows), plus
+  Dt1G_regular,Dt2G_regular,Dt3G_regular (3 rows).
+  No rational or fractional rows.
+  Unrepaired parent output/angle_constraints/ming0_scaled_guarded.npz had
+  training support7.781100982682135, status newton_qp_failed (CLARABEL error
+  on iteration28; 29 history records), retaining the previous feasible
+  incumbent. This training support is NOT the final repaired support.
+  Parent training n28, even spins0..32, 253 energies including probe,
+  4301 physical cells and3715 artificial zero-cost guard cells, total8016.
+  5052 total p>10000 constrained cells; eps1e-8; last reported grid violation
+  -1.5885417981031935e-12. The parent nevertheless FAILED a denser threshold
+  audit, which is why the independent coefficient repair was required.
+
+2. FINAL MEASURED VALUES AND PLOTTING VALUES
+
+RIGHT:
+  output/angle_audits_resummed/angle_000p000_n80_audit.json
+    head through ell40 =2.7057598436247448
+  output/angle_audits_resummed/angle_000p000_n160_audit.json
+    head through ell40 =2.705761181546443
+  Head spread =1.3379216983189224e-6.
+  output/angle_audits_resummed/scaled_band_all_evens.json
+    every even ell42..100, tau=ell^2/mu in[1,30], 160 nodes:
+    additional full disk support7.84312812722579e-9;
+    positive-V part0; maximum sampled V/p=-16.908489653160036.
+  output/angle_tail_additions.json rounds that addition to7.84313e-9.
+  Measured total used by plot =2.705761189389573.
+  Plot cushion =0.00002.
+  Final clipping support =2.7057811893895733.
+
+LEFT:
+  output/ming0_final_audit/head_n80_audit.json: 7.781777913413252.
+  output/ming0_final_audit/head_n160_audit.json: 7.781765419411301.
+  Head spread =1.2494001950358324e-5.
+  output/ming0_final_audit/scaled_bands_n80.json: .0011206826703364745.
+  output/ming0_final_audit/scaled_bands_n160.json: .0010140784760439632.
+  output/ming0_final_audit/scaled_bands_n320.json: .0010173390549025035.
+  These are measured full disk support over every even ell42..100 on
+  tau=ell^2/mu in[1,5] union[15,30], NOT the entire omitted-spin tail.
+  Latest band spread =3.2605788585402494e-6.
+  n320 positive-V part .000532225927366691;
+  maximum sampled V/p =+.0022052729515355113. Thus Vtail<=0 is FALSE for
+  the final left witness on some points. Those costs are INCLUDED here.
+  Measured total =7.782782758466204.
+  Plot cushion =6.30183232355943e-5.
+  Final clipping support for -g0 =7.782845776789439.
+  Main numerical summary: output/ming0_final_audit/final_summary.json.
+
+The plotting rule is max(2e-5,4*(head replay spread+latest band spread));
+this is a numerical cushion, not a rigorous error estimate or missing-tail
+bound. Source research/plot_angle_comparison.py:37 and :112.
+Actual selected values are in output/angle_vs_dual_provenance.json and
+output/angle_candidate_halfplanes.csv. There are16 accepted halfplanes,
+25 rejected audit entries, and1441 plotted directions (0..360 by.25deg).
+Accepted normals:0,15,30,45,60,70,75,80,82,180,270,285,300,315,330,345.
+During handoff, the separately refined84 and85 degree states failed a
+sampled dangerous Roy-source sign screen and were excluded. Both were
+nonbinding, so every numerical column of angle_vs_dual.csv is unchanged.
+This screen failure is not a complete divergence proof. Preserve
+output/angle_candidate_exclusions.json and the source-screen records.
+The plot clips the convex hull of extracted manuscript vertices by the
+selected halfplanes. It does NOT interpolate separately optimized supports.
+Only theta270 with zero multipliers is the exact positivity statement g2>=0.
+
+3. CONVENTIONS AND GRID DETAILS
+
+m=1; rho(mu)=sqrt(1-4/mu); only even spins.
+dnu_l=(2l+1)dmu/(2*pi*rho).
+f_l=r_l+i*b_l and the local disk is r_l^2+(b_l-1)^2<=1.
+An affine dual witness has objective integral[U_l*r_l+V_l*b_l]dnu_l.
+The unconstrained disk support is sqrt(U^2+V^2)+V.
+For V<0 it is evaluated as U^2/(sqrt(U^2+V^2)-V), avoiding cancellation.
+p_l=P_l(Z)/Q^3>0, Q=mu-4/3, Z=Q/(mu-4).
+V/p is assembled before multiplying by p to avoid subtracting separately
+huge threshold kernels. Source research/dual_newton.py:15 and
+research/angle_audit.py:68,:139,:146.
+Coupling kernels and common measure are documented in
+research/existing_solver/massive_forward_kernels.py:1; main search copies
+are research/massive_search.py:40 and research/massive_search.py:55.
+
+TRAINING energy grids:
+  Both use beta=rho, mu=4/(1-beta^2), with edges sorted from
+  0,.12,.35,sqrt(1-4/11.9),sqrt(1-4/12),sqrt(1-4/24),
+  sqrt(1-4/48),.95,.995,1 (nine panels).
+  Right: ordinary linear mapped Gauss-Legendre in every panel, n64.
+    Extra zero-weight mu=4+1e-10 probe. Sources massive_search.py:25,
+    search_problem.py:9 and angle_search.py:13.
+  Left: first panel linear in beta; every later panel uses
+    beta=a+(b-a)*sin(pi*(x+1)/4)^2, n28.
+    Extra zero-weight mu=4+1e-8 because training lmax32>20.
+    Source angle_constraints_experiment.py:22.
+  No hard upper energy cutoff was applied; compactification maps beta=1
+  to infinity, but any finite quadrature samples only finite energies.
+
+INDEPENDENT HEAD REPLAY:
+  Same nine breakpoints, first panel linear and all later panels sin^2.
+  n80 or n160 per panel.
+  Right fine head even ell0..24, bridge26..40.
+  Left fine head even ell0..28, bridge30..40.
+  Bridge's first beta panel is deliberately only20 nodes at either n, to
+  keep raw Legendre evaluations within binary64 range near threshold.
+  Other bridge panels retain full n. Thus 'n160 through40' does NOT mean
+  uniform n160 on every spin/panel. This is a material approximation.
+  Head node counts720/1440, bridge660/1300.
+  n80 head mu_min4.000000002866669, mu_max3257355696.4006934.
+  n160 head mu_min4.0000000001814335, mu_max51466622029.7696.
+  Bridge mu_min4.000000679912664.
+  n80 external Roy/strip energy-angular quadrature64/56.
+  n160 external Roy/strip quadrature80/80.
+  Right JSON files predate the addition of explicit kernel_order and
+  angular_order metadata, but these were the actual replay invocations;
+  the exact replay commands below specify them unambiguously.
+  Source angle_audit.py:51,:68,:168.
+
+Threshold diagnostics are zero-weight, not objective samples:
+  ell0..20 at delta=mu-4 of1e-4,1e-6,1e-8,1e-10,1e-12;
+  nonzero spins checked at the last offset with EXACT zero sign tolerance.
+  Additional ell2..40 probes at delta1e-2,1e-4,1e-6; last offset checked
+  with zero sign tolerance. These finite-offset samples are not limit proofs.
+  A separate dense-grid flag checks V/p>0 wherever p>1e4, ell>0.
+  Final left max nonzero-spin threshold value -1.1988646502203437e-6;
+  final right about -1.999276125985716e-6. All these final sampled checks pass.
+
+MEASURED TAIL BAND REPLAY:
+  research/existing_solver/scaled_spin_audit.py:100.
+  Uses mu=ell^2/tau and Jacobian ell^2/tau^2, each even ell42..100.
+  Gauss-Legendre n nodes separately on each tau interval.
+  Right [1,30] at n160; left[1,5] and[15,30] at n80,n160,n320.
+  External quadrature64/56 remains fixed for all these tail replays.
+  The nonsingular kernels precombine test polynomials and use direct
+  (P_l(y)/P_l(Z)-1)/(y+Z) above all source windows. There are no energy
+  principal values in these bands. Independent comparison to the general
+  kernel implementation was at ell42,100 and five energies; discrepancies
+  were approximately3.4e-12 in V/p and below2e-17 in U (relative scale1+abs).
+  This is an implementation cross-check, not a proof of quadrature error.
+
+4. OPTIMIZATION, PRECONDITIONING, AND GUARDS
+
+Main engine research/dual_newton.py:77 minimizes the finite-grid disk
+support using constrained damped Newton steps. It diagonal-equilibrates
+the Hessian, eigendecomposes its symmetric form, floors eigenvalues at
+max(maxeig*1e-8,1e-12), and whitens correlated row directions.
+The step QP uses CLARABEL through CVXPY, max_iter250, gap abs/rel1e-10,
+feasibility1e-11. Constraint rows are scaled by Euclidean norm.
+Default whitened trust radius10, expands to at most100 or contracts to.05.
+An initial feasibility projection uses row scales from weighted U and
+normalized V. Line search allows70 halvings, Armijo factor1e-4, and a.995
+interior fraction for approaching constraints. Failed QP/line-search
+steps do not replace a better accepted incumbent.
+These transformations condition the finite optimization; they do not
+certify physical amplitudes or improve mathematical completeness.
+
+Right angle_search.py:13 uses eps2e-6, ftol3e-11, gtol1e-6, with p>1e4
+sign constraints. Left angle_constraints_experiment.py:91,:111,:129 uses
+an LP seed or warm start, L1-style LP feasibility projection via scipy
+HiGHS, row and column scaling, and then eps1e-8 in the Newton engine.
+The exact final lower witness is a further algebraic repair, not an
+unmodified optimizer return.
+
+Left final parent's additional artificial guards (source
+angle_constraints_experiment.py:155..216):
+  -325 Roy source sign points:25 source energies20/3..11.9 and13 angular
+   fractions of zmax=1-(8/3)/(s-4).
+  -1 leading crossing coefficient constraint. Through degree8 the leading
+   combination is32*lambda_X8_1+64*lambda_X8_2<=0. Final value
+   -6.401105565601029e-7. This condition is necessary, not sufficient.
+  -130 points: ell22..40 and energies4.000001,4.0001,4.01,4.1,4.5,5,6,8,
+   12.1,20,50,100,1000.
+  -592 points: ell30..60, energies13..103 by3 plus150,250,500,1000,1e4,1e6.
+  -75 points: ell64,80,100,140,200 and energies8,10,12.1,16,20,30,50,75,
+   100,150,250,500,1000,1e4,1e6.
+  -2592 scaled points: ell42..100 plus120,160,200,300,500,1000;
+   tau15..30 by.5 and1..5 by.1.
+   IMPORTANT: optimizer places these at mu=4+ell*(ell+1)/tau, whereas
+   the independent band audit defines tau=ell^2/mu. These are distinct
+   finite-spin grids. Do not conflate the two conventions.
+  Total3715 artificial cells: U=0, objective W=0, synthetic p=1e5.
+  They restrict witness coefficients, NOT the set of physical amplitudes.
+  Kernel vectors are normalized by max(max absolute entry,1) before QP use.
+
+5. THRESHOLD REPAIRS AND CERTIFIED SUBSTATEMENTS
+
+Final left repair: change ONLY lambda_X4 from28.390809976625043 to
+28.390808976625042 (binary64 subtraction of1e-6).
+Original dense audit found l4 V/p about+3.2911e-7 at delta2.87e-9 despite
+the training delta1e-8 probe passing. Raw support blew up8.95e25 at n80,
+2.04e30 at n160. For X4/p the threshold limits are -9/32 at l2 and27/16
+at l4, so the repair changes these values by+2.8125e-7 and-1.6875e-6.
+The final dense audit independently verifies the repaired negative margins.
+The separate research/existing_solver/ming0_scaled_threshold_repaired.npz
+is a SUPERSEDED diagnostic using only5e-7; never substitute it for the
+authoritative output/angle_constraints file with the same basename.
+
+Exact rational Roy sign checks:
+  research/certify_roy_dangerous_sign.py:32 interprets each saved binary64
+  multiplier as an exact rational. It clears denominators with
+  y^max(J), y=s-4, maps y in[8/3,7.9] and q in[0,1], then certifies
+  strictly positive Bernstein coefficients after exact subdivision.
+  It certifies W=sum lambda_Jn P_n(2(s-4)/7.9-1)P_J(z)>0 in
+  20/3<=s<=11.9,0<=z<=1-(8/3)/(s-4). This controls the sign of the
+  exponentially growing dangerous Roy sector only.
+  Right: output/angle_audits_resummed/roy_dangerous_sign_certificate.json;
+    W>=.0009127823892480254, degrees20,6, clearing power6,
+    two positive leaves, max depth1.
+  Left: output/ming0_asymptotic_audit/scaled_threshold_repaired_roy_sign.json;
+    W>=1.301438112368428e-10, degrees14,4, clearing power4,
+    two positive leaves, max depth1.
+  They are NOT full all-spin V/p certificates. The wording 'Roy sign
+  certificate passed' must never be shortened to 'bound certified'.
+
+Kernel algebra checks have saved records, not global certificates:
+  research/existing_solver/forward_kernel_validation.json: correction
+  relative error7.6e-15; rational direct9.9e-14; fractional binomial2.9e-15.
+  research/crossing_kernel_audit.json: first-X4 relative discrepancy2.2e-16;
+  rational symmetric scalar-pole null tests through ell40 pass.
+  research/transfer_kernel_audit.json: direct nonzero-spin kernel scaled
+  error2.76e-11; crossing scalar-pole null residuals <=3.2e-15.
+  forward_transfer_derivatives.py:74 compares exact truncated Taylor jets
+  against65-digit mpmath derivatives. The saved session reported ~1.8e-13;
+  the current self-test itself does not write a standalone JSON record.
+
+6. APPROXIMATIONS, FAILURES, AND CONTRADICTIONS TO AVOID
+
+All new nontrivial inequalities are exploratory finite-spin numerical
+candidates. Remaining work: all-energy continuum errors, endpoints, all
+omitted energies for ell42..100, every spin>100, and joint large-spin/energy
+limits. Finite negative samples, a finite maximum probed spin1000, and
+necessary leading-crossing signs do NOT solve these problems.
+No solver iteration limit or failed Newton QP is global optimality.
+No stored phase-derived g0_phase/g2_phase is a feasible primal amplitude:
+at approximate optimization, null moments need not vanish exactly. Use
+the disk support objective and its audited multipliers as the candidate.
+
+Right A-tail calculation: output/angle_audits_resummed/tail_A_envelope.json,
+research/existing_solver/tail_envelope.py:21 and tail_envelope_derivation.md.
+Analytic inverse-Legendre sum bound is used, but its final scalar and angular
+integrals are ordinary floating quadrature, NOT directed intervals.
+With assumed independently valid global G=1.09: L40 A=1.3239477586782667e-5,
+sqrt(2GA)=.005372342239581002. For L100 A=2.583128708959778e-8,
+sqrt(2GA)=.00023730192973366897. A full tail bound additionally requires
+V/p<=eta everywhere, giving sqrt(2GA)+G*max(eta,0). Such a global V bound
+was NOT proved. In particular do not report head+.00537234 as a certified
+bound. The A-tail script is valid only for its supported forward/strip
+family; it does not handle the final left derivative rows.
+
+Important rejected states:
+  -Untapered strips produced true logarithmic endpoint sign spikes; the
+   taper(1-x^2) removes those poles by exact Legendre combinations.
+  -Early angle82..255 witnesses passed low-spin threshold probes yet failed
+   dense finite-energy and extra-spin replay. Their small training values
+   must not be reused. The selected82 degree witness is a separately
+   refined state, not the original bad file. The separately refined84
+   and85 degree states were later excluded during handoff because of
+   negative sampled dangerous Roy-source signs; see the selection note
+   above. Their nonbinding halfplanes did not affect the numeric plot CSV.
+  -ming0_guarded_derivatives.npz training7.75838 failed near-omitted spins
+   and had positive degree8 leading asymptotic coefficient.
+  -ming0_asymptotic_guarded.npz head7.781599 omitted bands adding.0301367;
+   it is excluded from the plot, superseded by the final repaired state.
+  -ming0_scaled_guarded.npz (without threshold_repaired) fails l4 threshold.
+  -Fractional rich state output/angles_richer/angle_000p000.npz, training
+   2.684875651730365, is rejected. Naive n80/n160 replay2.8893/3.6189 still
+   misses most of the integrable alpha=-15/32 endpoint singularity.
+   Endpoint-resolved beta=x^16 (or delta=x^32) finds spin0 contribution
+   ~90.648 below delta1e-16 alone; first beta panel~102.495.
+   See output/fractional_threshold_audit.json. Endpoint fitting of regular
+   remainder is numerical, but this overwhelming missed cost rejects the
+   apparently stronger state. Algebraic null identity validation did not
+   validate its naive quadrature.
+
+Other bookkeeping limitations:
+  -Final left provenance is .provenance.json. angle_audit.py only reads
+   adjacent .json for source-grid metadata; fresh replay can therefore have
+   null source_grid_support/training_lmax, without affecting support.
+  -Some legacy audit JSONs omit kernel-order metadata. Use explicit replay
+   commands below. SHA256 identifies witness bytes, not all source-code
+   versions. Kernels were improved during the campaign.
+  -Current tail-guard implementation is larger than historical versions;
+   restarting an old command is not guaranteed to recreate its historical
+   trajectory or coefficients bit-for-bit. Preserved NPZs are authoritative.
+  -Two files with identical final-left basenames exist; paths and SHA256
+   distinguish them. The one under research/existing_solver is superseded.
+  -Audit JSONs contain absolute Windows witness paths. If moving this
+   project, rerun fixed-witness audits in the destination workspace (or
+   carefully remap these paths) before using the plot loader. Witness NPZ
+   arrays themselves remain portable. The original PDF is outside the
+   workspace at the historical path above; the portable bundle carries
+   the same user-provided PDF at source/The_Real_EFThedron-7.pdf.
+  -The published-dual reference is graphical reconstruction; original
+   optimizing dual coefficients were never supplied. Plot padding does not
+   cover reference-extraction uncertainty. Root's benchmark handoff should
+   preserve the missing-cap/normalization caveats separately.
+
+7. REPLAY COMMANDS (PowerShell; VERIFIED AGAINST REAL PARSERS)
+
+These commands are source-checked, not rerun as part of this handoff audit.
+Run from the workspace. New output directories avoid overwriting finals.
+
+Set-Location -LiteralPath 'C:/Users/laure/Documents/ChatGPT/Unitarity codex'
+$researchPython = 'C:/Users/laure/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe'
+New-Item -ItemType Directory -Force -Path output/handoff_replay | Out-Null
+
+Final right head, n80 then n160:
+& $researchPython research/angle_audit.py output/angles_resummed/angle_000p000.npz --n 80 --lmax 40 --head-lmax 24 --kernel-order 64 --angular-order 56 --output output/handoff_replay/right_n80
+& $researchPython research/angle_audit.py output/angles_resummed/angle_000p000.npz --n 160 --lmax 40 --head-lmax 24 --kernel-order 80 --angular-order 80 --output output/handoff_replay/right_n160
+
+Final left head:
+& $researchPython research/angle_audit.py output/angle_constraints/ming0_scaled_threshold_repaired.npz --n 80 --lmax 40 --head-lmax 28 --kernel-order 64 --angular-order 56 --output output/handoff_replay/left_n80
+& $researchPython research/angle_audit.py output/angle_constraints/ming0_scaled_threshold_repaired.npz --n 160 --lmax 40 --head-lmax 28 --kernel-order 80 --angular-order 80 --output output/handoff_replay/left_n160
+
+Each writes <witness-stem>_audit.json and summary.csv. This differs from the
+manually named archived head_n160_audit.json, but is the same calculation.
+
+Final left measured tail bands (parser default bands are the correct two):
+& $researchPython research/existing_solver/scaled_spin_audit.py output/angle_constraints/ming0_scaled_threshold_repaired.npz --n 80 --lmin 42 --lmax 100 --out output/handoff_replay/left_bands_n80.json
+& $researchPython research/existing_solver/scaled_spin_audit.py output/angle_constraints/ming0_scaled_threshold_repaired.npz --n 160 --lmin 42 --lmax 100 --out output/handoff_replay/left_bands_n160.json
+& $researchPython research/existing_solver/scaled_spin_audit.py output/angle_constraints/ming0_scaled_threshold_repaired.npz --n 320 --lmin 42 --lmax 100 --out output/handoff_replay/left_bands_n320.json
+
+Right tail uses [1,30], NOT the CLI's default two bands. There is no --bands
+argument. Use the real evaluate() API with this exact PowerShell here-string:
+@'
+import sys,json
+from pathlib import Path
+sys.path.insert(0,'research/existing_solver')
+from scaled_spin_audit import evaluate
+r=evaluate('output/angles_resummed/angle_000p000.npz',n=160,lmin=42,lmax=100,bands=((1.,30.),))
+Path('output/handoff_replay/right_band_n160.json').write_text(json.dumps(r,indent=2))
+print(r['full_support'],r['max_V_over_p'])
+'@ | & $researchPython
+
+Exact rational Roy subcertificates:
+& $researchPython research/certify_roy_dangerous_sign.py output/angles_resummed/angle_000p000.npz --output output/handoff_replay/right_roy_sign.json
+& $researchPython research/certify_roy_dangerous_sign.py output/angle_constraints/ming0_scaled_threshold_repaired.npz --output output/handoff_replay/left_roy_sign.json
+
+Right A-envelope (conditional ingredients only):
+& $researchPython research/existing_solver/tail_envelope.py output/angles_resummed/angle_000p000.npz --L 40 100 --bernstein --g2-cap 1.09 --out output/handoff_replay/right_A_envelope.json
+
+Kernel and optimizer implementation self-tests (no optimization campaign):
+& $researchPython research/existing_solver/test_massive_forward_kernels.py
+& $researchPython research/roy_kernels.py
+& $researchPython research/transfer_kernels.py
+& $researchPython research/test_transfer_audit.py
+& $researchPython research/crossing_kernels.py
+& $researchPython research/forward_transfer_derivatives.py
+& $researchPython research/dual_newton.py
+Some tests regenerate their corresponding research/*_audit.json records.
+These checks have no shared pytest entrypoint; they are executable scripts.
+
+Rejected fractional state's endpoint diagnostic:
+& $researchPython research/fractional_threshold_audit.py output/angles_richer/angle_000p000.npz --out output/handoff_replay/rejected_fractional_endpoint.json
+
+Continue/restart the same search families from preserved final multipliers;
+these ARE new optimizations, not required to replay the final numbers:
+& $researchPython research/angle_search.py --angles 0 --n 64 --lmax 24 --hmax 40 --roy-order 14 --roy-spin 6 --transfer-order 5 --cross-degree 4 --radii 0.8 0.95 --max-iter 60 --warm output/angles_resummed/angle_000p000.npz --out output/handoff_rerun_right
+& $researchPython research/angle_constraints_experiment.py --direction neg_g0 --n 28 --lmax 32 --nfh 12 --crossdegree 8 --derivatives --derivative-order 3 --hmax 20 --roy-spin 4 --roy-order 10 --tail-guards --scaled-tail-guards --maxiter 90 --warm output/angle_constraints/ming0_scaled_threshold_repaired.npz --name handoff_rerun_left
+The two CLIs intentionally spell --max-iter versus --maxiter and
+--cross-degree versus --crossdegree differently. Do not interchange them.
+angle_search checkpoints skip an angle when its JSON and NPZ already exist;
+use a fresh --out to actually run it. Left --name outputs under
+output/angle_constraints and should also be new to preserve final files.
+Do not blindly repeat the X4 repair on a newly optimized state: re-audit
+its threshold limits and both l2 and l4 margins first.
+
+Regenerate the existing plot/report from saved audits and reference files:
+& $researchPython research/plot_angle_comparison.py
+& $researchPython research/write_angle_report.py
+This regenerates output/angle_vs_dual.{png,svg,csv}, provenance JSON,
+candidate halfplanes/polygon CSVs, and angle_search_report.txt. It relies
+on angle_candidate_exclusions.json and angle_tail_additions.json; preserve
+them with the numerical artifacts. No new optimization is run.
+
+Runtime observed in this audit:
+Python3.12.14, NumPy2.3.5, SciPy1.18.1, SymPy1.14.0, CVXPY1.9.3,
+CLARABEL0.11.1, mpmath1.3.0, Matplotlib3.11.2. Search modules request
+OPENBLAS_NUM_THREADS=2 and OMP_NUM_THREADS=2 via setdefault. Dependencies
+were already bundled; do not install replacements merely to reproduce.

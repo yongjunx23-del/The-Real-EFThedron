@@ -1,0 +1,372 @@
+VALID CONSTRAINTS AND IMPLEMENTATION NOTES: MASSIVE 4D g0-g2
+Independent analysis of The_Real_EFThedron-7.pdf, especially A2 and A5.
+2026-10-06. This file is analytical guidance, not a new numerical bound.
+
+1. What has already been imposed
+--------------------------------
+The manuscript's Figure 4 enclosure states
+  -7.81702 <= g0 <= 2.72322,  0 <= g2 <= 1.05800.
+These are numerical enclosures with 1e-4 allowances, not interval certificates.
+Its spectral integration includes spins 0,2,...,998 plus bounded omitted-spin
+remainders; discarding all spins above a finite cutoff would NOT reproduce it.
+
+The equation bank in A5 contains 198 smeared angular equations below s=11.999,
+forward harmonics through j=1024 (upper g2) / 2048 (lower g0), 48 rational
+forward generators, nine fractional nulls, degree-eight crossing rows, and
+finite-point crossing. The final upper-g2 reoptimization varies only eleven
+angular source functionals. The final lower-g0 reoptimization fixes the angular
+combination and varies forward weights. Thus a complete joint optimization of
+the existing 198 angular directions + forward bank is an obvious unexhausted
+convex improvement. Adding still higher harmonic order is not the first priority.
+
+The alternate Figure 5 path equations assume analyticity of restricted
+crossing-symmetric paths in a cut X plane. The manuscript explicitly identifies
+that as an extra assumption not implied by fixed-t twice-subtracted dispersion.
+Do not silently combine those constraints into a same-assumption Figure 4 bound.
+
+2. Normalization and exact kernels
+----------------------------------
+m=1, c=4/3, Q=s-c, rho(s)=sqrt(1-4/s), f_l=r_l+i b_l,
+  r_l^2+(b_l-1)^2 <= 1,
+  a(s,t)=M(s,t)/(32 pi)=sum_even_l (2l+1) f_l(s) P_l(1+2t/(s-4))/(2 rho(s)),
+  dmu_l(s)=(2l+1) ds/(2 pi rho(s)).
+
+Let P_l,*=P_l(1+8/[3(s-4)]) and p_l=P_l,*/Q^3. Then
+  g2=sum_l integral dmu_l p_l b_l.
+Use the positive p_l weight to control omitted spins, including their real parts
+through the disk. At fixed t=c, g0=(512/9)<p_l Im(omega_* f_l)>.
+At forward t=0, use the manuscript's A5.3 forward g0 map, which differs from
+the symmetric-point harmonic. The two reconstructions must be matched.
+
+The crossed-subtraction dispersion kernel is
+  K(v;s,t)=1/(v-s)+1/(v-4+s+t)-1/(v-c)-1/(v-4+t+c).
+Define
+  L_l(v;s,t)=P_l(1+2t/(v-4)) K(v;s,t)
+             +P_l(1+8/[3(v-4)]) K(v;t,c).
+Then Re a(s,t)-g0=sum_l integral dmu_l(v) L_l(v;s,t) b_l(v),
+with correct real principal values on the physical cut.
+
+For even J and a smooth compactly supported energy weight w(s), set
+  D_Jl(v)=integral ds w(s) integral_0^1 2 dz P_J(z) L_l(v;s,t(s,z)),
+  t(s,z)=-(s-4)(1-z)/2.
+The smeared Roy identity in manuscript normalization is
+  integral ds w(s) r_J(s)/rho(s)
+       -2 delta_J0 g0 integral ds w(s)
+       -sum_l integral dmu_l(v) D_Jl(v) b_l(v)=0.
+Hence the LOCAL real-part kernel at spin J is 2 pi w(v)/(2J+1).
+Every other spin gets no local real-part term from this individual equation.
+Subtract two normalized J=0 reconstructions to make a homogeneous null.
+
+The singularity of D_Jl at v=s is diagonal, so separate the diagonal Hilbert
+transform analytically before quadrature. Never approximate a principal value
+by simply deleting the closest grid node. For polynomial/Jacobi/spline energy
+weights, integrate the singular contribution using exact logs or stable
+subtracted quadrature: integral [w(s)-w(v)]/(v-s) plus the known log term.
+
+3. Domain caveat: why s<60 is not automatically an implementation improvement
+----------------------------------------------------------------------------
+The manuscript A2 distinguishes fixed-t validity (-28<t<4), the simple harmonic
+coordinate (t>-4), and a conventional folded Roy external range s<60.
+However the primary benchmark, arXiv:2605.06613 Appendix A.2, explicitly says
+partial-wave convergence and dual feasibility restrict their implemented Roy
+kernel expansion to s<=12. Therefore extending its partial-wave-expanded
+kernel to s=60 without proving convergence / controlling analytic continuation
+is unsafe. Forward-strip smearings at arbitrarily large s are a possible valid
+alternative only when the transfer expansion and tails remain controlled.
+
+At t<-4/3, the chosen c=4/3 subtraction lies on a crossed cut and individual
+kernel terms acquire poles on v>=4. This is not by itself a failure: in the
+combined even-spin L_l, the subtraction-pole residue cancels because at
+v=4-c-t, P_l(1+2t/(v-4))=P_l(1+2c/(v-4)) for even l. Evaluate the combined
+expression in a cancellation-safe way. Blind separate quadrature is dangerous.
+
+4. Best search strategy: adaptive functionals from exact convex derivatives
+-------------------------------------------------------------------------
+For a candidate supporting witness let its combined real/imaginary kernels
+be U_l,V_l, and R_l=hypot(U_l,V_l). Its cost is
+  C=sum_l integral dmu_l [V_l+R_l].
+At R_l>0, the maximizing spectrum is exactly
+  r_l*=U_l/R_l, b_l*=1+V_l/R_l.
+For any additional homogeneous null (u_l,v_l), the cost derivative is
+  G=sum_l integral dmu_l [u_l r_l*+v_l b_l*].
+The second directional derivative is
+  H=sum_l integral dmu_l (u_l V_l-v_l U_l)^2/R_l^3.
+Rank optional rows by G^2/H after accounting for conditioning and quadrature;
+large nonzero G is direct evidence that the current witness leaves useful
+constraint information unused. Reoptimize the best additions, and repeat.
+Treat R=0 by subgradient/smoothing only in the optimizer, then evaluate the
+unsmoothed disk support when validating. This is a way to compare arbitrary
+t samples, derivatives, fractional rows, Roy smearing, and rational resummations
+without guessing which family will help.
+
+The cost is convex in all linear null coefficients. Local minima of the exact
+convex problem are global, but ill-conditioning and truncated quadrature can
+produce misleading numerical termination. Warm-start joint optimization from
+the accepted witness, retain it as fallback, and record actual cost decrease.
+
+5. Rational forward rows and energy localization
+-----------------------------------------------
+At t=0 define F=32/(s-2)^3, omega=exp(i theta),
+  cos theta=8/(s-2)^2-1, s=2+2/cos(theta/2).
+Each real-coefficient analytic series beginning at omega^2 supplies a null.
+For 0<r<1, -1<=c<=1, let
+  mc(omega)=(1-r c omega)/(1-2r c omega+r^2 omega^2),
+  ms(omega)=r omega/(1-2r c omega+r^2 omega^2).
+Use F omega^2 [m(omega)-m(-1)] inside <Im(q f)>; the subtraction improves UV
+decay. These are correlated sums of existing harmonic nulls, so require no new
+analyticity assumption. The manuscript stops at r=.95. Values .98,.995,.999
+provide narrower energy localization and may improve efficiently if placed
+where the current extremal spectrum has the largest residual. Refine quadrature
+at the corresponding theta peaks; do not rely on a fixed low-order grid.
+
+IMPORTANT: an arbitrary complex pole with arbitrary complex series coefficients
+does NOT give a null from Im harmonic moments alone. Use real coefficients,
+equivalently conjugate-paired poles. Otherwise one spuriously imposes the real
+parts of harmonic moments, which are not zero in the stated hierarchy.
+
+Endpoint-adapted Jacobi weights / compact B-splines in external Roy energy can
+resolve localized threshold and resonance structure more efficiently than adding
+global Legendre degrees. Use smooth windows and exact PV treatment. Changing
+basis alone does not add information, but extending its span can.
+
+6. A simple explicit all-even-spin tail majorant
+-----------------------------------------------
+For x>=0 and integer l>=2, the positive Legendre expansion gives
+  P_l(1+2x)=sum_k binom(l,k) binom(l+k,k) x^k
+             >= 1+l^2 x+l^4 x^2/4=(1+l^2 x/2)^2.
+The k=2 inequality follows from (l-1)l(l+1)(l+2)>=l^4.
+
+Suppose the omitted-spin imaginary kernel satisfies
+  V_l(s)<=-kappa(s) p_l(s), kappa(s)>0,
+and the omitted real kernel is forward-only U_l(s)=U(s). Then
+  V_l+hypot(U,V_l)<=U(s)^2/[2 kappa(s) p_l(s)].
+Consequently, for L=2N>=2,
+  tail <= integral_4^infty ds Q^3 U(s)^2/[4 pi rho(s) kappa(s)] * T_N(s),
+  T_N(s)=sum_n>=N (4n+1)/P_(2n)(1+2x), x=4/[3(s-4)].
+Set a=2x and A=N-1. A rigorous majorant is
+  T_N <= integral_A^infty (4u+5)/(1+a u^2)^2 du
+       =2/[a(1+a A^2)]
+        +(5/[2 sqrt(a)])*[pi/2-arctan(sqrt(a) A)]
+        -5 A/[2(1+a A^2)].
+Use arctan(1/[sqrt(a) A]) for the bracket when A>0 and large; asymptotic series
+or interval evaluation avoids cancellation of its last two terms.
+Proof of the sum-integral comparison: on [n-1,n], 4u+5>=4n+1 and
+(1+a u^2)^2<=(1+a n^2)^2. Every summand is bounded by its interval integral.
+
+This is deliberately conservative but very easy to implement and valid over
+ALL spectral energies. It handles the joint l,s->infinity region, where a fixed
+spin asymptotic followed by an energy integral can fail. U~s^-3 already gives
+an integrable UV majorant when kappa stays bounded below: T_N=O(s), hence the
+integrand is O(s^-2). UV-subtracted forward generators decay still faster.
+
+For derivative or angular real kernels depending on l, increase the retained
+positive polynomial order of P_l and majorize U_l^2 accordingly. Do not use the
+forward-only formula unless that spin dependence has actually been removed.
+
+A known valid cap g2<=B2 can be included with multiplier eta>=0:
+  objective <= eta B2 + disk_support[U, V-eta p].
+This may enforce negative tail V-eta p and make the preceding remainder usable.
+The manuscript has an interval-certified elementary B2=4.36947880 (A5.25);
+using B2=1.05800 inherits that numerical enclosure's non-interval status.
+There is no justification for setting the residual positive tail support to zero.
+
+7. Constraints that require extra care or assumptions
+---------------------------------------------------
+* Complete harmonic families and exact fixed-transfer DRs are equivalent under
+  the stated boundary regularity. Resummation improves finite truncations; it
+  does not prove information beyond all fixed-transfer dispersion relations.
+* Elastic equality below an inelastic threshold needs an assumption about the
+  spectrum/channels. The disk inequality alone does not authorize imposing
+  equality throughout any numerical interval. Its pointwise convex hull is the
+  disk anyway, so nonconvex use needs separate treatment.
+* A Froissart asymptotic statement does not supply a universal finite-energy
+  cutoff with a known constant. It cannot justify deleting UV contributions.
+* Threshold poles / threshold states are present on the benchmark island's
+  boundary. Imposing ordinary scattering-length scaling without allowing them
+  can spuriously excise physical boundary points.
+* Sampling a finite grid or finite spin set gives a candidate calculation, not
+  automatically an outer bound. Save the complete witness, check independent
+  quadrature, and bound every omitted spin and UV region before reporting an
+  improvement over published dual exclusion.
+
+Primary reference checked:
+https://arxiv.org/html/2605.06613v1 (especially Appendix A.2, equations 19-26).
+The coefficient identification there is exactly (c00,c10)=(g0,g2).
+
+8. Implemented Roy kernel algebra (research/roy_kernels.py)
+----------------------------------------------------------
+For external s,z, t=-(s-4)(1-z)/2, u=4-s-t; spectral mu, Delta=mu-4,
+Q=mu-c, Z=Q/Delta, y=1+2t/Delta. Define the exact polynomial divided difference
+  D_l(a,b)=[P_l(a)-P_l(b)]/(a-b),
+  D_0=0, D_1=1,
+  (l+1)D_(l+1)=(2l+1)[a D_l+P_l(b)]-l D_(l-1).
+The apparent subtraction pole d=mu-8/3+t is removable for even l:
+  [P_l(Z)-P_l(y)]/d=-(2/Delta)D_l(y,-Z).
+The external PV pole can be removed independently:
+  P_l(y)/(mu-s)=P_l(z)/(mu-s)+(1-z)D_l(y,z)/Delta.
+The angular integral of P_l(z) is diagonal, so for w_n(s) as in section 2 its
+entire PV contribution is
+  4 delta_Jl Q_n(2(mu-4)/(B-4)-1)/[(2l+1)(B-4)],
+where Q_n is the REAL principal-value Legendre function of the second kind.
+
+For large mu, the PV split causes cancellation of UV terms. The code switches
+to the following nonsingular factored direct kernel when mu>=B+1:
+  L_l/P_l(Z)=L_0 + (2/Delta)[D_l(y,-Z)/P_l(Z)]
+                  *(s-c)(c-u)(2mu+t-4)/[(mu-s)Q(mu-u)],
+  L_0=[(s-c)^2/(mu-s)+(t-c)^2/(mu-t)+(u-c)^2/(mu-u)]/Q^2.
+This exhibits the scalar O(mu^-3) falloff explicitly. It is algebraically the
+same combined crossed-subtraction kernel, with no approximation.
+
+Module build_roy_bank(mu,spins,specs,normalized=True) uses specs=(B,J,n),
+currently restricts 4<B<12, and returns u,v,g0_coeff,p with rows
+  integral dmu [u R+v Babs]+g0_coeff*g0=0,
+  R=sqrt(p)r, Babs=p b, g0_coeff=-2 delta_J0 delta_n0.
+With normalized=False it returns coefficients of r,b instead.
+The local real kernel is nonzero only at spin J and 4<mu<B.
+
+Checks performed: independent divided-difference values and derivatives through
+l=20; Legendre-Q against independent cauchy-weight quadrature through n=6;
+scalar full rows against independent quadrature; energy/angular refinement from
+48x40 to80x64 at l=0..20, J=0,2,4, n=0..3, mu from4.0001 to1e5 changed
+normalized kernels by at most1.7e-12 relative to 1+abs(kernel).
+These checks validate the implemented finite kernel calculation, not an all-spin
+supporting bound or an interval error enclosure.
+
+9. Implemented new finite test directions: high-energy fixed-transfer strips
+-------------------------------------------------------------------------
+research/transfer_kernels.py exposes build_transfer_bank(mu,spins,specs=None,
+normalized=False). Default 36 rows use s windows [12,24] and [24,48], t in
+[-4/3,0], energy degrees n=0..5 and transfer degrees j=0..2.
+Each explicit spec is (A,B,T,j,n), with 4<A<B and 0<T<=min(4/3,A-4).
+The windows are external smearing windows; spectral energy remains all s>4.
+
+Let w_n(s)=P_n(2(s-A)/(B-A)-1)/(B-A),
+    h_j(t)=P_j(2(t+T)/T-1)/T,
+    H_l(v)=integral_-T^0 dt h_j(t) P_l(1+2t/(v-4)).
+Then the real kernel is U_l(v)=pi w_n(v) H_l(v) on A<v<B, and zero otherwise.
+The g0 coefficient is -delta_n0 delta_j0.
+Unlike folded Roy projection, every even spin has a real kernel.
+
+For n>=1, all subtraction functions vanish upon energy integration. The exact
+absorptive source is
+  D_l(v)=integral_-T^0 h_j(t)P_l,t [I_n(v)+J_n(v,t)]dt,
+  I_n(v)=2 Q_n(2(v-A)/(B-A)-1)/(B-A),
+  J_n(v,t)=-2 Q_n(2(4-v-t-A)/(B-A)-1)/(B-A).
+For n=0, add the original subtraction terms; the code again uses divided
+differences to cancel them before evaluating. Large/small v outside the smearing
+window uses the factored direct kernel of section 8 to maintain UV precision.
+
+This does not require extending a full angular Roy projection beyond s=12.
+Every external point remains physical and every transfer stays in a fixed safe
+strip; it adds nonforward information at high energy to the finite catalogue.
+It is a new choice of finite tests of the existing dispersion identity, not a
+new axiom and not information beyond the complete dispersion relation.
+
+For |t|<=4/3, |P_l,t|<=P_l,* at every spectral v>4. On the external physical
+strip, |H_l(v)|<=integral|h_j|dt<=1, so |U_l(v)|<=pi|w_n(v)| uniformly in l.
+This gives a usable spin-independent majorant for the real omitted-spin kernel
+in section 6. For a linear combination of strip rows, use pi*sum|lambda_i w_i|;
+it has compact energy support and adds no UV convergence problem.
+
+Independent scalar checks: full smeared scalar dispersion kernel and its PV
+term matched independent scipy quadrature for j=0..2,n=0..3 and v=4.01..100;
+local-real coefficients checked separately. For l=0..20, quadrature refinement
+40x32 to80x70 (including v=1e5) changed normalized kernels by <=6.81e-12
+relative to1+abs(kernel). No all-spin supporting bound is claimed from this.
+
+10. Critical independent audit after the high-energy-strip numerical improvement
+-----------------------------------------------------------------------------
+research/test_transfer_audit.py and transfer_kernel_audit.json record stronger
+checks requested after the finite-grid max-g0 search reached about2.70576.
+
+The direct reference evaluates the original unsimplified A2.7 fractions using
+independent scipy Cauchy-PV integration, with no divided differences and no
+Legendre-Q formula. Spins0,2,4,10,20 at v=4.001..100 agree to2.76e-11 relative
+to1+abs(normalized kernel).
+
+An end-to-end test uses the exactly crossing-symmetric meromorphic amplitude
+  a(s,t)=1/(M2-s)+1/(M2-t)+1/(M2-u), g0=3/(M2-c).
+Its imaginary measure dmu*b is a unit delta at spin0 and spectral s=M2.
+Its REAL partial waves contain infinitely many even spins:
+  r_l(s)=rho(s)[2 delta_l0/(M2-s)+8 Q_l(1+2M2/(s-4))/(s-4)].
+Keeping real spins0..40 reproduces all24 tested strip identities with residual
+<=3.2e-15 for M2=5,60,100. This checks nonzero-spin normalization, the local
+real kernel, the source sign, the g0 subtraction, and crossed contributions
+together. The test amplitude is for checking the linear dispersive identity;
+it is not claimed to satisfy the nonlinear unitarity disk.
+
+The root finite spectral grid originally did not split at new strip endpoints
+12,24,48. The kernels have jumps/logarithms there, so every support integration
+must add those panel boundaries. Independent endpoint-split reintegration by
+the other audit agent shifted the same finite-spin witness to about2.705879,
+preserving the candidate improvement but changing its final digits. These are
+still finite-spin diagnostics; omitted-spin and all-energy checks remain needed.
+
+Why the high-energy strip has controlled partial-wave convergence:
+* |P_l,t|<=P_l,* for every v>4 when -c<=t<=0, controlling absorptive spectral
+  sums by the positive g2 measure.
+* For real local sums, |H_l|<=1 and r_l^2<=2b_l. Cauchy-Schwarz gives
+    integral dmu |pi w H_l r_l|
+      <=sqrt(g2)*sqrt(2pi^2 integral dmu w^2 H_l^2/p_l).
+  The inverse-Legendre sum converges exponentially on a compact external window
+  A>4, so the second factor is finite. This directly controls the local sum and
+  does not require extending a full Roy angular projection above s=12.
+
+11. Tail certification status and two discovered witness obstructions
+-------------------------------------------------------------------
+Do NOT infer a global V/p<=0 assertion from the finite spin/energy scans.
+
+The original untapered high-energy-strip witness has nonzero endpoint weights.
+Its Hilbert transforms produce log|mu-A| and log|mu-B| terms with oscillatory
+spin-dependent coefficients. The other agent explicitly found positive
+divergences (for example spin46 at mu=48), so sup_(tail)(V/p)_+ is INFINITE for
+that witness even though its very narrow positive spikes are numerically tiny.
+Thus the proposed simple g2*sup(V/p)_+ tail bound cannot certify that witness.
+
+The root then used energy weights (1-x^2)P_n(x), removing these log divergences.
+Its initial saved tapered witness had a tiny positive spin2 threshold leading
+coefficient and hence a divergent disk support despite an apparently excellent
+finite-grid cost. The other agent supplied a small X4-multiplier repair; only
+the repaired/tail-validated witness should be used for further inference.
+
+An exact partial certificate is now available:
+  python research/certify_roy_dangerous_sign.py WITNESS.npz --output OUT.json
+It treats each binary64 multiplier as an exact rational and certifies positivity
+of the combined Roy source weight W(s,z) on t<=-4/3 using Bernstein polynomials.
+For maxg0_taper1.npz it proves W>=0.0068459077 on this region. The exponentially
+growing spectral region |P_l(y)|>P_l(Z) has d=mu-8/3+t<0, hence K>0; this growing
+part enters V with a negative sign. This is only one component of the tail proof.
+
+Useful rigorous inequalities for completing the remaining proof:
+* In the physical spectral angular interval, put tau=l(l+1)/(mu-4). Then
+    max(-1,1-tau|t|)<=P_l(1+2t/(mu-4))<=1.
+* Write a=(4/3)tau, lambda_L=L(L+1). The positive Legendre series coefficients
+  a_lk=product_(r=0)^(k-1)[1-r(r+1)/(l(l+1))] increase with l. Thus for l>=L,
+    P_L(1+2a/lambda_L)<=P_l(Z)<=I0(2sqrt(a)).
+  The analogous twice-differentiated lower series gives a lower bound on P_aa.
+  Combined with P_a<=I1(2sqrt(a))/sqrt(a), these bound X4/p below via
+    X4/p = [tau^2 P_aa/2 -3tau P_a/(2Q)]/P.
+* For mu>=49, all external points lie below mu and the direct dispersive K is
+  positive. Splitting the source weight into positive/negative parts converts
+  the physical-angle inequality above into an explicit conservative envelope.
+  research/tail_envelope_exploration.py implements this envelope using ordinary
+  source quadrature. At L=100 it is comfortably negative on the sampled compact
+  tau range, but its source integrations and continuous parameter enclosure
+  HAVE NOT BEEN INTERVAL-CERTIFIED.
+* The normalized pure-P_l(Z) subtraction kernel has the especially simple form
+    Q^3 K(mu;t,c)=2(t-c)^2/[1-(t-c)^2/Q^2].
+* On the nondangerous angular region |y|<=Z, divided differences obey
+    |D_l(y,z)|/P_l(Z)<=P_l'(Z)/P_l(Z)<=l/sqrt(Z^2-1).
+  Therefore (1/(mu-4))|D|/P_l(Z)<=3l/8 for all mu>4. This removes an apparent
+  threshold divergence from naive absolute-value estimates.
+* On the dangerous region, Py>=Pstar and K>0 imply L_l/Pstar>=L_0. There
+  s-mu>=Q, so the PV-subtracted regular kernel is bounded below by -5/Q.
+  Along with the certified positive source weight, this bounds its finite
+  potentially positive remainder without retaining any exponential growth.
+
+These estimates reduce a conservative low-energy imaginary tail majorant to
+O(l), whereas negative lambda_X4 times X4/p is O(l^2) there. The coarse estimate
+can establish a sufficiently remote spin tail; a finite intermediate spin
+bridge and continuous energy validation are still outstanding. Consequently
+the approximately2.707 tapered result remains a candidate, not an established
+new dual exclusion bound at this stage of the work.

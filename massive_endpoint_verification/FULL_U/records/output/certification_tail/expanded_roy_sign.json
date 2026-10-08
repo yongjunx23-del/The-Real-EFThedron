@@ -1,0 +1,18 @@
+{
+  "witness": "C:\\Users\\laure\\Documents\\ChatGPT\\Unitarity codex\\output\\angles_resummed\\angle_000p000.npz",
+  "witness_sha256": "bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c",
+  "arithmetic": "exact rational (binary64 witness values)",
+  "domain": "26/5 <= s <= 11.9, 0 <= z <= 1-(6/5)/(s-4)",
+  "polynomial": "(s-4)^6 sum_Jn lambda_Jn P_n(2(s-4)/79/10-1) P_J(z)",
+  "denominator_clearing_power": 6,
+  "degree": [
+    20,
+    6
+  ],
+  "positive_bernstein_leaves": 2,
+  "max_subdivision_depth": 1,
+  "W_certified_lower_bound": 2.427924084710271e-06,
+  "W_lower_bound_rational": "101318605622942248650036962619786822104059662869019591/41730549262635940721548011927589459924998361543426504130560",
+  "conclusion": "W>0 on t<=-3/5; this is a source-sign component only.",
+  "limitation": "This is NOT a full all-spin V/p upper bound or an exclusion certificate."
+}

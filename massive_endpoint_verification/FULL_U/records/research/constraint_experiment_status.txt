@@ -1,0 +1,110 @@
+Constraint research status (6 October 2026)
+==========================================
+
+Promising lower-g0 witness
+-------------------------
+Current file: output/angle_constraints/ming0_scaled_threshold_repaired.npz
+Construction: 131 exact null rows; forward harmonics through20, seven
+crossing rows through degree8, Roy J=0,2,4 with n=0..10 at B=11.9,
+36 tapered high-energy transfer-strip rows, and36 threshold-regular
+forward-transfer derivative rows through derivative order3.
+
+Search used spectral quadrature n=28 and physical spins0..32, with
+additional zero-cost restrictions on the witness coefficients. These
+include sampled Roy-source positivity, negative highest crossing
+coefficient, a dense moderate-energy grid at spins30..60, and probes
+through spin200. The final repair adds2592 scaled-energy guards at every
+even spin42..100 and spins120,160,200,300,500,1000, using
+tau=l(l+1)/(mu-4) in[15,30] with spacing.5 and[1,5] with spacing.1.
+Such search restrictions add no physical assumptions.
+
+Unrepaired training support of -g0: 7.781100982682135.
+The unrepaired scaled state is EXCLUDED: dense threshold replay found a
+positive l4 leading V/p coefficient of about3.29e-7. The final coefficient
+copy decreases lambda_X4 by1e-6, leaving every other coefficient unchanged.
+At threshold, X4/p=-9/32 for l2 and27/16 for l4, so this changes their
+V/p limits by+2.8125e-7 and-1.6875e-6 respectively. The previous l2 margin
+was negative enough to tolerate this repair; independent replay now passes.
+The repaired NPZ contains only names,multipliers,direction, omitting stale
+sampled fields. Its adjacent provenance JSON records the linear repair.
+Independent replay of THIS final repair:
+  Head through spin40: n80 7.781777913413252; n160 7.781765419411301.
+  All even spins42..100 in tau_audit[1,5] union[15,30], tau_audit=l^2/mu:
+    160-node support .001014078476; 320-node support .0010173390549025.
+  Total measured support: 7.782782758466204.
+All dense threshold probes pass; the maximal threshold V/p is about
+-1.1989e-6. Small positive bands between guards remain (max V/p .00220527)
+and are INCLUDED in the measured tail-band support, not discarded.
+Audit source: output/ming0_final_audit/final_summary.json.
+This is still a partial support integral. The complement of the measured
+tail bands and the infinite-spin remainder require certification.
+The previous asymptotic_guarded state replayed at7.781599138529 through
+spin40, but a finer audit found omitted positive-V bands contributing
+about.0301367 across spins42..100. Its head-only value must NOT be quoted
+as an improved full support. The scaled-energy repair targets those
+bands. The manuscript reports7.81702 for this coordinate; any comparison
+requires inclusion of all tails and numerical allowances.
+
+Exact dangerous-sector result for THIS witness:
+output/ming0_asymptotic_audit/scaled_threshold_repaired_roy_sign.json
+Exact rational Bernstein arithmetic proves W>0 over
+20/3<=s<=11.9, 0<=z<=1-(8/3)/(s-4), with certified lower bound
+1.301438112368428e-10. This controls the sign of the exponentially
+growing Roy contribution only. It does not bound the entire tail.
+
+The degree-eight asymptotic combination is
+32 lambda_X8_1+64 lambda_X8_2=-6.401105565601029e-7.
+Scaled Legendre derivative-ratio recurrence finds strongly negative
+crossing contribution through spin10000 at fixed mu20,50,100.
+Positive crossing contributions can still occur in joint high-energy/
+high-spin regions; they must be combined with all other kernels and
+included in the actual support or remainder bound.
+Coarse full-kernel samples of the previous state at spins100,200,500,1000
+stayed negative, but a denser intermediate-spin scan subsequently found
+positive bands around mu/l^2=.048 and.455. This illustrates why sparse
+far-spin sign samples do not replace integration or a uniform bound.
+
+Rejected / unfinished searches
+-----------------------------
+1. Original ming0_guarded_derivatives.npz, head support7.758382445:
+   rejected. Its highest crossing coefficient is positive (about26.35),
+   proving divergent all-spin support. Independent replay also found
+   positive-V islands at spins36--40, energies58--83; support through40
+   rose to12.1651585. No plot or claimed bound should use7.75838.
+2. g2_guarded_derivatives.npz, head support1.13822, and
+   g2_guarded_angular.npz, head support about1.132:
+   rejected as all-spin bounds because their highest crossing
+   coefficient is positive. The larger angular state's coefficient is
+   about+1.01307.
+3. The subsequent200-row g2_asymptotic_guarded rerun was stopped after
+   ten minutes of kernel/initialization work without a saved feasible
+   iterate. It adds no result. No further branches were launched.
+4. Earlier untapered transfer strips generated positive logarithmic
+   endpoint spikes at omitted spins. Replacing their energy weight by
+   (1-x^2) P_n(x) removes that endpoint obstruction.
+5. Raw fixed negative-transfer forward harmonic rows have dangerous
+   threshold growth and were not retained. The derivative bank instead
+   differentiates after inserting (1-omega)^(2p-2), as in the manuscript.
+
+New implementable checks
+-----------------------
+research/crossing_asymptotic_obstruction.txt gives the necessary
+large-spin sign proof. With only X4 included, lambda_X4<=0 is necessary.
+With the degree-eight bank, the leading combination above must be<=0.
+These checks reject false finite-cutoff improvements immediately.
+
+research/crossing_spin_probe.py evaluates high-spin derivative ratios
+by a scaled recurrence, without constructing exponentially large P_l.
+It is an asymptotic diagnostic, not a complete support integrator.
+
+research/forward_transfer_derivatives.py generates the transfer
+derivative nulls by exact truncated Taylor arithmetic rather than finite
+differences. Independent65-digit differentiation validated kernel values
+through derivative order3 and spins0,2,8, with relative-scale error
+about1.7e-13.
+
+The principal unresolved work is a uniform bound on the full normalized
+imaginary kernel and the real-kernel contribution in all remaining
+spin/energy regions. Finite replay, necessary asymptotic signs, and exact
+Roy-sector positivity are useful separate checks; none alone replaces
+that remainder.

@@ -1,0 +1,45 @@
+STRICTER FINITE-SPIN COERCIVITY: CORRECTED KAPPA=14 RUN
+=====================================================
+
+This addendum preserves the frozen kappa=10 proof/replay history and changes
+only the rigorously verified inequality threshold. All kernel identities,
+moment tables, residual estimates, and exact acceptance rules are identical.
+
+Fixed witness:
+  output/angles_resummed/angle_000p000.npz
+  SHA256 bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c.
+
+Authoritative corrected run:
+  output/certification_head/V8_40_kappa14_exact.json
+  8,798 accepted interval leaves; 8,803 adaptive trials; Arb precision260.
+  Worst directed upper: -14.0000048707154321782332363680840956359...
+  Every accepted cell requires ALL17 even spins8..40 finite and each directed
+  upper<-14. The saved maximum is selected by exact dyadic Fraction ordering.
+  Compact cells cover4<=mu<=101 without gaps. The reciprocal-energy cells
+  cover0<=w<=1/97 withw=1/(mu-4), hence the fullmu>=101 half-line.
+
+The earlier V8_40_kappa14.json used the rejected floating maximum selector.
+It is NOT a certificate and was used only as a partition seed. Corrected
+replay bisected five failed/nonfinite cells and accepted the new8,798 leaves.
+The original V8_40.json rejection remains recorded separately. No finite
+or all-spin conclusion is inherited from either rejected output.
+
+Together with the independently reviewed finite-real-norm certificate
+  A_{8,10,...,40} <47/200,
+the exact disk-support inequality gives
+  sum_{ell=8,10,...,40} integral[h(U_l,V_l)] dnu_l
+  <= A/(2*14) <47/5600 =0.008392857142857142857...
+This block uses no external bound on g2.
+
+Reproduce:
+  python research/tail_certification/certify_finite_v_domain.py --kappa 14
+    --replay output/certification_head/V8_40_kappa14.json
+    --output output/certification_head/V8_40_kappa14_exact.json
+Running from scratch without--replay is also valid; only refinement speed
+changes. Never use the old selector when checking the old partition.
+
+record_kappa14_provenance.py checks exact saved dyadic upper bounds, gapless
+domain coverage, and hashes the precise verifier/evaluator used by this run.
+It creates block8_40_kappa14_manifest.json without mutating the certificate.
+A separate independent reviewer replay must be bound to the certificate SHA;
+provenance annotation is not a substitute for kernel replay.

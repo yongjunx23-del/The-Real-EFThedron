@@ -1,0 +1,33 @@
+{
+  "status": "PASS_POLYNOMIAL_MOMENT_DEGREE_ENCLOSURES",
+  "witness_sha256": "933ee2f7889a52b8ccabbf58836c256161bc5c59d3763cdbca2b40bb01ac6f92",
+  "tables": [
+    {
+      "path": "output\\competitive_20261007\\compact\\moments\\roy_moments.json",
+      "sha256": "9db5123dac92c631d6a3a0bc76d5497c7193de2c08d7cd8f0da45eebbb2998fa",
+      "metadata": {
+        "witness_sha256": "933ee2f7889a52b8ccabbf58836c256161bc5c59d3763cdbca2b40bb01ac6f92",
+        "precision_bits": 512,
+        "order": 189,
+        "B": "119/10",
+        "Jmax": 6,
+        "nmax": 14,
+        "jmax": 108,
+        "kmax": 256,
+        "skmax": 108,
+        "energy_degree_bound": 377,
+        "angular_degree_bound": 369,
+        "absolute_W_mass_bound": "174366171958144456445/72057594037927936",
+        "convention": "integrate dx dz with W=2*sum lambda P_n(2x-1)P_J(z), s=4+(B-4)x"
+      }
+    }
+  ],
+  "seconds": 102.69202756881714,
+  "sha256_manifest": {
+    "research\\all_direction_certification_20261007\\build_compact_moments.py": "fe065af85ac09a2c38d43fdd4b836e214537089068a36f59b78a3622745ecd8b",
+    "research\\certified_roy_moments.py": "9c97a2741c20feafab2c7bb1b700b81b51bbcc39ba243ba2f6ccffad75045b5a",
+    "research\\certified_strip_moments.py": "b9c03a4b9afd1f3f1875b0a70ede9632dd264b0324c6d27459deb5e4de89b370",
+    "research\\validated_quadrature.py": "7e58d82a2c9093324b254de10ec7646d699290ac0d84695f85da2c7517b05eb9"
+  },
+  "scope": "Certified Gauss nodes and weights with asserted polynomial exactness degree. Geometric expansions using these moments require separate remainders."
+}

@@ -1,0 +1,50 @@
+Independent review of finite-spin real norm certificate, 6 October 2026
+
+Reviewed research/tail_certification/certify_finite_real.py and its imported
+RealTail helper for the fixed 150-row witness with SHA256
+bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c.
+
+Result: no substantive mathematical or interval-enclosure issue found for
+the stated block, even spins 8 through 40 and every mu>4. This proves the
+real norm A only; converting it into a dual disk-support bound additionally
+requires the separate negative V/p certificate.
+
+The strip angular polynomial is exactly
+ H_lj(a)=integral_0^1 P_j(2y-1) P_l(1-2a(1-y))dy
+        =sum_(k=j)^l (-1)^(k+j)(l+k)! a^k
+                       /[(l-k)!(k-j)!(k+j+1)!].
+Derivation: expand P_l(1-2a(1-y)) and use
+ integral_0^1 P_j(2y-1)(1-y)^k dy
+   =(-1)^j(k!)^2/[(k-j)!(k+j+1)!] for k>=j, zero otherwise.
+Twelve exact symbolic checks for l=2,4,8,12 and j=0,1,2 agree.
+
+Roy real sources vanish for l>=8 because this fixed witness has maximum
+Roy angular degree6. X4 is absorptive-only. The combined forward U from
+RealTail correctly includes all g0 subtraction shifts. Strip endpoints are
+integer rationals12,24,48, and T=4/3; multipliers are exact binary64 rationals.
+
+The measure and inverse spectral normalization give
+ (dnu/dbeta)/p = [4(2l+1)/pi] Q^3/[(1-beta^2)^2 P_l(Z)],
+ Z=(2+beta^2)/(3beta^2), Q=mu-4/3.
+This reproduces the density factor in the code. With no active strip it
+reduces to the displayed forward factor65536/(27pi). P_l(Z)>0 increases
+with Z>=1, so 1/P_l(Z) increases with beta and its right-endpoint value is
+a valid uniform upper bound on each beta cell. Angular and energy
+polynomials are evaluated in centered coordinates with directed Arb
+arithmetic. Cells intersecting a strip endpoint include zero in the source
+enclosure. The full beta interval[0,1] is covered; its endpoints are harmless
+limits for this finite-spin norm integral.
+
+Independent replay:
+ python research/tail_certification/certify_finite_real.py \
+   --output output/certification_tail/finite_A8_40_independent.json
+gave exactly the original reported A_upper, up to identical decimal display:
+ 0.24999645619995995065256076610772134793798859487961705 < 1/4.
+There are4468 exact dyadic cells. Their exact Fraction endpoints form a
+gapless, nonoverlapping partition from0 to1; the exact sum of their saved
+dyadic mass upper bounds is no larger than the saved total upper bound.
+The total is strictly below1/4 using exact Fraction comparisons.
+
+Implementation scope note: this script's fixed witness path and maximum
+Roy degree6 matter. If generalized to arbitrary witnesses with larger Roy
+J, those local real sources would need inclusion in the finite block.

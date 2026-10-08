@@ -1,0 +1,51 @@
+Independent fixed-witness angle audit, 2026-10-06
+
+Entry point: research/angle_audit.py
+No multipliers were optimized or repaired in this audit.
+
+The auditor rebuilds physical U and normalized V/p for every stored row,
+including arbitrary direction normals, tapered strip rows, and crossing
+rows X4 and beyond. It uses velocity panels split at each Roy endpoint and
+each strip boundary (12,24,48 here), plus endpoint-clustering sine-squared
+maps. The first threshold panel is linear in velocity.
+
+Default integration: 80 nodes/panel, spins 0..24, then spins 26..40 with
+only the first panel reduced to 20 nodes to avoid overflow of raw P_l.
+The resulting support includes every spin through 40; remaining spins are
+unproved. External Roy/strip quadrature orders are 64/56, higher than the
+training bank defaults.
+
+Two zero-weight probe groups are kept distinct:
+  spins 2..20 at s-4 = 1e-4,1e-6,1e-8,1e-10,1e-12;
+  spins 2..40 at s-4 = 1e-2,1e-4,1e-6.
+The final offset is compared with zero using exactly zero sign tolerance.
+The second group is explicitly a finite-offset test, not a proof of the
+threshold limit. Positive V/p samples where p>1e4 are separately flagged,
+because they expose failures of the optimization's large-p sign guard.
+
+Files: output/angle_audits/summary.csv and one JSON per witness. Duplicate
+angles from the positive and negative continuation branches are preserved.
+
+36 witnesses were audited. All pass the low-spin s-4=1e-12 probe, but only
+15 pass the dense p>1e4 guard through spin 40. The usable numerical region
+is theta=0..80 degrees and 270..345 degrees (including a duplicate theta0).
+The guard failures occur at every supplied angle from 82 through255.
+
+Examples:
+  theta0: training 2.707019600368; replay through40 2.706996861555.
+  theta70: training 1.004567066175; replay 1.009419212151.
+  theta82: training .441436518325; replay through20 277.319668522;
+           replay through40 2.0504482e22.
+    At l20,s=8.796848220012262,V/p=+.000265471978743,p=195518.25.
+    At l40,s=6.293988635914027,V/p=+1.02736621198,p=2.0028e21.
+  theta85: training .531700218138; replay through20 .531793263946;
+           replay through40 8.06705e284.
+    At l40,s=4.000000679912664,V/p=+1.30412832343e12.
+
+The huge replays are not physical improvements: they expose missed
+positive-V regions at finite energy and, in some cases, at threshold.
+Every result has all_spin_certified=false and continuum_certified=false.
+Even a smooth, stable finite-spin replay is not a published-bound claim.
+
+Refinement of theta0,60,70,75,80,285 at 160 nodes/panel and external
+kernel orders80/80 is saved in output/angle_audits_refined.

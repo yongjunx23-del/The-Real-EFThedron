@@ -1,0 +1,455 @@
+BENCHMARK, PLOT, AND RESEARCH-HISTORY AUDIT FOR THE MARKDOWN HANDOFF
+Workspace: C:/Users/laure/Documents/ChatGPT/Unitarity codex
+Date: 2026-10-06. This document is a handoff supplement, not a new bound.
+FINAL SELECTION UPDATE: regenerated plot has16 selected/25 rejected audits.
+Both84/85 source-screen failures are excluded. Root verified every numeric
+column of angle_vs_dual.csv is exactly unchanged after their removal (maximum
+absolute difference0). The final16-state source screen passes all samples;
+the earlier18-state failure evidence remains preserved separately.
+
+1. SCIENTIFIC STATUS AND WHICH NUMBERS ARE CURRENT
+
+All newly searched halfplanes remain numerical candidates. Finite-spin replay,
+measured higher-spin bands, threshold checks, polynomial-source sign checks,
+and floating-point convergence do not provide a complete infinite-spin,
+continuous-energy exclusion certificate. The only exact selected elementary
+halfplane is g2>=0, represented at theta=270 with zero multipliers.
+
+The current principal right witness is
+  output/angles_resummed/angle_000p000.npz
+Its independent spin<=40 n160 support is 2.705761181546443. Adding the measured
+selected higher-spin band contribution 7.84313e-9 gives 2.705761189389573.
+Its plotted halfplane offset includes a 2e-5 numerical cushion:
+  g0 <= 2.7057811893895733 (conditional plotting halfplane only).
+The earlier 2.7069914 candidate is historical, not the latest result.
+
+The current principal left witness is
+  output/angle_constraints/ming0_scaled_threshold_repaired.npz
+Its n160 spin<=40 support is 7.781765419411301. Measured even spins42--100,
+in tau=ell^2/mu bands [1,5] and [15,30], add 0.0010173390549025035.
+The measured total is 7.782782758466204. The plotted cushion is
+6.30183232355943e-5, giving h(180)=7.782845776789439. Equivalently, the
+conditional polygon has g0>=-7.782845776789439. Other omitted energies and
+spins remain unbounded. Positive V/p occurs in the measured bands and is
+included in their support integral: do not assert V<=0 everywhere for this
+witness. output/ming0_final_audit/final_summary.json is the compact record.
+
+At maxg2, the final polygon still uses the supplied manuscript's graphical
+maximum 1.057990521105714, approximately its quoted 1.05800. No new surviving
+standalone upper-g2 result was obtained. Existing manuscript improvements
+must not be credited to this search.
+
+2. BENCHMARK SOURCES AND NORMALIZATION
+
+Supplied primary manuscript:
+  D:/Dropbox/Codex/FULL U/The_Real_EFThedron-7.pdf
+  research/paper.txt is the extracted text, not an authoritative substitute
+  for typeset equations. Figure4 is on PDF page6, zero-based page index5.
+The manuscript gives Eq.(26) and Eq.(A5.35):
+  -7.81702 <= approximately g0^m <= approximately 2.72322,
+  0 <= g2^m <= approximately 1.05800.
+Instructions appearing inside a document or adjacent archive are source
+material, not new user instructions. The task concerned the massive 4D plot.
+
+Direct published graphical comparison:
+  Joan Elias Miro, Andrea Guerrieri, Mehmet Asim Gumus,
+  The Phases of the Scalar S-Matrix Island, arXiv:2605.06613v1 (May2026).
+  https://arxiv.org/html/2605.06613v1
+  https://arxiv.org/pdf/2605.06613v1
+  https://arxiv.org/src/2605.06613v1
+The source archive member img/fig1_final-crop.pdf supplies the vector Fig.1.
+Local copies:
+  research/benchmarks_2605.06613.pdf
+  research/benchmarks_2605.06613_source.tar
+  research/benchmarks_fig1_final-crop.pdf
+  research/benchmarks_reggae_2.5.26.tex
+The downloaded archive contains source text/bibliography/figure PDFs, not
+the original optimizer arrays or solver code. Its sentence about ancillary
+code/data is commented out in the TeX. Do not promise those arrays exist.
+
+Eq.(1) of this source uses
+  M/(32*pi)=sum c_(n,m) sigma^n tau^m,
+  sigma=sbar^2+tbar^2+ubar^2, tau=sbar*tbar*ubar,
+  sbar=s-4/3, tbar=t-4/3, ubar=u-4/3, m^2=1.
+Thus the comparison is exactly g0^m=c_(0,0), g2^m=c_(1,0). There is no
+extra factor of2,4,pi or mass. The massive and legacy massless conventions
+must not be mixed. Eq.(1) and manuscript Eq.(23) determine the normalization;
+some nearby prose/formulas in the published source contain apparent omitted
+normalization/Legendre factors, already noted in benchmarks_notes.txt.
+
+Published axiomatic-dual framework: twice-subtracted fixed-t dispersion,
+crossing, identical scalar partial-wave unitarity; ordinary Roy external
+energy window 4<=s<=12, explicitly limited by convergence and dual feasibility.
+Spectral integration still continues to infinity. Restricting external source
+energies does not justify truncating the spectral integral. The numerical
+primal region uses stronger analyticity input; it is a comparison/control,
+not automatically a universal axiomatic outer exclusion region.
+
+Quoted coordinate benchmark:
+  Andrea Guerrieri and Amit Sever, Rigorous bounds on the Analytic S-matrix,
+  arXiv:2106.10257v2, Phys.Rev.Lett.127,251601 (2021).
+  https://arxiv.org/abs/2106.10257
+  https://arxiv.org/pdf/2106.10257
+AppendixG quotes g0<=2.7272 and g0>=-8.08 in the same g0 normalization.
+The lower number involves spin extrapolation and residual intermediate-energy
+dual-feasibility qualifications. The maxg0 result also uses extrapolation.
+These are published numerical benchmarks, not an interval-certified dataset.
+
+Other references whose assumptions must be distinguished:
+  Yifei He and Martin Kruczenski, arXiv:2103.11484v2:
+  https://arxiv.org/html/2103.11484v2
+  regularized Mandelstam-representation primal/dual problem; approximately
+  2.6613 is a primal figure value with a threshold pole. Do not claim beating
+  2.7272 beats every published dual under every analyticity assumption.
+  Miro, Guerrieri, Gumus, Zahed, A Geometric View on Crossing-Symmetric
+  Dispersion Relations, arXiv:2509.14170v1:
+  https://arxiv.org/html/2509.14170v1
+  https://arxiv.org/abs/2509.14170
+  offers all-energy Roy-like constraints using crossing-symmetric dispersion.
+  Its kernels were not implemented in this campaign. Extending ordinary Roy
+  projections above12 by fiat would not implement this result.
+
+3. VECTOR EXTRACTION, PRECISION, AND THE MISSING RIGHT CAP
+
+research/benchmarks_extract_vectors.py reads the downloaded published figure
+with PyMuPDF. It extracts line-segment vertices, not a raster digitization.
+The published x-axis minor tick strokes are offset from label centers, so
+the calibration uses numeric x-label centers, checked against the origin.
+The right-side y ticks set the vertical calibration. Fixed PDF drawing indexes
+mean this script is tied to this exact downloaded PDF version.
+Outputs: research/benchmarks_{dual,primal}_{upper,lower}.csv and
+research/benchmarks_summary.json. Each CSV has header g0_massive,g2_massive.
+
+research/benchmarks_extract_manuscript.py independently calibrates page6 Fig.4
+and extracts the blue polygon and copied red/green reference outlines:
+  benchmarks_manuscript_blue.csv (1019 vertices),
+  benchmarks_manuscript_dual_upper.csv (70), dual_lower.csv (70),
+  benchmarks_manuscript_primal_upper.csv (30), primal_lower.csv (111),
+  benchmarks_manuscript_summary.json.
+The published reference copies and original-source reference curves agree
+coordinate-wise within about1.9e-6. The support API uses the manuscript copies
+for internally consistent shared axes; the original extraction independently
+checks them. Replaying vector extraction is optional for plot reproduction.
+
+Extracted manuscript blue extrema:
+  min g0=-7.817019931990032; max g0=2.7232144386016697;
+  min g2=2.20255e-8 (graphical offset; exact free point is added separately);
+  max g2=1.0579905211057143.
+Published red cusp is approximately (-8.014558,1.081685).
+Published green cusp is approximately (-7.055908,0.929694), and its right
+tip is approximately (2.66140066,0.06175071).
+These many digits describe geometry extraction, not optimizer accuracy.
+Print about3 significant figures for physical graphical comparisons; retain
+full values in machine data to make computations reproducible.
+
+CRITICAL: the red upper/lower polylines terminate at g0=2.6562934015330355,
+with g2 ordinates0.07031775308180707 and0.05744384818967917. They do not meet
+the isolated maxg0 marker. The marker extracted from the original PDF is
+about(2.72776436,0.06000023); its x differs slightly from the quoted2.7272.
+research/angle_benchmarks.py therefore adds the explicit reference anchor
+  (g0,g2)=(2.7272,0.06)
+and the exact free point(0,0), but invents no smooth/straight missing cap arc.
+The anchor is NOT asserted to be an attained physical amplitude or an actual
+two-coupling optimizer witness. Taking the convex hull is only the defined
+graphical support estimate.
+
+Graphical working tolerance:5e-6 in each extracted coordinate. Anchor working
+tolerance:(0.0006,0.001), chosen from the visible x discrepancy and an explicit
+y sensitivity allowance. These are not statistical errors or rigorous
+bootstrap numerical/continuum errors. Those source errors are unavailable.
+
+The conditional missing-cap high envelope allows an unknown cap point in
+x=[2.6562934015330355,2.7272], y=[0.05744384818967917,0.07031775308180707].
+This assumes the missing cap stays between the two endpoint ordinates.
+support_report() exposes the cap allowance separately; it is not a proven
+bracket on the true published dual support. On the0.25-degree output grid:
+  isolated marker dominates at0..81.5 and272.25..360 degrees;
+  missing-cap allowance exceeds extraction tolerance at0.25..82.75 and
+  272..359.75 degrees;
+  largest cap allowance=0.01020442147 at81.5 degrees.
+This uncertainty is substantial near the top end of the right boundary.
+
+The manuscript already closed approximately20.6% of the published primal-dual
+lower-g0 gap and15.6% of the upper-g2 gap. The current new numerical candidate
+must be compared against that blue baseline, not credited for its improvements.
+
+4. ANGLE DEFINITION AND EXACT PLOT CONSTRUCTION
+
+h(theta)=sup(g0*cos(theta)+g2*sin(theta)); theta is in degrees and uses
+unscaled physical coupling axes. Theta is the supporting-line OUTWARD NORMAL
+angle, not the polar angle of a boundary point, nor a plotting aspect angle.
+0:maxg0;90:maxg2;180:-ming0;270:-ming2. The plot uses
+  Delta(theta)=h_published_graphical(theta)-h_candidate(theta).
+Positive Delta means numerically smaller support. Negative values are kept.
+
+research/plot_angle_comparison.py builds the convex hull of manuscript blue
+vertices plus(0,0), then clips it successively with accepted halfplanes
+  cos(theta_i)*g0+sin(theta_i)*g2 <= offset_i.
+It evaluates the support of the final polygon at1441 angles,0..360 inclusive
+in0.25-degree steps. The orange curve is this INTERSECTION's support, not
+linear interpolation of per-angle optimized objective values. The orange
+region inherits the graphical manuscript baseline. It is a conditional
+research enclosure, not a separately certified all-spin reconstruction.
+
+Selection logic in load_audits():
+  - Search the configured directories for *_audit.json.
+  - Group replays of the same witness by saved SHA256 (fallback witness path).
+  - For each witness use highest(lmax,n), rather than the most favorable
+    quadrature value. This avoids choosing low quadrature underestimates.
+  - Require audit status finite_head_audited_tail_unproved, finite support,
+    no explicit manual exclusion, and no unresolved fractional endpoint.
+  - A sole X4 row requires lambda_X4<=0 (necessary asymptotic condition).
+  - The seven degree<=8 crossing rows require strictly negative leading
+    combination32*lambda_X8_1+64*lambda_X8_2; if zero, next powers need review.
+  - Other crossing inventories need explicit asymptotic review.
+  - Add specified measured tail-band costs from angle_tail_additions.json.
+  - At the same direction choose the candidate with the smallest padded
+    support. A selected halfplane can still be nonbinding on the blue polygon.
+
+Each nonexact cushion is
+  max(2e-5,4*(observed same-witness head replay spread
+             +abs(measured tail-band refinement difference))).
+Head spread compares available same-lmax replays with n>=80 to the selected
+finest one. Zero spread may mean only one replay exists, not zero error.
+The exact zero-multiplier270-degree halfplane has zero cushion. These cushions
+are plotting/convergence allowances, NOT rigorous integration errors or
+upper bounds on unmeasured spin/energy contributions. Missing tail entries
+in angle_tail_additions.json mean no measured addition, not a proven zero tail.
+
+The plot asserts candidate support<=manuscript support and that it does not
+fall below the extracted primal support by more than2e-5. Passing this basic
+sanity check is not physical certification, especially given differing primal
+analyticity assumptions and graphical reference error.
+
+As inspected before removal of the two nonbinding failed-source halfplanes,
+the cardinal plotted supports were:
+ theta    published reference   manuscript        candidate intersection
+ 0        2.7272                2.723214438602    2.705781189390
+ 90       1.081684673247        1.057990521106    1.057990521106
+ 180      8.014557983981        7.817019931990    7.782845776789
+ 270      0                     0                 0
+Largest additional gain over manuscript is0.0341741552006 at180 degrees.
+The corresponding right-endpoint additional gain is0.0174332492121.
+
+On the0.25-degree grid, additional gain>1e-9 occurs at
+  [0,82.25], [90.25,243.25], [272.5,360] degrees.
+Using gain>1e-5 changes the first interval to[0,82]. This is a sampled angular
+description, not an exact determination of transition angles. The0/360 ends
+join periodically. The candidate has positive Delta relative to the nominal
+published graphical reference at
+  [0,80.75], [82.75,83.25], [87.5,255.75], [260,260.75], [271,360].
+Negative Delta remains at
+  [81,82.5], [83.5,87.25], [256,259.75], [261,269.75], [270.25,270.75].
+Some narrow intervals are sensitive to reference geometry/missing cap and
+must not be oversold as significant comparisons. Geometry is unchanged by
+removal of the two nonbinding failed-source halfplanes described next.
+
+5. FINAL SELECTION AUDIT AND A HANDOFF CORRECTION
+
+At the start of this audit, output/angle_vs_dual_provenance.json listed18
+halfplanes at0,15,30,45,60,70,75,80,82,84,85,180,270,285,300,315,330,345.
+All18 selected state files existed and their actual SHA256 values matched
+their referenced audit SHA256 values. A machine-readable snapshot is saved
+in research/handoff_benchmark_snapshot.json. IMPORTANT: the plotter currently
+groups by saved hash but does not itself recompute the witness hash. Preserve
+the state files and check hashes before relying on old audits after edits.
+
+The earlier output/roy_source_sample_crosscheck.json covered only14 earlier
+selected directions plus the resummed0-degree witness. Its all-pass result
+does NOT cover subsequently included82/84/85/180 candidates. Rechecking the
+then-current18 states on151x151 dangerous-source samples found:
+  angle84: min W=-0.0108942918920,184 negative samples;
+  angle85: min W=-0.0217235352957,245 negative samples.
+The minima occurred at s=11.9,z=0. This is a failed sampled dangerous-source
+screen and a suspected exponential obstruction. Negativity alone is NOT
+promoted here to a general mathematical proof of divergence.
+Exact keys to exclude:
+  output/angle_tail_refinement/angle_084p000.npz
+  output/angle_tail_refinement/angle_085p000.npz
+Both offsets exceed the manuscript support at their direction, so they are
+nonbinding on the whole manuscript polygon; removing them changes selection
+metadata, not the plotted geometry. Root agreed to exclude them and regenerate.
+The failure evidence is preserved in
+  output/roy_source_final_selection_crosscheck_before_exclusions.json.
+An updated current-selection report can be generated with the command below.
+
+After those exclusions the confirmed16 selected witnesses are:
+  0: output/angles_resummed/angle_000p000.npz
+  15,30,45,60,75,80: output/angles_positive/angle_XXXp000.npz
+  70: output/angles_refined/angle_070p000.npz
+  82: output/angle_tail_refinement/angle_082p000.npz (nonbinding)
+  180: output/angle_constraints/ming0_scaled_threshold_repaired.npz
+  270,285,300,315,330,345: output/angles_negative/angle_XXXp000.npz
+The canonical current list is always accepted_halfplanes in the regenerated
+provenance JSON, not the historical18-state snapshot. Each item records its precise
+audit path, state path, raw support, added tail, cushion, asymptotic coefficient,
+and validity limitation. Parent handoff should use the regenerated16/25 counts.
+The updated output/roy_source_final_selection_crosscheck.json covers all16
+current selections and has no negative source samples. This is only a sampled
+screen; it does not certify continuum sign or the complete spin remainder.
+
+6. FAILED BRANCHES AND HISTORICAL FILES THAT CAN MISLEAD
+
+Baseline angular scans: several theta82..255 candidates looked impressive at
+the fitted spin cutoff but failed independent dense/extended-threshold checks.
+With only X4, a positive multiplier also causes a known fixed-energy large-spin
+obstruction. See research/crossing_asymptotic_obstruction.txt. Do not use raw
+support from output/angles_positive/summary.json or angles_negative/summary.json
+as a continuum result. The rejected_audits list records many such states.
+
+Rich fractional maxg0 branch:
+  output/angles_richer/angle_000p000.npz, training2.684875651730365.
+Ordinary n80/n160 replays around2.9 still missed the extremely singular
+alpha=-15/32 threshold contribution. Exact beta=x^16 transformed integration
+finds spin0 support4.3360483443 already below s-4=1e-64,90.6479520435 below
+1e-16, and about102.49459535 in the full beta[0,.12] panel. This decisively
+rejects its small claimed objective. The ordinary replay's apparent pass
+status or usable_grid_result=true flag is not reliable for this branch.
+  research/fractional_threshold_audit.py
+  output/fractional_threshold_audit.json
+use exact fractional geometry in beta, retaining regular kernels directly
+above beta1e-6 and fitted constant/linear/logarithmic endpoint terms below.
+The fit is explicitly a numerical approximation, not an interval certificate;
+its uncertainty is negligible relative to the observed failure. Do not merely
+set fractional_endpoint_validated=true while retaining the old support number.
+The primary resummed witness excludes these fractional rows entirely.
+
+This subagent's early lower-g0 branch:
+  min_g0_refinement_continued had training8.35504 but81/240 omitted-spin sign
+  violations. A coarse repair passed240 probes but exploded to about5.28e32
+  on dense added-spin quadrature. Dense repair finally gave n24 head8.49558,
+  but independent n48 head9.01449. Further optimization reduced the training
+  number to8.42756 while independent n48 cost worsened to9.14802. These
+  output/min_g0_* states are historical failures/noncompetitive candidates,
+  NOT the newer parent/constraint-agent final left witness.
+
+Derivative/asymptotic lower-g0 branches:
+  ming0_guarded_derivatives had apparent head7.758382 but positive highest
+  degree-eight asymptotic coefficient and missed positive-spin islands.
+  output/angle_constraints/ming0_asymptotic_guarded.npz had apparent head
+  about7.781599 but missed positive omitted-spin islands60,70,80; even spins
+  42--100 on two bands contribute about0.030137. Excluded and superseded.
+  output/angle_constraints/ming0_scaled_guarded.npz has a positive spin4
+  threshold coefficient and divergent threshold support; superseded by repair.
+  research/existing_solver/ming0_scaled_threshold_repaired.npz is an
+  INTERMEDIATE5e-7 repair, not the final1e-6 repair stored under output.
+These are explicitly listed in output/angle_candidate_exclusions.json.
+
+Guarded82/84/85 branch independently replayed through spin40 to
+0.441823951171,0.452318894446,0.516341319560. None beats the manuscript's
+same-angle support. Its campaign_summary.json predates the new84/85 dangerous
+Roy-source failures; current handoff must add that qualification. A frozen-X4
+face followup at82 produced no improvement. The82 state is nonbinding.
+
+Older upper-g0 history:
+  Untapered sharp strip windows created positive logarithmic endpoint spikes.
+  A first tapered optimum had a small positive spin2 threshold term; explicit
+  coefficient repair was required. Do not revive raw maxg0_taper1 as a bound.
+  The older independently repaired state used expanded untapered Legendre rows
+  whose combination exactly tapers endpoints; do not silently map its row names
+  to the newer directly tapered basis without the transformation.
+
+Stale human-facing artifacts:
+  output/research_summary.txt describes the FIRST2.7069914 campaign and says
+  no new lower-g0 candidate exists. It is superseded by angle_search_report.txt
+  and the current provenance, though its general certification caution remains.
+  research/plot_research_result.py hardcodes2.7069914 and regenerates the older
+  output/massive_bound_candidate.png/.svg. These are NOT the current angle plot.
+  Various summary.csv files contain only the most recent batch passed to their
+  script, because rerunning can overwrite the summary while retaining per-state
+  audit JSON files. In particular angle_tail_refinement_audit/summary.csv can
+  omit82 even when its individual audit exists. Use per-state files/provenance.
+  A failed-state JSON may still say usable_grid_result=true: that flag means
+  its training grid was finite/feasible, not continuum or omitted-spin validity.
+  Earlier chat/subagent messages are chronological discoveries, not an authority
+  overriding the final exclusions and repaired state provenance.
+
+7. FINAL PLOT/DATA DEPENDENCIES
+
+Main executable:
+  research/plot_angle_comparison.py
+    imports research/angle_benchmarks.py, NumPy, SciPy ConvexHull, Matplotlib.
+Benchmark CSV dependencies:
+  research/benchmarks_manuscript_blue.csv
+  research/benchmarks_manuscript_dual_upper.csv / dual_lower.csv
+  research/benchmarks_manuscript_primal_upper.csv / primal_lower.csv
+  research/benchmarks_dual_upper.csv / dual_lower.csv
+  research/benchmarks_primal_upper.csv / primal_lower.csv
+The final four source CSVs are used by provenance() to verify the two copies.
+
+Audit directories searched by default:
+  output/angle_audits
+  output/angle_audits_refined
+  output/angle_audits_second_refinement
+  output/angle_audits_richer
+  output/angle_audits_resummed
+  output/angle_tail_refinement_audit
+  output/angle_audits_asymptotic (may be absent; glob silently skips it)
+  output/ming0_asymptotic_audit
+  output/ming0_asymptotic_audit_n160
+  output/ming0_final_audit
+It reads every *_audit.json and then opens its referenced NPZ, including
+rejected cases. Preserve rejected state files if reproducing with this full
+default directory scan. Current best selections are recorded individually
+in the provenance; do not blindly select smallest values from all outputs.
+
+Manual policy/data dependencies:
+  output/angle_candidate_exclusions.json
+  output/angle_tail_additions.json
+These two files materially change selection/cost and must accompany handoff.
+Tail reports referenced by additions should also accompany it:
+  output/angle_audits_resummed/scaled_band_all_evens.json
+  output/ming0_final_audit/scaled_bands_n320.json
+The plot uses the numerical values in angle_tail_additions.json, not an
+automatic fresh integral of those report files. If a witness changes, regenerate
+audits and additions rather than editing one support field in isolation.
+
+Generated current artifacts:
+  output/angle_vs_dual.png / .svg
+  output/angle_vs_dual.csv (1441 rows plus header)
+  output/angle_vs_dual_provenance.json
+  output/angle_candidate_halfplanes.csv
+  output/angle_candidate_polygon.csv
+  output/angle_search_report.txt (research/write_angle_report.py)
+The PNG/SVG is a static scientific figure; CSVs preserve the actual values.
+All graphical source precision and finite/infinite-spin distinctions belong
+in the final Markdown handoff, even if its main table is rounded.
+
+8. REPRODUCTION COMMANDS WITHOUT A NEW OPTIMIZATION
+
+Run from the workspace root. The tested Python executable is
+  C:/Users/laure/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+PowerShell example:
+  $taskPython = 'C:/Users/laure/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe'
+  & $taskPython research/angle_benchmarks.py --out research/angle_benchmark_provenance.json
+  & $taskPython research/plot_angle_comparison.py
+  & $taskPython research/write_angle_report.py
+This is sufficient to regenerate the comparison from retained audits/data.
+It performs no optimization. It rewrites the listed plot/data/report outputs.
+
+Optional extraction replay from the original source PDFs:
+  & $taskPython research/benchmarks_extract_vectors.py
+  & $taskPython research/benchmarks_extract_manuscript.py
+These require the exact local downloaded figure PDF and the supplied D: PDF.
+PyMuPDF (import pymupdf) is installed in the tested runtime but is not listed
+in requirements.txt; a fresh environment must include it for extraction.
+Plot-only reproduction does not require PyMuPDF or the original PDFs.
+
+Optional independent fixed-witness head replay (not optimization):
+  & $taskPython research/angle_audit.py output/angles_resummed/angle_000p000.npz --n 160 --lmax 40 --head-lmax 24 --output output/handoff_replay_maxg0
+  & $taskPython research/angle_audit.py output/angle_constraints/ming0_scaled_threshold_repaired.npz --n 160 --lmax 40 --head-lmax 24 --output output/handoff_replay_ming0
+Read the retained audit's head_lmax/kernel_order/angular_order fields if exact
+bitwise reconstruction of an existing replay is needed. Separate scaled-band
+tail replay commands/inputs are covered by the solver-agent handoff; this
+benchmark document does not claim these head commands reproduce tail additions.
+
+Optional endpoint and dangerous-source diagnostics:
+  & $taskPython research/fractional_threshold_audit.py output/angles_richer/angle_000p000.npz --out output/fractional_threshold_audit_replay.json
+  & $taskPython research/sample_roy_dangerous_sources.py --extra --output output/roy_source_final_selection_crosscheck.json
+The second command samples exactly the current accepted_halfplanes list;
+--extra with no following paths prevents adding a redundant resummed witness.
+
+requirements.txt lists NumPy, SciPy, SymPy, CVXPY, Clarabel, Matplotlib, pypdf.
+CVXPY/Clarabel are not needed for plotting itself. This campaign did not modify
+the supplied PDF or its adjacent research archives. No new optimization was
+performed during this handoff audit.

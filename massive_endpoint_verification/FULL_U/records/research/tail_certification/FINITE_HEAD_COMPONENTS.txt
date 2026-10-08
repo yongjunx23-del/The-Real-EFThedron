@@ -1,0 +1,169 @@
+FINITE-SPIN HEAD COMPONENTS FOR THE FIXED RESUMMED WITNESS
+========================================================
+
+These extend, without modifying, the frozen infinite-spin certificate in
+PROOF.txt. Fixed witness SHA:
+bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c.
+
+Certified results (independent review/replay requested):
+- certify_finite_real.py: A_{8,10,...,40}=sum int U_l^2/p_l dnu_l < 47/200 = 0.235.
+  Output: output/certification_tail/finite_A8_40_tighter.json.
+- certify_finite_v_domain.py: V_l/p_l < -10 for every listed spin and allmu>4.
+  Output: output/certification_head/V8_40_exact.json.
+Therefore this entire finite block contributes <47/4000=0.01175 to the disk support.
+This is a deliberately loose rigorous upper bound; its numerical support is
+about0.00219. The finite spins0,2,4,6 remain separate obligations.
+
+Exact strip angular polynomial and real norm
+-------------------------------------------
+For transfer basis P_j(1+2t/c), t in[-c,0], c=4/3, put a=c/(mu-4).
+The normalized physical angular projection is
+ H_lj(a)=int_0^1 P_l(1-2av) P_j(1-2v) dv
+        =sum_{k=j}^l (-1)^(k+j)(l+k)!/
+          [(l-k)!(k-j)!(k+j+1)!] a^k.
+This follows from the terminating Taylor series for P_l and the beta moment
+int_0^1 v^k P_j(1-2v)dv=(-1)^j(k!)^2/[(k-j)!(k+j+1)!], zero if k<j.
+All coefficients are exact rationals. The polynomial is composed with
+(a_mid+x) and then evaluated on the radius interval, using Arb polynomial
+composition; this retains cancellations and encloses the entire cell.
+
+U_l is the exact forward harmonic+rational U plus pi/(B-A) times the
+tapered energy polynomial times these angular projections. No local Roy U
+survives for l>=8 because Jmax=6. U is integrated in beta=sqrt(1-4/mu),
+mu=4/(1-beta^2), with dmu/rho=8/(1-beta^2)^2 dbeta. The endpoint-cancelled
+forward density is used outside strip windows; clipped strip intervals
+include zero when a cell crosses an endpoint. Since P_l(Z) decreases with
+beta, 1/P_l(Z) at the right endpoint of each cell is a rigorous upper bound.
+Positive interval upper Riemann sums cover beta in[0,1], including both
+endpoints. The saved exact dyadic cell masses sum to an upper bound below1/4.
+
+Certified source moments
+------------------------
+research/certified_roy_moments.py and certified_strip_moments.py use directed
+Gauss-Legendre nodes/weights ONLY to integrate polynomials, with degrees
+checked against2n-1. Thus there is no quadrature approximation for the saved
+moment balls. Root's independent rational beta-integral tests cover selected
+Roy moments including highest indices. The tables are:
+ output/certification_head/roy_moments.json
+ output/certification_head/strip_12_24_moments.json
+ output/certification_head/strip_24_48_moments.json
+
+For Roy W includes folded factor2, s=4+(79/10)x. Tables enclose
+ M_u[j,k]=int W t^j(u+4)^k,
+ M_s[j,k]=int W t^j(s-4)^k,
+ T[j]=int Wt^j, M_t[k]=int W(t+2)^k.
+For strips the u center is h=(A+B)/2-4-c/2 (so u+h is centered),
+t center is c/2, and M_s uses s-(A+B)/2. The associated radii are
+r_u=(B-A)/2+c/2, r_t=c/2, r_s=(B-A)/2.
+
+Finite V kernel assembly
+------------------------
+Let delta=mu-4 and
+ R_l(t,delta)=delta^l P_l(1+2t/delta)
+            =sum_{j=0}^l C_lj t^j delta^(l-j),
+ C_lj=(l+j)!/[(l-j)!(j!)^2].
+Rstar=R_l(c,delta)=delta^lP_l(Z), a positive polynomial fordelta>=0.
+All normalized kernels are expressed with denominatorRstar, so the limit
+mu->4 is finite or has a controlled sign without overflow.
+
+The Roy PV part is an EXACT polynomial for l>Jmax=6:
+ int W R_l(t,delta)/(mu-s)
+ =sum_{j=0}^{l-1} C_lj sum_{a=0}^{l-j-1}
+       delta^(l-j-1-a) M_s[j,a].
+Indeed divide each delta^(l-j) bydelta-(s-4). The remainder is
+(s-4)^l int_z W P_l(z), which vanishes by angular orthogonality. This does
+not approximate or sample a principal-value integral.
+
+The removable subtraction quotient is
+ [Rstar-R_l(t,delta)]/(delta+c+t)
+ =-sum_{j=1}^l C_lj delta^(l-j)
+    sum_{a=0}^{j-1} t^(j-1-a)(-delta-c)^a.
+The code combines all rational coefficients multiplying a given moment T[r]
+and delta power BEFORE multiplying by its Arb ball. This exact grouping is
+necessary: treating repeated moment balls independently before cancellation
+would produce artificial large uncertainty.
+
+The nonsingular denominators are geometric series, e.g.
+ 1/(mu-u)=sum_{k=0}^{N-1}(u+h)^k/(mu+h)^(k+1)+remainder,
+ |remainder|<=q^N/[(mu+h)(1-q)], q=r_u/(mu+h).
+N32 is used. After contraction with R_l the numerators are exact polynomials
+with Arb coefficient enclosures. The t denominator is handled likewise.
+The error uses the independently certified source absolute masses rounded
+up: RoyAbs<5.618; each stripAbs<0.2401 (each is bounded by their combinedmass).
+For physical arguments, |P_l(y)|/Pstar<=1 is sufficient for this remainder.
+For low-energy Roy arguments use
+ max_source |R_l(t,delta)|/Rstar
+ <= |R_l(-79/20,delta)|/Rstar + delta^l/Rstar.
+This includes both the physical interval maximum1 and the extreme source
+argument; Legendre absolute maxima on a real interval occur at its exterior
+endpoint or are bounded by1 on[-1,1].
+
+All Roy rational terms are combined over the common denominator
+Q*(mu+4)^N*(mu+2)^N BEFORE interval evaluation. The exact numerator degree
+is at most l+2N-2. Its two larger powers vanish because the full crossed
+kernel is O(mu^-3); geometric truncation errors are O(mu^(-N-1)) and cannot
+change those leading coefficients forN>=3. The code checks the computed
+leading coefficient balls contain zero, then removes these analyticallyzero
+coefficients. This is an algebraic identity, not an inference from a small
+floating number. Polynomial evaluation is centered for finite delta and
+reversed in w=1/delta for the ultraviolet.
+
+The crossing kernel is computed algebraically from Rstar. If derivatives
+R_c,R_cc refer to the auxiliary c in R_l(c,delta), then
+ X4/p=[Q R_cc-3R_c]/[2Q Rstar].
+The coefficient is the exact-binary64 lambda_X4 of the witness.
+The forward real part is evaluated using real Chebyshev polynomials and the
+positive completed-square denominator for each rational cosine row, just as
+in the independently reviewed real-kernel certificate.
+
+Analytic tapered strip PV
+-------------------------
+The energy PV separates from its transfer polynomial. With
+v=2(mu-A)/(B-A)-1, it is2/(B-A) times
+ Qtilde_n(v)=1/2 PV int_-1^1 (1-z^2)P_n(z)/(v-z) dz
+           =(1-v^2)Q_n(v)+v delta_n0+(1/3)delta_n1.
+For|v|<1, Q_n=P_n(v)*log|(v+1)/(v-1)|/2-R_n(v), with polynomialR_n from the
+standard Legendre recurrence. For|v|>1, the code expands(1-z^2)P_n into
+Legendre polynomials and uses the real part of the type3 Acb Q function;
+negative arguments use Q_n(-v)=(-1)^(n+1)Q_n(v). The expansion avoids
+catastrophic cancellation between growing polynomials in the exterior.
+
+Cells touchingv=1 usee=v-1 and
+ (1-v^2)log|(v+1)/(v-1)|
+ =-e(2+e)log(2+e)+(2+e)e log|e|.
+The continuous e log|e| is enclosed by its endpoint values on|e|<1/4,
+where it is monotone decreasing. v=-1 follows by parity. Therefore strip
+endpoints are genuinely enclosed, not cut out or sampled away.
+
+For mu>=100 the strip PV also has a fast convergent geometric expansion
+in(s-s_mid)/(mu-s_mid). Then all three source denominators can be combined
+and their numerator has degree at mostl+3N-2. The geometric residual is
+included explicitly. Below this range the exact Qtilde formula is used.
+
+Unbounded spectral coverage
+----------------------------
+certify_finite_v_domain.py splits the compact interval4<=mu<=101 at all
+source endpoints and selected algebraic branch points. Failed interval
+cells are bisected; every accepted cell records a directed upperbound<-10
+for ALL17spins simultaneously. The UV is a separate interval
+0<=w<=1/97, w=1/(mu-4), coveringmu>=101 includingmu=infinity.
+All reversed-polynomial source expressions and forward/crossing terms have
+finite analytic values atw=0. Geometric errors are written as w^(N-2)
+times rational factors, so their w=0 limit is included explicitly.
+The corrected successful run has2749 leaves; no spectral points or spins are omitted.
+
+The support conclusion follows pointwise fromV<=-10p:
+ sqrt(U^2+V^2)+V <= U^2/(20p).
+Integrating the reviewed A<47/200 gives support<47/4000. No prior g2 cap is used.
+
+Acceptance correction and rejected intermediate output
+-----------------------------------------------------
+The original V8_40.json used max(...,key=float) as the acceptance selector.
+Independent review found that a NaN spin40 interval onmu=[37/8,19/4] was
+ignored in favor of another spin. That original2744-leaf output is REJECTED
+and must not be used. V8_40_rejection.json records this explicitly.
+The corrected program requires EVERY spin to be finite and its exact Arb
+upper bound to be below-kappa, and chooses the saved maximum by exact dyadic
+Fraction ordering. Replaying the old gapless partition under this criterion
+subdivided five failed cells and yielded2749 accepted cells inV8_40_exact.json.
+Thus the final certificate does not rely on the invalid floating selector.

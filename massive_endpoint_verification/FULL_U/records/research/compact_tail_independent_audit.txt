@@ -1,0 +1,226 @@
+INDEPENDENT COMPACT-ENERGY AND COMPLETE OMITTED-SPIN TAIL REVIEW
+2026-10-06. Supplements tail_component_independent_audit.txt; newer UV source
+versions and exact replay values are recorded in the companion JSON.
+
+Witness SHA256:
+bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c
+Witness: output/angles_resummed/angle_000p000.npz.
+Exact conventions: binary64 multipliers as exact rationals; decimal row
+parameters as exact rationals; c=4/3 and strip T=4/3 exactly.
+
+Result of review
+----------------
+No substantive flaw was found in the compact-energy inequalities implemented
+by certify_compact.py for this witness. Independent replay reproduces the
+upper bounds -543.6838106755 on 4<mu<=8 and -34.6002130813 on 8<=mu<=49, both
+uniform for all even physical l>=42. The expanded source-sign polynomial was
+rebuilt independently from the witness; it gives the same exact rational
+positive lower bound as the original source-sign certificate.
+
+The updated UV inequalities, including the cancellation-aware cofactor error,
+signed harmonic prefactor, and integrated-t correction, were checked
+independently as described below. The v2 UV42 replay gives -0.622570850675398
+for all even l>=42, mu>=49. Together with the compact proof it justifies the
+conservative uniform value
+  V_l(mu)/p_l(mu) <= -31/50
+for every even l>=42 and every mu>4. The still newer integrated-t source
+correction is reviewed below and independently replayed in the JSON. The older
+maximum-|t| source envelope gave -0.02253123152; that is historical provenance,
+not the final margin used here.
+
+Combining that sign with the separately reviewed A40<2e-5 proves
+  sum_even_l>=42 integral H(U_l,V_l) dnu_l
+     < (2e-5)/(2*(31/50)) = 1/62000 < 0.00001613,
+where H(U,V)=V+sqrt(U^2+V^2). This closes the entire omitted-spin disk-support
+tail of this witness. It does NOT certify the finite-spin head integral. A
+full outward exclusion still requires a rigorous upper bound on that head,
+in the same exact kernel convention, including nested source integrals.
+
+Independent files/replay
+-----------------------
+  research/expanded_roy_sign_independent.json
+  research/compact_tail_independent_audit.json
+The latter includes reviewed source hashes and exact interval replay values.
+The review checked the source constructions algebraically. The compact norm
+cache and UV Bernstein cache were reused after witness/provenance checks;
+the expanded Roy sign polynomial was rebuilt from the NPZ, rather than merely
+reading the reported positive lower bound. The compact zeroth K2 moment was
+also checked to equal the independently constructed UV signed2 exactly.
+
+Definitions useful for checking the proof
+----------------------------------------
+Let d=mu-4, Q=mu-c, Z=Q/d, y=1+2t/d, and let z be the external physical Roy
+angle. Physical l is even. Folded Roy sources have 4<=s<=119/10, 0<=z<=1,
+t=-(s-4)(1-z)/2, and u=4-s-t. Strip sources have s in [12,24] or [24,48] and
+-c<=t<=0. The full combined dispersion kernel is
+  D=P_l(y)[1/(mu-s)+1/(mu-u)] + P_l(Z)/(mu-t)
+       -[P_l(y)+2P_l(Z)]/Q +[P_l(Z)-P_l(y)]/(mu+t-2c).
+Its divided difference removes the last apparent pole. Another useful form is
+  D/P_l(Z) = D0 + K*(P_l(y)/P_l(Z)-1),
+  D0=1/(mu-s)+1/(mu-u)+1/(mu-t)-3/Q,
+  K=(s-c)(c-u)(2mu+t-4)/[(mu-s)Q(mu-u)(mu+t-2c)].
+For l above the finite Roy source degree, the PV residue projected against the
+source is zero. Subtracting P_l(z)/(mu-s) before quadrature is exact: all
+source J are even and <=6, so folded Legendre orthogonality annihilates it for
+l>=42. The regularized kernel is R=D-P_l(z)/(mu-s).
+
+Expanded Roy source sign
+------------------------
+The certificate covers t<=-3/5, equivalently
+  26/5<=s<=119/10, 0<=z<=1-(6/5)/(s-4).
+Use y_s=s-4 and z=q*(y_s-6/5)/y_s, with q in [0,1]. Multiplication by y_s^6
+clears all denominators in the source polynomial, and the affine map from
+y_s in [6/5,79/10] gives a polynomial on a unit square. Exact rational
+Bernstein conversion followed by one subdivision produces two leaves with
+all coefficients positive. The reported lower rational equals
+  101318605622942248650036962619786822104059662869019591 /
+  41730549262635940721548011927589459924998361543426504130560,
+about 2.42792408471e-6. Dividing by the maximal y_s^6 is conservative.
+The folded source has an additional positive factor 2; this does not change
+the sign. The independently rebuilt result matches exactly.
+
+Low energy: exceptional Roy region
+---------------------------------
+Split E={t<=-3/5, y<-1}. On E, W>=0 and |t|>d. Since s-4>=2|t|,
+  s-mu >= g(d)=max(d,6/5-d)>0.
+All factors in K except (mu-s)(mu+t-2c) are positive. Hence sign(K) is minus
+the sign of h=mu+t-2c. For even l, P_l(y)-P_l(Z) has the same minus sign of h
+when y<-1; thus K*(P_l(y)/P_l(Z)-1)>=0, including the removable h=0 limit.
+Using |P_l(z)|<=1 gives
+  R/P_l(Z) >= -(1+1/P_l(Z))/g(d)-3/Q.
+Multiplication by -W reverses this into precisely the code's roy_pos upper
+contribution. The exact interval minimum of g is 3/5 when a cell straddles
+d=3/5, otherwise it is the smaller endpoint value. That implementation checks.
+
+Low energy: remaining Roy region
+--------------------------------
+Outside E, either y lies in [-1,1], or t>-3/5 and y<-1. In the latter case
+|y|/Z <=(6/5)/(8/3)=9/20. Pairing the real roots of even P_l gives
+P_l(|y|)/P_l(Z)<=(|y|/Z)^l. With mu<=8, Z>=5/3, so uniformly
+  |P_l(y)|/P_l(Z) <= e0_l=(9/20)^l+1/P_l(5/3).
+
+The physical divided difference, divided by d*P_l(Z), is bounded by
+  edd_l=(5/4)*l(l+1)*(9/20)^l +(5/6)*l(l+1)/P_l(5/3).
+Three cases prove this conservative expression:
+* d>=3/5: the remaining y is physical, so |dd|<=l(l+1)/2 and 1/(2d)<=5/6.
+* 2/5<=d<3/5: put Y=6/(5d)-1>=1. The derivative maximum on [-Y,Y] is P'_l(Y),
+  and P'_l(Y)<=l(l+1)P_l(Y)/2. The root-pairing ratio bound and 1/(2d)<=5/4
+  give the first term.
+* d<2/5: P'_l(Y)/P_l(Y)<=l/sqrt(Y^2-1). After division by d this is at most
+  (5/sqrt(12))*l*(9/20)^l, which is dominated by the first term for l>=42.
+The logarithmic derivative bound follows, for example, by differentiating
+Laplace's positive integral representation of P_l(x) for x>1.
+
+The rest of the regular kernel, excluding K2, is
+  (1-z)/d*dd(P_l;y,z)/P_l(Z)
+  +P_l(y)/P_l(Z)*[1/(mu-u)-1/Q-1/(mu+t-2c)].
+On this region h>=11/15, mu-u>=4, Q>=8/3, giving an absolute coefficient bound
+1/4+3/8+15/11<2. Thus edd_l+2e0_l suffices, matching the code.
+
+Only negative W can make the positive K2 part contribute positively to V.
+Negative W lies in t>-3/5, so |t-c|<=29/15 and Q>=8/3. Consequently
+  Q^3 K2 <=2*(29/15)^2*(8/3)^2/[(8/3)^2-(29/15)^2],
+which matches k2neg. Source absolute/positive/negative norms are exact rational
+Bernstein upper integrals, so this handles source sign changes safely.
+
+Low energy strips and all-spin closure
+-------------------------------------
+Here mu<8<12<=s, and t>=-c implies |P_l(y)|<=P_l(Z). Also K<=0, so positive
+strip weights satisfy D/P_l(Z)>=-1/(12-mu)-3/Q. For negative strip weights,
+the remaining divided difference contributes at most
+  2l/sqrt(Q^2-d^2).
+This follows from its derivative bound P'_l(Z)/P_l(Z)<=l/sqrt(Z^2-1).
+The other terms are bounded by 1/(12-mu)+2/mu+1/Q. These are exactly the
+linear-in-l strip and constant strip terms in the code.
+
+The crossing coercivity bound is
+  X4/p >= l(2l-5)/Q^2, for even l>=4.
+To verify it, write P_l(Z)=constant*product_i(Z^2-a_i^2), b_i=Z^2/(Z^2-a_i^2)
+and m=l/2. Then [2Z^2 P''-3ZP']/P=8*sum_{i!=j}b_i b_j-2*sum_i b_i. For m>=2
+it increases in each b_i>=1; its minimum is l(2l-5). This proof fixes both
+the factor 2 and the sign of the negative X4 multiplier.
+
+All other l-dependent positive terms can be replaced by their l=L values:
+l(l+1)*(9/20)^l decreases for l>=42, and l(l+1)/P_l(5/3) does too. The code
+then explicitly checks that the derivative of C1*l-eta*l(2l-5)/Q^2 is negative
+at L. Since that derivative decreases further with l, this establishes the
+low-energy bound for every l>=L, not merely the first omitted spin.
+
+Middle energy: 8<=mu<=49
+-----------------------
+All Roy/strip physical arguments y are now in [-1,1]. Decompose
+  Q^3 D/P_l(Z) = Q^3 K1*P_l(y)/P_l(Z)+Q^3 K2,
+with the Roy PV residue removed as above. Since |t-c|<=317/60<Q,
+  Q^3 K2=sum_{k>=0}2(t-c)^(2k+2)/Q^(2k).
+The exact signed source moments are computed from elementary unit-square
+monomial integrals. For Roy terms the y integral is the beta function
+j!r!/(j+r+1)!, and the energy integral is 1/(i+r+1). For strips it is the
+ordinary monomial integral of (2-y)^(2k+2). Both formulas in compact_source_data
+match these integrals. The omitted series is bounded by
+  norm2*(317/(60Q))^(2N)/[1-(317/(60Q))^2].
+This is a true geometric remainder with N=40, not an extrapolation.
+
+For Roy rows below mu=12, the subtracted pole is bounded by l(l+1)/(2d),
+using the physical derivative bound. Above 12, mu-s>=mu-119/10>0 permits the
+ordinary pole bound. The remaining denominators are bounded using
+mu-u>=mu and h>=mu-397/60. The cell grid splits at mu=12, so each expression
+is used only in its valid region.
+
+For strips let h(x) be the normalized-energy source polynomial, x in [0,1].
+The taper gives h(0)=h(1)=0 and
+  sup|h'| <= sum_rows |lambda|[4+n(n+1)]=D_window.
+PV integral_0^1 h(x)/(v-x) dx is uniformly at most 2D_window in absolute value:
+subtract h(v), bound the difference quotient by D_window, and bound the log
+term using |h(v)|<=D_window*min(v,1-v). Outside [0,1], endpoint vanishing gives
+the even smaller D_window bound. Dividing by the physical window width yields
+the code's 2D_window/(B-A). The other strip denominators are bounded by
+1/mu+1/Q+1/d. No unresolved endpoint/PV divergence is being discarded.
+
+All-spin monotonicity for this middle bound is important: for Z>1 the recurrence
+implies P_(n+1)(Z)/P_n(Z)>=Z. On mu<=49,
+Z>=143/135>(L+2)/L for L>=42. Meanwhile T_(n+1)/T_n=(n+2)/n. Therefore both
+1/P_l(Z) and T_l/P_l(Z) decrease for all l>=L. This justifies evaluating the
+PV numerator's T and denominator's P at L together. The negative crossing
+term strengthens as l increases. The code's middle bound is therefore uniform.
+
+Updated UV cofactor and harmonic errors
+---------------------------------------
+For R1-1, the numerator is exactly
+  (mu+(t-4)/2)(mu-c)^2 -(mu-s)(mu-u)(mu+t-2c)
+  =(2-3t/2)mu^2+(-t^2-su+16t/3-32/9)mu
+      +c^2(t-4)/2-su(t-2c).
+On the stated source rectangle, the absolute coefficients are bounded by
+8, 2153, and 14088 respectively. The denominator divided by mu^3 is bounded
+below by (1-48/M)(1-20/(3M)). Thus the new rational cofactor error is valid;
+taking its minimum with the previous valid error is safe.
+
+The common harmonic prefactor rf multiplies the entire limiting combination
+-alpha+sum_j lambda_j*(-1)^j. Taking the absolute value after forming that
+combination is legitimate; differences away from the limiting phases are
+still separately bounded by the existing j^2 Chebyshev errors. No cancellation
+between unrelated unknown-sign remainders is assumed.
+
+Newest integrated-t UV correction
+---------------------------------
+For every positive Bernstein coefficient, the product basis supplies an exact
+positive measure. In a source box, its mean energy coordinate is
+a+(b-a)(i+1)/(n+2) and its mean transfer coordinate is
+d+(e-d)(j+1)/(m+2). Roy |t| is bilinear in these independent coordinates and
+strip |t| is affine. The new source_data lambda computes their exact means.
+Summing coefficient masses times these means bounds the positive-source
+|t|-moment. Therefore the correction is bounded by the smaller of twice the
+positive mass and tau times the positive |t|-moment. This is precisely the
+new min(2*mass,tau*moment) formula. It improves the previous box maximum-|t|
+formula without changing the domain. Its cache is versioned separately.
+
+Provenance cautions
+------------------
+The scripts were actively edited during review. The JSON records the replayed
+version hashes; older reports with the same witness hash may use weaker bounds
+or the previous source-cache schema. The final author-added provenance checks
+verify both witness and builder hashes for source caches. The final compact
+checker uses the same v2 depth10 norm2 as the UV component; this slightly looser
+valid norm changes only a negligible geometric remainder. Stale unwrapped
+compact caches must not be silently paired with another witness. All current arguments are specific to
+the saved resummed witness and its supported row families, not arbitrary
+future odd-source/sine-rational or fractional witnesses.

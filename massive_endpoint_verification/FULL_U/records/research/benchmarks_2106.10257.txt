@@ -1,0 +1,2384 @@
+Rigorous bounds on the Analytic S-matrix
+Andrea Guerrieri and Amit Sever
+School of Physics and Astronomy, Tel Aviv University, Ramat Aviv 69978, Israel
+We consider a dual S-matrix Bootstrap approach in d ≥3 space-time dimensions which relies
+solely on the rigorously proven analyticity, crossing, and unitarity properties of the scattering am-
+plitudes. As a proof of principle, we provide rigorous upper and lower numerical bounds on the
+quartic coupling for the scattering of identical scalar particles in four dimensions.
+I.
+INTRODUCTION
+An optimization problem can be viewed from either of
+two perspectives called respectively Primal and Dual.
+In the revived non-perturbative S-matrix Bootstrap
+program of [1, 2], the space of scattering amplitudes is
+carved out numerically by solving an optimization prob-
+lem in its Primal form: the target to optimize is a physi-
+cal observable; the constraints are the physical principles
+of analyticity, crossing, and unitarity. This approach has
+already been used to bound several classes of amplitudes.
+For example, in relation to integrable systems in two di-
+mensions [3–12], and in higher dimensions for the case
+of standard model physics [13–17] and quantum gravity
+theories [18]. At the same time, any bootstrap scheme in
+terms of the primal variables involves making an ansatz
+for the amplitude and some type of truncation: as a re-
+sult, the bounds are not strictly rigorous.
+Our main motivation for constructing a dual formula-
+tion stems from the weak duality principle. Suppose we
+maximize an observable O over some space D. Then for
+any value of the dual variables in the dual space ¯D, the
+dual function ¯O will always provide an upper bound on
+O, independently of how hard the primal problem is
+O ≤
+
+O∗≡max
+D
+O
+
+≤
+
+¯O∗≡min
+¯
+D
+¯O
+
+≤¯O .
+(1)
+This weak duality principle allows one to construct a
+bootstrap scheme for generating rigorous bounds on the
+S-matrix, thus placing it in a similar footing to the Con-
+formal Bootstrap [19]. In this letter, we formulate a dual
+S-matrix Bootstrap problem in d ≥3 for the scattering
+of identical scalar particles that can be eﬃciently solved
+using SDPB [20, 21].
+A closely related – albeit non-
+linear – formulation was pioneered long ago in a series
+of papers [22–26] and used to put rigorous bounds on the
+π0π0 scattering amplitude in four dimensions. Moreover,
+an alternative dual formulation has been constructed re-
+cently using the Mandelstam representation [27] – see
+also [9, 11, 28] for previous examples in two dimensions.
+Before illustrating our strategy, we shall review the
+logic behind the dual approach in a simpler example.1
+1See Chapter 5 of [29] for a general introduction to dual problems.
+1
+1
+3
+  for  
+¯O
+a = b = 1
+2
+x + y = c <
+2
+x + y = c >
+2
+x + y =
+2
+x
+y
+λ
+−1
+1
+1
+−1
+a)
+b)
+FIG. 1. a) The geometric solution of problem max {x+y | x2+
+y2 ≤1}.
+b) The dual function ¯O(λ) = λ + 1/(2λ) of the
+same maximization problem. The minimum value is attained
+for λ = 1/
+√
+2 and coincides with the optimal value of the
+maximization problem.
+We consider the following toy problem 2
+O∗≡max
+{x,y} {O(x, y) | x2 + y2 ≤1} ,
+(2)
+with the primal objective taken to be
+O(x, y) = a x + b y .
+(3)
+The (real) variables {x, y} are called primal variables.
+The starting point to derive the dual version of problem
+(2) is to write the Lagrangian function
+L(x, y|λ) ≡(a x + b y) + λ(1 −x2 −y2) ,
+(4)
+introducing a dual variable for each constraint, as λ ≥0.
+This Lagrangian satisﬁes the following identity
+min
+λ {L|λ ≥0} =
+(
+a x + b y
+x2 + y2 ≤1
+−∞
+otherwise
+.
+(5)
+Combining this with the max-min inequality yields
+O∗≡max
+{x,y}
+n
+min
+λ {L | λ ≥0}
+o
+(6)
+≤min
+λ
+n
+¯O(λ) | λ ≥0
+o
+≡¯O∗,
+2You may think of the objective to maximize as the representative of
+a physical observable and the constraint a toy version of unitarity.
+arXiv:2106.10257v2  [hep-th]  7 Jul 2021
+
+2
+where the dual function is deﬁned as
+¯O(λ) ≡max
+{x,y}L = λ + (a2 + b2)/(4λ) .
+(7)
+The last inequality in (6) proves the weak duality prin-
+ciple anticipated in (1). 3
+The dual objective in (7) is non-linear, but it is con-
+cave.4 For any ﬁxed trial value of λ ≥0 the dual function
+provides a rigorous upper bound for the quantity a x+b y
+of our toy problem. The diﬀerence between primal and
+dual objective is called duality gap and whether the du-
+ality gap is zero depends on the nature of the primal
+constraints.5
+In the following, we will apply this same logic to bound
+the quartic coupling between identical massive scalar par-
+ticles in d-dimensions, showing explicit numerical results
+for d = 4. We view our construction as a proof of princi-
+ple that may be improved and optimized in the future.
+II.
+THE QUARTIC COUPLING PROBLEM
+We list the set of constraints for the 2 →2 scat-
+tering amplitude of identical scalars.
+First, the ana-
+lyticity of the amplitude in the cut s-plane can be im-
+posed using dispersion relations. The amplitude satis-
+ﬁes ﬁxed-t double subtracted dispersion relations for any
+real −28 < t < 4 in the s-plane with two cuts starting
+at s = 4 and u = 4, all expressed in units of the mass,
+[32–34]. Once combined with s −u crossing, they can be
+put in the following form [34] 6
+0 = A(s, t) = T(s, t) −T(s0, t0) −
+(8)
+1
+π
+∞
+Z
+4
+dv [Tv(v, t)K(v, s, t; t0)+Tv(v, t0)K(v, t, t0; s0)] ,
+where Tv(v, t) = DiscvT(v, t), and (s0, t0) is an arbitrary
+subtraction point. Here,
+K(v, s, t; t0)= 1
+v−s+
+1
+v−4+s+t−
+1
+v−t0
+−
+1
+v−4+t+t0
+. (9)
+A function that satisﬁes the A constraint is automat-
+ically analytic in the cut s-plane and s −u crossing
+symmetric, but not necessarily s −t symmetric. Hence,
+3The case of a strong equality constraint, such as (x2 + y2 := 1) =
+(x2 + y2 ≤1) ∧(x2 + y2 ≥1), can equally be formulated in this
+form using two dual variables or equivalently, a single standard
+unconstrained Lagrange multiplier.
+4This is always true for the dual problem, even when the primal
+problem is non-convex. It follows from the fact that the Lagrangian
+is an aﬃne function of the dual variables and that the point-wise
+supremum operation preserves convexity. However, for non-convex
+problems, the duality gap does not necessarily close.
+5See [29–31] for a set of suﬃcient conditions.
+6See appendix A for a detailed derivation.
+this equation must be supplemented by the crossing con-
+straint, T(s, t) = T(s, 4 −s −t). This implies that the
+primal variables must consist of s −t crossing symmetric
+functions, which in turn supports only even spins.7
+Unitarity is most simply expressed as the probability
+conservation for ﬁxed energy s and spin ℓ
+1 =
+X
+n
+|S2→n(s, ℓ)|2 ≥|S2→2(s, ℓ)|2 ,
+(10)
+where S2→n(s, ℓ) denotes the matrix element between 2-
+particle and n-particle states of spin ℓ. The S2→2 ampli-
+tudes are given by
+S2→2(s, ℓ) = 1 + iρ2(s)fℓ(s) ,
+(11)
+where ρ2(s) = (s−4)
+d−3
+2
+√s
+is the d-dimensional two-particle
+phase space factor and fℓ(s) the partial wave projection8
+fℓ(s) = Nd
+2
+1
+Z
+−1
+dz (1 −z2)
+d−4
+2 P (d)
+ℓ
+(z)T(s, t(z)) ,
+(12)
+with t(z) = 1
+2(s−4)(z −1). For later convenience, we re-
+phrase the unitarity constraint as the semi-deﬁnite (SDP)
+condition
+Uℓ(s > 4) =
+
+1 −ρ2
+2 Imfℓρ Refℓ
+ρ Refℓ
+2Imfℓ
+
+⪰0 .
+(13)
+The equivalence between (10) and (13) can be seen by
+ﬁrst noting that Uℓis positive iﬀboth its determinant
+and trace are positive. The positivity of the determinant
+is (10). The positivity of the trace for s > 4 follows from
+that of the determinant, as can be seen by nothing that
+det Uℓ= 2Imfℓtr Uℓ−4Imf 2
+ℓ−ρ2Ref 2
+ℓ.
+Finally, in the elastic region of 4 < s < 16, unitarity
+implies a stronger equality constraint
+det Uℓ(16 > s > 4) = 0 ,
+(14)
+instead of the inequality (13).
+The quantity we want to bound is the quartic coupling,
+deﬁned as the value of the amplitude at the crossing sym-
+metric point [2]
+g0 ≡
+1
+2n(d)
+0
+T
+  4
+3, 4
+3
+
+.
+(15)
+7Instead of imposing crossing as a constraint, one may use the man-
+ifestly crossing symmetric dispersion relations of [35, 36]. We leave
+this possibility to a future exploration [37].
+8We work in the normalization of [38] in which P (d)
+ℓ
+(z)
+=
+2F1 (−ℓ, ℓ+ d −3, (d −2)/2, (1 −z)/2) and Nd = (16π)(2−d)/2
+Γ((d−2)/2) . In
+this normalization, the orthogonality of the partial waves takes
+the form
+Nd
+2
+R 1
+−1 dz (1 −z2)
+d−4
+2 P (d)
+ℓ
+(z)P (d)
+˜ℓ
+(z) = δℓ˜ℓ/n(d)
+ℓ
+, with
+n(d)
+ℓ
+= (4π)
+d
+2 (d+2ℓ−3)Γ(d+ℓ−3)
+π Γ((d−2)/2)Γ(ℓ+1)
+.
+
+3
+Combining all the constraints, we write the Lagrangian
+9
+L± = g0+
+x
+D
+ds dt W(s, t)A(s, t)
+(16)
++
+X
+ℓeven
+ 16
+Z
+4
+ds Eℓ(s) det Uℓ(s) ±
+∞
+Z
+4
+ds tr(Λℓ(s)Uℓ(s))
+
+,
+where W(s, t) and Eℓ(s) are unconstrained dual variables
+imposing the analyticity (8) and elastic unitarity (14) in
+their validity domains, D and s ∈[4, 16]. Here, cross-
+ing has already been solved at the level of the primal
+variables by restricting to even spins only, f2n+1(s) = 0.
+Finally, Λℓ(s) is a semideﬁnite positive matrix associated
+to the unitarity inequality constraint (13) that we impose
+for all energies.10
+A.
+The dual variable space
+Here comes the important advantage of the dual formu-
+lation: omitting part of the constraints may weaker the
+bound, but due to the inequality minλ{ ¯O(λ)} ≤¯O(0), it
+does not aﬀect its rigor.
+First, we simply set the dual variables associated with
+the elastic unitarity constraint (14) to zero, Eℓ(s) = 0.
+This is because we do not know how to put it in SDP
+form. In the end, we ﬁnd the elastic unitarity is satisﬁed
+in the region where the unitarity inequality is imposed –
+see also sec. II C. 11
+Next, we discuss the dual function W(s, t). Its analyt-
+icity properties are connected to those of its associated
+constraint A(s, t) and its domain of validity.
+We con-
+sider a sub-space of dual functions whose s-channel spin
+is bounded by a ﬁxed integer L
+WL(s, t(z)) = Nd
+2 (1−z2)
+d−4
+2
+L
+X
+ℓ=0
+wℓ(s) P (d)
+ℓ
+(z) , (17)
+where the sum runs over all spins, even and odd. Note
+that even though we have solved the crossing constraint
+at the level of the primal variables by setting f2n+1(s) =
+0, the odd spins dual variables w2n+1(s) impose non-
+trivial constraints. This is because the kernel in (8) is
+not s −t symmetric.
+At this point, we shall specify the domain D of WL
+where we impose the A-constraint. The larger this do-
+main is, the more constraints we are imposing, hence the
+9The sign ± depends on whether we want to maximize or minimize
+g0.
+10A simple theorem states that the integrand tr(Λℓ(s)Uℓ(s)) is posi-
+tive iﬀUℓ(s) ⪰0 for any Λℓ(s) ⪰0.
+11It can be shown on general grounds that even with Eℓ(s) = 0, the
+Lagrangian (16) leads to elastic functions, see [26] and appendix
+D. This is not in contradiction with the Ask theorem, [39], because
+the S-matrix constraints are not imposed to an arbitrary large s.
+stronger is the bound we get. The regime of validity of
+A is −28 < t < 4 and any s. In addition, we demand
+the integral of W(s, t) T(s, t) in (16) to be diagonal in
+spin. This is achieved by letting z run over the range
+z ∈[−1, 1].
+Combining the two conditions above implies that 0 <
+s < 32. All in all, we take the integration domain to
+be Dµ = {(s, z)|z ∈[−1, 1] ∧s ∈[4, µ2]}, where 4 <
+µ2 < 32 is a free parameter that we will tune later when
+solving the dual problem numerically. Later we will also
+comment about the possibility of enlarging further this
+integration domain – see Sec. II B.
+With these choices, the A-term in the Lagrangian (16)
+takes the form
+x
+Dµ
+ds dt WL(s, t)A(s, t) =
+L
+X
+ℓ=0
+µ2
+Z
+4
+ds wℓ(s)aℓ(s) , (18)
+where
+aℓ(s) ≡Nd
+2
+1
+Z
+−1
+dz (1 −z2)
+d−4
+2 Pℓ(z)A(s, t(z)) =
+(19)
+Re fℓ(s) −δℓ,0
+n(d)
+0
+T(s0, t0) −−
+∞
+Z
+4
+dv
+X
+Jeven
+kℓ,J(v, s) Im fJ(v),
+with the kernels kℓ,J given by
+kℓ,J(v, s) ≡Nd n(d)
+J
+2π
+1
+Z
+−1
+dz (1 −z2)
+d−4
+2 P (d)
+ℓ
+(z)
+(20)
+×
+h
+PJ(1+ 2t
+v−4)K(v, s, t; t0)+PJ(1+ 2t0
+v−4)K(v, t, t0; s0)
+i
+.
+In (19) we used the fact that the imaginary part of the A-
+constraint is automatically satisﬁed for real s > 4. The
+even spin constraints a2n(s) = 0 are also known as Roy
+equations [34]. They relate the real part of each partial
+amplitude to the absorptive parts that can be measured
+experimentally and they have been successfully used in
+low energy QCD phenomenology, see [40] for a review.
+Notice also that the odd constraints a2n+1(s) = 0 do not
+contain the odd spin real parts as we set Re f2n+1(s) = 0
+by the choice of the primal variables.
+B.
+The dual problem
+By plugging (18) into (16), and choosing conveniently
+the subtraction point at s0=t0=4/3, the Lagrangian be-
+comes
+L± = g0
+
+1 −2
+µ2
+Z
+4
+w0(s)ds
+
++
+L
+X
+ℓ=0
+µ2
+Z
+4
+ds wℓ(s) Re fℓ(s)(21)
+−
+∞
+Z
+4
+dv
+X
+Jeven
+¯wJ(v) Im fJ(v)±
+∞
+Z
+4
+dv
+X
+J even
+tr(ΛJ(v)UJ(v)) ,
+
+4
+where
+¯wJ(v)≡
+L
+X
+ℓ=0
+−
+µ2
+Z
+4
+ds wℓ(s)kℓ,J(v, s) .
+(22)
+Before moving to the dual problem, we observe that
+using the symmetry z →−z of the even spin partial-
+waves f2n(s), we can extend the integration domain of the
+even spins w2n in the deﬁnition of (22) up to µ2
+e ≤60.
+This is achieved by integrating over half of the angles
+z ∈[0, 1] in (19) and compensating by an overall factor
+of 2. The region of integration for the odd spins is kept up
+to µ2
+o ≤32. In the next section and appendix E we will
+ﬁnd that having w2n(s > 12)̸ = 0 and w2n+1(s > 8)̸ = 0
+is not feasible, so in practice one is forced to take µ2
+e ≤12
+and µ2
+o ≤8. Yet, the z →−z symmetry is what allows
+the even spins bound to be larger than the odd one.
+As in the toy problem (2), we deﬁne the dual functional
+by maximizing (minimizing) L+ (L−) over the primal
+variables. The Lagrangian is linear in the primal vari-
+ables and the extremization tedious, but straightforward
+– see appendix B for the details. The ﬁnal result is
+min
+Λ±
+J ⪰0
+± ¯
+wJ(s) ≥0
+±D± ≡min
+Λ±
+J ⪰0
+± ¯
+wJ(s) ≥0
+⌊L/2⌋
+X
+n=0
+µ2
+e
+Z
+4
+ds X2n(s) ,
+(23)
+where J is an even spin. Here, ΛJ is the dual matrix that
+is associated with the unitarity constraint. It is given by
+Λ±
+J =
+ XJ
+∓wJ
+2ρ
+∓wJ
+2ρ
+1
+4(ρ2XJ ± 2 ¯wJ)
+
+⪰0 .
+(24)
+In (23) this constraint is imposed for 4 < s < µ2
+e and
+0 ≤J ≤L.
+In the complementary set, the following
+linear constraints are imposed
+± ¯wJ≤L(s > µ2
+e) ≥0 ,
+± ¯wJ>L(s > 4) ≥0 .
+(25)
+Finally, the dual variable w0 shall be normalized to
+µ2
+e
+Z
+4
+ds w0(s) = 1
+2 .
+(26)
+C.
+Numerical results
+We have implemented the dual problem (23 - 26) in
+d = 4 numerically. The summary of this investigation
+together with the one for the primal problem is plotted
+in ﬁgure 2. In red we depict the rigorously excluded re-
+gion for g0. In green, the allowed region obtained using
+primal numerics is indicated for comparison.
+-14
+-10
+-6
+-2
+2
+Primal Allowed
+Dual Excluded
+2.68
+2.72
+g0
+g0
+g0
+Max Coupling
+Min Coupling 
+Lopez-Mennessier
+-8.3
+-8.2
+-8.1
+FIG. 2. Bounds on the quartic coupling g0. On the left, we
+show in green the region determined by solving the primal
+problem, in red the one rigorously excluded by solving the
+dual (23). The bound on the maximum coupling converges
+fast both in the primal and dual problem and the gap is rel-
+atively small, though non-vanishing – right-top inset.
+The
+bound on the minimum coupling is hard to study using pri-
+mal: the diﬀerent green lines denote the numerical coupling
+for Nmax = 5, 8, 11, 14, 17, 20. On the contrary, the red lines
+for L = 0, . . ., 6 show that dual convergence is achieved faster
+– right-bottom inset. In dashed black we report the best val-
+ues of [26].
+Primal -
+We solve the primal problem by considering
+a manifestly crossing symmetric ansatz of the form
+T primal(s, t, u) =
+c
+ρs −1 +
+X
+a+b≤Nmax
+c(ab)ρa
+sρb
+t + symm ,
+(27)
+with ρx = (
+p
+8/3 −√4−x)/(
+p
+8/3 + √4−x) and by im-
+posing unitarity numerically up to some spin Lmax on
+a grid of points. For the maximum coupling case, con-
+vergence is remarkably fast. Conversely, the minimum
+coupling convergence is terrible: the diﬀerent green lines
+in ﬁgure 2 correspond to increasing values of Nmax indi-
+cating that primal convergence is far from being attained.
+Dual-
+The functional constraints (23 - 26) are imple-
+mented as follows. The dual variables X2n and wℓfor
+n = 0, . . . , ⌊L/2⌋and ℓ= 0, . . . , L are parametrized us-
+ing a simple basis of functions that we took to be the
+Chebyschev polynomials. We then choose a grid of points
+where we impose (24) and (25), see appendix G for de-
+tails.
+The set of constraints (25) on the sign of ¯wJ>L is how-
+
+5
+Maximum Coupling Problem
+Minimum Coupling Problem
+s
+s
+: spin-0 threshold pole,  
+divergent 
+ scattering length
+δ0(4) = π
+2
+a0
+: free theory at threshold, negative scattering length 
+δ0(4) = 0
+a0
+δ0(s)
+δ0(s)
+6
+8
+10
+1
+2
+1
+3
+2
+6
+8
+10
+-4
+-3
+-2
+-1
+0
+FIG. 3.
+The spin-0 phase shifts, δ0 =
+1
+2i log S0, as a function
+of the center of mass energy s for the maximum (top) and
+minimum coupling (bottom). We plot in dashed-green and
+solid-red the phase shifts obtained respectively from the best
+primal and dual numerics. In the bottom ﬁgure, the dashed
+lines in gray-scale correspond to increasing values of Nmax
+up to Nmax = 20 (in green); the solid lines in gray-scale are
+obtained from the dual for diﬀerent values of L, up to L = 6
+(in red).
+Although primal and dual results still diﬀer, the
+physical content they describe is the same, converging one
+towards the other as the duality gap shrinks.
+ever inﬁnite because the spin is unbounded. To imple-
+ment them numerically, we ﬁrst trivialize them at large J.
+This leads to a bound on the integration domain µ2
+e ≤12,
+µ2
+o ≤8 – see appendix E for the details. We then intro-
+duce a spin cutoﬀJmax on the set (25) and gradually
+increase it. At intermediate spins larger than Jmax we
+have also implemented the sign constraint near the two-
+particle threshold, see appendix F. For the maximal cou-
+pling problem, we observe that beyond a certain value
+there are no dual constraint violations. For the minimal
+coupling problem, we always have some tiny violations at
+some J > Jmax, hows eﬀect on the bound is negligible.
+For the dual maximum coupling the simplicity of the
+primal mirrors into the dual. An almost optimal bound is
+attained using just L = 0, and adding further dual vari-
+ables wℓdoes not improve signiﬁcantly the bound. For
+the minimum coupling, the dual numerical convergence
+is relatively slower as in the primal case. The red lines in
+ﬁgure 2 are obtained adding multipliers from L = 0 up to
+L = 6. However, we stress again that for any ﬁxed L the
+bounds obtained with large Jmax convergence are rigor-
+ous. Increasing further L will possibly make the duality
+gap smaller. 12
+The diﬀerent convergence rate of the two problems can
+be understood as follows. The quartic coupling g0 can
+be measured using the dispersion relation A(4, 0) in (8)
+subtracting at s0 = t0 = 4/3
+32πg0 = Re T(4, 0)−1
+π −
+∞
+Z
+4
+dv[Tv(v, 0) K(v, 4, 0; 4/3)
++Tv(v, 4/3)K(v, 0, 4/3; 4/3)] . (28)
+The integrand on the right hand side is positive since
+Tv(v, t0) ≥0 for any t0 ≥0. From (28) it is evident that
+maximizing the coupling is equivalent to minimizing the
+imaginary part (or the total cross-section). On the other
+hand, when we minimize g0 the optimal solution will have
+a total cross-section that is as big as possible compatibly
+with unitarity.
+In this sense it is not surprising that
+primal convergence for the minimum coupling case is so
+hard since the imaginary part of our ansatz (27) does not
+grow at ﬁxed Nmax. 13
+In ﬁgure 3 we compare the primal and dual spin-0
+phase shift for the maximum and minimum coupling
+problem.
+The phase shifts for both problems tend to
+diﬀer less as the duality gap shrinks. Moreover, it is en-
+couraging to notice they have the same threshold behav-
+ior: the amplitude saturating the maximum coupling has
+a threshold singularity; the one saturating the minimum
+coupling a negative scattering length – see appendix H
+for further details.
+III.
+DISCUSSION AND OUTLOOK
+In this Letter, we proposed a dual approach to the
+S-matrix Bootstrap based solely on the proven analytic-
+ity properties of scattering amplitudes.14 Our strategy
+consists of decomposing both crossing and unitarity into
+simpler constraints that can be systematically added to
+improve the bounds.
+Still, there are some important questions to address.
+The ﬁrst one concerns the duality gap. The dual problem
+we optimized numerically (23) is not the ‘mathematical
+dual’ of the primal problem we solved following [6] and
+the duality gap does not necessarily close. In particu-
+lar, in the dual, we imposed full unitarity up to s = 12.
+12See appendix G for a detailed analysis of the dual numerics.
+13It might be worth investigating whether the amplitude minimizing
+the quartic coupling also saturates the Froissart bound in d = 4.
+14See [41, 42] for a recent derivation of crossing symmetry using on-
+shell methods.
+
+6
+This limitation follows from the dispersion relations we
+assumed in (8).15
+It might be interesting to use more
+reﬁned dispersion relations [37] and check whether the
+gap can be further shrunk. In particular, it would be in-
+teresting to extend the applicability of the dual method
+beyond s = 16, where non-elasticity is expected to kick
+in.
+Although not proven, maximal analyticity is a typical
+working assumption made in bootstrap studies. It would
+be worth repeating our analysis under such a hypothe-
+sis and compare it with our rigorous bounds. It would
+also be interesting to extend the dual formulation to the
+case of massless particles. Clearly, in that case, the va-
+lidity regime of our formulation shrinks to zero and some
+assumptions are needed in order to make progress. Re-
+lated to that, it would be important to generalize the
+dual problem we formulated to bound Wilson coeﬃcients
+in EFTs that recently has received a lot of attention [47–
+54].
+Finally, one of the hardest challenges in the S-matrix
+Bootstrap program concerns the inclusion of multi-
+particle processes. The proliferation of Mandelstam in-
+variants is the bottleneck of manifestly crossing symmet-
+ric approaches. Single variable dispersion relations can
+overcome this issue. Whether the dual technology devel-
+oped in this Letter can be used to tackle such challenging
+problems is an open question we think it will be impor-
+tant to address.
+ACKNOWLEDGMENTS
+We thank M. Correia, J. Elias-Mir´o , A. Homrich, J.
+Penedones, A. Raclariu, P. Vieira, and A. Zhiboedov for
+useful discussion. We thank P. Vieira for comments on
+the draft. AG was supported by The Israel Science Foun-
+dation (grant number 2289/18). AS was supported by
+the Israel Science Foundation (grant number 1197/20).
+Appendix A: Fixed-t dispersion relations
+In this appendix, we give a derivation of the ﬁxed-t
+dispersion relation with two subtractions in (8). For real
+t < 4 the amplitude is polynomially bounded by (s/s0)2,
+[33]. Hence, there are only two subtractions needed for
+a dispersion representation. It is useful to perform these
+subtractions using a simple division by s2. In that way,
+15After Roy’s papers other authors have tried to further extend the
+domain of validity of the Roy equations [36, 43, 44], see [45, 46] for
+recent studies.
+we arrive at
+T(s, t) = s2
+2πi
+I
+dv
+v −s
+T(v, t)
+v2
+(A1)
+= T(0, t) + s T ′(0, t) + s2
+π
+∞
+Z
+4
+dv
+v −s
+Ts(v, t)
+v2
++ s2
+π
+−t
+Z
+−∞
+dv
+v −s
+Tv(v, t)
+v2
+= T(0, t) + s T ′(0, t) + s2
+π
+∞
+Z
+4
+dv
+v −s
+Tv(v, t)
+v2
++ s2
+π
+∞
+Z
+4
+dv
+v −u
+Tv(v, t)
+(4 −t −v)2
+where T ′(0, t)=∂vT(v, t)|v=0 and Ts(s, t)=DiscsT(s, t),
+and in the second step we have used crossing symme-
+try. This t-channel dispersion integral representation is
+however not manifestly s ↔u crossing symmetric. To
+make this symmetry manifest, we express the integral as
+T(s, t) = T(0, t) + s T ′(0, t) + 2s2
+π
+∞
+Z
+4
+dv
+v −s
+Tv(v, t)
+v2
++s2
+π
+∞
+Z
+4
+dv Tv(v, t)
+
+1
+(v−u)(4 −t −v)2 −
+1
+(v−s)v2
+
+.
+After averaging this with the u-channel we arrive at [34]
+T(s, t) = g(t)+ 1
+π
+∞
+Z
+4
+dv Tv(v, t)
+v2
+ s2
+v −s +
+u2
+v −u
+
+, (A2)
+where
+g(t) = T(0, t)+4−t
+2
+T ′(0, t)+ 1
+2π
+∞
+Z
+4
+dv Tv(v, t)
+v2
+(4−t)3
+(4−t−v)2 .
+(A3)
+Next, we want to trade g(t) for a known function of t
+and an unknown subtraction constant. We use ﬁrst the
+crossing equation T(t, t0) = T(t0, t) to eliminate g(t) in
+terms of g(t0) with 0 < t0 < 4
+g(t) =g(t0)−1
+π
+∞
+Z
+4
+dv Tv(v, t)
+v2
+ t2
+0
+v−t0
++
+(4−t−t0)2
+v −4 + t0 + t
+
+−1
+π
+∞
+Z
+4
+dv Tv(v, t0)
+v2
+ t2
+v−t + (4−t−t0)2
+v−4+t0+t
+
+,
+(A4)
+and then using the deﬁnition of T(s0, t0) with 0 < s0 < 4
+(so that T(s0, t0) is real) we eliminate also g(t0), obtain-
+ing the equation in (8).
+Note that a function that satisﬁes this A(s, t) = 0 con-
+straint is manifestly s ↔u crossing symmetric, but not
+necessarily s ↔t symmetric.
+
+7
+Appendix B: Derivation of the SDP problem
+In this appendix we derive the dual problem (23)-(26)
+by extremizing the Lagrangian (21) over the primal vari-
+ables, fℓ(s), and some of the components of the dual
+variables ΛJ(s).
+The integrand of the unitarity term can be expanded
+as
+tr(ΛJ(s)UJ(s)) = 2 Im fJ(s)Λ22
+J (s)+2 Re fJ(s)ρ2(s)Λ12
+J (s)
++ Λ11
+J (s)
+ 1 −ρ2(s) Im fJ(s)/2
+
+.
+(B1)
+Extremizing (21) w.r.t. the primal variables yields the
+equations
+(Λ22
+J )± =
+
+ρ2(s)Λ11
+J (s) ± 2 ¯wJ(s)
+
+/4 ,
+(B2)
+(Λ12
+J )± =
+(
+∓wJ(s)
+2ρ(s)
+(4 < s < µ2) ∧(even J ≤L)
+0
+otherwise
+.
+We use these equations to eliminate Λ12
+J and Λ22
+J . After
+this choice, the Lagrangian takes the form
+D±(s0, t0) ≡±
+X
+J even
+µ2
+e
+Z
+4
+ds X2n(s) ,
+(B3)
+where XJ(s) ≡Λ11
+J . It is subject to the semi-deﬁnite
+positive condition
+Λ±
+J (s) =
+ 
+XJ(s)
+∓wJ(s)
+2ρ(s)
+∓wJ(s)
+2ρ(s)
+1
+4
+ ρ2(s)XJ(s) ± 2 ¯wJ(s)
+
+!
+⪰0 ,
+(B4)
+for (4 < s < µ2
+e) ∧(J ≤L) and
+Λ±
+J (s) =
+XJ(s)
+0
+0
+1
+4
+ ρ2(s)XJ(s) ± 2 ¯wℓ(s)
+
+
+⪰0 , (B5)
+otherwise. The equation of motion for g0 results in the
+additional normalization condition (26).
+At this point, the dual objective is still an inﬁnite
+sum of dual variables, making the problem diﬃcult to
+solve.
+However, the constraint in (B5) can be solved
+analytically by setting XJ(s) = 0 its domain of validity
+ (s > µ2
+e) ∧(J ≤L)
+
+∨((s > 4) ∧(J > L)), and imposing
+the simpler linear conditions
+± ¯wJ(s) ≥0 ,
+(B6)
+in this regime. This last step leads to the ﬁnal formula-
+tion of the Dual SDP Problem quoted in the main text
+(23).
+Appendix C: Derivation of the non-linear problem
+In this appendix, we derive the dual problem by im-
+posing unitarity in the form of the non-linear inequality
+det Uℓ(s) ≥0.
+This form has some conceptual advan-
+tages, but it is diﬃcult to solve numerically.
+We will
+not use it for any systematic numerical exploration, but
+it will give us a procedure to extract the primal phase
+shifts from the dual SDP problem (23).
+We start from the Lagrangian in (21) and replace the
+SDP unitarity constraint by its non-linear form
+tr(ΛJ(s)UJ(s)) →λJ(v)(2 Im fJ(s) −ρ2|fJ(s)|2) .
+The equation of motions for the primal variables Re fJ
+and Im fJ yield
+Im fJ(s) =
+1
+ρ2(s) ∓
+¯wJ(s)
+2ρ2(s)λJ(s) ,
+(C1)
+Re fJ(s) = ±
+(
+wJ(s)
+2ρ2(s)λJ(s) (4 < s < µ2
+e) ∧(even J ≤L)
+0
+otherwies
+As before, the equation of motion for g0 implies (26).
+By plugging the solution (C1) into the Lagrangian we
+arrive at the dual function
+D±(s0, t0) ≡±
+⌊L/2⌋
+X
+n=0
+µ2
+e
+Z
+4
+dv
+w2
+2n(v)
+4ρ2(v)λ2n(s)
+(C2)
+±
+∞
+X
+J even
+∞
+Z
+4
+dv ( ¯wJ(v) ∓2λJ(v))2
+4ρ2(s)λJ(s)
+.
+The dual unitarity variables λJ(s) are unconstrained
+positive functions and they appear quadratically in the
+dual objective. It is, therefore, possible to ﬁnd the ex-
+tremum of this action analytically w.r.t. λJ.
+For 4 < s < µ2 and J ≤L we get
+λJ(s) = 1
+2
+q
+w2
+J(s) + ¯w2
+J(s) ≥0 ,
+(C3)
+and in the complementary region
+λJ(s) = ∓1
+2 ¯wJ(s) ,
+λJ(s) ≥0 .
+(C4)
+Plugging the solution (C3) and (C4) into the dual ac-
+tion yields
+˜D±(s0, t0) ≡
+⌊L/2⌋
+X
+n=0
+µ2
+e
+Z
+4
+ds
+
+−¯w2n(s) ±
+p
+w2
+2n(s) + ¯w2
+2n(s)
+
+ρ2(s)
+−
+⌊L/2⌋
+X
+n=0
+∞
+Z
+µ2e
+ds
+2
+ρ2(s) ¯w2n(s)θ (∓¯w2n(s))
+(C5)
+−
+X
+n>⌊L/2⌋
+∞
+Z
+4
+ds
+2
+ρ2(s) ¯w2n(s)θ (∓¯w2n(s)) .
+The dual problem in terms of ˜D± is nonlinear and un-
+constrained modulo the spin zero normalization condi-
+tion (26).
+However, the presence of the step function
+
+8
+makes this non-linear formulation challenging to solve
+using gradient methods.16
+The dual objective (C5) can be further simpliﬁed by
+imposing the inequality ± ¯wJ(s) ≥0 on the support of
+the θ functions. Then the θ functions contributions can
+be neglected and this is consistent respectively with the
+minimization/maximization of ˜D±(s0, t0). These condi-
+tions coincide with those we ﬁnd in the SDP case (B6).
+The non-linear dual problem for the quartic coupling be-
+comes
+min ± ˜D±(s0, t0)
+(C6)
+= min
+⌊L/2⌋
+X
+n=0
+µ2
+e
+Z
+4
+ds ∓¯w2n(s) +
+p
+w2
+2n(s) + ¯w2
+2n(s)
+ρ2(s)
+,
+subject to the constraints (B6).
+The problem (C6) depends on a ﬁnite number of dual
+functions wℓ(s) for any 0 ≤ℓ≤L, but it is non-linear and
+constrained. It would be important to develop an eﬃcient
+numerical algorithm to solve this class of problems.
+Appendix D: Phase shifts
+In the SDP formulation of the Bootstrap problem (23),
+we cannot reconstruct the phase shifts once we extremize
+over the primal variables. On the other hand, in the non-
+linear formulation (C5), using the eqs. (C1) and (C3) it
+is straightforward to obtain
+S±
+J (s) = 1 + iρ2(s)f ±
+J (s) = ∓W ∗
+J
+|WJ| ,
+WJ = iwJ −¯wJ,
+(D1)
+respectively for the maximum and minimum coupling
+problem and for (4 < s < µ2
+e) ∧(0 ≤J ≤L).
+It does not come as a surprise that the two problems
+are simply related since they were derived using diﬀer-
+ent equivalent versions of the unitarity constraints. To
+understand their relation, we look at the dual unitarity
+constraints (B4). Suppose det Λ±
+J (s) = ϵ2 > 0, then we
+can solve for XJ > 0 obtaining
+X∗
+J(s) = ± ¯wJ +
+p
+¯w2
+J + w2
+J + ϵ2
+ρ2
+≥± ¯wJ +
+p
+¯w2
+J + w2
+J
+ρ2
+(D2)
+The last inequality implies an inequality for the linear
+and non-linear dual objectives
+|D±(s0, t0)| ≥| ˜D±(s0, t0)| ,
+(D3)
+16It is possible to replace an integrand of the form −x θ(−x) with
+its smooth approximation using the inequality −x θ(−x) = −x +
+√
+x2 ≤−x +
+√
+x2 + ϵ2 for some ϵ in order to use simple gradient
+algorithms. It might be worth exploring this possibility. A similar
+trick works also for −x θ(x).
+with the equality attained when ϵ = 0, or equivalently,
+when det Λ±
+J (s) = 0.
+In that case, when ϵ = 0, the two objectives coin-
+cide and we can use the deﬁnition (D1) and apply it to
+the numerical solution of our SDP problem. In practice,
+det Λ±
+ℓ(s) ≈0 for all our numerical results – see ﬁgure 6
+and ﬁgure 9 for a comparison between the reconstructed
+phase shifts using (D1) and the direct primal phase shifts.
+Appendix E: Analytic constraints from asymptotic
+regimes
+The sign constraints on the ¯wJ(v) functionals (25)
+should be imposed to an arbitrary high spin. This is, of
+course, outside the scope of a numerical application. To
+overcome this diﬃculty, in this appendix we solve these
+constraints analytically at large spin. Doing so is cru-
+cial for our numerical implementation to converge into a
+solution that satisﬁes all the constraints at large Jmax.
+We ﬁnd that the large J constraints are only feasible if
+µ2
+e ≤12 and µo ≤8. For simplicity, in this appendix, we
+set d = 4.
+Recall the deﬁnition of ¯wJ(v) in (22) that we repeat
+here for convenience
+¯wJ≡
+⌊L/2⌋
+X
+n=0
+−
+µ2
+e
+Z
+4
+ds w2nk2n,J+
+⌈L/2−1⌉
+X
+n=0
+−
+µ2
+o
+Z
+4
+ds w2n+1
+2
+k2n+1,J ,
+(E1)
+where, µ2
+e ≤60 and µ2
+o ≤32. The dependence on J of
+¯wJ(v) only comes from the kernels
+kℓ,J(v, s) = 2J + 1
+π
+1
+Z
+zmin
+dz Pℓ(z) ×
+(E2)
+[PJ(x(v, t))K(v, s, t; t0) + PJ(x(v, t0))K(v, t, t0; s0)] ,
+where zmin = 0 for ℓeven, zmin = −1 when ℓis odd,
+t = t(z) = 1
+2(s −4)(z −1), and Pℓ(z) = P (4)
+ℓ
+(z) are the
+Legendre polynomials. To solve the constraint on ¯wJ at
+large J we will simplify (E2) into a single J-independent
+constraint.
+The range of v in which this constraint is
+imposed can be divided into two regions, inner and outer.
+In each of these regions one of the two terms in (E2)
+dominates over the other.
+Consider the second term ﬁrst. The constraint (25) is
+imposed for v > 4 and t0 = 3/4 > 0. In this regime, the
+argument of the partial wave is larger than one, x(v, t0) =
+1 +
+2t0
+v−4 > 1. At large J and for x > 1, the Legendre
+polynomials PJ(x) grow exponentially as
+PJ(x) =
+(x +
+√
+x2 −1)J
+√
+2πJ
+q
+1 + x(
+√
+x2 −1 −x)
+(1 + O(1/J)) .
+(E3)
+Hence, at large J and for a generic point where the kernel
+K does not have a zero or a pole, the second term in (E2)
+
+9
+dominate over the ﬁrst, provided that x(v, t0) ≥|x(v, t)|.
+Because t(z) < 0, this can fail only when
+x(v, t(z)) = 1 + 2t(z)
+v −4 = v −s + z(s −4)
+v −4
+≤−1 . (E4)
+The maximal value of |x(v, t(z))| is archived at z =
+zmin and s = µ2.
+At the critical point vc we have
+x(vc, t(zmin)|s=µ2) = −x(vc, t0) and hence
+vc = 2+µ2
+2 −t0−zmin
+2 (µ2−4) .
+(E5)
+In general, vc will be diﬀerent for even and odd spins
+because of the diﬀerent values of zmin and µ2. However,
+if we choose the upper limit of integration for odd spins
+in (E1) to be µ2
+o = 2 + µ2
+e
+2 , then vc is the same and is
+given by
+vc = 2+µ2
+e
+2 −t0 .
+(E6)
+As we now explain, making this choice will allow us to
+factor out the common J-dependant factor from the two
+terms in (E1). We denote the case where v > vc, outer
+region, in which the term with PJ(x(v, t0)) dominates the
+integral over z and s. In the inner region, 4 < v < vc,
+and the term with PJ(x(v, t)) dominates the integrals.
+The above division into inner and outer regions of dom-
+inance can break down at points where one of the ker-
+nels in (E2) has a zero or a pole. However, because the
+partial waves are exponentially large, the contribution of
+such isolated points to the integral in (E2) is negligible.
+1.
+Constraints from the outer region
+In the outer region v > vc and at large J equation (E2)
+becomes
+kℓ,J(v, s) ∼2J + 1
+π
+PJ (x(v, t0)) kout
+ℓ
+(s, v) ,
+(E7)
+with
+kout
+ℓ
+(s, v) =
+1
+Z
+zmin
+dz Pℓ(z) K(v, t(z), t0; s0) .
+(E8)
+Using the deﬁnition (E1), the functional ¯wJ in this region
+behaves as
+¯wJ(v) ∼2J + 1
+π
+PJ (x(v, t0)) ¯y(v) ,
+(E9)
+with
+¯y(v) ≡
+⌊L/2⌋
+X
+n=0
+µ2
+e
+Z
+4
+ds w2nkout
+2n +
+⌈L/2−1⌉
+X
+n=0
+µ2
+o
+Z
+4
+ds w2n+1
+2
+kout
+2n+1 .
+Because x(v, t0) > 1, the sign constraint (25) reduces
+to the J-independent linear constraint ±¯y(v) ≥0. We
+impose it for v > vc choosing a grid in v.
+2.
+Constraints from the inner region
+In the inner region 4 < v < vc the large J behaviour
+of ¯wJ is more subtle because x(v, t(z)) dependence on z,
+and so it does not simply factor out of the z integral in
+(E2). Nonetheless, the partial wave inside the integrand
+grows exponentially, and therefore the integral in (E2) is
+dominated by the region where z ∼zmin and therefore
+kℓJ(v, s) ∼2
+π
+s(zmin −1) + v −4zmin
+s −4
+× PJ (x(v, tmin)) kinn
+ℓ
+(s, v) ,
+(E10)
+with
+kinn
+ℓ
+(s, v) ≡Pℓ(zmin)K(v, s, tmin; t0) ,
+(E11)
+and tmin = t(zmin) = −1
+2(s −4)(1 −zmin). Using (E1)
+and again the fact that the partial wave in the integrand
+grows exponentially with J, we obtain17
+¯wJ(v) ∼
+2(µ2
+e −v)3
+πJ2(µ2e −4)2 PJ
+ x(v, 2 −µ2
+e
+2 )
+
+Φ(v) ,
+where
+Φ(v) ≡K(v, µ2
+e, 2 −µ2
+e
+2 ; t0) ×
+(E12)
+h ⌊L/2⌋
+X
+n=0
+w2n(µ2
+e)P2n(0) −
+⌈L/2−1⌉
+X
+n=0
+1
+2w2n+1(2 + µ2
+e
+2 )P2n+1(−1)
+i
+.
+The sign constraint on ¯wJ now becomes a sign constraint
+on the J-independent function Φ(v). It dependence on v
+only through the kernel, while the dual parameters only
+enter at the points w2n(µ2
+e) and w2n+1(2 + µ2
+e
+2 ). Hence,
+the sign constraint can only be satisﬁed over a region in
+which the kernel
+K(v, µ2
+e, 2 −µ2
+e
+2 ; t0) =
+(E13)
+(µ2
+e −t0)(µ2
+e −4 + 2t0)
+(v −t0)(µ2e −v)(2v + µ2e −4) ×
+4v −4 −µ2
+e
+µ2e + 4 −2v −2t0
+,
+has a ﬁxed sign. The ﬁrst factor is clearly positive. We
+then demand that the second factor has a ﬁxed sign in
+the range v ∈[4, vc]. At v = vc this factor reduces to the
+manifestly positive value 3
+8(µ2
+e +4). At v = 4 it takes the
+form (12−µ2
+e)/(µ2
+e −4/3). Hence, for the sign constraint
+(B6) to be feasible at large spin, we are forced to take
+µ2
+e ≤12 and µ2
+o ≤8 correspondingly. This constraint
+on the regime of the dual problem comes from the kernel
+and is independent of the choice t0. Moreover, it can be
+shown to hold in any dimension d ≥3.
+To summarize, provided that µ2
+e ≤12, the large J sign
+constrain in the inner region reduce to a corresponding
+17Note that tmin depends on s.
+
+10
+J and v independent sign constraint on the sum
+⌊L/2⌋
+X
+n=0
+(−1)nΓ(n + 1
+2)
+Γ(n + 1)
+w2n(µ2
+e) +
+⌈L/2−1⌉
+X
+n=0
+1
+2w2n+1(2 + µ2
+e
+2 ) ,
+(E14)
+where we have used the explicit value of the Legendre
+function.
+Appendix F: Constraints from the threshold
+For intermediate spins we have also imposed the ¯wJ(v)
+sign constrain (25) near the two-particle threshold up to
+some cutoﬀhigher than Jmax. In this limit, the constraint
+slightly simpliﬁes as we now explain.
+As v →4+ the argument of the partial waves in (20)
+blows up and we can approximate these polynomials by
+their leading power
+lim
+x→∞P (d)
+J (x) = 2F1
+  1−J
+2 , −J
+2 , d−3
+2 , 1
+
+xJ [1 + O(1/x)] .
+(F1)
+Correspondingly, in this limit we have
+¯wJ(v)∼
+Nd n(d)
+J
+π(v −4)J 2F1
+  1−J
+2 , −J
+2 , d−3
+2 , 1
+
+×
+(F2)
+ ⌊L/2⌋
+X
+n=0
+µ2
+e
+Z
+4
+ds w2nkthr
+2n,J −
+⌈L/2−1⌉
+X
+n=0
+µ2
+o
+Z
+4
+w2n+1
+2
+kthr
+2n+1,J
+
+,
+where
+kthr
+ℓ,J =
+1
+Z
+zmin
+dzP (d)
+ℓ
+(z)(1−z2)
+d−4
+2
+×
+(F3)
+×[(4t0)JK(4, t(z), t0; s0) + (4t(z))JK(4, s, t(z); t0)] .
+Appendix G: Dual Numerics
+In this appendix we give more details about the nu-
+merical implementation.
+We choose the following parametrization for the dual
+variables
+XJ(s) = αJδJ,0
+√s −4 +
+NX(J)
+X
+n=0
+βJ
+n Chn
+ 1 + 2(s−µ2
+e)
+µ2e−4
+
+,
+wℓ(s) =
+Nw(ℓ)
+X
+n=0
+wℓ
+n Chn
+ 1 + 2(s−µ2
+e)
+µ2e−4
+
+,
+(G1)
+where α0, βJ
+n, wℓ
+n are free parameters with J even and ℓ
+any positive integer and Chn are the Chebyschev poly-
+nomials. The square root singularity at threshold for X0
+is allowed by the general threshold expansion of the dual
+constraints and by the regularity of the dual objective,
+see (D2). It turns out to help the convergence for the
+maximum coupling problem.
+D+(Nw, L)
+Nw
+10
+14
+18
+2.73
+2.735
+D+(∞,0) = 2.7274
+D+(∞,2) = D+(∞,4) = 2.7272
+FIG. 4. Minimum value of the dual objective D+(4/3, 4/3)
+(B3) for the maximum coupling problem as a function of Nw
+and L.
+Diﬀerent colors correspond respectively to L = 0
+(green), L = 2 (blue) and L = 4 (red). The blue curve is
+covered by the red one as the bound does improve anymore
+by increasing L. The addition of odd dual variables w2n+1
+has no eﬀect on the bound. The dashed lines represent the
+corresponding extrapolations to L →∞.
+Our best bound
+g0 ≤2.7272 < 2.75 improves the one found in [26], but is still
+bigger than the one obtained by the primal [6] and the dual
+of [27].
+The dual unitarity constraints (24) imply that XJ(s) ≥
+0. The parametrization in (G1) is not manifestly positive
+and it is convenient to supplement the dual constraints
+with the necessary conditions XJ(si) ≥0 for some very
+reﬁned grid {si}.18
+To run the numerics we choose the following strat-
+egy.
+We ﬁx NX(J) to some high value, for instance,
+NX(J) = 40 and we slowly increase Nw(ℓ).
+The rea-
+son is that although we need to impose the linear con-
+straints (B6) for all J’s, when running the numerics we
+need to introduce a cutoﬀJmax. The functionals ¯wJ de-
+pend only on Nw(ℓ), and for any ﬁxed Nw(ℓ) we want to
+make sure that Jmax is large enough to prevent dual con-
+straints violations. To further simplify the analysis we
+keep Nw(2n + 1) = 4 ﬁxed. Notice that the w2n+1 only
+enters in the optimization problem integrated against
+some kernel. Indeed, w2n+1 can wildly oscillate without
+changing ¯wJ.
+We found empirically that just increas-
+ing Nw(2n + 1) makes Jmax convergence harder without
+improving the bound signiﬁcantly.
+The best bound is obtained integrating on the largest
+possible region in s, therefore in our numerics we set
+µ2
+e = 12 and µ2
+o = 8 – see Appendix E 2. We compute the
+¯wJ functionals analytically: the integrated expressions
+are lengthy but simple as they contain at most logarithms
+and dilogarithms.
+We map both the region 4 < v < µ2
+e and the region
+µ2
+e < v to the interval [−1, 1] and there we impose the
+18It is possible to trivialize this necessary condition by parametrizing
+X0(s) in terms of Bernstein polynomials of the form (1−x)k(1−xj).
+However, we have found such an expansion to converge slowly.
+
+11
+w0(s)
+w2(s)
+w4(s)
+X0(s)
+X2(s)
+X4(s)
+s
+2
+3
+4
+5
+6
+7
+Nw 6
+20
+10
+14
+6
+8
+10
+12
+0.05
+0.1
+0.15
+6
+8
+10
+12
+0.002
+0.004
+6
+8
+10
+12
+2. ×10-5
+6
+8
+10
+12
+0.4
+0.8
+6
+8
+10
+12
+2. ×10-5
+6
+8
+10
+12
+1. ×10-8
+2. ×10-8
+FIG. 5. In the left panel we show the dual dispersion vari-
+ables w2n for n = 0, 1, 2. On the right, we show the unitarity
+dual variables. The dual objective D+ is obtained by sum-
+ming the areas below the XJ curves. We see how small is
+the contribution to the bound coming from the higher spins.
+Convergence in Nw is also achieved fast as the various curves
+tend to overlap by increasing Nw.
+dual constraints on a Chebyschev grid with respectively
+500 and 80 points. We now discuss our numerical ﬁnd-
+ings in turn for the maximum and minimum coupling
+problems.
+1.
+Maximum coupling dual problem
+We start with the maximum coupling problem since it
+turns out to be one of the simplest S-matrix Bootstrap
+problems.
+The bound converges already when L = 0
+and adding higher spin constraints does not improve it
+signiﬁcantly. We observe that just imposing the ¯w2 ≥0
+together with the large J constraints is suﬃcient to make
+all the ¯wJ ≥0 constraints with J > 2 automatically
+satisﬁed. Moreover, turning on the odd w2n+1’s has an
+almost zero impact on the bound.
+In ﬁgure 4 we plot the value of the minimum value
+of the dual objective (B3) D+(4/3, 4/3), that we simply
+denote by D+, as a function of Nw for L = 0, 2, 4 respec-
+tively in green, blue and red (the blue points are invisible
+since overlap with the red ones).19 The dashed lines are
+19We keep Nw(ℓ) the same for all even ℓ.
+6
+8
+10
+12
+0.005
+0.01
+0.015
+6
+8
+10
+12
+0.5
+1.
+1.5
+δ0(s)
+δ2(s)
+δ4(s)
+s
+s
+s
+2
+3
+4
+5
+6
+7
+Nw
+6
+10
+14
+20
+6
+8
+10
+12
+0.0004
+0.0008
+FIG. 6. Phase shifts δℓ(s) =
+1
+2i log Sℓ(s) for the ﬁrst few spins
+as a function of s. In green dashed we plot the primal phase
+shifts for our best numerics Nmax = 10, Lmax = 10. Solid
+lines in color gradient are obtained from the dual numerics
+with L = 4 and diﬀerent Nw. It is not surprising that primal
+and dual curves agree as the relative duality gap is relatively
+small ∆gap = 2 |g0−D+|
+g0+D+ = 0.02.
+the power-law extrapolations for Nw →∞with the ex-
+trapolated value reported in the ﬁgure. Taking the best
+value we conclude that g0 ≤2.7272.
+In ﬁgure 5 we show how the various dual variables con-
+verge as we increase Nw from Nw = 6 to Nw = 20 in color
+gradient for the L = 4 numerics. On the left panels we
+show the dual dispersive variables w2n(s) which depend
+on Nw. In the right panels, we plot the dual unitarity
+variables XJ: the area below those curves contribute to
+the dual objective D+ and from the plot is clear that
+almost the whole contribution to the bound comes from
+the spin-0 partial wave only.
+We also checked numerically that dual unitarity
+det Λ+
+J (s) ≈0. According to the discussion in Appendix
+D, this allows us to extract reliably the phase shifts us-
+ing (D1). In ﬁgure 6 we plot the real phase shifts for
+J = 0, 2, 4 using the data obtained with L = 4 as func-
+tion of Nw. The green dashed lines represent the primal
+phase shifts obtained with Nmax = 5 and Lmax = 10.
+
+12
+D−(Nw, L)
+Nw
+2
+3
+4
+5
+6
+7
+L
+0
+2
+4
+6
+6
+10
+14
+18
+-12
+-10
+-8
+FIG. 7. Dual objective D−(4/3, 4/3) for the minimum cou-
+pling problem as a function of Nw. Diﬀerent colors correspond
+to diﬀerent values of L. Here we see that the eﬀect of the odd
+w2n+1 is important for the convergence of the bound. The
+black dashed line represents the bound obtained in [26]. Also
+in this case the bound we get improves the old results and is
+the best rigorous bound obtained so far: g0 ≥−8.08.
+The phase shifts for J > 0 are all small and positive with
+positive scattering length (the slope at threshold), which
+is compatible with an extremal amplitude dominated by
+the spin 0 partial wave, where the higher spins are barely
+excited.
+2.
+Minimum coupling dual problem
+The minimum coupling problem is one of the hard-
+est S-matrix Bootstrap problems since the correspond-
+ing optimal amplitude maximizes the total cross-section,
+see section II C. This diﬃculty turns into a much slower
+convergence of the dual problem in comparison to the
+one for the maximum coupling. In ﬁgure 7 we study the
+maximum of the dual-functional D−(4/3, 4/3), denoted
+shortly as D−, as a function of Nw for diﬀerent values of
+L.
+The dashed black line corresponds to the bound ob-
+tained by Lopez and Mennessier [26] g0 ≥−8.2. Taking
+the bound obtained with L = 6 and Nw = 20 and ex-
+trapolating for Jmax →∞we can claim that g0 ≥−8.08.
+The diﬀerence ∆between the extrapolated value and
+the bound we get for the higher value of Jmax = 26 is
+∆= 4 × 10−3. The (small) dependence on Jmax means
+we still have some dual constraint violations. An inspec-
+tion shows that the violations happen in the outer region
+v ≥vc in some intermediate range of energies that de-
+pend on the spin J. It would be interesting to estimate
+this region and prevent these violations by adding some
+ﬁne-tuned constraints. However, as we said, their eﬀect
+on the bound is very small.
+Another diﬀerence w.r.t the maximum coupling prob-
+lem is that every time we add an odd spin constraint
+the bound changes by a comparable amount to the one
+generated by adding the even ones, see ﬁgure 7.
+w0(s)
+w2(s)
+w4(s)
+X0(s)
+X2(s)
+X4(s)
+s
+2
+3
+4
+5
+6
+7
+Nw 6
+20
+10
+14
+6
+8
+10
+12
+-0.2
+0.2
+0.6
+1.
+6
+8
+10
+12
+0.2
+0.4
+0.6
+6
+8
+10
+12
+-0.4
+-0.2
+6
+8
+10
+12
+1
+2
+6
+8
+10
+12
+0.05
+0.1
+0.15
+6
+8
+10
+12
+0.02
+0.04
+FIG. 8. Similarly to ﬁgure 5, on the left panel we have the dual
+dispersion variables w2n for n = 0, 1, 2, and on the right the
+unitarity dual variables. The dual objective D−is obtained
+by summing the areas below the XJ curves with a negative
+sign. In this case, spin-2 and spin-4 contribute respectively
+to the 5% and 1% of the bound. Convergence in Nw is also
+achieved for all dual variables, but w4.
+We have observed
+that higher spins tend to stabilize as we increase L. Allowing
+for a more general threshold behavior might also help w4 to
+stabilize. We leave this problem for the future as it does not
+aﬀect the numerical stability of the bound, nor of the physical
+phase shifts.
+In ﬁgure 8 we show the dual variables w2n (left pan-
+les) and X2n (right panels) up to n = 2. Again, it is
+worth noticing how the dual variables for this problem
+have a non-trivial higher spin structure compared to the
+maximum coupling case, ﬁgure 5. The contribution to
+the dual objective coming from X2 and X4 accounts re-
+spectively for the 5% and 1% of the bound. Moreover,
+though the dual variable w4 does not seem to converge
+yet in Nw, we observe that X4 is stable. From our pre-
+liminary explorations it seems that as we add higher spin
+waves, the lower spins tend to stabilize. We expect that
+this will happen to the spin-4 dual variable if we were to
+increase further L. We leave this study to the future.
+Finally in ﬁgure 9 we compare primal (dashed-greed)
+and dual (color gradient) physical phase shifts for spin
+ℓ= 0, 2, 4. In this case, the ratio between the duality gap
+and the bound is still large. Therefore, it does not come
+as a surprise that the phase shifts are diﬀerent. This dif-
+ference is more pronounced as we go to higher spins and
+energies. The spin-0 phase shift δ0 agrees nicely. In par-
+ticular, this phase shift and the corresponding scattering
+
+13
+δ0(s)
+δ2(s)
+δ4(s)
+s
+s
+s
+2
+3
+4
+5
+6
+7
+Nw
+6
+10
+14
+20
+6
+8
+10
+12
+-3
+-2
+-1
+6
+8
+10
+12
+-0.2
+0.2
+6
+8
+10
+12
+-0.2
+0.2
+0.4
+FIG. 9. Phase shifts δℓ(s) =
+1
+2i log Sℓ(s) for the ﬁrst few spins
+as a function of s of the amplitude that minimizes the quartic
+coupling. In green dashed we plot the primal phase shifts for
+our best numerics Nmax = 20, Lmax = 22. Solid lines in color
+gradient are obtained from the dual numerics with L = 4 and
+diﬀerent Nw. In this case, primal and dual diﬀer signiﬁcantly,
+especially for higher spins. The duality gap is also relatively
+big ∆gap = 2 |g0−D−|
+|g0+D−| = 0.26. One reason for this discrepancy
+comes from primal numerics as both the bound and unitarity
+saturation are still far from being attained. Nonetheless, the
+threshold physics is compatible, and we do expect they will
+agree more as the duality gap shrinks – see also ﬁgure 3.
+length are negative for both primal and dual problems.
+For spin-2 and spin-4 the threshold behavior seems to
+agree, but at intermediate energies, they diﬀer signiﬁ-
+cantly. In this case, we observe that unitarity is not well
+saturated for primal both for spin-2 and spin-4. Hence, it
+might be useful to further improve the primal and achieve
+better convergence before drawing any conclusion.
+As a last comment, it seems that the spin-2 scatter-
+ing length for the minimum coupling problem is nega-
+tive, while for spin-4 and higher becomes positive. This
+seems to be in contrast with the expectation coming
+from Froissart-Gribov representation that would suggest
+a positive spin-2 scattering length [55].
+Appendix H: Threshold unitarity
+In this appendix, we study the constraints that come
+from threshold unitarity in a 3 + 1 dimensional gapped
+theory and make a connection to our numerical results.20
+We assume a threshold behavior of the form
+T(s, t, u) = −α
+
+1
+√4 −s +
+1
+√4 −t +
+1
+√4 −u
+
+(H1)
++ a0 + ib0(
+√
+s −4 +
+√
+t −4 +
+√
+u −4) .
+Its projection onto the spin-0 partial wave is
+S0(s) = 1−α
+32π +i
+√
+s −4a0 −4b0 −α
+32π
++O(s−4) . (H2)
+Expanding the elastic unitarity condition for s →4+
+implies that
+α = 0
+or
+α = 64π .
+(H3)
+and
+b0 = (a0 −α)/4 .
+(H4)
+For α = 64π, the amplitude has a pole at threshold
+and the spin-0 phase shift reads
+δ0(s) = ±π
+2 + 1
+16
+
+2 ∓
+r
+100 −a0
+π
+ √
+s −4+. . . . (H5)
+It starts at π/2 and from its slope, we can extract the
+coeﬃcient a0. In particular, the reality of the phase in
+the elastic unitarity region implies that a0 ≤100π. This
+is the behavior observed in ﬁgure 3 (top) and ﬁgure 6 for
+the maximum coupling problem.
+For α = 0 we get
+δ0(s) = 1
+16
+
+−2 ±
+r
+4 + a0
+π
+ √
+s −4 + . . . ,
+(H6)
+and the amplitude approach the constant a0 at threshold,
+which is called scattering length. This is the behavior ob-
+served in ﬁgure 3 (bottom), and ﬁgure 9 for the minimum
+coupling.
+The scattering length a0 controls the time delay of the
+waves in the non-relativistic limit. A negative scattering
+length would signal a time advance. It is therefore ex-
+pected to be bounded from below. Indeed, the reality of
+the phase now implies that a0 ≥−4π.
+20See [38] for a general analysis.
+
+14
+[1] Miguel F. Paulos, Joao Penedones, Jonathan Toledo,
+Balt C. van Rees, and Pedro Vieira, “The S-matrix boot-
+strap II: two dimensional amplitudes,” JHEP 11, 143
+(2017), arXiv:1607.06110 [hep-th].
+[2] Miguel F. Paulos, Joao Penedones, Jonathan Toledo,
+Balt C. van Rees, and Pedro Vieira, “The S-matrix boot-
+strap. Part III: higher dimensional amplitudes,” JHEP
+12, 040 (2019), arXiv:1708.06765 [hep-th].
+[3] N. Doroud and J. Elias Mir´o, “S-matrix bootstrap for res-
+onances,” JHEP 09, 052 (2018), arXiv:1804.04376 [hep-
+th].
+[4] Yifei He, Andrew Irrgang,
+and Martin Kruczenski, “A
+note on the S-matrix bootstrap for the 2d O(N) bosonic
+model,” JHEP 11, 093 (2018), arXiv:1805.02812 [hep-th].
+[5] Luc´ıa
+C´ordova
+and
+Pedro
+Vieira,
+“Adding
+ﬂavour
+to the S-matrix bootstrap,” JHEP 12, 063 (2018),
+arXiv:1805.11143 [hep-th].
+[6] Miguel F. Paulos and Zechuan Zheng, “Bounding scat-
+tering of charged particles in 1 + 1 dimensions,” JHEP
+05, 145 (2020), arXiv:1805.11429 [hep-th].
+[7] Alexandre Homrich, Jo˜ao Penedones, Jonathan Toledo,
+Balt C. van Rees, and Pedro Vieira, “The S-matrix Boot-
+strap IV: Multiple Amplitudes,” JHEP 11, 076 (2019),
+arXiv:1905.06905 [hep-th].
+[8] Joan Elias Mir´o, Andrea L. Guerrieri, Aditya Hebbar,
+Jo˜ao Penedones,
+and Pedro Vieira, “Flux Tube S-
+matrix Bootstrap,” Phys. Rev. Lett. 123, 221602 (2019),
+arXiv:1906.08098 [hep-th].
+[9] Luc´ıa C´ordova, Yifei He, Martin Kruczenski, and Pedro
+Vieira, “The O(N) S-matrix Monolith,” JHEP 04, 142
+(2020), arXiv:1909.06495 [hep-th].
+[10] Carlos Bercini, Matheus Fabri, Alexandre Homrich, and
+Pedro Vieira, “S-matrix bootstrap: Supersymmetry, Z2,
+and Z4 symmetry,” Phys. Rev. D 101, 045022 (2020),
+arXiv:1909.06453 [hep-th].
+[11] Andrea L. Guerrieri, Alexandre Homrich,
+and Pedro
+Vieira, “Dual S-matrix Bootstrap I: 2D Theory,” (2020),
+arXiv:2008.02770 [hep-th].
+[12] Martin Kruczenski and Harish Murali, “The R-matrix
+bootstrap for the 2d O(N) bosonic model with a bound-
+ary,” JHEP 04, 097 (2021), arXiv:2012.15576 [hep-th].
+[13] Andrea L. Guerrieri,
+Joao Penedones,
+and Pedro
+Vieira, “Bootstrapping QCD Using Pion Scattering
+Amplitudes,” Phys. Rev. Lett. 122, 241604 (2019),
+arXiv:1810.12849 [hep-th].
+[14] Anjishnu Bose, Parthiv Haldar, Aninda Sinha, Pri-
+tish Sinha,
+and Shaswat S. Tiwari, “Relative entropy
+in scattering and the S-matrix bootstrap,”
+(2020),
+arXiv:2006.12213 [hep-th].
+[15] Andrea Guerrieri, Joao Penedones, and Pedro Vieira, “S-
+matrix Bootstrap for Eﬀective Field Theories: Massless
+Pions,” (2020), arXiv:2011.02802 [hep-th].
+[16] Aditya Hebbar,
+Denis Karateev,
+and Joao Pene-
+dones, “Spinning S-matrix Bootstrap in 4d,”
+(2020),
+arXiv:2011.11708 [hep-th].
+[17] Anjishnu Bose, Aninda Sinha,
+and Shaswat S. Tiwari,
+“Selection rules for the S-Matrix bootstrap,”
+(2020),
+arXiv:2011.07944 [hep-th].
+[18] Andrea Guerrieri, Joao Penedones,
+and Pedro Vieira,
+“Where is String Theory?”
+(2021), arXiv:2102.02847
+[hep-th].
+[19] David Poland, Slava Rychkov,
+and Alessandro Vichi,
+“The Conformal Bootstrap:
+Theory, Numerical Tech-
+niques, and Applications,” Rev. Mod. Phys. 91, 015002
+(2019), arXiv:1805.04405 [hep-th].
+[20] David Simmons-Duﬃn, “A Semideﬁnite Program Solver
+for the Conformal Bootstrap,” JHEP 06, 174 (2015),
+arXiv:1502.02033 [hep-th].
+[21] Walter
+Landry
+and
+David
+Simmons-Duﬃn,
+“Scal-
+ing the semideﬁnite program solver SDPB,”
+(2019),
+arXiv:1909.09745 [hep-th].
+[22] C. Lopez, “A Lower Bound to the pi0 pi0 S-Wave Scat-
+tering Length,” Nucl. Phys. B 88, 358–364 (1975).
+[23] C. Lopez, “Rigorous Lower Bounds for the pi pi p-Wave
+Scattering Length,” Lett. Nuovo Cim. 13, 69 (1975).
+[24] C. Lopez and G. Mennessier, “A New Absolute Bound
+on the pi0 pi0 S-Wave Scattering Length,” Phys. Lett. B
+58, 437–441 (1975).
+[25] B. Bonnier, C. Lopez,
+and G. Mennessier, “Improved
+Absolute Bounds on the pi0 pi0 Amplitude,” Phys. Lett.
+B 60, 63–66 (1975).
+[26] C. Lopez and G. Mennessier, “Bounds on the pi0 pi0
+Amplitude,” Nucl. Phys. B 118, 426–444 (1977).
+[27] Yifei He and Martin Kruczenski, “S-matrix bootstrap in
+3+1 dimensions: regularization and dual convex prob-
+lem,” (2021), arXiv:2103.11484 [hep-th].
+[28] Joan Elias Mir´o and Andrea Guerrieri, “Dual EFT Boot-
+strap: QCD ﬂux tubes,” (2021), arXiv:2106.07957 [hep-
+th].
+[29] S. Boyd and L. Vandenberghe, Convex Optimization,
+Cambridge Univ. Press (2004) .
+[30] D. Luenberger, Optimization by Vector Space Methods,
+1997, 1ed, John Wiley and Sons, Inc .
+[31] D. Bertsekas, A. Nedic, and A. Ozdaglar, Convex Anal-
+ysis and Optimization, MIT, 2003 .
+[32] Andre Martin, “Extension of the axiomatic analyticity
+domain of scattering amplitudes by unitarity. 1.” Nuovo
+Cim. A 42, 930–953 (1965).
+[33] Andre Martin, “Extension of the axiomatic analyticity
+domain of scattering amplitudes by unitarity. 2.” Nuovo
+Cim. A 44, 1219 (1966).
+[34] S. M. Roy, “Exact integral equation for pion pion scatter-
+ing involving only physical region partial waves,” Phys.
+Lett. B 36, 353–356 (1971).
+[35] G. Auberson and N. N. Khuri, “Rigorous parametric
+dispersion representation with three-channel symmetry,”
+Phys. Rev. D 6, 2953–2966 (1972).
+[36] G. Mahoux, S. M. Roy, and G. Wanders, “Physical pion
+pion partial-wave equations based on three channel cross-
+ing symmetry,” Nucl. Phys. B 70, 297–316 (1974).
+[37] Andrea L. Guerrieri and Amit Sever, “work in progress,”
+.
+[38] Miguel Correia, Amit Sever,
+and Alexander Zhiboe-
+dov, “An Analytical Toolkit for the S-matrix Bootstrap,”
+(2020), arXiv:2006.08221 [hep-th].
+[39] Stanley O. Aks, “Proof that Scattering Implies Produc-
+tion in Quantum Field Theory,” J. Math. Phys. 6, 516–
+532 (1965).
+[40] G. Colangelo, J. Gasser,
+and H. Leutwyler, “ππ scat-
+tering,” Nucl. Phys. B 603, 125–179 (2001), arXiv:hep-
+ph/0103088.
+[41] Sebastian Mizera, “Bounds on Crossing Symmetry,”
+
+15
+Phys. Rev. D 103, 081701 (2021), arXiv:2101.08266 [hep-
+th].
+[42] Sebastian Mizera, “Crossing Symmetry in the Planar
+Limit,” (2021), arXiv:2104.12776 [hep-th].
+[43] G. Auberson and L. Epele, “A Tool for Extending the
+Analyticity Domain of Partial Wave Amplitudes and the
+Validity of Roy-Type Equations,” Nuovo Cim. A 25, 453
+(1975).
+[44] G. Auberson and S. Ciulli, “A Set of Integral Equations
+for Pion Pion Scattering Valid at All Energies,” Nuovo
+Cim. A 44, 549 (1978).
+[45] Aninda
+Sinha
+and
+Ahmadullah
+Zahed,
+“Crossing
+Symmetric Dispersion Relations in QFTs,”
+(2020),
+arXiv:2012.04877 [hep-th].
+[46] Rajesh Gopakumar, Aninda Sinha,
+and Ahmadullah
+Zahed, “Crossing Symmetric Dispersion Relations for
+Mellin Amplitudes,” (2021), arXiv:2101.09017 [hep-th].
+[47] Nima Arkani-Hamed, Tzu-Chen Huang,
+and Yu-Tin
+Huang, “The EFT-Hedron,” JHEP 05, 259 (2021),
+arXiv:2012.15849 [hep-th].
+[48] Michael B. Green and Congkao Wen, “Superstring am-
+plitudes, unitarily, and Hankel determinants of multi-
+ple zeta values,” JHEP 11, 079 (2019), arXiv:1908.08426
+[hep-th].
+[49] Brando Bellazzini, Joan Elias Mir´o, Riccardo Rattazzi,
+Marc Riembau, and Francesco Riva, “Positive Moments
+for Scattering Amplitudes,”
+(2020), arXiv:2011.00037
+[hep-th].
+[50] Andrew J. Tolley, Zi-Yue Wang, and Shuang-Yong Zhou,
+“New positivity bounds from full crossing symmetry,”
+(2020), arXiv:2011.02400 [hep-th].
+[51] Simon
+Caron-Huot
+and
+Vincent
+Van
+Duong,
+“Ex-
+tremal Eﬀective Field Theories,” JHEP 05, 280 (2021),
+arXiv:2011.02957 [hep-th].
+[52] Simon Caron-Huot, Dalimil Mazac, Leonardo Rastelli,
+and David Simmons-Duﬃn, “Sharp Boundaries for the
+Swampland,” (2021), arXiv:2102.08951 [hep-th].
+[53] Zvi Bern, Dimitrios Kosmopoulos,
+and Alexander Zhi-
+boedov, “Gravitational Eﬀective Field Theory Islands,
+Low-Spin Dominance, and the Four-Graviton Ampli-
+tude,” (2021), arXiv:2103.12728 [hep-th].
+[54] Sandipan
+Kundu,
+“Swampland
+Conditions
+for
+Higher
+Derivative
+Couplings
+from
+CFT,”
+(2021),
+arXiv:2104.11238 [hep-th].
+[55] F. J. Yndurain, “Rigorous constraints, bounds, and re-
+lations for scattering amplitudes,” Rev. Mod. Phys. 44,
+645–667 (1972).

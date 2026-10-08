@@ -1,0 +1,63 @@
+{
+  "status": "PASS_POLYNOMIAL_MOMENT_DEGREE_ENCLOSURES",
+  "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+  "tables": [
+    {
+      "path": "output\\competitive_20261007\\left\\compact\\moments\\strip_12_24_moments.json",
+      "sha256": "29e2d74dbdbe2410d7777c1d5880fd2f51af11056b3e30fb8f95f11d915141e1",
+      "metadata": {
+        "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+        "precision_bits": 512,
+        "order": 179,
+        "A": "12",
+        "B": "24",
+        "T": "4/3",
+        "u_center_minus": "40/3",
+        "u_radius": "20/3",
+        "t_center_minus": "2/3",
+        "t_radius": "2/3",
+        "s_center": "18",
+        "s_radius": "6",
+        "jmax": 98,
+        "kmax": 256,
+        "energy_degree_bound": 264,
+        "angular_degree_bound": 356,
+        "absolute_W_mass_bound": "7569245836201840729/144115188075855872",
+        "convention": "dx dy, W=(1-(2x-1)^2)*sum lambda P_n(2x-1)P_j(2y-1)"
+      }
+    },
+    {
+      "path": "output\\competitive_20261007\\left\\compact\\moments\\strip_24_48_moments.json",
+      "sha256": "def503a42e17ab19ca8390ffdc94124827d51af1fbbae3ee1c23987d291c7951",
+      "metadata": {
+        "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+        "precision_bits": 512,
+        "order": 179,
+        "A": "24",
+        "B": "48",
+        "T": "4/3",
+        "u_center_minus": "94/3",
+        "u_radius": "38/3",
+        "t_center_minus": "2/3",
+        "t_radius": "2/3",
+        "s_center": "36",
+        "s_radius": "12",
+        "jmax": 98,
+        "kmax": 256,
+        "energy_degree_bound": 264,
+        "angular_degree_bound": 356,
+        "absolute_W_mass_bound": "13460991272986263395/2305843009213693952",
+        "convention": "dx dy, W=(1-(2x-1)^2)*sum lambda P_n(2x-1)P_j(2y-1)"
+      }
+    }
+  ],
+  "seconds": 571.992678642273,
+  "sha256_manifest": {
+    "research\\competitive_20261007\\left\\build_compact_moments.py": "cb84653599a16c943f681474a2e5c40d817bac2ee19526b3168c8cb86a2e81db",
+    "output\\full_direction_20261007\\left\\angle180_final.npz": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+    "research\\certified_roy_moments.py": "9c97a2741c20feafab2c7bb1b700b81b51bbcc39ba243ba2f6ccffad75045b5a",
+    "research\\certified_strip_moments.py": "b9c03a4b9afd1f3f1875b0a70ede9632dd264b0324c6d27459deb5e4de89b370",
+    "research\\validated_quadrature.py": "7e58d82a2c9093324b254de10ec7646d699290ac0d84695f85da2c7517b05eb9"
+  },
+  "scope": "Certified degree-exact polynomial integration with fresh left-witness contractions. Geometric truncation requires separate remainder bounds."
+}

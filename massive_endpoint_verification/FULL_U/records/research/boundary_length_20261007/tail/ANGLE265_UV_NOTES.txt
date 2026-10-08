@@ -1,0 +1,46 @@
+ANGLE265 FIXED-WITNESS UV SPECIALIZATION
+
+Witness: output/boundary_length_20261007/search/angle265.npz
+SHA256: 5aae4902c2db47f5e3a5f5a37d87c136cd7ec3cb191752d8f3b2f7ee04d6d8c3
+Exact objective:
+ a=-785029141123105/9007199254740992,
+ b=-4486462071114449/4503599627370496.
+Use these saved rationals, not a trigonometric recomputation or the negation
+of the angle85 first component (which differs by one binary64 ulp).
+
+The algebra, normalization, exact source quotient/remainder, physical-angle
+Legendre bound, finite crossing-tail sign, and unbounded-domain seams are
+the reviewed framework explained in UV_PROOF_NOTES.txt. All new cache and
+interval records belong to the above SHA; no other witness's numerical
+proof cells are inherited.
+
+For every finite even spin42..448, the new driver uses a strict directed
+upper below -1/10. It does not impose the former quarter-midpoint margin
+condition; that condition was only a refinement heuristic, not a proof
+requirement. Every accepted interval is finite. Saved 400-bit cells are
+replayed at480bits, and their paired maximum is the safe local upper.
+
+For all integer spins>=450, one eta panel [0,1/(450*451)] suffices on
+tau in[0,256]. The complete 400-bit adaptive proof has76 cells and all
+76 pass the480-bit replay at kappa=1/10. This is a continuum interval
+cover, unlike the preceding point screen.
+
+For all spins>=108 with mu>=49 and tau>=256, the all-negative-powers
+Jensen estimate used for angle255 is specialized to the new exact source
+and crossing coefficients. The320/400-bit upper is below-1530, so its
+claimed kappa=1 is conservative. This closes the infinite-tau seam.
+
+The exact rational source cache is regenerated and all972 moment entries
+and9 source remainder coefficients agree. This is a deterministic rebuild
+with the reviewed exact builder, not a new independent derivation.
+
+assemble_uv265.py verifies both precisions, exact closed partitions,
+all finite spins, the full eta panel, omitted-crossing coefficient signs,
+unbounded-tau seams, exact objective, and nested source manifests. The
+result proves only V/p coercivity for mu>=49 and even spins>=42. Complete
+physical support certification additionally requires the same-witness
+compact-energy proof, finite-head integral, and real-norm integrals.
+
+Production/replay filenames include the exact margin tag k1_10 to prevent
+any later alternative-margin run from overwriting them. The short pilot
+ell42 is retained as its own proof batch; remaining batches begin at44.

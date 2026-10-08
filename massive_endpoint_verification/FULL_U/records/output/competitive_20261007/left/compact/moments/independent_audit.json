@@ -1,0 +1,38 @@
+{
+  "status": "PASS_INDEPENDENT_EXACT_BETA_MOMENTS_AND_SHARED_TABLES",
+  "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+  "records": [
+    {
+      "label": "roy",
+      "exact_beta_integral_T_checks": 99,
+      "shared_moment_overlap_checks": 17228,
+      "new_order": 184,
+      "earlier_order": 109
+    },
+    {
+      "label": "strip_12_24",
+      "exact_beta_integral_T_checks": 99,
+      "shared_moment_overlap_checks": 19403,
+      "new_order": 179,
+      "earlier_order": 103
+    },
+    {
+      "label": "strip_24_48",
+      "exact_beta_integral_T_checks": 99,
+      "shared_moment_overlap_checks": 19403,
+      "new_order": 179,
+      "earlier_order": 103
+    }
+  ],
+  "sha256_manifest": {
+    "output\\full_direction_20261007\\left\\angle180_final.npz": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+    "research\\all_direction_certification_20261007\\audit_left_compact_moments.py": "e67db88f014c3eaf28d3e49621e92b2e519199f4f252ebe76b4dd14a36fb693b",
+    "output\\competitive_20261007\\left\\compact\\moments\\roy_moments.json": "1e921f6c795e6b4958729a728a30dda2312aa526f41e9741326947b6f37179cc",
+    "output\\all_direction_certification_20261007\\head\\left\\moments128\\roy_moments.json": "144954f27ad458a3f08a57a349d8f8afd6140daad81690898f300f90218f6b82",
+    "output\\competitive_20261007\\left\\compact\\moments\\strip_12_24_moments.json": "29e2d74dbdbe2410d7777c1d5880fd2f51af11056b3e30fb8f95f11d915141e1",
+    "output\\all_direction_certification_20261007\\head\\left\\moments128\\strip_12_24_moments.json": "c79a6f4ac94d5cb53ca8679a8563b3fed1afa3d0eea042ec64996aec08e74c44",
+    "output\\competitive_20261007\\left\\compact\\moments\\strip_24_48_moments.json": "def503a42e17ab19ca8390ffdc94124827d51af1fbbae3ee1c23987d291c7951",
+    "output\\all_direction_certification_20261007\\head\\left\\moments128\\strip_24_48_moments.json": "88f2cf27c5870677ed95857930d1a303b3cb2587f107d4a2056639c4c43dfd82"
+  },
+  "scope": "All T_j are checked against exact factorial/beta integrals. Shared moments are compared to the earlier table constructed using a different validated Gauss rule. The new table still relies on its asserted polynomial degree and validated Gauss-node/weight enclosures for remaining entries."
+}

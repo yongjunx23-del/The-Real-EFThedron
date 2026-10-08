@@ -1,0 +1,22 @@
+{
+  "L": 42,
+  "low_energy_upper": "[-543.68381067550840516807188038543532532928266073 +/- 3.68e-45]",
+  "low_energy_worst_cell": [
+    7.98,
+    8.0
+  ],
+  "low_energy_cells": 200,
+  "low_energy_spin_derivative_upper": "-79.808665900956839323043823242187500000000000000",
+  "middle_energy_upper": "[-34.600213081264405852850084568778842322551357893 +/- 2.70e-46]",
+  "middle_energy_worst_cell": [
+    48.98,
+    49.0
+  ],
+  "middle_energy_cells": 2050,
+  "moment_terms": 40,
+  "arithmetic": "Arb160 inequalities with exact rational source moments and Bernstein norms",
+  "domain": "all even l>=42, 4<mu<=49",
+  "prerequisite": "Exact positivity of combined Roy W on t<=-3/5, certificate expanded_roy_sign.json",
+  "claim": "Strict negative V_l/p_l on stated compact-energy domain only",
+  "witness_sha256": "bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c"
+}

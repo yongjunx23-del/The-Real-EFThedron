@@ -1,0 +1,162 @@
+Compact-energy components for the exact 261.3814-degree and 268-degree witnesses
+
+Scope
+-----
+These are only the V/p < -1 components on every even spin ell >= 42 and
+4 < mu <= 49. They are not complete directional support bounds by themselves.
+The separate finite head, UV coercivity and real-norm integrals must be bound
+to the same witness/objective and assembled by the root campaign verifier.
+
+Witnesses and exact objectives
+-----------------------------
+output/boundary_length_20261007/search/angle261p3814.npz
+SHA256 5bd1b99e5fd4e237fe7e98583aa683ab076d4d76319b05b06c023e583f48383e
+(-5399142818899535/36028797018963968,
+ -8905488025140847/9007199254740992)
+
+output/boundary_length_20261007/search/angle268.npz
+SHA256 1a0754b19846867214d914c595cdc744f433abfcdaff309d645677bbe2602044
+(-5029547531033609/144115188075855872,
+ -9001712312321383/9007199254740992)
+
+All normal components and multipliers mean the exact rational value of the
+saved binary64 number. Canonical source parameters are B=119/10 and T=4/3.
+
+Proof adaptation
+----------------
+The new files copy the already reviewed angle259 compact method without
+changing its inequalities. Only witness, objective, source paths, maximum
+finite spin and associated dependency/review names are changed. The analytic
+all-powers Jensen envelope checks every shifted crossing coefficient by exact
+Bernstein bounds. The nonnegative powers of (k-10)_+ are retained, their
+negative constant is dropped, and the k<10 cap is bounded separately. The
+low-energy spin derivative is checked negative. Physical-energy positive
+Legendre denominator monomials use the previously reviewed monotonic ratio.
+Both 400-bit and 512-bit analytic runs choose identical exact rectangles and
+spin cutoffs. Analytic cutoff selection is finite; the accepted inequalities
+on each selected rectangle apply to every larger spin.
+
+The residual finite-spin proof uses exact source moments, N=256 geometric
+remainders and removable-pole/PV formulas. Every accepted exact energy cell
+is computed at 512 bits and replayed at 640 bits. The existing source-geometry
+partition seed is used only as an initial partition; no value or inequality
+from its different witness is reused.
+
+Finite complements to the analytic rectangles
+---------------------------------------------
+261p3814, closed mu interval : finite even spins
+6..13/2   : 42
+13/2..7   : 42..48
+7..15/2   : 42..52
+15/2..8   : 42..58
+16..20    : 42
+20..24    : 42..48
+24..30    : 42..54
+30..36    : 42..60
+36..42    : 42..64
+42..49    : 42..70
+
+268, closed mu interval : finite even spins
+24..30 : 42..46
+30..36 : 42..50
+36..42 : 42..54
+42..49 : 42..60
+
+All other compact rectangles have an analytic proof already from ell=42.
+A separate analytic proof covers 4 < mu <= 9/2 for every even ell>=42.
+The complete component assemblers check the adjacent energy cover and the
+finite even42..L-2 / analytic even>=L cover exactly, not approximately.
+
+Environment and preservation
+----------------------------
+Use the root reproducibility archive's pinned Python/dependency environment.
+The files import python-flint, NumPy, SciPy and SymPy as supplied by that
+environment. In PowerShell, BEFORE starting any Python process:
+
+$env:OPENBLAS_NUM_THREADS='1'
+$env:OMP_NUM_THREADS='1'
+$env:MKL_NUM_THREADS='1'
+$env:PYTHONPATH='tmp/certification_deps'
+
+Run from the repository root. In commands below, python means that pinned
+interpreter. Existing proof inputs must remain immutable. For fresh rebuilds,
+use a disposable copy of the archive and an empty corresponding NEW campaign
+output tree. Never remove or overwrite the canonical archived outputs. The
+moment builder intentionally refuses to overwrite completed tables.
+
+Source prerequisites
+--------------------
+The frozen source caches are prepared by the separately owned scripts:
+python research/boundary_length_20261007/tail/prepare_angle261p3814.py
+python research/boundary_length_20261007/tail/prepare_angle268.py
+
+Their prepared_components.json binds the witness, source data, canonical
+parameters and exact Roy/crossing prerequisites. Reusing the archived caches
+and validating their hashes is a frozen-input replay, not a from-scratch
+independent source reconstruction. A fresh source build must retain the
+correct prerequisite audit files and must subsequently use newly matching
+provenance throughout its own complete packet.
+
+Analytic envelopes, paired precisions
+------------------------------------
+For NAME equal to 261p3814 and then 268:
+python research/boundary_length_20261007/compact/analytic_angleNAME.py --bits 400
+python research/boundary_length_20261007/compact/analytic_angleNAME.py --bits 512
+python research/boundary_length_20261007/compact/analytic_angleNAME_low.py --bits 400
+python research/boundary_length_20261007/compact/analytic_angleNAME_low.py --bits 512
+
+These save analytic_piecewise_400/512.json and low/analytic_piecewise_400/512.json
+under output/boundary_length_20261007/compact/angleNAME. The original first
+400-bit runs printed to the orchestration log; the later 512-bit and paired
+low-energy runs also have local analytic*.log files.
+
+Fresh moment tables
+-------------------
+python research/boundary_length_20261007/compact/build_extra_moments.py --angle 261p3814 --kind roy --bits 512
+python research/boundary_length_20261007/compact/build_extra_moments.py --angle 261p3814 --kind strips --bits 512
+python research/boundary_length_20261007/compact/build_extra_moments.py --angle 268 --kind roy --bits 512
+python research/boundary_length_20261007/compact/build_extra_moments.py --angle 268 --kind strips --bits 512
+
+The builder fixes jmax=skmax=70 for261p3814, and60 for268, with kmax=N=256.
+The root-owned independent moment audit must be saved as
+compact/angleNAME/moments/independent_audit.json before complete assembly.
+It checks every T_j against exact factorial/beta integrals and checks shared
+entries against the independently ordered finite-head source tables.
+
+Finite proof and replay
+-----------------------
+python research/boundary_length_20261007/compact/run_piecewise261p3814.py
+python research/boundary_length_20261007/compact/run_piecewise268.py
+
+Each launcher uses TWO thread-limited concurrent workers, so running both
+uses at most FOUR finite proof/replay worker processes in total. It waits for
+the two moment manifests, checks independent floating fields at spins42 and
+the maximum finite spin, then runs each finite producer and its higher-
+precision replay in sequence. The independent numerical comparison is a
+diagnostic only; it is not used to accept a continuum inequality.
+
+Each exact subprocess command, exit code and duration is retained in
+compact/angleNAME/commands.jsonl. Standard output/error is saved in
+point_check.log and piece_*_512.log / piece_*_640.log. JSON proof packets
+also retain wall times, exact partitions and dependency hashes. Summed
+process times are not the elapsed time of parallel execution.
+
+To reproduce a single rectangle directly (example):
+python research/boundary_length_20261007/compact/certify_finite268_slice.py --mu-min 42 --mu-max 49 --lmax 60 --bits 512 --out NEW_PRODUCER.json
+python research/boundary_length_20261007/compact/replay_piecewise268.py --input NEW_PRODUCER.json --out NEW_REPLAY.json --bits 640 --jobs 1
+
+Complete compact packet
+-----------------------
+After the independent adaptation review and moment audit are present:
+python research/boundary_length_20261007/compact/assemble_angle261p3814.py
+python research/boundary_length_20261007/compact/assemble_angle268.py
+
+The expected packet path is compact/angleNAME/complete_compact_coercivity.json,
+status PASS_COMPLETE_COMPACT_COERCIVITY, kappa_exact 1, minimum_even_spin42,
+mu_domain_exact [4,49], lower_energy_endpoint_open true. The hash manifest
+binds both precisions, finite cells, analytic rectangles, source tables,
+source audits and reviewed formulas. Preserve every path named in it.
+
+Arithmetic replay is internal verification sharing mathematical code. It is
+not formal proof-assistant checking, external review or an independent
+implementation of the entire scattering-amplitude argument.

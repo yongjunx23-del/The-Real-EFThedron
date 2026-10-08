@@ -1,0 +1,101 @@
+Independent algebra/enclosure review of spin2,4,6 head, 6 October 2026
+
+Reviewed research/head_certification_lowspin.py and
+research/certified_uv_moments.py for the fixed150-row witness. This note
+reviews the formulas; final numerical values and corrected source hashes
+must be taken from the completed component JSON outputs.
+
+One correction requested and implemented
+=======================================
+For interval second derivatives of the real source, activity must follow
+the exact beta-cell endpoints mu(a)=4/(1-a^2), mu(b)=4/(1-b^2), because
+an inflated mu ball can intersect a source window even if the true cell
+lies outside. The series branch now uses exact rational endpoint membership
+and asserts that no bulk cell crosses a source boundary. The interval-value
+branch correctly retains union withzero when a window is intersected.
+The author restarted all three component integrations after this fix.
+
+Reviewed identities
+====================
+Set R_l(t,d)=sum_j C_lj t^j d^(l-j), C_lj=(l+j)!/[(l-j)!(j!)^2],
+d=mu-4, c=4/3, Rstar=R_l(c,d), Q=mu-c. The removable crossed quotient
+(Rstar-R_l(t,d))/(d+c+t) is a polynomial for evenl, since
+R_l(-d-c,d)=Rstar. Its source moments are included with the correct sign.
+
+For Roy, t=-sigma*v, sigma=s-4, v=(1-z)/2. Subtracting the physical PV
+residue P_l(z) gives
+ [R_l(t,d)-d^l P_l(z)]/(d-sigma)
+ =sum_(j>=1) (-1)^(j+1)C_lj v^j
+      sum_(a=0)^(j-1) sigma^a d^(l-1-a).
+This is exactly Tphys. The energy moment identity
+ integral_0^1 x^a P_n(2x-1)dx
+  =(a!)^2/[(a-n)!(a+n+1)!] for a>=n, zerootherwise,
+matches its exact construction.
+
+The remaining Roy PV residue has coefficient4/[(2l+1)(B-A)] times
+Q_n(mappedmu), using folded angular orthogonality. Its real local term
+is2pi P_n(mappedmu)/[(2l+1)(B-A)]. The corresponding strip factors are
+2H_lj/(B-A) for the PV term andpi H_lj P_n(mappedmu)/(B-A) for the real
+part, including the taper. These agree with the code after scaling bye^-2.
+
+The qdata polynomial R implements .5PV integral W(x)/(y-x)dx
+=.5W(y)log|(y+1)/(y-1)|-R(y). Its centered geometric expansion when
+|y|>3/2 has error<=norm*(1/|y|)^N/(|y|-1). The source norms used here
+are the conservative sum-of-basis-coefficient bounds from metadata.
+
+The crossing polynomial follows from
+ X4 = [2z^2 P_l''(z)-3zP_l'(z)]/Q^5,
+ z=Q/d. Thus its monomial coefficient is a_m*m*(2m-5), as implemented.
+The scalar forward piece is corrected by exactly the P_l(z)-1 part of
+the subtraction. Dividing byp=P_l(z)/Q^3 gives the normalized formulas
+used in normalized_interval and threshold_cap.
+
+Outer integration and threshold
+================================
+With beta=sqrt(1-4/mu), e=1-beta^2, Uhat=U/e^2, Vhat=V/e^2, the
+measure is4(2l+1)/pi dbeta. The inherited convex interpolation proof
+uses interval second derivatives and separate uniform geometric errors.
+Taking the minimum of two independently valid interval upper bounds is
+safe; choosing which bound byfloat does not weaken validity.
+
+If vn=V/p<0 andpinv=1/p, then
+ H(Uhat,Vhat)<=Uhat^2 e^2 pinv/(-2vn).
+This is the code's optional small-support enclosure and threshold cap.
+On the cap e^2<=1 analytically, so omitting that factor is conservative.
+For the Roy endpoint log, d^l|logd| increases on the tiny cap; the asserted
+dmax<.01 is sufficient for l>=2. This bounds the apparent log singularity
+includingd=0. The other source denominators are nonsingular and retain
+their geometric remainder balls. Strict negativity of the cap vn upper
+is explicitly required. The cap real U includes the active Roy residue;
+strips are inactive because the cap is below their first energy window.
+
+UV source expansion
+====================
+Writingx=1/mu andh=x/(1-4x), the source kernel is expanded as
+ -x/16 [sum_j C_lj h^j A_j(x)+P_l(Z)B(x)] in Vhat.
+The A_j coefficients are exact moments of
+ t^j[s^(k+2)+u^(k+2)-c^(k+2)-(2c-t)^(k+2)],
+and B of t^(k+2)+(2c-t)^(k+2)-2c^(k+2).
+The degreezero/one terms vanish bys+t+u=4=3c. Each remainder is bounded
+by four geometric tails, giving4*norm*Tmax^j*B^2*(Bx)^N/(1-Bx).
+All source variables satisfy the stated absolute bounds, andBx<1 on
+theUV domainmu>=128. The representation includesbeta=1 by continuity.
+The forward, crossing, and P_l-dependent subtraction UV factors agree
+with their finite-energy forms.
+
+Input-table validation
+=======================
+The parent independently rebuilt all nine Roy/strip/UV moment tables at
+340bits and checked that every fresh interval is wholly contained in the
+stored corresponding interval:24344 entries total. Its report is
+output/certification_head/all_moment_tables_verified.json. This review
+uses that stronger validation, not merely interval overlap or quadrature
+convergence. Component outputs also record each source table's SHA256.
+
+Conclusion
+===========
+After the real-source series activity correction, no further substantive
+algebraic or interval-bound issue was found. This is an independent review
+of formulas and enclosure logic. Each final component must additionally
+pass its own directed-arithmetic run with the corrected code and complete
+beta partition before entering the full dual bound.

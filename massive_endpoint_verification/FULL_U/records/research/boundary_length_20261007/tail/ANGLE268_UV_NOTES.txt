@@ -1,0 +1,44 @@
+ANGLE268 FIXED-WITNESS UV SPECIALIZATION
+
+Witness: output/boundary_length_20261007/search/angle268.npz
+SHA256: 1a0754b19846867214d914c595cdc744f433abfcdaff309d645677bbe2602044
+Exact saved objective: (-5029547531033609/144115188075855872, -9001712312321383/9007199254740992).
+The actual stored binary64 coefficients are exact rationals. No recomputed
+trigonometric normal or renamed angle replaces these values.
+
+The normalized UV field, exact source R1 quotient and three-coefficient
+remainder, physical-angle Legendre bound, K80 remainder, signed K2 prefix,
+crossing-tail negativity, and unbounded-domain seams are the reviewed
+framework in UV_PROOF_NOTES.txt. The new source data and all interval
+partitions belong exclusively to the witness SHA above.
+
+Finite even spins42..448 use tau in[0,min(256,l(l+1)/45)]. Infinite integer
+spins>=450 use eta in[0,1/(450*451)], divided into1 panels, and
+tau in[0,256]. Every accepted400-bit enclosure must be finite with strict
+directed upper<-1/500; the identical partitions are replayed at480bits.
+The maximum of the two exact directed uppers is used in final assembly.
+No midpoint-relative heuristic is required for acceptance.
+
+For every spin>=108, mu>=49 and tau>=256, the all-negative shifted-power
+Jensen lemma gives the separately claimed kappa=1 at320/400bits. Spins
+<=106 have l(l+1)/45<256; no infinite-tau gap is left. The uniform eta=0
+endpoint is included to close the arbitrarily large-spin limit.
+
+The exact source cacheN12/K80 has972 moments and9 rational remainder
+coefficients. The deterministic exact rebuild checks every entry. This is
+not represented as a second independent derivation of the source formula.
+Higher-precision replays likewise check numerical enclosures with the same
+reviewed mathematics, rather than claiming formal independence.
+
+assemble_uv268.py checks exact complete coverage, same-witness/objective
+hashes, strict signs at both precisions, the omitted-crossing sign, all
+source manifests and the unbounded-domain seams. Its output establishes
+UV coercivity only, for every even spin>=42 and every mu>=49. A complete
+physical support bound additionally needs same-witness finite-head,
+compact-energy, and real-part integral certificates from the other agents.
+
+All new workers set process-local OPENBLAS_NUM_THREADS=OMP_NUM_THREADS=
+MKL_NUM_THREADS=1. At most four UV workers run across the two new campaigns.
+New filenames include the exact margin tag k1_500. Earlier frozen proof
+files are not modified. Reproduction commands are in
+REPRODUCE_261p3814_268_UV.md beside this note.

@@ -1,0 +1,197 @@
+INDEPENDENT REVIEW OF THE REAL-KERNEL AND UV SIGN COMPONENTS
+2026-10-06; reviewer: published_benchmarks subagent.
+
+Reviewed code:
+  research/certify_real_tail.py
+  research/tail_certification/certify_uv.py
+Reviewed witness:
+  output/angles_resummed/angle_000p000.npz
+  SHA256 bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c
+Reviewed result files:
+  output/certification_20261006/right_A40_arb.json
+  output/certification_tail/uv_M49.json
+Numerical replay / source hashes:
+  research/tail_component_independent_audit.json
+
+Conclusion
+----------
+I found no substantive mathematical inequality or normalization error in these
+two component arguments for THIS witness and the declared exact parameter
+convention, after the real-tail rational parameters were changed to agree with
+the UV convention. The arguments include every spin/energy in their declared
+domains, rather than substituting a finite grid for those domains.
+
+This is a component review, not a full dual exclusion. The real-kernel result
+bounds A=sum_even_l>40 integral_4^infinity U_l^2/p_l dnu. The UV result controls
+V_l/p_l for all even l>=102 and mu>=49. There remains a substantial uncovered
+sign/support domain, and the finite-head integral also requires validated
+integration/error control. A small A does not alone bound the full disk-support
+tail if V is positive there. No previous plotted halfplane becomes a complete
+certificate just because these two components pass.
+
+Real-tail derivation checked independently
+-----------------------------------------
+Write d=mu-4, Q=mu-4/3, Z=1+8/(3d), p_l=P_l(Z)/Q^3 and
+dnu_l=(2l+1)dmu/(2*pi*beta). The exact positive Taylor coefficient gives
+  P_l(Z)>=[(l+k)!/((l-k)!(k!)^2)] * (4/(3d))^k.
+For k>=2, even L, and k<=L+2, the omitted-spin sum satisfies
+  sum_even_l>L (2l+1)/P_l(Z) <= c_k*d^k,
+  c_k=(k!)^2(3/4)^k /
+      [2(k-1)*product_{j=L-k+3}^{L+k} j].
+The code's c_k is correct. In particular the factor 2 is required for the
+even-spin telescoping sum, not a continuum approximation. The identity behind
+it is
+  (2l+1)(l-k)!/(l+k)! = 1/[2(k-1)] *
+    [(l-k)!/(l+k-2)! - (l-k+2)!/(l+k)!].
+
+With beta=sqrt(1-4/mu), omega=exp(4i atan(beta)), and
+K=Im(q_total/F)/Im(omega), the forward U is
+  U=16*beta*(1-beta^2)^4/(1+beta^2)^5 * K.
+Combining U^2, Q^3, dmu/beta and the spin bound gives the code's prefactor
+65536/(27*pi), the factor beta^2(2+beta^2)^3/(1+beta^2)^10, and the powers
+4^k beta^(2k)(1-beta^2)^(3-k). They match exactly.
+
+The harmonic ratio Im(omega^n)/Im(omega)=U_(n-1)(x), x=Re(omega), is continuous
+at both endpoints x=+/-1. The code uses a Taylor polynomial of degree 5 and a
+sixth-order remainder. More generally, the bound for the order-p remainder is
+  max|U_(n-1)^(p)|/p!
+   =2^p*(n+p)!/[(2p+1)!*(n-1-p)!], for n>p,
+so its p=6 implementation is correct. The derivative extremum follows from
+the Gegenbauer derivative formula and its endpoint maximum on [-1,1].
+
+I checked the rational-row K formulas directly by writing omega=x+i*y and
+dividing Im(omega^2*(m-m(-1))) by y before letting y approach zero. The completed
+square denominator is exactly the squared modulus. Consequently the threshold
+and UV endpoint cancellation is explicit; no division by a vanishing Im(omega)
+is performed. The beta cell endpoints and monotone x(beta) enclosure cover the
+closed interval [0,1]. Integer powers are implemented through multiplication,
+so zero-containing endpoint balls do not trigger an invalid logarithmic power.
+At beta=1 the implementation uses only k<=3; it avoids the divergent individual
+k>3 envelopes there. The full kernels themselves remain finite in K.
+
+The strip subtraction coefficients are also correct: for taper (1-x^2),
+one-half integral_-1^1 taper*P_n equals 2/3 for n=0, -2/15 for n=2, and zero
+otherwise. Since the source equality has minus that g0 coefficient, the signs
+in c0 match. Local finite-J Roy real terms vanish for l>L once the code checks
+the source J lies in the head. Crossing rows have zero real component.
+
+Strip improvement checked independently
+--------------------------------------
+For a source window and transfer T=4/3, let
+  f(v)=sum_j a_j(s)P_j(2v-1), 0<=v<=1.
+Orthogonality gives integral_0^1 f(v)^2dv=sum_j a_j(s)^2/(2j+1). The code's L2
+factor is therefore correct, including its 2j+1 denominator.
+
+The Legendre Bernstein inequality used is
+  |P_l(x)|^2 <= 2/[pi*(l+1/2)*sqrt(1-x^2)], -1<x<1.
+A primary mathematical source states it explicitly as Lemma 2.1, Eq (2.2):
+  Haiyong Wang, arXiv:1803.00336v1,
+  https://arxiv.org/pdf/1803.00336
+For x=1-2Tv/d and d>T, integration gives the safe bound
+  integral_0^1 |P_l(1-2Tv/d)|^2dv
+   <= 2d/[pi*(l+1/2)*sqrt(T*(d-T))].
+Replacing l+1/2 by L+5/2 is correct because the first omitted even spin is
+L+2. Combining this with the L2 source bound by Cauchy-Schwarz yields exactly
+the implemented strip factor. Taking its minimum with 1 is legitimate.
+
+In a beta cell that only overlaps part of a source window, the code clips mu
+to the source window for that strip's bound and still includes the bound over
+the full beta cell. This is conservative. Summing magnitudes with the forward
+U before squaring is also conservative. The earlier separate-strip bound
+requires disjoint windows; the current code asserts this and the actual
+windows [12,24] and [24,48] satisfy it up to measure-zero shared endpoints.
+
+Saved A40 data crosscheck
+------------------------
+The 3617 saved dyadic beta cells partition [0,1] exactly, with no gap or overlap.
+An independent exact-Fraction sum of all saved upper cell masses is no larger
+than the saved dyadic total, with rounding surplus about 2.05e-49. The total is
+approximately 1.9999630391902418e-5 and hence below the declared 2e-5 target.
+The stored source hash matches the witness. This verifies the saved partition
+arithmetic in addition to the analytic argument; it does not independently
+recompute each cell enclosure from a second interval library.
+
+UV sign derivation checked independently
+---------------------------------------
+The code uses tau=l(l+1)/(mu-4). Set c=4/3 and separate the raw Roy/strip
+absorptive integrand into physical-angle and fixed-positive-angle Legendre
+parts. After division by p_l, their limiting coefficients are
+  K1_inf=2(s-c)(c-u), K2_inf=2(t-c)^2.
+The exact finite-mu ratios are
+  R1=[1+(t-4)/(2mu)](1-c/mu)^2 /
+       [(1-s/mu)(1-u/mu)(1+(t-2c)/mu)],
+  R2=(1-c/mu)^2 /[(1-t/mu)(1+(t-2c)/mu)].
+These reproduce errors()'s eps1 and eps2 bounds on the source rectangle
+4<=s<=48, -4<=t<=0, -44<=u<=0 when mu>=49. All denominators are then positive.
+
+The source's exact Bernstein coefficients enclose both its integral of |WK_i|
+and its positive part. For the latter, summing max(Bernstein coefficient,0)
+times the basis integrals indeed bounds the integral of max(WK1,0). This is
+valid even when W changes sign. Each box uses the correct upper bound on |t|.
+
+On physical angles, P_l(x)<=1 and
+  1-P_l(1+2t/(mu-4)) <= min(2,tau*|t|).
+The second inequality follows from max_-1^1|P'_l|=l(l+1)/2. This explains the
+positive-source correction min(2,tau*|t|), and it has the correct sign in the
+upper bound for V/p. Negative source contributions can be dropped in that
+correction because 1-P_l>=0. It does not require the whole Roy source positive.
+
+Writing a=c*tau, P_l(1+2a/[l(l+1)]) has coefficients
+  product_{j=0}^{k-1}(1-j(j+1)/[l(l+1)])/(k!)^2.
+For l>=L they are bounded below by those of degree L and above by 1/(k!)^2.
+Hence the implemented lower polynomial P_L and upper I0(2sqrt(a)) are genuine
+uniform bounds, also in the joint mu~l^2 regime. Differentiating positive
+coefficients supplies the analogous derivative bounds, including I1/sqrt(a).
+This is stronger than using a fixed-mu leading asymptotic without a remainder.
+
+The exact crossing ratio is
+  X4/p = tau^2/2 * P_aa/P - 3*tau/(2Q) * P_a/P.
+The code's lower estimate uses lower tau/P_aa, upper P, upper tau/P_a, and lower
+P/Q in the appropriate places. I checked all factors and signs. The current
+lambda_X4 is -23.90335355242552, so multiplying a lower X4/p bound produces
+an upper V/p bound. The independently available X4>=0 for even l>=4 justifies
+clipping this lower bound to zero and dropping it in other tau ranges.
+
+The g0 forward and subtraction constants tend to -32/9 and -280/9 in the
+two separated pieces; errors() follows from the exact rational corrections.
+The harmonic estimate uses Re(omega)+1=8/(mu-2)^2 and |T'_j|<=j^2. For a cosine
+rational generator, its subtracted real series has derivative envelope
+  sum_{k>=0} r^k[(k+2)^2+4]
+   =r(1+r)/(1-r)^3 +4r/(1-r)^2 +8/(1-r).
+Thus the revised O(mu^-2) rational error is valid for 0<=r<1, |cosine|<=1.
+
+The dynamic per-cell lower energy bound
+mu>=max(M,4+L(L+1)/tau_hi) follows directly from l>=L; no independence assumption
+is needed. The large-tau closure uses the global M=49 errors and a monotone
+Legendre lower bound at tau=256. The intermediate and final ranges cover all
+tau>=0. The saved certificate reports the worst finite-cell upper value about
+-0.5495069454 and the large-tau upper value about -4.7799300724.
+
+Operational restrictions and remaining concerns
+-----------------------------------------------
+1. The exact model convention is: binary64 witness multipliers interpreted as
+   exact rationals; rational row parameters interpreted as exact decimals from
+   their labels; Roy B=119/10; strip T=4/3 exactly. The original numerical kernel
+   evaluations used Python floats, so eventual finite-head interval integration
+   must target this declared exact model or explicitly enclose parameter error.
+   This is harmless for discovering a witness but cannot be silently ignored
+   when joining certificates. The earlier real/UV mismatch has been corrected.
+2. certify_uv.py is valid here but its CLI is more generic than its proof:
+   it assumes direction=(1,0), exactly one negative X4 multiplier, even L>=4,
+   the above source ranges, T=4/3, and cosine rational rows with r<1, |c|<=1.
+   These should be asserted before reuse on another witness. In particular it
+   does not currently add a nonzero g2 direction to V/p, does not support odd
+   Roy nulls, and does not implement sine rational error bounds.
+3. Source caches are keyed by witness hash and depth, not the source-construction
+   code hash or parameter convention. Delete/rebuild them if source_data changes.
+   The independent replay uses the existing exact-rational depth12 cache; it
+   does not constitute an independent rebuild of every Bernstein coefficient.
+4. The current real-tail window endpoints are integers, so their residual float
+   parse is exact for this witness. If non-dyadic window endpoints are added,
+   exact-decimal claims require parsing those endpoints with Fraction too.
+   Likewise any strip T other than the stated 4/3 requires removing the
+   hardcoded T from the combined-strip bound or rejecting that input.
+5. JSON decimal strings are Arb enclosures, not scalar exact decimal bounds.
+   The dyadic mass/total pairs are the exact outward certificate numbers.
+   Hashes of the reviewed source files and witness are retained in the JSON
+   audit so later edits can be distinguished from this reviewed implementation.

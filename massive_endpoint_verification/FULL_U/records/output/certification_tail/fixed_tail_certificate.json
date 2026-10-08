@@ -1,0 +1,31 @@
+{
+  "witness_sha256": "bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c",
+  "physical_domain": "all mu>4 and all even l>=42",
+  "V_over_p_upper_rational": "-31/50",
+  "A40_upper_exact": "957792012329886398729379805777930133606695589535/47890485652059026823698344598447161988085597568237568",
+  "A40_upper_outward_rounded": "0.000020000000000000000000",
+  "disk_support_tail_upper_exact": "23944800308247159968234495144448253340167389738375/1484605055213829831534648682551862021630653524615364608",
+  "disk_support_tail_upper_outward_rounded": "0.00001612904",
+  "formula": "sqrt(U^2+V^2)+V <= U^2/(2*kappa*p), integrate and sum all even l>=42",
+  "external_g2_cap_used": false,
+  "replayed_components_this_run": true,
+  "status": "All-spin/all-energy omitted-spin tail certified under the stated amplitude assumptions.",
+  "limitation": "The finite-spin head l=0,2,...,40 still requires an independent certified integration; this tail result alone is not a complete exclusion bound.",
+  "sha256_manifest": {
+    "output\\angles_resummed\\angle_000p000.npz": "bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c",
+    "research\\tail_certification\\certify_uv.py": "1315c067189e7b2fef440547b7886ad3919cca18da23a8350dcc379969fe2ba3",
+    "research\\tail_certification\\certify_compact.py": "c034c1dc381edc7322228e2ac6f32e1a096539aefd8113b6e870624da2fd3b81",
+    "research\\tail_certification\\compact_source_data.py": "59fbdd869056ac046e406e0980e3d38fad497560a6c4eeaca9d64280f4b7f6ae",
+    "research\\tail_certification\\certify_expanded_roy_sign.py": "32d246b63ab511d86aef9324aba12e7b2cf7d6b50f958ddf50b42079c1aa820d",
+    "research\\tail_certification\\verify_fixed_tail.py": "2769a12a9db190bd0cd716e48cdf2097c655ff7cc22dcb64e538ff2286329bac",
+    "research\\tail_certification\\PROOF.txt": "23e78993fecba82409cef0a93d19be716bcfae4ea5702768c7e205d19dcf8158",
+    "research\\certify_roy_dangerous_sign.py": "3c71c819acc659609c32f9f3ca35178ea9c9ab30e9d4654a7cf5029baa6d7dff",
+    "research\\certify_real_tail.py": "253545566d1640c17d6a7014a49f2aa0904f110f7d22397eb0befbffe6560f49",
+    "output\\certification_tail\\source_cache_v2_depth10.pkl": "a6201eaa983f55a008b93b643c55d8e84d999519d6876bd9b718e6508fb9f854",
+    "output\\certification_tail\\compact_source_cache.pkl": "5d1685e6136a5b7a410676ffa5cabdaf3d3a5542e20afa6400f873c0ce9af1bc",
+    "output\\certification_tail\\expanded_roy_sign.json": "d31c0abe1595c9b593a2dc9c77872e7543e057fc7f4f142d79204457b7d16220",
+    "output\\certification_tail\\uv_L42_M49_v2.json": "0f8963f74d05fb657f509c154243daae3df8a7c427373140d6c694adaa64fe11",
+    "output\\certification_tail\\compact_L42.json": "50e3b9bfd660e33c927d4cee364dbc9583ace0edc8f3cb67cb592ccaaff413fe",
+    "output\\certification_tail\\real_A40.json": "1d8af4327f78cf8fc1750501f014c3cdb148246ae740030831c68e3ad8a4a254"
+  }
+}

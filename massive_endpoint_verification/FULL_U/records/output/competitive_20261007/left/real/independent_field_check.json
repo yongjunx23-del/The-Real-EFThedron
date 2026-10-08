@@ -1,0 +1,13 @@
+{
+  "status": "PASS_INDEPENDENT_REAL_KERNEL_COMPARISON",
+  "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+  "points": 66,
+  "maximum_scaled_error": 1.6036741304262856e-13,
+  "worst_point": [
+    2,
+    4.05,
+    21.485892336643026,
+    21.485892336646632
+  ],
+  "scope": "Forward/rational/derivative real kernel only; source-local strips bounded separately. This numerical comparison does not itself prove the infinite-spin norm formula."
+}

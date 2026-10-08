@@ -1,0 +1,26 @@
+{
+  "status": "PASS_EXACT_RATIONAL_REBUILD",
+  "moment_count": 972,
+  "remainder_coefficient_count": 9,
+  "all_entries_equal": true,
+  "verified_keys": [
+    "witness_sha256",
+    "N",
+    "K",
+    "moments",
+    "remainder_coefficients",
+    "remainder_by_source",
+    "definition",
+    "denominator_lower",
+    "proof",
+    "builder_sha256"
+  ],
+  "seconds": 23.376569509506226,
+  "sha256_manifest": {
+    "research\\all_direction_certification_20261007\\tail\\verify_finite_source.py": "6bb18319f3d5a1e8c7418e62e66da2d0872c10ec614c6e7edf27dddaf649738d",
+    "research\\all_direction_certification_20261007\\tail\\finite_source_corrections.py": "fe42a60ef062df0934c69b791fe9430f5a32b957e595ba345830afcae9f717f5",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\finite_source_N12_K80.pkl": "1b863302ca13dae7c5b5352bf0c3e38765f1a7a60afd1424c957e8cae4c21f2f",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\finite_source_N12_K80.json": "21a25e73febcdf4ff4b28b9de30afb4aff1c859cba2562e0eb05ac126a11c630",
+    "output\\competitive_20261007\\robust\\g2_robust_stage1.npz": "933ee2f7889a52b8ccabbf58836c256161bc5c59d3763cdbca2b40bb01ac6f92"
+  }
+}

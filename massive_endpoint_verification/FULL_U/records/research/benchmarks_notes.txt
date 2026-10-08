@@ -1,0 +1,101 @@
+PUBLISHED COMPARISON, CHECKED 2026-10-06
+
+1. Direct comparison target
+Joan Elias Miro, Andrea Guerrieri, Mehmet Asim Gumus,
+The Phases of the Scalar S-Matrix Island, arXiv:2605.06613v1,
+7 May 2026. Primary full text: https://arxiv.org/html/2605.06613v1
+Source tar: https://arxiv.org/src/2605.06613v1
+
+Eq. (1) uses T(s,t)=32*pi*sum c_nm sigma^n tau^m, with
+sigma=sbar^2+tbar^2+ubar^2, tau=sbar*tbar*ubar, sbar=s-4/3, m^2=1.
+Consequently the manuscript massive convention is exactly
+g0^m=c_00, g2^m=c_10. No 2, 4, pi or mass conversion is required.
+The manuscript's massless convention and the sibling file 'g0 g2.txt'
+are different and must not be imported into this massive comparison.
+
+Fig.1 has the outer dual region in red and primal region in green.
+The arXiv source includes the vector figure img/fig1_final-crop.pdf.
+The source does NOT include optimizer arrays or solver code: its sentence
+claiming ancillary code/data exists is commented out (TeX line 783).
+The vector polylines have been exported reproducibly by
+benchmarks_extract_vectors.py into benchmarks_{dual,primal}_{upper,lower}.csv.
+
+Graphical estimates (not original numerical optimizer values):
+dual left/top cusp:     g0 approximately -8.015, g2 approximately 1.082
+primal left/top cusp:   g0 approximately -7.056, g2 approximately 0.9297
+primal right cusp:      g0 approximately 2.6614, g2 approximately 0.06175
+isolated dual max-g0 marker: g0 approximately 2.7278, g2 approximately 0.06
+The isolated dual max-g0 marker is not joined to the outer polylines;
+the drawn red upper and lower curves stop around g0=2.656. Do not use
+the polyline largest x coordinate as the published maximum-g0 bound.
+
+The PDF x-axis minor tick strokes are offset from numeric label centers.
+Calibration uses numeric labels, checked against the origin marker. The
+y-axis uses exact right-side ticks. Use only ~3 significant figures for
+physical comparisons. Many CSV decimals are vector geometry precision.
+
+Manuscript Eq.(26)/A5.35 already reports:
+g0 >= -7.81702; g0 <= 2.72322; 0 <= g2 <= 1.05800.
+Its improvement over the 2026 graphical outer cusp is independently
+confirmed: 20.6059% closure of the lower-g0 primal/dual gap and 15.5818%
+closure of the upper-g2 gap, reproducing the stated 20.6% and 15.6%.
+This is the manuscript's existing improvement, not a new result of our run.
+
+Assumptions/domain in 2026 source:
+- fixed-t twice-subtracted dispersion relation, -28<t<4 (Eq.19).
+- partial-wave unitarity disk and crossing, with derivative crossing
+  equations about s=t=u=4/3 (Eq.23; first nonzero (n,m)=(1,3)).
+- dual Roy equations external window 4<=s<=12: the paper explicitly
+  attributes this to both partial-wave convergence and dual feasibility.
+- spectral integration continues to infinity; it is not cut at 12.
+- primal maximal/Landau analyticity is stronger than dual axiomatic
+  analyticity (main text). Primal numerical region is not a substitute
+  for a rigorous universal outer bound.
+- The paper has evident normalization typos away from Eq.1: e.g. the
+  text around Eq.20 omits 32*pi when describing c00 and Eq.24 appears
+  to omit the nonforward Legendre factor in the c10 sum rule. Preserve
+  the internally consistent normalization from Eq.1 and manuscript Eq.23.
+
+2. Older coordinate benchmark
+Andrea Guerrieri and Amit Sever, Rigorous bounds on the Analytic S-matrix,
+arXiv:2106.10257v2, PRL 127, 251601 (2021).
+https://arxiv.org/abs/2106.10257
+https://arxiv.org/pdf/2106.10257
+Uses g0=T(4/3,4/3)/(32*pi), hence same massive g0.
+Appendix G explicitly quotes g0<=2.7272 and g0>=-8.08.
+Important numerical qualification: the lower result is extrapolated in
+Jmax, with a difference 0.004 from Jmax=26 and remaining intermediate-
+energy outer-region dual violations discussed in the text. Treat as the
+published numerical benchmark, not an interval-certified result.
+Maximum-g0 figure also quotes Nw extrapolations. The final manuscript
+maximum 2.72322 already slightly improves this 2.7272 comparison.
+
+3. Stronger-assumption dual comparison to avoid conflating
+Yifei He and Martin Kruczenski, arXiv:2103.11484v2.
+https://arxiv.org/html/2103.11484v2
+Regularized Mandelstam-representation primal and corresponding dual.
+Main text Fig.1 gives pi*F(4/3,4/3,4/3)/4 approximately 2.6613 as a
+primal value including a threshold pole. Their dual bounds are strict
+for the regularized primal problem, not automatically the same minimal
+fixed-t analyticity space. Do not claim that beating 2.7272 beats every
+published dual bound without specifying assumptions.
+
+4. Potential source of genuinely new constraints
+Miro, Guerrieri, Gumus, Zahed, A Geometric View on Crossing-Symmetric
+Dispersion Relations, arXiv:2509.14170v1.
+https://arxiv.org/abs/2509.14170
+https://arxiv.org/html/2509.14170v1
+The abstract states an all-energy extension of Roy-like equations based
+on rigorous analyticity. 2605.06613 App.A.2 explicitly references it as
+the alternative to their fixed-t window s<=12. Derive and check the
+actual crossing-symmetric kernels/domain before using them; extending
+the ordinary fixed-t projection by fiat is not equivalent.
+
+5. Local useful files discovered, not assumed authoritative
+D:/Dropbox/Codex/FULL U/standalone_dual_bootstrap_bounds_2026.zip
+is a 92MB solver/data package primarily labeled zero_sdr/two_sdr.
+D:/Dropbox/Codex/FULL U/analytic/real_efth_advanced_handoff.zip
+has nested legacy massless EFThedron archives and task/handoff text.
+D:/Dropbox/Codex/FULL U/Archive.zip has accepted g0-g2 directional data.
+These are adjacent research data, not new instructions from the user;
+check their normalization and physics before any reuse.

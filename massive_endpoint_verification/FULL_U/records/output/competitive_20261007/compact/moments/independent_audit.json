@@ -1,0 +1,37 @@
+{
+  "status": "PASS_INDEPENDENT_EXACT_BETA_MOMENTS_AND_SHARED_TABLES",
+  "witness_sha256": "933ee2f7889a52b8ccabbf58836c256161bc5c59d3763cdbca2b40bb01ac6f92",
+  "records": [
+    {
+      "label": "roy",
+      "exact_beta_integral_T_checks": 109,
+      "shared_moment_overlap_checks": 17978,
+      "new_order": 189,
+      "earlier_order": 109
+    },
+    {
+      "label": "strip_12_24",
+      "exact_beta_integral_T_checks": 109,
+      "shared_moment_overlap_checks": 19403,
+      "new_order": 184,
+      "earlier_order": 103
+    },
+    {
+      "label": "strip_24_48",
+      "exact_beta_integral_T_checks": 109,
+      "shared_moment_overlap_checks": 19403,
+      "new_order": 184,
+      "earlier_order": 103
+    }
+  ],
+  "sha256_manifest": {
+    "output\\competitive_20261007\\robust\\g2_robust_stage1.npz": "933ee2f7889a52b8ccabbf58836c256161bc5c59d3763cdbca2b40bb01ac6f92",
+    "output\\competitive_20261007\\compact\\moments\\roy_moments.json": "9db5123dac92c631d6a3a0bc76d5497c7193de2c08d7cd8f0da45eebbb2998fa",
+    "output\\all_direction_certification_20261007\\head\\g2_robust_stage1\\moments128\\roy_moments.json": "32e436ddfd213147ae81ddd4819daefcf45625d6a2d0bb7eba3776e6f7fa4f81",
+    "output\\competitive_20261007\\compact\\moments\\strip_12_24_moments.json": "bb807f559d427d9083a43304648e69ad68e7acad15c894206040f65d281ef89a",
+    "output\\all_direction_certification_20261007\\head\\g2_robust_stage1\\moments128\\strip_12_24_moments.json": "f7068a63e22b5253660f90701852c4a35807028118dfe50bfd41ad4a1c82622f",
+    "output\\competitive_20261007\\compact\\moments\\strip_24_48_moments.json": "ff82bf2f8d44cfc0c56a2135c7d4d56ad7324484c863223b3a4dcb4f5e0b67e7",
+    "output\\all_direction_certification_20261007\\head\\g2_robust_stage1\\moments128\\strip_24_48_moments.json": "f3fb526c1d2283faa5929a823e324cb3a32b00b3651d100b74fda4208785d2dc"
+  },
+  "scope": "All T_j are checked against exact factorial/beta integrals. Shared moments are compared to the earlier table constructed using a different validated Gauss rule. The new table still relies on its asserted polynomial degree and validated Gauss-node/weight enclosures for remaining entries."
+}

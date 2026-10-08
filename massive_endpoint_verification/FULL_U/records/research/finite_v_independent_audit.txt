@@ -1,0 +1,198 @@
+Independent finite-spin V certificate review, 6 October 2026
+
+Later strengthening: the corrected kappa14 certificate also independently
+PASSED. The hash-bound replay record is
+output/certification_head/V8_40_kappa14_independent_replay.json.
+AtArb280 every one of149566 individual spin/cell inequalities passed over
+8798cells. The immutable certificate hash is
+d677cc3b29e3f202cdc1aa315a0533fec4c6bd8cb86ea8548063b93180234ac4.
+With the separately computed tighter A8..40<47/200, the whole finite block
+contributes less than47/5600. The derivations below are unchanged.
+
+Reviewed research/tail_certification/certified_finite_v.py and
+research/tail_certification/certify_finite_v_domain.py, the exact-moment
+builders, and the fixed-witness combined source norm cache. The mathematical
+implementation was frozen during the full independent replay. Later changes
+added provenance/domain/degree assertions only, as documented below.
+
+Final corrected result: exact all-spin acceptance independently PASSED
+=====================================================================
+The corrected independent adaptive run passed2749leaves,5488trials, with
+every one of the17spin intervals required finite and strictly below-10.
+The worst upper remains-10.0033454536288235. Author and independent final
+partitions, including every exact dyadic upper, agree identically.
+Use only these corrected certificate outputs:
+ output/certification_head/V8_40_exact.json
+ output/certification_head/V8_40_independent_exact.json
+ output/certification_head/V8_40_exact_partition_audit.json
+They prove V/p<-10 on all evenl8..40 andallmu>4. The exact partition audit
+covers2703mu cells over[4,101] and46w cells over[0,1/97].
+
+Historical correction: old acceptance audit found missed NaN
+============================================================
+The original2744-leaf result is NOT a valid recorded certificate. Its guard
+selected a maximum with key=float and could ignore NaNs in later spins.
+An exact per-spin replay found leaf2737, mu=[37/8,19/4], spin40 returnedNaN,
+while another spin supplied the accepted upper-144.499. The corrected guard
+must require every spin interval finite and strictly below the target, and
+refine any failed cell. The corrected run above added five splits and
+closed every previously unbounded spin interval.
+The algebra review below remains favorable, but the original leaf coverage
+audit only checked stored maxima and did not resolve the missing spin bound.
+
+Conclusion of the corrected all-spin replay
+===========================================
+For the fixed150-row witness with SHA256
+bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c,
+every even spin8,10,...,40 and every mu>4 satisfy V_l(mu)/p_l(mu)<-10.
+No substantive algebraic flaw was found. With the acceptance issue above
+repaired, the resulting negative bound combines
+with the separately reviewed A8..40<1/4 to bound this entire spin block's
+disk support by (1/4)/(2*10)=1/80=0.0125.
+
+Independent replay
+==================
+ python research/tail_certification/certify_finite_v_domain.py \
+   --maxcells 100000 --output output/certification_head/V8_40_independent_exact.json
+Original result (invalid acceptance guard):2744 accepted cells,5478 trials, worst upper
+ -10.00334545362882351143852408672776062991240856619159.
+It exactly matched the author's reported result, but both used the same
+flawed acceptance guard. The independent exact-per-spin replay caught the
+NaN issue subsequently. Do not use this historical output as a certificate.
+
+output/certification_head/V8_40_partition_audit.json checks with exact
+Fractions that2698mu cells partition[4,101],46w cells partition[0,1/97],
+and every saved dyadic upper is strictly below-10. Here w=1/(mu-4), so
+the second partition covers[101,infinity], including its limit. There is
+no gap at101 or at any source endpoint. The threshold limit mu=4 is
+included by the polynomial normalization, though the claimed domain ismu>4.
+
+Polynomial normalization and finite PV residue
+=============================================
+Set delta=mu-4, c=4/3, Q=delta+2c,
+ R_l(t,delta)=delta^l P_l(1+2t/delta)
+            =sum_(j=0)^l C_lj t^j delta^(l-j),
+ C_lj=(l+j)!/[(l-j)!(j!)^2], Rstar=R_l(c,delta).
+Rstar has positive coefficients and remains strictly positive atdelta=0.
+Dividing the source kernel byp=P_l(Q/delta)/Q^3 is exactly multiplication
+by Q^3 delta^l/Rstar. This is the normalization used throughout.
+
+The Roy real PV term is divided polynomially:
+ R_l(t,delta)/(delta-sigma)
+ =sum_(j<l) C_lj t^j sum_(a<l-j) sigma^a delta^(l-j-1-a)
+    +R_l(t,sigma)/(delta-sigma), sigma=s-4.
+At Roy kinematics t=-sigma(1-z)/2,
+ R_l(t,sigma)=sigma^l P_l(z). The angular projection of the residue is
+zero for every l>=8 because the fixed witness has only even J<=6 and
+integral_0^1 P_J(z)P_l(z)dz=0. This is an exact orthogonality identity,
+not a numerically small residue or discarded singular term.
+
+The other removable denominator is cancelled exactly using evenl:
+ R_l(-delta-c,delta)=R_l(c,delta)=Rstar.
+Thus (Rstar-R_l(t,delta))/(delta+c+t) is a polynomial. Expanding this
+quotient gives precisely the grouped ddcoef formula in the implementation.
+Grouping rational coefficients by their shared moment before interval
+evaluation improves cancellation without altering the identity.
+
+Moment exactness and geometric remainders
+=========================================
+The moment builders use validated Gauss rules only on polynomials. Roy's
+degree bounds are energy94 and angular77, below GL48's exactness95.
+Strip bounds are energy38 and angular73, below GL40's exactness79.
+Each resulting moment ball encloses the exact source integral. The
+coefficients are exact binary64 rationals; row endpoints and rational
+parameters are exact decimals; strip T=4/3 is exact.
+
+For each expansion1/(D-q), |q|<=r<D,
+ remainder after N terms is bounded by (r/D)^N/[D(1-r/D)].
+The u-channel polynomial numerator contributes the extra ratio
+ |P_l(1+2t/delta)|/P_l(Q/delta).
+This is at most1 for every strip at all energies, and for Roy whenever
+mu>=159/20=7.95. For lower Roy energies, the interval bound
+ |R_l(-79/20,delta)|/Rstar +delta^l/Rstar
+dominates the entire t interval[-79/20,0], using |P_l|<=1 on[-1,1]
+and monotonicity of P_l(x) forx>=1. The t-channel remainder has no such
+factor because it already multipliesP_l(Q/delta).
+
+The exact combined-source Bernstein norm cache gives
+ Roy absolute mass <=5.617853865940627...<5.618,
+ total strip absolute mass <=0.240087498724366...<0.2401.
+Using0.2401 separately for each strip is conservative. These constants
+are valid for the exact witness used by the moment files. They are not
+the much looser sum-of-basis-coefficients bounds in moment metadata.
+
+Atmu>=100 the strip source PV denominator is also expanded around its
+energy midpoint; its radius/denominator ratio is strictly below1. The
+proof covers even the entire[100,101] cell when that branch is selected.
+On the compactified branch w<=1/97 all Roy angles are physical, so every
+angular ratio bound is1. The transformed geometric remainder is exactly
+ r^N (1+2c w)^3 w^(N-2)
+   /[(1+(4+h)w)^N(1+(4+h-r)w)],
+includingw=0 by continuity. No finite UV cutoff is left unbounded.
+
+Exact top-degree cancellations
+===============================
+Before normalization, the full source kernel is
+ P_l(y)[1/(mu-s)+1/(mu-u)-1/Q]
+ +P_l(Z)[1/(mu-t)-2/Q]
+ -(P_l(y)-P_l(Z))/(mu-2c+t),
+ y=1+2t/delta, Z=Q/delta.
+It is O(mu^-3) at fixedl and bounded source variables. Themu^-1 terms
+cancel. Themu^-2 coefficient is the sum of
+ l(l+1)(t-c), s+t+u-3c=0, and -l(l+1)(t-c), hence alsozero.
+N=32 geometric truncations preserve both leading cancellations.
+Consequently the rational numerator degree is at mostl+2N-2 for Roy
+and at mostl+3N-2 for the strip UV representation. Setting the two
+leading enclosure coefficients exactly tozero is justified by these
+analytic identities; an interval merely containingzero alone would not
+justify it. The contains-zero checks are consistency tests.
+
+The homogeneous UV evaluation assumes the retained polynomial degree
+equals this target. This equality was checked independently for every
+one of the51 source/spin polynomials. A later assertion now enforces it.
+
+Strip endpoint handling
+========================
+For zeta=2(mu-A)/(B-A)-1, the tapered PV projection is
+ Qtilde_n(zeta)=.5PV integral_-1^1 (1-x^2)P_n(x)/(zeta-x)dx
+ =(1-zeta^2)Q_n(zeta)+zeta delta_(n0)+(1/3)delta_(n1).
+Inside(-1,1), Q_n=P_n*.5log((1+zeta)/(1-zeta))-R_n.
+Nearzeta=1 the singular product is rewritten exactly in terms of
+e log|e|, e=zeta-1. On|e|<1/4 this function is continuous and strictly
+decreasing, so its interval image is enclosed by its endpoint values,
+includinge=0. The negative endpoint uses parity(-1)^(n+1). Outside
+the cut, the exact finite Legendre expansion is evaluated with Arb's
+type3 real Q_n. Thus the strip endpoint limits are included and finite.
+Cells too broad for the endpoint formula trigger subdivision.
+
+Forward and crossing checks
+============================
+The forward real function uses xomega=8/(mu-2)^2-1. Separating the
+P_l-dependent subtraction produces exactly the implemented vbase andvf.
+The crossing term follows from
+ P'_l(Z)=delta^(1-l) Rstar_c/2,
+ P''_l(Z)=delta^(2-l) Rstar_cc/4,
+ giving X4/p=(Q Rstar_cc-3Rstar_c)/(2Q Rstar).
+The code's cross polynomial and its w^2 compactification match this.
+
+Additional diagnostics, not the proof
+======================================
+output/certification_head/V8_40_point_checks.json records45 comparisons
+with the older floating-point evaluator at threshold-adjacent, source,
+and UV energies. Maximum relative discrepancy was7.24e-11. Also68
+direct-versus-compactified interval-overlap checks passed atmu101,200,
+1000,10^6. These guard against normalization mistakes, but the certificate
+rests on the analytic formulas and directed interval enclosures above.
+
+Provenance-only follow-up
+=========================
+After the mathematical freeze and independent replay, the author added
+assertions binding the fixed witness SHA, every moment file's witness
+SHA, source window/J/T metadata, combined norm cache SHA andnorm bounds,
+and the retained numerator degree. These changes do not modify numerical
+formulas. Independent audit hashes before those assertions are preserved
+in V8_40_partition_audit.json; final assembly should record current hashes.
+The final exact-guard implementation and kernel hashes are recorded in
+V8_40_exact_partition_audit.json. The guard now rejects every nonfinite
+spin interval and compares every spin upper to the target in Arb directly.
+Selecting the reported worst finite upper uses exact dyadic Fractions.

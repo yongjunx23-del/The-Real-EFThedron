@@ -1,0 +1,54 @@
+Joint large-spin / high-energy limit for future uniform tail certification
+========================================================================
+
+The missed bands depend primarily on tau=l(l+1)/(mu-4), rather than on
+mu or l separately. This gives a useful one-dimensional limiting problem.
+The formulas below are analytic limits, not a finite-l error certificate.
+
+Set T=l(l+1), mu=4+T/tau, c=4/3 and
+  I(tau)=0F1(1;c*tau)=I_0(2 sqrt(c*tau)).
+For every fixed a,
+  P_l(1+2a/T) -> 0F1(1;a).
+Thus the positive normalization tends to I(tau), whereas every physical
+source Legendre factor tends to
+  H(t,tau)=0F1(1;t*tau)=J_0(2 sqrt(-t*tau)), t<=0.
+
+The normalized g0 absorptive kernel tends to
+  v0/p -> -280/[9 I(tau)] -32/9.
+A forward H_j null tends to 32(-1)^j/I(tau).
+
+For an external source point (s,t), u=4-s-t, the combined dispersive
+kernel in the Roy/strip convention tends to
+  D_l/p_l -> 2(t-c)^2 -2(s-c)(u-c) H(t,tau)/I(tau).
+The corresponding imaginary null row is minus its weighted source
+integral, plus g0_coeff*v0/p after subtraction elimination. This formula
+applies to both the Roy and tapered fixed-transfer source integrations.
+
+For crossing metadata beta_j at total degree D, only j=D-2 survives
+at leading order in this joint limit; lower j have extra inverse powers
+of Q=mu-c. The surviving normalized crossing contribution is
+
+  beta_(D-2) * tau^(D-2)/[(D-2)!]^2
+       * 0F1(D-1;c*tau)/I(tau).
+
+The large-tau growth of this function is proportional to tau^((D-2)/2),
+with the sign of its coefficient. This is distinct from the fixed-mu
+large-spin expansion used in crossing_asymptotic_obstruction.txt.
+
+The derivative-bank limit is also explicit. Let A(t)=2+t/2. Its
+harmonic rows Dt(p)H_j have normalized imaginary-kernel limit
+
+  (-1)^j * 2^(2p-2) / I(tau)
+       * [d^p/dt^p (8 A(t)^2 H(t,tau))]_(t=0).
+
+The derivative is a polynomial in tau since
+  H(t,tau)=sum_(k>=0) (t*tau)^k/(k!)^2.
+For the Dt(p)G_regular row replace (-1)^j by -1, and subtract
+
+  [d^p/dt^p {2(t-c)^2 -(t-c)^2 H(t,tau)/(2 I(tau))}]_(t=0).
+
+These limits reduce the eventual all-spin sign problem to a scalar
+function of tau, comprising Bessel functions, source integrals, and
+finite polynomials. A proof still needs uniform finite-l error bounds,
+interval control over tau, the real-kernel remainder, and the remaining
+finite-spin integrations. Sampling this limit alone is not sufficient.

@@ -1,0 +1,13 @@
+# Lower60 spin4 refinement with unequal threshold gaps
+
+Parent-agent internal review, 2026-10-07. Read the full new assembler and exact producer adaptation ledger against the reviewed spin4_v2 evaluator. This is a same-witness refinement, not a new physical constraint or an optimization of multipliers.
+
+The base threshold caps end at beta=1/256 and1/512. Their union uses the larger cap. Other analytic gap intervals must match exactly. For each base, the enlarged gap cost is its original aggregate analytic gap bound plus the full nonnegative bound of every original ordinary cell whose interior meets the union. Each original cell is charged once; its cost is never reduced in proportion to the overlap. This can overcount but cannot omit support. Ordinary cells are the exact complement of the union after merging all original endpoints. They and the enlarged gaps must partition [0,1].
+
+The actual physical spin4 fields, optional Taylor/endpoint alternatives, whole-base-cell fallback, safe hi<1/2 normalized shortcut and numerical precision are unchanged. The assembler reconstructs the union and charged-cell list independently, authenticates all coefficients/weights and source records, checks256/384-bit partitions, sums and valid methods, and retains max of the paired direct costs.
+
+Before subtraction the strengthened assembler independently reconstructs the weighted complete-base total and the weighted authenticated old spin0+spin2 costs. The original packet must have exactly those two refined spins, and its remaining component must equal the exact difference. Therefore the convex spin4 component is demonstrably still present there. Only that authenticated spin4 cost is removed; the new paired direct cost must be strictly smaller. Every other head and tail sector is preserved, metadata is updated to the new decomposition, and final exact/outward sums are checked.
+
+This is acceptable after both runs and final assembly pass. The old complete lower60 packet remains valid and is preserved. Internal source review and same-code replay do not constitute formal or external verification.
+
+The initial assembly attempt stopped before writing a packet because equivalent Windows path strings used different slash spelling. The reviewed correction compares both base-certificate path lists after Path normalization; it changes neither the resolved file identity/hash checks nor any mathematical value. The corrected wrapper SHA256 is5329fd46ac29471b50b5e79905bc26b41c082019b96914aeeaa051f39eb84e39. The failed command/log and unchanged paired proof records are preserved. Retrying with this spelling correction is acceptable.

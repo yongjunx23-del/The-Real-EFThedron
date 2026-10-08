@@ -1,0 +1,220 @@
+{
+  "status": "PASS",
+  "witness_sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+  "objective_exact": [
+    "-1",
+    "0"
+  ],
+  "crossing_k10_certificate": [
+    {
+      "power_y": 0,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-7902803100251262699/36028797018963968",
+        "-21039203789881605837/180143985094819840",
+        "-3493320266209179086253/5764607523034234880",
+        "-58329087669558185152851/46116860184273879040",
+        "-87407379831054907562553/46116860184273879040",
+        "-5532870973089706024419/2305843009213693952"
+      ]
+    },
+    {
+      "power_y": 1,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-615269259459431196831/1441151880758558720",
+        "-2466113785005424717773/7205759403792793600",
+        "-126585916019155231845237/230584300921369395200",
+        "-416697302761624530612801/461168601842738790400",
+        "-604018292791374492392403/461168601842738790400",
+        "-78682687713710781255783/46116860184273879040"
+      ]
+    },
+    {
+      "power_y": 2,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-302512879652139721341/1441151880758558720",
+        "-4177822986469591779231/23058430092136939520",
+        "-22130303844440103997599/92233720368547758080",
+        "-3989269938964880165103/11529215046068469760",
+        "-43507084748214346834689/92233720368547758080"
+      ]
+    },
+    {
+      "power_y": 3,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-49388418079988259249/1152921504606846976",
+        "-89035418370295832499/2305843009213693952",
+        "-221792711510917605699/4611686018427387904",
+        "-602775436957994542203/9223372036854775808"
+      ]
+    },
+    {
+      "power_y": 4,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-4493700152786458593/1152921504606846976",
+        "-8421887191746542823/2305843009213693952",
+        "-42358127584382873091/9223372036854775808"
+      ]
+    },
+    {
+      "power_y": 5,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-754017482119641471/5764607523034234880",
+        "-1508034955292709903/11529215046068469760"
+      ]
+    },
+    {
+      "power_y": 6,
+      "z_interval": [
+        "0",
+        "3/8"
+      ],
+      "bernstein_coefficients": [
+        "-994063671/5764607523034234880"
+      ]
+    }
+  ],
+  "crossing_uniform_comparisons": [
+    {
+      "k_min": 10,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-15609446612767298587968479403/75329297217770001100963840"
+    },
+    {
+      "k_min": 10,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-21039203789881605837/180143985094819840"
+    },
+    {
+      "k_min": 12,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-2431564637887539409091896915353/1077208950214111015743782912"
+    },
+    {
+      "k_min": 12,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-1395319031616910983849/720575940379279360"
+    },
+    {
+      "k_min": 16,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-13588822135821829764322898833293/538604475107055507871891456"
+    },
+    {
+      "k_min": 16,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-848350507895734341051/36028797018963968"
+    },
+    {
+      "k_min": 20,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-8006015042847991227874338286083/67325559388381938483986432"
+    },
+    {
+      "k_min": 20,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-81865155529490520424671/720575940379279360"
+    },
+    {
+      "k_min": 24,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-410736683994216786361908147848877/1077208950214111015743782912"
+    },
+    {
+      "k_min": 24,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-26549571360264584229873/72057594037927936"
+    },
+    {
+      "k_min": 32,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-576328150484827257300937719545025/269302237553527753935945728"
+    },
+    {
+      "k_min": 32,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-37675961157316452922971/18014398509481984"
+    },
+    {
+      "k_min": 48,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-11349712142320644208712907649527327/538604475107055507871891456"
+    },
+    {
+      "k_min": 48,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-3743608871540523372912693/180143985094819840"
+    },
+    {
+      "k_min": 64,
+      "z_max": "3/143",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-13502000662962014123248564637061993/134651118776763876967972864"
+    },
+    {
+      "k_min": 64,
+      "z_max": "3/8",
+      "higher_shifted_coefficients_nonpositive": true,
+      "constant_upper_exact": "-4471045572303507861718407/45035996273704960"
+    }
+  ],
+  "norm1_approx": 1654.8843360376466,
+  "norm2_approx": 426.566088379843,
+  "seconds": 3.3779962062835693,
+  "objective_warning": "Existing joint/finiteUV kernels omit objective b; add the exact second objective coefficient to every resulting V/p.",
+  "sha256_manifest": {
+    "output\\full_direction_20261007\\left\\angle180_final.npz": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+    "output\\all_direction_certification_20261007\\tail\\left\\joint_moments.pkl": "708aeb0d87a5b02a9940bb183036681bd8913fe973cfd9fb7c2bd7a2f3c58f88",
+    "output\\all_direction_certification_20261007\\tail\\left\\source_norms.json": "152bb220b8cec5388861300cab7e7b4589496b44b16788e7fbc16e17ca7584df",
+    "research\\all_direction_certification_20261007\\tail\\prepare_components.py": "5e1e5a212076575ceb13af3724c7772f42eaa90c05edb3be621dfb6fb8468942",
+    "research\\lower_g0_upper_g2_20261006\\tail_certify_joint_limit.py": "735bb8f972e66fdc7cfc70785f7ebfdea45447969116af212062242da6b3eab2",
+    "research\\lower_g0_upper_g2_20261006\\matrix_source_norms.py": "3088b6d72de3df60b1b9add9a0bd1d3c60efca4ce979c4538535aea4bc4e3b7b",
+    "research\\lower_g0_upper_g2_20261006\\matrix_crossing_series.py": "0e6527688fdcdc147e7aaeda7d2ead7634fad72905d0fa984c39526931c87400",
+    "research\\all_direction_certification_20261007\\tail\\prepare_left_refined.py": "8870dcbceb7d3f55d0e7c71a12c2c4ab931624af856d255800a4a06b565b1ac9",
+    "research\\tail_certification\\compact_source_data.py": "59fbdd869056ac046e406e0980e3d38fad497560a6c4eeaca9d64280f4b7f6ae",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\joint_moments.pkl": "708aeb0d87a5b02a9940bb183036681bd8913fe973cfd9fb7c2bd7a2f3c58f88",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\source_norms.json": "152bb220b8cec5388861300cab7e7b4589496b44b16788e7fbc16e17ca7584df",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\compact_norms.pkl": "c76b02cb7dbae24de28ecc7a6aa46eb69493ed3d87ff1fbf2fd80f9f154b115e",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\finite_source_N12_K80.pkl": "a0b78a78da72bbb563ae0d345c75e6be7633efb8d545698006f3243095fdb961",
+    "output\\all_direction_certification_20261007\\tail\\left\\refined\\finite_source_N12_K80.json": "b014591712b73301fc72fdcde247e214abf29070bf1c1b1b2129838d6e52496d"
+  },
+  "preparation_seconds": 14.732234716415405,
+  "scope": "Left witness copied verified base components, new exact finite-source corrections and compact signed moments."
+}

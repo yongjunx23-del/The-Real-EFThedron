@@ -1,0 +1,54 @@
+{
+  "witness_sha256": "933ee2f7889a52b8ccabbf58836c256161bc5c59d3763cdbca2b40bb01ac6f92",
+  "N": 12,
+  "K": 80,
+  "remainder_by_source": [
+    {
+      "source": "roy",
+      "coefficient_abs_upper_exact": [
+        "1476884400680194580138975622241/531441000000000000",
+        "184446369322977312172176478891/10628820000000000",
+        "1865249611177829421021243017923/66430125000000000"
+      ]
+    },
+    {
+      "source": "strip12_24",
+      "coefficient_abs_upper_exact": [
+        "9429154937041712054272/531441",
+        "118344300106911957647360/531441",
+        "58185114084281889587200/177147"
+      ]
+    },
+    {
+      "source": "strip24_48",
+      "coefficient_abs_upper_exact": [
+        "51743276360318321378197504/531441",
+        "802351022484225929183756288/531441",
+        "387263136725029788607053824/177147"
+      ]
+    }
+  ],
+  "seconds": 16.625298738479614,
+  "definition": "M[j,k]=integral W*K1_infinity*r_j(s,t)*(-t)^k, with R1=sum_(j<N)r_j w^j + w^N(A+B w+C w\u00b2)/den.",
+  "denominator_lower": "(1-44w)*(1-157w/60), valid0<=w<1/44; middle factor1+(s+t)w>=1.",
+  "proof": "Exact rational beta moments. Remainder is a polynomial identity, so no convergent-series assumption is needed.",
+  "builder_sha256": "fe42a60ef062df0934c69b791fe9430f5a32b957e595ba345830afcae9f717f5",
+  "remainder_coefficients_exact": [
+    "51743276360318321378197504/531441",
+    "802351022484225929183756288/531441",
+    "387263136725029788607053824/177147"
+  ],
+  "sha256_manifest": {
+    "output\\competitive_20261007\\robust\\g2_robust_stage1.npz": "933ee2f7889a52b8ccabbf58836c256161bc5c59d3763cdbca2b40bb01ac6f92",
+    "output\\all_direction_certification_20261007\\tail\\g2_robust_stage1\\finite_source_N12_K80.pkl": "1b863302ca13dae7c5b5352bf0c3e38765f1a7a60afd1424c957e8cae4c21f2f",
+    "research\\all_direction_certification_20261007\\tail\\finite_source_corrections.py": "fe42a60ef062df0934c69b791fe9430f5a32b957e595ba345830afcae9f717f5",
+    "research\\tail_certification\\certify_uv.py": "1315c067189e7b2fef440547b7886ad3919cca18da23a8350dcc379969fe2ba3"
+  },
+  "remainder_examples": {
+    "49": 91.46057674825698,
+    "64": 0.22179926593306262,
+    "100": 0.00035103651496377593,
+    "200": 4.274428811907289e-08,
+    "1000": 1.0883551430444218e-16
+  }
+}

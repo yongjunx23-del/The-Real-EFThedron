@@ -1,0 +1,66 @@
+Exact b6 finite-head certificate (2026-10-07)
+
+Functional: the 150 exact binary64 multipliers in
+output/angles_resummed/angle_000p000.npz, SHA256
+bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c,
+with the exact rational107/5 added to X4. Objective is exactly(1,6).
+The real kernel U is unchanged, and V_new=V_old+6*p+(107/5)*X4.
+The convenient floating NPZ witnesses used in previous numerical probes
+are not used to define this functional.
+
+Low spins0,2,4,6:
+run_heads.py invokes the previously reviewed head_family_extended model
+with slope6 and repair ratio107/30. The added scaled imaginary field and
+its first two beta derivatives are evaluated exactly with Arb expressions.
+Existing source polynomial moments and geometric remainders are unchanged.
+The reviewed disk-support trapezoidal/convexity error bounds apply without
+modification. Exact beta partitions including logarithmic endpoint gaps
+cover[0,1]; each nonzero-spin threshold cap transfers the old real-numerator
+bound using the new strictly negative V/p enclosure. Independent280/340-bit
+runs evaluate every interval; assembly takes the larger exact total and
+checks their partition identity and absolute agreement below1e-12.
+
+Finite spins8..40:
+refine_finite.py starts from previously certified b4 spectral partitions.
+It reuses only rigorously negative exact affine upper bounds, and otherwise
+bisects/recomputes the source kernels with Arb320. This produces10,914
+gapless cells covering mu[4,101] and w[0,1/97], where w=1/(mu-4).
+The w=0 boundary encloses the UV endpoint. The cells serve as partition
+seeds for replay_finite.py; no old field value is used in the final mass
+merge. replay_finite.py constructs separate FiniteV models at320 and380bits,
+adds exact107/5 directly to the X4 coefficient, then adds exact6 to each
+normalized V field. Every spin on every cell must be finite and strictly
+negative at both precisions. Its saved upper is the exact larger of those
+two directed upper endpoints. This direct contraction avoids excess width
+from separately enclosing the large old negative and new positive X4 terms.
+
+The exact old per-spin real-mass partition remains valid because U is
+unchanged. combine_finite.py maps each beta-cell into mu, takes the minimum
+positive coercivity among all positive-length overlapping spectral leaves
+for each spin, and applies H(U,V)<=U^2/(2*kappa*p). Closed-boundary-only
+intersections have zero integration measure. The unbounded final energy
+cell is handled with a None infinity sentinel and no floating comparison.
+Each mass/coercivity contribution and sum is rounded outward by Arb320.
+The finite8..40 support cost is0.013705501879630985 approximately.
+
+assemble_head.py checks all input hashes, exact parameters, partitions,
+nonnegative cell masses, threshold signs and sums. The resulting rigorous
+finite0..40 upper is3.093910568070 after outward12-decimal rounding.
+No omitted spin is included in head_bundle.json. The separate tail packet
+must use the same exact functional and cover every even spin>=42 and mu>4.
+
+Reproduction commands (from workspace root, use the provided Python runtime):
+python research/competitive_20261007/upper_arc/b6/run_heads.py --spin 0 --precision 280
+Repeat for every spin in0,2,4,6 and every precision in280,340.
+python research/competitive_20261007/upper_arc/b6/refine_finite.py
+python research/competitive_20261007/upper_arc/b6/replay_finite.py --workers 6
+python research/competitive_20261007/upper_arc/b6/combine_finite.py
+python research/competitive_20261007/upper_arc/b6/assemble_head.py
+Run in a disposable copy when reproducing, to preserve the frozen records.
+
+Verification scope: interval arithmetic and analytic remainder bounds with
+fresh precision replays, exact coefficient conventions and record assembly.
+The two precision runs share a kernel implementation. They are not separate
+implementations of every formula or formal theorem-prover verification.
+Graphical published comparisons have extraction/missing-cap uncertainty
+and are not rigorous numerical endpoint comparisons.

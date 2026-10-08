@@ -1,0 +1,89 @@
+{
+  "witness": "C:\\Users\\laure\\Documents\\ChatGPT\\Unitarity codex\\output\\full_direction_20261007\\left\\angle180_final.npz",
+  "sha256": "e30dca80d94b35fd8c44b78bea02cd3ffe4b344ccdb1eb40b3da655a89f8cc4b",
+  "scope": "Exact rational upper bounds for source integrals of |W K1| and |W K2| on the complete source unit squares",
+  "K1": "2(s-4/3)(4/3-u), u=4-s-t",
+  "K2": "2(t-4/3)^2",
+  "energy_cells": 16,
+  "angular_cells": 16,
+  "norm1_rational": "1823152677513332071033644858917381872704832521327941570760811/1101679820040219203265147142238656584257031040275578880000",
+  "norm2_rational": "5639271017778787717710601954141923515336619511964935791522439/13220157840482630439181765706863879011084372483306946560000",
+  "norm1_approx": 1654.8843360376466,
+  "norm2_approx": 426.566088379843,
+  "signed1_rational": "-65055809657454671730469303/163426623278020558848000",
+  "signed2_rational": "-10902816820272051506381227/116733302341443256320000",
+  "records": [
+    {
+      "source": "Roy_B119/10",
+      "kernel": 1,
+      "degree": [
+        16,
+        7
+      ],
+      "absolute_integral_upper": "45037341664118836308760957150549084460575861078842679078667/33384236970915733432277186128444138916879728493199360000",
+      "absolute_integral_upper_approx": 1349.0600879497488,
+      "signed_integral": "-3016181348926108037282843/7782220156096217088000",
+      "signed_integral_approx": -387.5733773174454
+    },
+    {
+      "source": "Roy_B119/10",
+      "kernel": 2,
+      "degree": [
+        16,
+        8
+      ],
+      "absolute_integral_upper": "1849130003115762255134055405663031267633268475578191999559213/4406719280160876813060588568954626337028124161102315520000",
+      "absolute_integral_upper_approx": 419.61601943663084,
+      "signed_integral": "-3664749246765206801798009/38911100780481085440000",
+      "signed_integral_approx": -94.18261558417667
+    },
+    {
+      "source": "Strip_12_24",
+      "kernel": 1,
+      "degree": [
+        11,
+        4
+      ],
+      "absolute_integral_upper": "4913565983689119911045356076487563351089/18975208304696320265123850940632268800",
+      "absolute_integral_upper_approx": 258.9466162789382,
+      "signed_integral": "-636545675049012401/67553994410557440",
+      "signed_integral_approx": -9.422768862199687
+    },
+    {
+      "source": "Strip_12_24",
+      "kernel": 2,
+      "degree": [
+        9,
+        5
+      ],
+      "absolute_integral_upper": "76643050375217890802045019915846133/11500126245270497130378091479171072",
+      "absolute_integral_upper_approx": 6.664539913789021,
+      "signed_integral": "21214806036325911/28147497671065600",
+      "signed_integral_approx": 0.7537013159835451
+    },
+    {
+      "source": "Strip_24_48",
+      "kernel": 1,
+      "degree": [
+        11,
+        4
+      ],
+      "absolute_integral_upper": "3558051313623455901778202853202973888561/75900833218785281060495403762529075200",
+      "absolute_integral_upper_approx": 46.877631808959464,
+      "signed_integral": "-55021885289947545947/51070819774381424640",
+      "signed_integral_approx": -1.0773644428074776
+    },
+    {
+      "source": "Strip_24_48",
+      "kernel": 2,
+      "degree": [
+        9,
+        5
+      ],
+      "absolute_integral_upper": "985085965516667781405174646045108403/3450037873581149139113427443751321600",
+      "absolute_integral_upper_approx": 0.28552902942313085,
+      "signed_integral": "2155547768573800571/72958313963402035200",
+      "signed_integral_approx": 0.029544923004321134
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+PUBLISHED DUAL CERTIFICATION: PRIMARY-SOURCE AUDIT AND OPERATIONAL TRANSLATION
+Prepared 2026-10-06. Research note; no optimizer changes in this task.
+
+Scope and answer
+----------------
+The relevant 2021 paper is Guerrieri and Sever, "Rigorous bounds on the Analytic
+S-matrix", arXiv:2106.10257v2, PRL 127, 251601. The other paper is Elias Miro,
+Guerrieri and Gumus, "The Phases of the Scalar S-Matrix Island", 2605.06613v1.
+The somewhat different title supplied in the request appears to refer to the
+former; I did not identify a separate primary paper under that exact title.
+
+Three distinct claims must remain separate:
+1. An exact feasible dual functional bounds every amplitude in the stated
+   axiomatic class. Finite-dimensional parametrization of that dual functional
+   is legitimate; it restricts the search, not the amplitudes.
+2. A numerical witness supported by sampled inequalities, analytic leading
+   asymptotics and convergence studies has the numerical evidence described in
+   these papers. That evidence is stronger than an unaudited finite-spin fit.
+3. A continuum certificate additionally closes every omitted spin/energy range
+   and bounds numerical errors. Neither inspected paper documents an interval
+   arithmetic, directed-rounding, machine-checkable certificate for its quoted
+   optimal decimal numbers. Do not attribute that stronger standard to them.
+
+An optimizer's finite-grid success does not establish claim 1 for a saved
+floating-point witness. Conversely, no theorem requires interval arithmetic
+specifically: exact analytic inequalities and a rigorously bounded integral
+would also suffice. Known violations cannot be ignored because a paper uses
+the word rigorous.
+
+Primary sources and reproducibility
+----------------------------------
+https://arxiv.org/abs/2106.10257
+https://arxiv.org/html/2106.10257v2
+https://arxiv.org/pdf/2106.10257v2
+https://arxiv.org/src/2106.10257v2
+https://arxiv.org/html/2605.06613v1
+https://arxiv.org/pdf/2605.06613v1
+https://arxiv.org/src/2605.06613v1
+
+Local primary material:
+  research/benchmarks_2106.10257.txt (contains NUL; search with rg -a)
+  research/benchmarks_2106.10257.pdf
+  research/benchmarks_2106.10257v2_source.tar
+  research/benchmarks_2106.10257v2_main_v2.tex
+  research/benchmarks_2605.06613.pdf
+  research/benchmarks_2605.06613_source.tar
+  research/benchmarks_reggae_2.5.26.tex
+The 2021 source tar/main_v2.tex were saved during this audit. Equation labels
+below use the PDF's appendix numbering. The 2021 arXiv HTML renumbers appendix
+equations globally, so a PDF E-number is not the HTML's displayed E-number.
+
+2021 exact formulation: pointers and what they establish
+-------------------------------------------------------
+Sec II.A, Eqs (17)-(20): finite source-angular ansatz w_j(s); j includes EVEN
+AND ODD source indices. Physical partial-wave spins l remain even. The original
+source angular projection is over [-1,1]; even sources can be folded to [0,1].
+Sec II.B, Eq (21): coefficient of g0 is 1-2*integral(w0).
+Eq (22): bar_w_l(v) is the source integral of the Roy kernel.
+Eqs (23)-(24): finite-head objective and 2-by-2 positive-semidefinite matrices.
+Eq (25): complementary sign inequalities cover EVERY remaining even physical
+spin and EVERY spectral energy v>4, including v above the source endpoint.
+Eq (26): integral(w0)=1/2.
+App B, Eqs (B4)-(B6): setting the complementary epigraph function X_l to zero
+is allowed only after imposing those sign conditions.
+App C, Eq (C5): the unrestricted disk-support expression explicitly retains the
+UV and high-spin positive-part penalties. Eq (C6) drops them subject to (B6).
+
+Thus the upper source limit 12 is NOT an ultraviolet cutoff on the physical
+amplitude. Its purpose is to restrict the dual source. The spectral dispersion
+integrals still extend to infinity. The objective has an exactly zero tail
+only for a source satisfying the complementary conditions.
+
+2021 large-spin and threshold mechanism
+--------------------------------------
+App E (PDF E1-E14; HTML 54-67) is the all-spin analytic guide:
+  E1-E2: even source s<=mu_e^2, odd source s<=mu_o^2, angular domains 0..1 and
+         -1..1 respectively. The odd term carries 1/2 relative to their folded
+         kernel convention, not an invariant normalization of an odd null.
+  E3: leading large-l Legendre asymptotic at fixed argument x>1.
+  E4-E6: competition of two exponential terms; if
+         mu_o^2=2+mu_e^2/2, the transition is
+         v_c=2+mu_e^2/2-t0. With t0=4/3 and mu_e^2=12, v_c=20/3.
+         For our B_e=11.9, v_c=6.616666666666667 and paired B_o=7.95.
+  E7-E9: outer region v>v_c factors a positive Legendre term times ybar(v),
+         independent of physical spin. Its required sign is imposed on a
+         grid in v in the published implementation.
+  E10-E12: inner region 4<v<v_c is controlled at leading large spin by endpoint
+         source values and a fixed-sign rational kernel.
+  E13-E14: the kernel-sign argument gives the practical endpoint restrictions
+         mu_e^2<=12 and mu_o^2<=8 and an endpoint linear condition.
+App F, Eqs F1-F3 (HTML 68-70): leading threshold powers yield additional linear
+sign constraints for intermediate spins beyond the main J_max, up to a further
+finite spin cutoff.
+
+For implementation use the endpoint bracket directly from E12:
+  sum_n w_(2n)(B_e) P_(2n)(0)
+  - 1/2 sum_n w_(2n+1)(2+B_e/2) P_(2n+1)(-1).
+The source's E14 gamma-expression seems to omit the 1/sqrt(pi) in
+P_(2n)(0)=(-1)^n Gamma(n+1/2)/(sqrt(pi)*Gamma(n+1)); copying it literally can
+change relative even/odd normalization. Re-derive the bracket in the chosen
+kernel normalization. Also a sentence near E3 says t0=3/4, while the actual
+subtraction point throughout the construction is 4/3. These are reproduction
+warnings, not a claim that the numerical code used those apparent typos.
+
+Our inference about completeness: leading fixed-v asymptotics do not by
+themselves furnish a computable uniform finite l_* beyond which a sign holds.
+The transition v approximately v_c, source endpoint zeros, and joint limits
+v of order l^2 require separate treatment. An inequality that is eventually
+true at each fixed v can still fail along a sequence v(l). In this project
+the scaled-energy audits already found exactly that kind of omitted region.
+Any claimed continuum certificate must close it analytically or by a proved
+uniform enclosure. Sampling larger isolated spins alone does not do so.
+
+2021 numerical implementation: concrete settings and limitations
+---------------------------------------------------------------
+App G, Eq G1 (HTML 71): Chebyshev energy polynomials for source w_j; polynomial
+epigraph X_j with an additional alpha_0/sqrt(s-4) threshold term. NX=40 is an
+example; even Nw was varied through 6..20, odd Nw fixed at 4. Source spin L=0,
+2,4 for upper g0 and up to 6 for lower g0. Kernel-source integrals were evaluated
+analytically using elementary functions, logs and dilogs. Head 4<v<12 and UV
+12<v<infinity were mapped separately to [-1,1], with 500 and 80 Chebyshev grid
+points. Further refined-grid X_j>=0 tests were used; a Bernstein alternative
+is mentioned in footnote 18 but found to converge more slowly.
+
+Sec II.C and App G.1: the upper number 2.7272 is an Nw-to-infinity power-law
+extrapolation. The Fig 4 caption's L-to-infinity wording conflicts with the
+prose, which explicitly says Nw. They report no additional high-spin violations
+after a sufficient cutoff for that maximum problem.
+Sec II.C and App G.2: the lower number -8.08 uses L=6, Nw=20 and extrapolation
+in J_max; the difference from the highest quoted J_max=26 value is 0.004.
+The text explicitly acknowledges small remaining violations at J>J_max in
+intermediate outer-region energies that depend on J. This is especially
+relevant to our lower-g0 audit. It is not a numerical interval certificate of
+the saved finite-cutoff witness. The authors nonetheless describe their bounds
+as rigorous numerical bounds; report both the claim and the disclosed method.
+
+The threshold singularity in G1 belongs to an objective epigraph, not to a
+fractional holomorphic equality kernel. It therefore does not validate our
+discarded singular fractional-bank witnesses or their inadequate quadrature.
+
+2026 generalization to the g0-g2 plane
+------------------------------------
+App A.2, Eq 19: fixed-t dispersion; Eq 20: Roy constraints; Eq 21: projected
+kernel; Eq 22: full crossing relation; Eq 23: crossing derivative nulls, with
+first nontrivial derivative (n,m)=(1,3). Eq 24: directional functional plus an
+orthogonal-coordinate constraint, the g2 sum rule, Roy/crossing/unitarity.
+Eqs 25-26: convex disk support and its absorptive kernel.
+
+This supplies the formal directional construction but not a separate detailed
+numerical certificate protocol: no dual energy-basis degree, source spin J,
+crossing-derivative count, dual guard-grid list, uniform spin remainder, interval
+errors, or optimized dual-coefficient archive is specified there. A.1's
+N_max={10,12,14,16,18,20}, L_max={16,18}, s_max=300 concern the PRIMAL. Here
+s_max is a NUMBER OF SAMPLE POINTS, not a maximum physical energy. Do not use
+those numbers as the dual certificate's cutoff parameters.
+
+Eq 25 as printed integrates only to the source endpoint even in its displayed
+high-spin positive-part term. A UV complement is not explicitly written in
+that short appendix. Our inference is that one must either impose its sign
+as in 2021 Eq 25, or retain its positive-part contribution. One cannot infer
+that the physical spectral integral terminates at 12.
+
+For conventions, use the paper's Eq 1: T/(32*pi)=c00+c10*sum(sbar^2)+... .
+Hence our g0=c00 and g2=c10 at m^2=1. App A.2's sentence c00=T at the symmetric
+point and its displayed c10 sum-rule kernel have apparent normalization/
+nonforward-Legendre omissions. Its rho versus rho^2 notation also varies.
+Check against the low-energy definition and full dispersion derivation rather
+than transplanting individual formulas verbatim. In our conventions the g2
+kernel is p_l(v)=P_l((v-4/3)/(v-4))/(v-4/3)^3, not simply 1/(v-4/3)^3.
+
+Exact mapping to this repository's dual variables
+-----------------------------------------------
+This section is an independent derivation from our checked kernels. Define
+beta(v)=sqrt(1-4/v), r_l=beta*Re(f_l), b_l=beta*Im(f_l). Then
+  r_l^2+(b_l-1)^2 <= 1,
+  dnu_l=(2*l+1)dv/(2*pi*beta),
+  g2=sum_l integral dnu_l p_l b_l,
+and the local support is H(U,V)=V+sqrt(U^2+V^2). U,V here are RAW physical
+kernels, not the internally scaled U/sqrt(p), V/p arrays.
+
+For an objective a*g0+b*g2 and null multipliers lambda_i,
+  U=a*u0+sum_i lambda_i*u_i,
+  V=a*v0+b*p+sum_i lambda_i*v_i.
+The exact dual value is the infinite-spin, full-energy integral of H. For
+V<0 use H=U^2/(sqrt(U^2+V^2)-V) to avoid cancellation. A finite-grid integral is
+only an approximation of part of this object unless the complement is closed.
+
+The Roy bank returns a source row (uRoy,vRoy,c_i) for the equality
+  c_i*g0 + integral dnu (uRoy*r+vRoy*b)=0.
+massive_search.py replaces g0 by the forward formula, yielding the stored row
+  u_i=uRoy+c_i*u0, v_i=vRoy+c_i*v0.
+In build_roy_bank, c_i=-2 only for J=0,n=0, and c_i=0 otherwise.
+Consequently, a paper-style compact real kernel is obtained by:
+  (i) using finite-J Roy sources and absorptive-only crossing nulls;
+  (ii) setting other all-spin real-kernel multipliers to zero;
+  (iii) imposing the affine equality a+sum_i lambda_i*c_i=0.
+For a single B bank this is lambda_Roy_B11.9_J0_n0=a/2. With several B banks,
+the sum of their J0,n0 multipliers is a/2. At max/min g0 the required sum is
++1/2 or -1/2 respectively. This is a restriction on the dual search, so is
+safe; it is not an extra physical assumption.
+
+Then U is supported only at the even source spins and 4<v<max(B). Outside,
+H(0,V)=2*max(V,0); a proved V<=0 makes the entire complement exactly zero.
+Absorptive crossing nulls can improve V without enlarging U. Additional odd
+Roy sources described next have the same advantage. Polynomial Legendre and
+Chebyshev energy bases span the same finite-dimensional polynomial space.
+
+Precise odd-source construction and normalization
+------------------------------------------------
+Sec II.A Eq 19 and its following paragraph explicitly note that odd source
+projections contain no real part, because all physical odd partial waves are
+zero. This is a nontrivial crossing identity of the fixed-t representation.
+It is NOT obtained by inserting odd J into our folded angular integrator.
+
+Let c=4/3, d=v-4, Q=v-c, Z=Q/d, t=-(s-4)(1-z)/2, u=4-s-t,
+x=1+2t/d. For even physical l, let D_l be the existing combined Roy integrand:
+  D_l=P_l(x)[1/(v-s)+1/(v-u)]+P_l(Z)/(v-t)
+      -[P_l(x)+2P_l(Z)]/(v-c)
+      +[P_l(Z)-P_l(x)]/(v-8/3+t).
+The last quotient is removable and is evaluated as
+  -2/d * divided_difference(P_l; x,-Z).
+Choose an odd SOURCE J, energy w_n(s)=P_n(2(s-4)/(B_o-4)-1)/(B_o-4), and set
+  U_odd(l,v)=0, c_odd=0,
+  V_odd(l,v)=-integral_4^B_o ds w_n(s)
+                 *integral_-1^1 dz P_J(z) D_l(s,z;v).
+This is a raw absorptive-only null in OUR dnu normalization. Multiplying an
+entire null by a fixed constant changes only its multiplier convention.
+
+There is NO extra 1/2 to insert when implementing it beside roy_kernels.py:
+the existing even angular GL weights represent 2*dz on [0,1], whereas the new
+odd angular GL weights represent dz on [-1,1]. Each rule's weights sum to 2.
+The paper's E1 factor 1/2 compensates its doubled folded-kernel prefactor;
+it must not be applied a second time to our raw full-domain construction.
+
+The external PV pole has residue integral_-1^1 P_J(z)P_l(z)dz=0. Thus replace
+  P_l(x)/(v-s) -> (1-z)/d * divided_difference(P_l; x,z)
+inside the odd projected integral and add NO Legendre-Q PV term. The omitted
+piece P_l(z)/(v-s) integrates to zero exactly for odd J/even l. This removes
+the pole before quadrature and is preferable to numerical cancellation.
+In normalized arrays return v=-Q^3*(source/angular integral of D_l/P_l(Z));
+u remains identically zero. Enforce l=0 row zero analytically as a useful
+consistency check: its full integrand is even under z->-z. Further useful tests
+are angular-order convergence, agreement with direct safe off-PV integration,
+and vanishing on a crossing-symmetric pole-exchange amplitude.
+
+Validity vs useful endpoint: the full projection fits the fixed-t domain for
+4<B_o<32 because t>=4-B_o>-28. The paper's generic endpoint/asymptotic feasible
+source family uses B_o<=8. For matching their common transition to B_e=11.9,
+choose B_o=7.95; B_o=7.9 is another conservative finite-source choice but its
+inner/outer transition differs. Restricting B_o is not a truncation of v.
+The source function can be tapered at its endpoint, but then its leading
+large-spin endpoint formula must be re-derived at the first nonzero derivative.
+
+How to certify an existing rich witness instead
+---------------------------------------------
+The resummed forward, rational, strip, and many derivative real kernels in our
+saved witnesses generally survive at all physical spins. V<=0 on their tail
+does not make H vanish when U is nonzero. Their certification therefore needs
+an actual positive remainder estimate, or a redesign with the compact-U
+equality above. A sampled negative Roy source screen is a useful obstruction
+diagnostic; a positive source screen alone proves neither full V<=0 nor a
+bound on this nonzero-U remainder.
+
+Two rigorous sufficient estimates, if their hypotheses can be proved, are:
+  A_R = sum_l integral_R dnu_l U_l^2/p_l.
+  If V_l<=-delta*p_l throughout R for a PROVED delta>0, then
+       integral_R H(U,V) dnu <= A_R/(2*delta).
+  If only V<=0 is known, but an INDEPENDENT certified g2<=G is available,
+       contribution_R to the physical linear functional <=sqrt(2*G*A_R).
+The second statement uses r^2<=2b and Cauchy-Schwarz; it bounds the functional
+on physical amplitudes with the additional global g2 information, not the
+unconstrained integral of local supports. Do not mistake it for an inequality
+on integral(H) absent that global constraint. Both estimates need a finite,
+rigorously controlled A_R, including high energy and all omitted spins.
+
+Practical completion plan for a numerical/analytic certificate
+-------------------------------------------------------------
+1. Freeze one explicit finite vector of coefficients and its precise kernel
+   definitions. Optimization need not itself be exact; verification must use
+   the frozen vector. Coefficient rounding can be absorbed with error bounds
+   or the coefficients can be treated as exact binary/rational numbers.
+2. Separate physical-spin head, threshold cells, bounded energy cells, UV,
+   transition v_c, and joint v~l^2 region. Source-energy integration errors
+   inside every Roy kernel are additional errors, not the same as objective
+   quadrature error. Analytic PV subtraction and endpoint variables are vital.
+3. Prove complementary V signs for compact U, or integrate/bound the actual
+   support for rich U. Use strict sign margins and a uniform remainder in
+   large-spin asymptotics; the exact transition and any zeros need their own
+   enclosures. A large number of grid points is not a substitute for margins
+   plus derivative/interval control between points.
+4. On finite spin/energy cells, rigorous polynomial/rational inequalities,
+   Bernstein enclosures, interval evaluation with adaptive subdivision, or
+   analytic derivative bounds can close sampling gaps. For log/dilog kernels
+   use validated elementary-function evaluation. Prove thresholds/UV tails
+   separately rather than asking ordinary Gauss quadrature to discover them.
+5. Give a rounded OUTWARD bound after adding all errors/tails. Report a finite
+   witness's bound, rather than an extrapolated optimum, as the certificate.
+6. A first target can be a slightly weaker compact-U max-g0 certificate. Add
+   odd source nulls and more crossing derivatives only after that pipeline is
+   reliable; they can then strengthen it without destroying compact U.
+
+Current status boundary
+-----------------------
+This note does not certify any prior plotted halfplane. Existing reports
+document finite-head integrals, sampled signs, selected measured spin tails,
+and empirical cushions. The rejected fractional-bank max-g0 number must remain
+rejected: an exact threshold change of variables exposed a huge missed
+spin-zero contribution. Likewise, known omitted-spin/scaled-energy failures
+must be repaired or their full positive support cost bounded. The published
+methods explain how to approach the missing proof, not how to waive it.

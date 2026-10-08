@@ -1,0 +1,5 @@
+# Historical low-spin dependency path semantics
+
+The first root selection audit stopped at the historical file `output/certification_head/spin2_tight_component.json`: it interpreted `dependency_sha256` basename keys as workspace-root paths. The old producer `research/head_certification_lowspin.py` instead explicitly hashes `ROOT/'research'/q`, and the old replay `research/replay_lowspin_certificate.py` checks the same location. This is a reader error, not a missing physical source.
+
+The v2 audit resolves basename-only `dependency_sha256` entries under `research/` exclusively for the three historical records `spin2_tight_component.json`, `spin4_tight_component.json` and `spin6_tight_component.json` in that exact directory. Every expected digest is still required to match, and both defining producer/replay source files are bound. All other paths retain the original strict resolution. No file or hash binding is ignored. The initial audit source is preserved. No scientific input or output changes.

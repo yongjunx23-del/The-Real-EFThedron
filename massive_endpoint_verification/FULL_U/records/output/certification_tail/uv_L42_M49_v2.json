@@ -1,0 +1,27 @@
+{
+  "A_upper": "[-4.7765467679071612304282896235302870166581099661 +/- 1.85e-47]",
+  "B_with_errors": "[11607.168828891796794208636435090401441916740154 +/- 2.19e-43]",
+  "A_error": "[4.4958904493276608163315898687724274308212631770 +/- 5.49e-47]",
+  "N_error": "[11673.628041655499877435184010704287730432704884 +/- 2.95e-43]",
+  "small_tau_max_upper": "[-0.62257085067539798078638965276784756826528215712 +/- 4.75e-48]",
+  "small_tau_worst_cell": [
+    1.512,
+    1.516
+  ],
+  "small_tau_cells": 2248,
+  "large_tau_upper": "[-4.7765467678577838316758006018834555128154016742 +/- 1.88e-47]",
+  "norm1_upper": "[190.06736436712368626085325154082510012927518561 +/- 1.87e-45]",
+  "norm2_upper": "[28.523282538537792239316782797987047886487922184 +/- 2.41e-46]",
+  "positive_K1_upper": "[143.62999166352021286608379461687145220306090540 +/- 2.77e-45]",
+  "witness": "C:\\Users\\laure\\Documents\\ChatGPT\\Unitarity codex\\output\\angles_resummed\\angle_000p000.npz",
+  "witness_sha256": "bbbc5990b459e2b3adf276f53fd6105d86fe2274b7b1b2313195c55bb376511c",
+  "L": 42,
+  "M": 49,
+  "builder_sha256": "b76681ed2cd13a759515b716d459665d77f6e623570297f202522864120a6596",
+  "bernstein_depth": 10,
+  "dynamic_mu_constraint": true,
+  "arithmetic": "Exact rational source Bernstein enclosures; Arb160 scalar bounds",
+  "domain": "all even l>=42, all mu>=49",
+  "claim": "V_l(mu)/p_l(mu)<0 on the stated domain only",
+  "limitation": "Does not control 4<mu<M or finite-spin head quadrature"
+}

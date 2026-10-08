@@ -1,0 +1,24 @@
+{
+  "witness_sha256": "933ee2f7889a52b8ccabbf58836c256161bc5c59d3763cdbca2b40bb01ac6f92",
+  "source_record": "output\\all_direction_certification_20261007\\head\\g2_robust_stage1\\gap_l28\\head_l28.json",
+  "source_record_sha256": "4f087a2c7916368693a22132ace58410fef54dbff534517f47f364813a52fffa",
+  "model_class": "FiniteGap",
+  "spin": 28,
+  "cells_replayed": 861,
+  "gaps_replayed": 5,
+  "partition_covers_beta_zero_to_one_exactly": true,
+  "recomputed_upper": "[0.0002083509597114346671853466837110292351317344240878348170689760914872954883152 +/- 2.98e-80]",
+  "upper_dyadic": [
+    "98817609398628001267623678509539384902055692626573540952243648073768034301977",
+    "-268"
+  ],
+  "ceiling": "0.000208351060",
+  "passed": true,
+  "elapsed_seconds": 407.0532147884369,
+  "scope": "Finite single-spin all-energy head component; no other spins or tail",
+  "dependency_sha256": {
+    "research\\all_direction_certification_20261007\\head\\replay_gap.py": "a692ab738399aec7ee1f005c800c05344559926c04a56e34506c323d57a9bff5",
+    "research\\all_direction_certification_20261007\\head\\finite220.py": "9c5f932c4b1bef625d014dc345e99edce44f0e8beb675cbe27f02662ef45fc7a",
+    "research\\all_direction_certification_20261007\\head\\forward220.py": "5b6a98eac89759a21b2b962a14defe1f3685f859e4597305d0d81173479820bd"
+  }
+}
